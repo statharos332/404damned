@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+}, []);
 
 // Text mask reveal animation
 export function useTextMaskReveal(
