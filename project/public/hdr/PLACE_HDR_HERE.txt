@@ -1,0 +1,2 @@
+Put amsterdam_night_1k.hdr here (Poly Haven, free).
+See /3D_ASSET_GUIDE.md section 2.
