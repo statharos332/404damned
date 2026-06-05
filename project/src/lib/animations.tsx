@@ -8,7 +8,7 @@ useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 }, []);
 
-// Text mask reveal animation
+// Text mask reveal animation section
 export function useTextMaskReveal(
     selector: string,
     options?: { delay?: number; stagger?: number }
