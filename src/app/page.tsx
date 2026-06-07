@@ -2,7 +2,7 @@ import { Navigation } from "@/components/layout/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { MarqueeBar } from "@/components/sections/MarqueeBar";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
+import { CapabilitiesSection } from "@/components/sections/CaseStudiesSection";
 import { WhySection } from "@/components/sections/WhySection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -17,7 +17,7 @@ export default function Home() {
       <HeroSection />
       <MarqueeBar />
       <ServicesSection />
-      <CaseStudiesSection />
+      <CapabilitiesSection />
       <WhySection />
       <ProcessSection />
       <TestimonialsSection />
