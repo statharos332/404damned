@@ -1,2 +1,0 @@
-Put amsterdam_canal.glb here.
-See /3D_ASSET_GUIDE.md section 1 for where to get it.
