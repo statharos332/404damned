@@ -556,7 +556,7 @@ function Water() {
     uniforms.uTime.value = state.clock.elapsedTime;
 
     // Mirror the main camera across the water plane and render the scene
-    reflCam.aspect = camera.aspect;
+
     reflCam.position.set(
       camera.position.x,
       2 * WATER_Y - camera.position.y,
