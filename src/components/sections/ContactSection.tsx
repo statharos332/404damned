@@ -96,24 +96,50 @@ export function ContactSection() {
             </motion.p>
 
             {/* Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="space-y-6"
-            >
-              {[
-                { label: "Email", value: "info@404damned.nl" },
-                { label: "Phone", value: "+31 20 000 0000" },
-                { label: "Location", value: "Keizersgracht 123, Amsterdam" },
-                { label: "Response time", value: "Within 4 business hours" },
-              ].map((item) => (
-                <div key={item.label} className="flex gap-4">
-                  <div className="text-xs text-gray-600 tracking-wider uppercase w-28 pt-0.5">{item.label}</div>
-                  <div className="text-white">{item.value}</div>
-                </div>
-              ))}
-            </motion.div>
+              <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.3, duration: 0.7 }}
+                  className="space-y-6"
+              >
+                  {[
+                      {
+                          label: "Email",
+                          value: "info@404damned.com",
+                          href: "mailto:info@404damned.com",
+                      },
+                      {
+                          label: "Phone",
+                          value: "+31 647 62 5711",
+                          href: "tel:+31647625711",
+                      },
+                      {
+                          label: "Location",
+                          value: "Amsterdam",
+                      },
+                      {
+                          label: "Response time",
+                          value: "Within 4 business hours",
+                      },
+                  ].map((item) => (
+                      <div key={item.label} className="flex gap-4">
+                          <div className="text-xs text-gray-600 tracking-wider uppercase w-28 pt-0.5">
+                              {item.label}
+                          </div>
+
+                          {item.href ? (
+                              <a
+                                  href={item.href}
+                                  className="text-white hover:text-[#D6001C] transition-colors duration-200"
+                              >
+                                  {item.value}
+                              </a>
+                          ) : (
+                              <div className="text-white">{item.value}</div>
+                          )}
+                      </div>
+                  ))}
+              </motion.div>
           </div>
 
           {/* Right — form */}
