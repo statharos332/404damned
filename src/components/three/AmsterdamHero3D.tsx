@@ -197,98 +197,188 @@ function CanalHouse({ house }: { house: House }) {
   );
 }
 
-// ── Bridge we sail under ──
+// ── Realistic Amsterdam "humpback" bridge — smooth curved brick arch ──
+//   Red brick + white limestone accents, LED-lit inner arch (glowing portal),
+//   humpback deck, curved iron railings and ornate corner lamps.
 function Bridge({ z }: { z: number }) {
-    const stone = useMemo(
-        () =>
-            new THREE.MeshStandardMaterial({
-                color: new THREE.Color("#3a2f28"),
-                roughness: 0.95,
-                metalness: 0.02,
-            }),
-        []
-    );
+  const brick = useMemo(
+    () => new THREE.MeshStandardMaterial({ color: new THREE.Color("#6e2b1e"), roughness: 0.9, metalness: 0.02 }),
+    []
+  );
+  const whiteStone = useMemo(
+    () => new THREE.MeshStandardMaterial({ color: new THREE.Color("#d8cfc0"), roughness: 0.7, metalness: 0.02 }),
+    []
+  );
+  const ironMat = useMemo(
+    () => new THREE.MeshStandardMaterial({ color: new THREE.Color("#0c0c10"), roughness: 0.45, metalness: 0.75 }),
+    []
+  );
 
-    const rail = useMemo(
-        () =>
-            new THREE.MeshStandardMaterial({
-                color: new THREE.Color("#1a1a1a"),
-                roughness: 0.7,
-            }),
-        []
-    );
+  const span = 2 * CANAL_HALF + 2.5;
+  const archR = CANAL_HALF - 0.3;
+  const archThick = 2.2;
+  const ringW = 0.9;
+  const outerR = archR + ringW;
+  const deckTopY = archR + 1.4;
 
-    return (
-        <group position={[0, 0, z]}>
-            {/* main deck */}
-            <mesh position={[0, 3.2, 0]} material={stone} castShadow>
-                <boxGeometry args={[2 * CANAL_HALF + 3, 0.8, 6]} />
-            </mesh>
-
-            {/* arch (real Amsterdam feel) */}
-            <mesh position={[0, 1.2, 0]} rotation={[0, 0, 0]} material={stone}>
-                {/* arch under bridge (Amsterdam style) */}
-                <mesh position={[0, 1.6, 0]} material={stone}>
-                    <boxGeometry args={[CANAL_HALF * 1.8, 2.2, 4]} />
-                </mesh>
-            </mesh>
-
-            {/* side walls */}
-            {[-1, 1].map((s) => (
-                <group key={s} position={[s * (CANAL_HALF + 1.2), 2.5, 0]}>
-                    <mesh material={stone}>
-                        <boxGeometry args={[0.8, 3.5, 6]} />
-                    </mesh>
-
-                    {/* railing */}
-                    <mesh position={[0, 2.3, 0]} material={rail}>
-                        <boxGeometry args={[0.15, 0.15, 6]} />
-                    </mesh>
-
-                    {/* street light */}
-                    <mesh position={[0, 3.2, 0]}>
-                        <sphereGeometry args={[0.18, 12, 12]} />
-                        <meshBasicMaterial color="#ffcc77" toneMapped={false} />
-                    </mesh>
-
-                    <pointLight intensity={1.5} distance={20} color="#ffbb66" />
-                </group>
-            ))}
-        </group>
-    );
-}
-
-// ── Reflection streaks on water ──
-function Reflections() {
-  const ref = useRef<THREE.Group>(null);
-  const streaks = useMemo(() => {
-    return Array.from({ length: 40 }, () => ({
-      x: -CANAL_HALF + 1.5 + Math.random() * (2 * CANAL_HALF - 3),
-      z: -150 + Math.random() * 158,
-      len: 2 + Math.random() * 3,
-      red: Math.random() > 0.5,
-      ph: Math.random() * Math.PI * 2,
-    }));
-  }, []);
-  useFrame((s) => {
-    if (!ref.current) return;
-    const t = s.clock.elapsedTime;
-    ref.current.children.forEach((c, i) => {
-      const mat = (c as THREE.Mesh).material as THREE.MeshBasicMaterial;
-      mat.opacity = 0.18 * (0.5 + 0.5 * Math.sin(t * 2 + streaks[i].ph));
+  // Smooth curved arch ring (semicircular opening) via extruded Shape with a hole
+  const archGeo = useMemo(() => {
+    const shape = new THREE.Shape();
+    shape.moveTo(-outerR, 0);
+    shape.lineTo(-outerR, 0.1);
+    shape.absarc(0, 0.1, outerR, Math.PI, 0, true);
+    shape.lineTo(outerR, 0);
+    shape.lineTo(-outerR, 0);
+    const hole = new THREE.Path();
+    hole.moveTo(-archR, 0.1);
+    hole.absarc(0, 0.1, archR, Math.PI, 0, true);
+    hole.lineTo(-archR, 0.1);
+    shape.holes.push(hole);
+    const g = new THREE.ExtrudeGeometry(shape, {
+      depth: archThick, bevelEnabled: true, bevelThickness: 0.06,
+      bevelSize: 0.06, bevelSegments: 2, curveSegments: 48,
     });
-  });
+    g.translate(0, 0, -archThick / 2);
+    return g;
+  }, [archR, outerR, archThick]);
+
+  // White archivolt tube tracing the arch face (both sides)
+  const archivoltGeo = useMemo(() => {
+    const pts: THREE.Vector3[] = [];
+    for (let i = 0; i <= 40; i++) {
+      const a = Math.PI * (i / 40);
+      pts.push(new THREE.Vector3(Math.cos(a) * (archR + ringW * 0.5), 0.1 + Math.sin(a) * (archR + ringW * 0.5), 0));
+    }
+    return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 48, 0.16, 8, false);
+  }, [archR, ringW]);
+
+  // Humpback deck (gently curved road)
+  const deckGeo = useMemo(() => {
+    const s = new THREE.Shape();
+    s.moveTo(-span / 2, deckTopY - 0.6);
+    s.quadraticCurveTo(0, deckTopY + 0.5, span / 2, deckTopY - 0.6);
+    s.lineTo(span / 2, deckTopY - 1.1);
+    s.quadraticCurveTo(0, deckTopY, -span / 2, deckTopY - 1.1);
+    s.lineTo(-span / 2, deckTopY - 0.6);
+    const g = new THREE.ExtrudeGeometry(s, { depth: archThick + 1.4, bevelEnabled: false, curveSegments: 32 });
+    g.translate(0, 0, -(archThick + 1.4) / 2);
+    return g;
+  }, [span, deckTopY, archThick]);
+
+  // Curved coping + railing rails (tubes following the humpback)
+  const sideTubes = useMemo(() => {
+    const make = (railH: number, radius: number, z: number) => {
+      const pts: THREE.Vector3[] = [];
+      for (let i = 0; i <= 30; i++) {
+        const f = i / 30;
+        const tx = -span / 2 + span * f;
+        const ty = deckTopY - 0.5 + Math.cos((f - 0.5) * Math.PI) * 0.5 + railH;
+        pts.push(new THREE.Vector3(tx, ty, z));
+      }
+      return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 40, radius, 8, false);
+    };
+    return { make };
+  }, [span, deckTopY]);
+
+  // Balusters + corner lamp transforms
+  const balusters = useMemo(() => {
+    const arr: { x: number; y: number; z: number; ball: boolean }[] = [];
+    const railZs = [archThick / 2 + 0.7, -(archThick / 2 + 0.7)];
+    const nb = Math.floor(span / 0.55);
+    railZs.forEach((rz) => {
+      for (let i = 0; i <= nb; i++) {
+        const f = i / nb;
+        const bx = -span / 2 + span * f;
+        const by = deckTopY - 0.4 + Math.cos((f - 0.5) * Math.PI) * 0.5;
+        arr.push({ x: bx, y: by + 0.75, z: rz, ball: i % 5 === 0 });
+      }
+    });
+    return arr;
+  }, [span, deckTopY, archThick]);
+
+  const lamps = useMemo(() => {
+    return ([[-span / 2 + 0.5, 1], [span / 2 - 0.5, 1], [-span / 2 + 0.5, -1], [span / 2 - 0.5, -1]] as [number, number][])
+      .map(([px, sz]) => {
+        const lz = sz * (archThick / 2 + 0.7);
+        const by = deckTopY - 0.4 + Math.cos((px / span) * Math.PI) * 0.5;
+        return { px, lz, by };
+      });
+  }, [span, deckTopY, archThick]);
+
+  // LED dots tracing the inner arch (the "glowing portal")
+  const leds = useMemo(() => {
+    const arr: [number, number, number][] = [];
+    [archThick / 2 + 0.05, -(archThick / 2 + 0.05)].forEach((zf) => {
+      for (let i = 2; i <= 38; i++) {
+        const a = Math.PI * (i / 40);
+        arr.push([Math.cos(a) * (archR - 0.15), 0.1 + Math.sin(a) * (archR - 0.15), zf]);
+      }
+    });
+    return arr;
+  }, [archR, archThick]);
+
+  const railZs = [archThick / 2 + 0.7, -(archThick / 2 + 0.7)];
+
   return (
-    <group ref={ref}>
-      {streaks.map((s, i) => (
-        <mesh key={i} position={[s.x, 0.02, s.z]} rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry args={[0.25, s.len]} />
-          <meshBasicMaterial
-            color={s.red ? "#D6001C" : "#ffc266"}
-            transparent
-            opacity={0.18}
-            blending={THREE.AdditiveBlending}
-          />
+    <group position={[0, 0, z]}>
+      {/* curved brick arch ring */}
+      <mesh geometry={archGeo} material={brick} castShadow receiveShadow />
+
+      {/* white archivolt on both faces */}
+      {[archThick / 2 + 0.02, -(archThick / 2 + 0.02)].map((zf, i) => (
+        <mesh key={i} geometry={archivoltGeo} material={whiteStone} position={[0, 0, zf]} castShadow />
+      ))}
+
+      {/* keystone */}
+      <mesh position={[0, 0.1 + outerR - 0.3, 0]} material={whiteStone} castShadow>
+        <boxGeometry args={[0.6, 1.0, archThick + 0.3]} />
+      </mesh>
+
+      {/* humpback deck */}
+      <mesh geometry={deckGeo} material={brick} castShadow receiveShadow />
+
+      {/* white coping + iron rails along both sides */}
+      {railZs.map((rz, i) => (
+        <group key={i}>
+          <mesh geometry={sideTubes.make(0.1, 0.18, rz)} material={whiteStone} castShadow />
+          <mesh geometry={sideTubes.make(1.5, 0.045, rz)} material={ironMat} />
+          <mesh geometry={sideTubes.make(1.0, 0.045, rz)} material={ironMat} />
+        </group>
+      ))}
+
+      {/* balusters */}
+      {balusters.map((b, i) => (
+        <group key={i}>
+          <mesh position={[b.x, b.y, b.z]} material={ironMat}>
+            <cylinderGeometry args={[0.03, 0.03, 1.5, 6]} />
+          </mesh>
+          {b.ball && (
+            <mesh position={[b.x, b.y + 0.85, b.z]} material={ironMat}>
+              <sphereGeometry args={[0.08, 8, 8]} />
+            </mesh>
+          )}
+        </group>
+      ))}
+
+      {/* ornate corner lamps */}
+      {lamps.map((l, i) => (
+        <group key={i}>
+          <mesh position={[l.px, l.by + 1.6, l.lz]} material={ironMat} castShadow>
+            <cylinderGeometry args={[0.07, 0.11, 3, 8]} />
+          </mesh>
+          <mesh position={[l.px, l.by + 3.2, l.lz]}>
+            <sphereGeometry args={[0.18, 12, 12]} />
+            <meshBasicMaterial color="#ffce6b" toneMapped={false} />
+          </mesh>
+          <pointLight position={[l.px, l.by + 3.2, l.lz]} intensity={2.4} distance={24} color="#ffb850" />
+        </group>
+      ))}
+
+      {/* LED glowing-portal dots */}
+      {leds.map((p, i) => (
+        <mesh key={i} position={p}>
+          <sphereGeometry args={[0.06, 6, 6]} />
+          <meshBasicMaterial color="#ffd27a" toneMapped={false} />
         </mesh>
       ))}
     </group>
@@ -352,10 +442,9 @@ function ProceduralCity() {
         </mesh>
       ))}
 
-      <Bridge z={-12} />
-      <Bridge z={-78} />
-      <Bridge z={-140} />
-      <Reflections />
+      <Bridge z={-16} />
+      <Bridge z={-86} />
+      <Bridge z={-155} />
     </group>
   );
 }
@@ -388,26 +477,117 @@ function City() {
   return <ProceduralCity />;
 }
 
-// ── Animated water surface ──
+// ── Super-realistic canal water: planar reflection + ripple shader ──
 function Water() {
   const ref = useRef<THREE.Mesh>(null);
-  const geo = useMemo(() => new THREE.PlaneGeometry(2 * CANAL_HALF - 2, 200, 40, 120), []);
-  const base = useMemo(() => Float32Array.from(geo.attributes.position.array), [geo]);
-  useFrame((s) => {
-    const t = s.clock.elapsedTime;
-    const pos = geo.attributes.position;
-    for (let i = 0; i < pos.count; i++) {
-      const ix = base[i * 3];
-      const iz = base[i * 3 + 2];
-        pos.array[i * 3 + 2] =
-            Math.sin(ix * 0.18 + t * 0.5) * 0.03 +
-            Math.cos(iz * 0.12 + t * 0.4) * 0.02;
-    }
-    pos.needsUpdate = true;
+  const { gl, scene, camera } = useThree();
+
+  // Off-screen target for the mirrored scene
+  const reflRT = useMemo(
+    () =>
+      new THREE.WebGLRenderTarget(1024, 1024, {
+        minFilter: THREE.LinearFilter,
+        magFilter: THREE.LinearFilter,
+      }),
+    []
+  );
+  const reflCam = useMemo(() => new THREE.PerspectiveCamera(56, 1, 0.1, 600), []);
+  const WATER_Y = -0.05;
+
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uReflect: { value: reflRT.texture },
+      uDeep: { value: new THREE.Color("#040d16") },
+      uShallow: { value: new THREE.Color("#0a2030") },
+    }),
+    [reflRT]
+  );
+
+  const mat = useMemo(
+    () =>
+      new THREE.ShaderMaterial({
+        uniforms,
+        transparent: true,
+        vertexShader: /* glsl */ `
+          varying vec2 vUv;
+          varying vec4 vScreen;
+          void main(){
+            vUv = uv;
+            vec4 wp = modelMatrix * vec4(position,1.0);
+            vec4 sp = projectionMatrix * viewMatrix * wp;
+            vScreen = sp;
+            gl_Position = sp;
+          }`,
+        fragmentShader: /* glsl */ `
+          precision highp float;
+          uniform float uTime;
+          uniform sampler2D uReflect;
+          uniform vec3 uDeep;
+          uniform vec3 uShallow;
+          varying vec2 vUv;
+          varying vec4 vScreen;
+          float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+          float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);vec2 u=f*f*(3.0-2.0*f);
+            return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}
+          void main(){
+            vec2 scr = (vScreen.xy/vScreen.w)*0.5+0.5;
+            float n1 = noise(vUv*vec2(8.0,60.0)+vec2(0.0,uTime*0.6));
+            float n2 = noise(vUv*vec2(14.0,90.0)-vec2(0.0,uTime*0.9));
+            float ripple = (n1+n2-1.0);
+            vec2 distort = vec2(ripple*0.012, ripple*0.03);
+            vec2 ruv = vec2(scr.x+distort.x, 1.0-scr.y+distort.y);
+            vec3 refl = texture2D(uReflect, ruv).rgb;
+            vec3 base = mix(uShallow, uDeep, clamp(vUv.y*1.2,0.0,1.0));
+            float fres = clamp(pow(vUv.y,1.5)*0.9+0.25,0.0,1.0);
+            vec3 col = mix(base, refl, fres*0.85);
+            float spark = smoothstep(0.85,1.0,n1*n2);
+            col += spark*vec3(0.5,0.4,0.25)*0.4;
+            col += vec3(0.10,0.0,0.01)*smoothstep(0.4,1.0,vUv.y)*0.5;
+            gl_FragColor = vec4(col, 0.96);
+          }`,
+      }),
+    [uniforms]
+  );
+
+  const target = useRef(new THREE.Vector3());
+
+  useFrame((state) => {
+    uniforms.uTime.value = state.clock.elapsedTime;
+
+    // Mirror the main camera across the water plane and render the scene
+    reflCam.aspect = camera.aspect;
+    reflCam.position.set(
+      camera.position.x,
+      2 * WATER_Y - camera.position.y,
+      camera.position.z
+    );
+    // mirror the look target too
+    camera.getWorldDirection(target.current);
+    const lookAt = new THREE.Vector3()
+      .copy(camera.position)
+      .add(target.current.multiplyScalar(20));
+    reflCam.up.set(0, -1, 0);
+    reflCam.lookAt(lookAt.x, 2 * WATER_Y - lookAt.y, lookAt.z);
+    reflCam.updateProjectionMatrix();
+
+    if (ref.current) ref.current.visible = false;
+    const prevTarget = gl.getRenderTarget();
+    gl.setRenderTarget(reflRT);
+    gl.clear();
+    gl.render(scene, reflCam);
+    gl.setRenderTarget(prevTarget);
+    if (ref.current) ref.current.visible = true;
   });
+
   return (
-    <mesh ref={ref} geometry={geo} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.05, -70]} receiveShadow>
-      <meshStandardMaterial color="#06121f" roughness={0.12} metalness={0.95} transparent opacity={0.97} />
+    <mesh
+      ref={ref}
+      rotation={[-Math.PI / 2, 0, 0]}
+      position={[0, WATER_Y, -80]}
+      material={mat}
+    >
+      <planeGeometry args={[2 * CANAL_HALF - 1.5, 240, 1, 1]} />
     </mesh>
   );
 }
