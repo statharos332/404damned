@@ -3,8 +3,6 @@ import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -164,8 +162,6 @@ export default function RootLayout({
           <CustomCursor />
           {children}
         </SmoothScrollProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

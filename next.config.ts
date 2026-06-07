@@ -1,24 +1,51 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    reactStrictMode: true,
+  reactStrictMode: true,
 
+  // Ship smaller, faster JS
+  compiler: {
+    // strip console.* in production (keeps errors)
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+  },
 
+  // Tree-shake big libraries so only what you use is bundled
+  experimental: {
+    optimizePackageImports: [
+      "framer-motion",
+      "lucide-react",
+      "@react-three/drei",
+    ],
+  },
 
-    images: {
-        formats: ["image/avif", "image/webp"],
-        unoptimized: true, // 🔥 IMPORTANT για HDR / GLB / textures
-    },
+  images: {
+    // Modern formats = much smaller files
+    formats: ["image/avif", "image/webp"],
+    // NOTE: optimization is ON now. Only static 3D assets are handled by
+    // the webpack rule below — real <Image> images get fully optimized.
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+  },
 
-    webpack: (config) => {
-        // 🔥 important για three.js + HDR + GLTF imports stability
-        config.module.rules.push({
-            test: /\.(glb|gltf|hdr|exr)$/i,
-            type: "asset/resource",
-        });
+  // Long-cache the heavy 3D assets (they rarely change)
+  async headers() {
+    return [
+      {
+        source: "/:all*(glb|gltf|hdr|exr|mp4|webm)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+    ];
+  },
 
-        return config;
-    },
+  webpack: (config) => {
+    // three.js + HDR + GLTF imports stability
+    config.module.rules.push({
+      test: /\.(glb|gltf|hdr|exr)$/i,
+      type: "asset/resource",
+    });
+    return config;
+  },
 };
 
 export default nextConfig;

@@ -45,7 +45,7 @@ const capabilities = [
     },
 ];
 
-export function CaseStudiesSection() {
+export function CapabilitiesSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(sectionRef, {
         once: true,

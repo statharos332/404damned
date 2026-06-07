@@ -15,7 +15,7 @@ function HeroPoster() {
       className="absolute inset-0 bg-cover bg-center"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, rgba(4,6,12,.4), rgba(4,6,12,.95)), url('/hero-poster.svg')",
+          "linear-gradient(to bottom, rgba(4,6,12,.4), rgba(4,6,12,.95)), url('/hero-poster.jpg')",
       }}
     />
   );
@@ -25,7 +25,6 @@ export function HeroSection() {
   const scrollProgress = useRef(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const [allow3D, setAllow3D] = useState(true);
-  const [mount3D, setMount3D] = useState(false); // defer the heavy canvas
   const [textFade, setTextFade] = useState(1);
 
   useEffect(() => {
@@ -33,26 +32,8 @@ export function HeroSection() {
     const lowPower = navigator.hardwareConcurrency
       ? navigator.hardwareConcurrency < 4
       : false;
-    if (reduced || lowPower) {
-      setAllow3D(false);
-    } else {
-      // Mount the WebGL scene only after the browser is idle, so the
-      // lightweight poster paints first → fast LCP, low blocking time.
-      type RIC = (cb: () => void, opts?: { timeout: number }) => number;
-      const ric: RIC =
-        (window as unknown as { requestIdleCallback?: RIC }).requestIdleCallback ||
-        ((cb) => window.setTimeout(cb, 1));
-      const id = ric(() => setMount3D(true), { timeout: 2000 });
-      // best-effort cleanup
-      return () => {
-        const cic = (window as unknown as { cancelIdleCallback?: (n: number) => void })
-          .cancelIdleCallback;
-        if (cic) cic(id);
-      };
-    }
-  }, []);
+    if (reduced || lowPower) setAllow3D(false);
 
-  useEffect(() => {
     const onScroll = () => {
       if (!heroRef.current) return;
       const el = heroRef.current;
@@ -73,10 +54,10 @@ export function HeroSection() {
     <div ref={heroRef} className="relative h-[300vh] bg-[#04060c]">
       {/* Sticky viewport that holds the 3D canvas + copy */}
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Poster always paints first (great LCP); 3D mounts over it when idle */}
-        <HeroPoster />
-        {allow3D && mount3D && (
+        {allow3D ? (
           <AmsterdamHero3D scrollProgress={scrollProgress} />
+        ) : (
+          <HeroPoster />
         )}
 
         {/* Cinematic gradient mask */}
