@@ -33,13 +33,32 @@ export function ContactSection() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  // honeypot — hidden field; bots fill it, humans don't
+  const [website, setWebsite] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formState, website }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -125,7 +144,7 @@ export function ContactSection() {
                 <motion.form
                   key="form"
                   onSubmit={handleSubmit}
-                  className="space-y-6"
+                  className="space-y-6 relative"
                 >
                   {/* Name + Company */}
                   <div className="grid grid-cols-2 gap-4">
@@ -220,6 +239,27 @@ export function ContactSection() {
                       placeholder="What are you trying to achieve? What's broken? What does success look like?"
                     />
                   </div>
+
+                  {/* Honeypot — visually hidden, off-screen. Real users never see/fill it. */}
+                  <div aria-hidden="true" className="absolute -left-[9999px] top-0 w-px h-px overflow-hidden">
+                    <label>
+                      Website
+                      <input
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </label>
+                  </div>
+
+                  {/* Error message */}
+                  {error && (
+                    <div className="border border-[#D6001C]/40 bg-[#D6001C]/10 text-[#FF6B7A] text-sm px-4 py-3">
+                      {error}
+                    </div>
+                  )}
 
                   <button
                     type="submit"
