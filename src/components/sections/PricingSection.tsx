@@ -8,7 +8,7 @@ const plans = [
     {
         name: "Starter",
         tagline: "For businesses ready to compete.",
-        price: "From 4.500",
+        price: "From 3.500",
         period: "one-time",
         description: "A focused, high-performance digital presence built for credibility and conversion.",
         features: [
@@ -26,7 +26,7 @@ const plans = [
     {
         name: "Growth",
         tagline: "For businesses that scale seriously.",
-        price: "From 14.500",
+        price: "From 8.500",
         period: "one-time + optional monthly",
         description: "Full digital system: design, development, automation, and performance optimization.",
         features: [
