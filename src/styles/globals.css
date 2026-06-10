@@ -5,6 +5,10 @@
   --color-red: #D6001C;
   --color-red-dark: #A5001A;
   --color-red-light: #FF1A35;
+  /* electric explosion accent — the party pop */
+  --color-electric: #00E5FF;
+  --color-electric-dark: #00B8CC;
+  --color-lime: #C6FF00;
   --color-white: #FFFFFF;
   --color-gray-100: #F5F5F5;
   --color-gray-200: #E0E0E0;
@@ -13,9 +17,9 @@
   --color-gray-800: #212121;
   --color-gray-900: #121212;
 
-  --font-display: "Neue Haas Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Space Grotesk", "Neue Haas Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body: "DM Sans", "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: "JetBrains Mono", "SF Mono", monospace;
 
   --spacing-section: 8rem;
   --spacing-container: 1.5rem;
@@ -26,12 +30,19 @@
   --radius-xl: 24px;
 
   --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  --animate-marquee-fast: marquee 15s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-red: pulse-red 2s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -175,4 +186,212 @@
     width: 38px;
     height: 38px;
   }
+}
+
+/* ── BRUTALIST / TECHNO UTILITIES ───────────────────────── */
+@layer utilities {
+  /* hairline grid background */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  /* subtle scanline overlay */
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode: overlay;
+  }
+  /* glitch text — duplicate the text in ::before/::after via data-text */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    clip-path: inset(0 0 0 0);
+  }
+  .glitch::before {
+    color: #00E5FF;
+    transform: translate(-2px, 0);
+    animation: glitch-x 2.6s infinite steps(2, jump-none);
+    opacity: 0.8;
+  }
+  .glitch::after {
+    color: #D6001C;
+    transform: translate(2px, 0);
+    animation: glitch-x 3.1s infinite steps(2, jump-none) reverse;
+    opacity: 0.8;
+  }
+  @keyframes glitch-x {
+    0%, 92%, 100% { clip-path: inset(0 0 0 0); transform: translate(0,0); }
+    93% { clip-path: inset(0 0 60% 0); transform: translate(-3px, -1px); }
+    96% { clip-path: inset(50% 0 0 0); transform: translate(3px, 1px); }
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+    color: transparent;
+  }
+  .text-stroke-red {
+    -webkit-text-stroke: 1.5px rgba(214,0,28,0.6);
+    color: transparent;
+  }
+}
+
+/* ── ⚡ LIGHTNING ON CLICK ───────────────────────────────── */
+.lightning-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;        /* above content, below the custom cursor (9999) */
+  pointer-events: none;
+}
+.lightning-svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.bolt {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* draw-on using dash trick */
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: bolt-strike 0.18s ease-out forwards,
+             bolt-fade 0.5s ease-out 0.18s forwards;
+}
+.bolt-core {
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 6px #00E5FF) drop-shadow(0 0 12px #00E5FF);
+}
+.bolt-glow {
+  stroke: #00E5FF;
+  stroke-width: 7;
+  opacity: 0.5;
+  filter: blur(3px);
+}
+.bolt-glow-red {
+  stroke: #D6001C;
+  stroke-width: 14;
+  opacity: 0.22;
+  filter: blur(7px);
+}
+.bolt-fork {
+  stroke: #aef4ff;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 4px #00E5FF);
+  animation: bolt-strike 0.16s ease-out forwards,
+             bolt-flicker 0.5s steps(2) 0.16s forwards;
+}
+@keyframes bolt-flicker {
+  0% { opacity: 1; }
+  20% { opacity: 0.3; }
+  35% { opacity: 1; }
+  50% { opacity: 0.5; }
+  65% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* full-screen flash on strike */
+.screen-flash {
+  fill: #ffffff;
+  opacity: 0;
+  animation: screen-flash 0.4s ease-out forwards;
+}
+@keyframes screen-flash {
+  0% { opacity: 0; }
+  8% { opacity: 0.16; }
+  16% { opacity: 0.02; }
+  24% { opacity: 0.10; }
+  100% { opacity: 0; }
+}
+@keyframes bolt-strike {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes bolt-fade {
+  0% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* impact flash + expanding ring at the strike point */
+.impact-flash {
+  fill: #ffffff;
+  opacity: 0;
+  transform-origin: center;
+  animation: impact-flash 0.5s ease-out 0.16s forwards;
+  filter: drop-shadow(0 0 14px #00E5FF) drop-shadow(0 0 28px #D6001C);
+}
+@keyframes impact-flash {
+  0% { opacity: 0; r: 2; }
+  20% { opacity: 1; r: 16; }
+  100% { opacity: 0; r: 4; }
+}
+.impact-ring {
+  stroke: #00E5FF;
+  stroke-width: 2;
+  opacity: 0;
+  transform-origin: center;
+  animation: impact-ring 0.55s ease-out 0.18s forwards;
+}
+@keyframes impact-ring {
+  0% { opacity: 0.9; r: 4; stroke-width: 3; }
+  100% { opacity: 0; r: 46; stroke-width: 0.5; }
+}
+
+.impact-ring-2 {
+  animation-delay: 0.26s;
+  stroke: #D6001C;
+}
+
+/* the clicked element gets violently electrified — flickering current */
+.electrified {
+  animation: electrify-flicker 0.9s steps(1) ;
+  position: relative;
+}
+@keyframes electrify-flicker {
+  0%   { box-shadow: 0 0 0 0 rgba(0,229,255,0); filter: brightness(1); }
+  8%   { box-shadow: 0 0 24px 5px rgba(0,229,255,0.95), inset 0 0 20px rgba(0,229,255,0.7); filter: brightness(1.8) saturate(1.4); transform: translate(1px,-1px); }
+  16%  { box-shadow: 0 0 6px 1px rgba(0,229,255,0.3); filter: brightness(1); transform: translate(-1px,1px); }
+  24%  { box-shadow: 0 0 28px 6px rgba(214,0,28,0.9), inset 0 0 16px rgba(255,255,255,0.6); filter: brightness(1.6); transform: translate(2px,0); }
+  32%  { box-shadow: 0 0 4px 1px rgba(214,0,28,0.2); filter: brightness(0.95); transform: translate(-1px,-1px); }
+  44%  { box-shadow: 0 0 22px 4px rgba(0,229,255,0.85), inset 0 0 14px rgba(0,229,255,0.5); filter: brightness(1.5); transform: translate(1px,1px); }
+  56%  { box-shadow: 0 0 8px 2px rgba(0,229,255,0.4); filter: brightness(1.1); transform: translate(-1px,0); }
+  70%  { box-shadow: 0 0 16px 3px rgba(214,0,28,0.6); filter: brightness(1.2); transform: translate(1px,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,229,255,0); filter: brightness(1); transform: translate(0,0); }
+}
+
+/* TEXT electrification — when you strike a heading/word.
+   Add class "electric-text" (with data-text=) to make it flicker in colour. */
+.electrified.electric-text,
+.electric-text.electrified {
+  animation: electrify-flicker 0.9s steps(1), text-zap 0.9s steps(2);
+}
+@keyframes text-zap {
+  0%, 100% { color: inherit; text-shadow: none; }
+  10% { color: #00E5FF; text-shadow: 0 0 8px #00E5FF, 0 0 18px #00E5FF, 2px 0 #D6001C, -2px 0 #00E5FF; }
+  25% { color: #fff; text-shadow: 0 0 4px #00E5FF; }
+  40% { color: #D6001C; text-shadow: 0 0 10px #D6001C, -2px 0 #00E5FF, 2px 0 #D6001C; }
+  55% { color: #fff; text-shadow: 0 0 12px #00E5FF, 0 0 24px #00E5FF; }
+  70% { color: #00E5FF; text-shadow: 2px 0 #D6001C, -2px 0 #00E5FF; }
+  85% { color: #fff; text-shadow: 0 0 6px #00E5FF; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .electrified { animation: none; }
 }

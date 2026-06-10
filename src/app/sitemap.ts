@@ -1,12 +1,19 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/data/projects";
 
 const BASE_URL = "https://404damned.nl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // Single-page site: the homepage plus its in-page section anchors.
-  // When you add real routes (e.g. /work/noord, /blog/...), add them here.
+  // Each case study gets its own indexable URL
+  const workPages: MetadataRoute.Sitemap = projects.map((p) => ({
+    url: `${BASE_URL}/work/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -15,13 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${BASE_URL}/#services`,
+      url: `${BASE_URL}/work`,
       lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
+    ...workPages,
     {
-      url: `${BASE_URL}/#work`,
+      url: `${BASE_URL}/#services`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,

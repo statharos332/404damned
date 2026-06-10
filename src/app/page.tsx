@@ -1,23 +1,26 @@
 import dynamic from "next/dynamic";
 import { Navigation } from "@/components/layout/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { MarqueeBar } from "@/components/sections/MarqueeBar";
+import { ScrollingStrip } from "@/components/sections/ScrollingStrip";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 
 /**
- * Performance strategy:
- *  - Above-the-fold (Nav, Hero, Marquee, Services) load eagerly so the
- *    first screen paints instantly.
- *  - Everything below the fold is code-split and streamed in as the user
- *    scrolls, keeping the initial JS bundle small (faster LCP/TBT).
- *  A lightweight skeleton reserves space to avoid layout shift (CLS).
+ * Lama-Lama-inspired party-energy homepage.
+ * Above-the-fold loads eagerly; the rest is code-split for performance.
+ * Scrolling strips between sections give the high-energy, in-motion feel.
  */
-const sectionFallback = (
-  <div className="min-h-[60vh] bg-[#050505]" aria-hidden />
-);
+const sectionFallback = <div className="min-h-[50vh] bg-[#050505]" aria-hidden />;
 
 const CaseStudiesSection = dynamic(
   () => import("@/components/sections/CaseStudiesSection").then((m) => m.CaseStudiesSection),
+  { loading: () => sectionFallback }
+);
+const WorkPreview = dynamic(
+  () => import("@/components/sections/WorkPreview").then((m) => m.WorkPreview),
+  { loading: () => sectionFallback }
+);
+const VibeSection = dynamic(
+  () => import("@/components/sections/VibeSection").then((m) => m.VibeSection),
   { loading: () => sectionFallback }
 );
 const WhySection = dynamic(
@@ -28,12 +31,16 @@ const ProcessSection = dynamic(
   () => import("@/components/sections/ProcessSection").then((m) => m.ProcessSection),
   { loading: () => sectionFallback }
 );
-const TestimonialsSection = dynamic(
-  () => import("@/components/sections/TestimonialsSection").then((m) => m.TestimonialsSection),
+const ClientsStrip = dynamic(
+  () => import("@/components/sections/ClientsStrip").then((m) => m.ClientsStrip),
   { loading: () => sectionFallback }
 );
 const PricingSection = dynamic(
   () => import("@/components/sections/PricingSection").then((m) => m.PricingSection),
+  { loading: () => sectionFallback }
+);
+const BriefCTA = dynamic(
+  () => import("@/components/sections/BriefCTA").then((m) => m.BriefCTA),
   { loading: () => sectionFallback }
 );
 const ContactSection = dynamic(
@@ -50,13 +57,22 @@ export default function Home() {
     <main className="relative">
       <Navigation />
       <HeroSection />
-      <MarqueeBar />
+
+      {/* signature scrolling strip right after the hero */}
+      <ScrollingStrip words={["CODE", "CREATE", "DOMINATE"]} />
+
       <ServicesSection />
       <CaseStudiesSection />
+
+      <ScrollingStrip words={["NO TEMPLATES", "ONLY WEAPONS"]} reverse />
+
+      {/*<WorkPreview />*/}
+      <VibeSection />
       <WhySection />
       <ProcessSection />
-      {/*<TestimonialsSection />*/}
+      {/*<ClientsStrip />*/}
       <PricingSection />
+      <BriefCTA />
       <ContactSection />
       <Footer />
     </main>

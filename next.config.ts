@@ -21,9 +21,12 @@ const nextConfig: NextConfig = {
   images: {
     // Modern formats = much smaller files
     formats: ["image/avif", "image/webp"],
-    // NOTE: optimization is ON now. Only static 3D assets are handled by
-    // the webpack rule below — real <Image> images get fully optimized.
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    // Allow the branded .svg placeholders to render via <Image>.
+    // (When you replace them with .jpg/.png screenshots this is harmless.)
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // Long-cache the heavy 3D assets (they rarely change)
