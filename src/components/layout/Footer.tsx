@@ -97,7 +97,7 @@ export function Footer() {
       <div className="px-6 md:px-12 py-6 border-t border-white/5">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-xs text-gray-700">
-            © {new Date().getFullYear()} 404 DAMNED B.V. — KVK 12345678 — Amsterdam, Netherlands
+            © {new Date().getFullYear()} 404 DAMNED  — Amsterdam, Netherlands
           </div>
           <div className="text-xs text-gray-700">
             Designed & built in Amsterdam with intention.
