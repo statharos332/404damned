@@ -83,8 +83,13 @@ export function LightningStrike() {
       if (!target) return;
       target.classList.remove("electrified", "electric-text");
       void target.offsetWidth;
-      target.classList.add("electrified");
-      if (text && !btn) target.classList.add("electric-text");
+      if (btn) {
+        // interactive element → full electric shell (box glow + shake)
+        target.classList.add("electrified");
+      } else {
+        // heading/word → ONLY the letters flicker, no box glow
+        target.classList.add("electric-text");
+      }
       window.setTimeout(
         () => target.classList.remove("electrified", "electric-text"),
         900

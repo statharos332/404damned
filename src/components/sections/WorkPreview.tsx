@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { CoverMedia } from "@/components/ui/CoverMedia";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { getFeaturedProjects } from "@/data/projects";
@@ -45,12 +45,12 @@ export function WorkPreview() {
             >
               <Link href={`/work/${p.slug}`} className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#0c0c0c]">
-                  <Image
+                  <CoverMedia
                     src={p.cover}
                     alt={`${p.client} — ${p.title}`}
-                    fill
+                    poster={p.coverPoster}
                     sizes="(max-width: 768px) 100vw, 440px"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <span className="absolute top-4 left-4 text-xs font-mono text-white/70 bg-black/50 backdrop-blur px-3 py-1">

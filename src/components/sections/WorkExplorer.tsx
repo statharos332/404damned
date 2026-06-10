@@ -134,15 +134,15 @@ function WorkRow({
                 {project.media.map((m, idx) => (
                   <div
                     key={idx}
-                    className={`relative shrink-0 snap-start bg-[#0c0c0c] overflow-hidden ${
+                    className={`relative shrink-0 snap-start  overflow-hidden ${
                       m.ratio === "portrait"
-                        ? "h-[360px] md:h-[460px] aspect-[4/5]"
-                        : "h-[360px] md:h-[460px] aspect-[3/2]"
+                        ? "h-[360px] md:h-[400px] aspect-[4/5]"
+                        : "h-[360px] md:h-[400px] aspect-[3/2]"
                     }`}
                   >
                     {m.type === "video" ? (
                       <video
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-fit"
                         src={m.src}
                         poster={m.poster}
                         muted

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { CoverMedia } from "@/components/ui/CoverMedia";
 import { projects, getProject } from "@/data/projects";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
@@ -105,13 +106,13 @@ export default async function ProjectPage({
       {/* Cover */}
       <div className="max-w-[1100px] mx-auto px-6">
         <div className="relative aspect-[16/10] overflow-hidden bg-[#0c0c0c]">
-          <Image
+          <CoverMedia
             src={project.cover}
             alt={`${project.client} — ${project.title}`}
-            fill
+            poster={project.coverPoster}
             priority
             sizes="(max-width: 1100px) 100vw, 1100px"
-            className="object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
       </div>

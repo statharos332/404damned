@@ -66,7 +66,7 @@ export default function Home() {
 
       <ScrollingStrip words={["NO TEMPLATES", "ONLY WEAPONS"]} reverse />
 
-      {/*<WorkPreview />*/}
+      <WorkPreview />
       <VibeSection />
       <WhySection />
       <ProcessSection />

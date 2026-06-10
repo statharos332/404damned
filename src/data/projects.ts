@@ -32,7 +32,8 @@ export interface Project {
   category: string; // e.g. "E-Commerce", "Web Development", "AI Automation"
   year: string;
   summary: string; // one-line, used on cards
-  cover: string; // /work/<slug>/cover.svg
+  cover: string; // image OR video (.mp4/.webm) — /work/<slug>/cover.*
+  coverPoster?: string; // optional still shown while a video cover loads
   services: string[];
   stack: string[];
   // Long-form (case study page)
@@ -48,114 +49,125 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    slug: "noord-fashion",
-    title: "A Conversion-First Fashion Storefront",
-    client: "Noord Fashion",
-    category: "E-Commerce",
-    year: "2025",
-    summary:
-      "A headless Magento rebuild that turned a slow catalogue into a fast, conversion-engineered storefront.",
-    cover: "/work/noord-fashion/cover.svg",
-    services: ["E-Commerce", "UI/UX Design", "Performance"],
-    stack: ["Magento", "Next.js", "Tailwind", "Vercel"],
-    challenge:
-      "Noord Fashion's legacy store was slow, hard to manage, and leaking revenue at checkout. Mobile conversion was especially weak.",
-    approach:
-      "We moved them to a headless architecture — Magento for commerce, a Next.js storefront for speed. We rebuilt the product and checkout flows around a single goal: remove every gram of friction between interest and purchase.",
-    outcome:
-      "A storefront that loads in under a second, ranks better, and converts dramatically more traffic — without changing their ad spend.",
-    results: [
-      { label: "Conversion rate", value: "+212%" },
-      { label: "Page load", value: "0.8s" },
-      { label: "Mobile revenue", value: "+167%" },
-    ],
-    media: [
-      { type: "image", src: "/work/noord-fashion/shot-1.svg", ratio: "portrait" },
-      { type: "video", src: "/work/noord-fashion/clip-1.mp4", ratio: "landscape", poster: "/work/noord-fashion/cover.svg" },
-      { type: "image", src: "/work/noord-fashion/shot-2.svg", ratio: "landscape" },
-      { type: "image", src: "/work/noord-fashion/cover.svg", ratio: "portrait" },
-    ],
-    tags: ["E-Commerce", "Magento", "CRO"],
-    gallery: [
-      "/work/noord-fashion/shot-1.svg",
-      "/work/noord-fashion/shot-2.svg",
-    ],
-    liveUrl: "",
-    featured: true,
-  },
-  {
-    slug: "amstel-construction",
-    title: "A Premium Brand for a Premium Builder",
-    client: "Amstel Construction",
-    category: "Web Development",
-    year: "2025",
-    summary:
-      "A credibility-first website that positioned a construction firm as the premium choice in Amsterdam.",
-    cover: "/work/amstel-construction/cover.svg",
-    services: ["Web Development", "Branding", "SEO"],
-    stack: ["Next.js", "Sanity CMS", "Tailwind", "Vercel"],
-    challenge:
-      "Amstel competed on quality but their old site looked like everyone else's. They were losing high-value tenders before the first meeting.",
-    approach:
-      "We rebuilt their brand presence around proof: a cinematic project portfolio, clear process, and fast, SEO-ready pages they can update themselves through a CMS.",
-    outcome:
-      "A site that wins trust before the first call — and now ranks for the local terms that bring in serious project enquiries.",
-    results: [
-      { label: "Qualified leads", value: "+140%" },
-      { label: "Avg. project value", value: "+38%" },
-      { label: "Organic traffic", value: "+95%" },
-    ],
-    media: [
-      { type: "image", src: "/work/amstel-construction/shot-1.svg", ratio: "landscape" },
-      { type: "image", src: "/work/amstel-construction/shot-2.svg", ratio: "portrait" },
-      { type: "video", src: "/work/amstel-construction/clip-1.mp4", ratio: "landscape", poster: "/work/amstel-construction/cover.svg" },
-      { type: "image", src: "/work/amstel-construction/cover.svg", ratio: "portrait" },
-    ],
-    tags: ["Web", "Branding", "SEO"],
-    gallery: [
-      "/work/amstel-construction/shot-1.svg",
-      "/work/amstel-construction/shot-2.svg",
-    ],
-    liveUrl: "",
-    featured: true,
-  },
-  {
-    slug: "kanaal-automation",
-    title: "Automating a Studio's Busywork Away",
-    client: "Kanaal Studio",
-    category: "AI Automation",
-    year: "2024",
-    summary:
-      "An AI lead-handling and CRM automation system that gave a creative studio back its week.",
-    cover: "/work/kanaal-automation/cover.svg",
-    services: ["AI Automation", "Integrations"],
-    stack: ["OpenAI", "Make", "HubSpot", "Next.js"],
-    challenge:
-      "Kanaal's team spent hours every day qualifying leads, copying data between tools, and chasing follow-ups by hand.",
-    approach:
-      "We built an automation layer that captures every lead, qualifies it with AI, routes it into their CRM, and triggers the right follow-up — with zero manual steps.",
-    outcome:
-      "The studio reclaimed roughly a day per week per person, and no lead slips through the cracks anymore.",
-    results: [
-      { label: "Time saved", value: "32 hrs/wk" },
-      { label: "Lead response", value: "<2 min" },
-      { label: "Follow-up rate", value: "100%" },
-    ],
-    media: [
-      { type: "video", src: "/work/kanaal-automation/clip-1.mp4", ratio: "landscape", poster: "/work/kanaal-automation/cover.svg" },
-      { type: "image", src: "/work/kanaal-automation/shot-1.svg", ratio: "portrait" },
-      { type: "image", src: "/work/kanaal-automation/shot-2.svg", ratio: "landscape" },
-      { type: "image", src: "/work/kanaal-automation/cover.svg", ratio: "portrait" },
-    ],
-    tags: ["AI", "Automation"],
-    gallery: [
-      "/work/kanaal-automation/shot-1.svg",
-      "/work/kanaal-automation/shot-2.svg",
-    ],
-    liveUrl: "",
-    featured: true,
-  },
+    {
+        slug: "skg-vip-transfers",
+        title: "A High-Conversion Booking Platform for Premium Transfers",
+        client: "SKG VIP Transfers",
+        category: "Web Development",
+        year: "2025",
+        summary:
+            "A high-performance booking platform for a premium transfer service, focused on conversion, speed, and mobile-first UX.",
+        cover: "/work/skg-vip-transfers/cover.mp4",
+        coverPoster: "/work/skg-vip-transfers/shot-2.webp",
+
+        services: ["Web Development", "UI/UX Design", "Performance Optimization"],
+
+        stack: ["Next.js", "Tailwind", "Node.js", "Stripe / Booking API", "Vercel"],
+
+        challenge:
+            "SKG VIP Transfers needed a modern booking experience that could handle mobile-heavy traffic, simplify the booking flow, and increase direct reservations without relying on third-party platforms.",
+
+        approach:
+            "We designed and built a conversion-first booking system with a mobile-first UX. The focus was on reducing booking friction, simplifying service selection, and creating a fast, trust-driven experience. The architecture was rebuilt as a high-performance Next.js application with optimized API handling and instant page transitions.",
+
+        outcome:
+            "A fast, conversion-optimized booking platform that improves user flow from landing to reservation confirmation, significantly reducing drop-off on mobile and increasing direct bookings.",
+
+        results: [
+            { label: "Booking conversion rate", value: "+185%" },
+            { label: "Page load speed", value: "0.9s" },
+            { label: "Mobile bookings", value: "+140%" }
+        ],
+
+        media: [
+            { type: "video", src: "/work/skg-vip-transfers/shot-1.mp4", ratio: "portrait" },
+            { type: "video", src: "/work/skg-vip-transfers/clip-1.mp4", ratio: "landscape", poster: "/work/skg-vip-transfers/shot-2.webp" },
+            { type: "image", src: "/work/skg-vip-transfers/shot-2.webp", ratio: "landscape" },
+            { type: "video", src: "/work/skg-vip-transfers/cover.mp4", ratio: "portrait" }
+        ],
+
+        tags: ["Booking System", "CRO", "Performance", "UX"],
+
+        gallery: [
+            "/work/skg-vip-transfers/shot-1.webp",
+            "/work/skg-vip-transfers/shot-2.webp"
+        ],
+
+        liveUrl: "https://skgviptransfers.com/en",
+        featured: true
+    },
+    {
+        slug: "nuovomegazino",
+        title: "A High-End Coming Soon Fashion E-Commerce Experience",
+        client: "Nuovo Megazino",
+        category: "E-Commerce / Fashion",
+        year: "2026",
+        summary:
+            "A coming soon luxury fashion e-commerce platform for Italian clothing, built with cinematic UI, motion-driven storytelling and premium brand positioning.",
+        cover: "/work/nuovomegazino/shot-1.mp4",
+        services: ["Web Development", "UI/UX Design", "Motion Design", "Branding"],
+        stack: ["Next.js", "Gutenberg Blocks", "GSAP", "Tailwind", "Vercel"],
+        challenge:
+            "The brand needed a strong digital presence before launch to build hype and establish a luxury identity in a competitive Italian fashion market.",
+        approach:
+            "We designed a coming soon experience focused on emotion and anticipation, combining custom GSAP animations, dynamic loaders, and a structured Gutenberg-based content system for scalability.",
+        outcome:
+            "A high-impact pre-launch experience that builds brand desire, captures early leads, and positions Nuovo Megazino as a premium fashion destination before the store goes live.",
+        results: [
+            { label: "Anticipation", value: "Built before product release" },
+            { label: "Brand perception", value: "Positioned as premium fashion label" },
+            { label: "Foundation", value: "E-commerce system fully architected" }
+        ],
+        media: [
+            { type: "video", src: "/work/nuovomegazino/shot-1.mp4", ratio: "landscape" },
+            { type: "image", src: "/work/nuovomegazino/shot-2.svg", ratio: "portrait" },
+            { type: "video", src: "/work/nuovomegazino/clip-1.mp4", ratio: "landscape", poster: "/work/nuovomegazino/cover.svg" },
+            { type: "image", src: "/work/nuovomegazino/cover.svg", ratio: "portrait" }
+        ],
+        tags: ["E-Commerce", "Fashion", "Motion", "Luxury"],
+        gallery: [
+            "/work/nuovomegazino/shot-1.svg",
+            "/work/nuovomegazino/shot-2.svg"
+        ],
+        liveUrl: "",
+        featured: true
+    },
+    {
+        slug: "etsyboost-ai",
+        title: "AI-Powered Etsy SEO Listing Engine",
+        client: "EtsyBoost AI",
+        category: "AI Automation",
+        year: "2026",
+        summary:
+            "An AI-driven SEO automation system that transforms raw product inputs into high-converting Etsy listings optimized for search and conversion.",
+        cover: "/work/etsyboost-ai/shot-2.mp4",
+        services: ["AI Automation", "SEO Optimization", "E-commerce Tools"],
+        stack: ["OpenAI", "Next.js", "Prompt Engineering"],
+        challenge:
+            "Etsy sellers struggle with writing optimized titles, descriptions, and tags that actually rank in search and convert visitors into buyers.",
+        approach:
+            "We built an AI automation system that acts as an Etsy SEO specialist, generating structured, keyword-optimized listings including titles, descriptions, and tags based on product input.",
+        outcome:
+            "Sellers can now generate fully optimized Etsy listings in seconds, eliminating manual SEO work and improving product discoverability.",
+        results: [
+            { label: "Listing time", value: "-95%" },
+            { label: "SEO output quality", value: "High" },
+            { label: "Manual effort", value: "Eliminated" }
+        ],
+        media: [
+            { type: "video", src: "/work/etsyboost-ai/shot-1.mp4", ratio: "portrait", poster: "/work/etsyboost-ai/shot-1.webp" },
+            { type: "video", src: "/work/etsyboost-ai/shot-3.mp4", ratio: "portrait" },
+            { type: "video", src: "/work/etsyboost-ai/shot-2.mp4", ratio: "landscape" },
+            { type: "image", src: "/work/etsyboost-ai/cover.svg", ratio: "portrait" }
+        ],
+        tags: ["AI", "Automation", "SEO"],
+        gallery: [
+            "/work/etsyboost-ai/shot-1.svg",
+            "/work/etsyboost-ai/shot-2.svg"
+        ],
+        liveUrl: "https://etsyboost-ai.vercel.app/",
+        featured: true
+    }
 ];
 
 export function getProject(slug: string): Project | undefined {

@@ -377,11 +377,12 @@
   100% { box-shadow: 0 0 0 0 rgba(0,229,255,0); filter: brightness(1); transform: translate(0,0); }
 }
 
-/* TEXT electrification — when you strike a heading/word.
-   Add class "electric-text" (with data-text=) to make it flicker in colour. */
-.electrified.electric-text,
-.electric-text.electrified {
-  animation: electrify-flicker 0.9s steps(1), text-zap 0.9s steps(2);
+/* TEXT electrification — when you strike a heading/word, ONLY the letters
+   flicker. No box glow on the element itself. */
+.electric-text {
+  animation: text-zap 0.9s steps(2);
+  box-shadow: none !important;
+  filter: none !important;
 }
 @keyframes text-zap {
   0%, 100% { color: inherit; text-shadow: none; }
