@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Renders a project cover that can be EITHER an image or a video.
- * If `src` ends in .mp4 / .webm / .mov → autoplay muted looping video.
- * Otherwise → optimized next/image. Drop-in for the old <Image> covers.
- *
- * `poster` (optional) shows while a video loads / on reduced-motion.
+ * VIDEO: lazy — only starts loading/playing when it scrolls into view
+ * (IntersectionObserver), pauses when off-screen. Saves bandwidth and
+ * protects LCP/INP. Shows the poster until then.
+ * IMAGE: optimized next/image.
  */
 export function CoverMedia({
   src,
@@ -25,19 +26,65 @@ export function CoverMedia({
   className?: string;
 }) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(src);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!isVideo) return;
+    const el = wrapRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          setInView(e.isIntersecting);
+          const v = videoRef.current;
+          if (!v) return;
+          if (e.isIntersecting) {
+            // load + play only when visible
+            if (v.preload !== "auto") v.preload = "auto";
+            v.play().catch(() => {});
+          } else {
+            v.pause();
+          }
+        });
+      },
+      { rootMargin: "200px", threshold: 0.01 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [isVideo]);
 
   if (isVideo) {
     return (
-      <video
-        className={className}
-        src={src}
-        poster={poster}
-        muted
-        loop
-        playsInline
-        autoPlay
-        preload="metadata"
-      />
+      <div ref={wrapRef} className="absolute inset-0">
+        {/* poster paints instantly; video fades in when in view */}
+        {poster && (
+          <Image
+            src={poster}
+            alt={alt}
+            fill
+            priority={priority}
+            sizes={sizes}
+            className={className}
+            style={{ opacity: inView ? 0 : 1, transition: "opacity .4s" }}
+          />
+        )}
+        <video
+          ref={videoRef}
+          className={className}
+          src={inView ? src : undefined}
+          poster={poster}
+          muted
+          loop
+          playsInline
+          preload="none"
+          style={{ opacity: inView ? 1 : 0, transition: "opacity .4s" }}
+        />
+      </div>
     );
   }
 

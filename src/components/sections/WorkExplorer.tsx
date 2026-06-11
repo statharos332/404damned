@@ -149,6 +149,7 @@ function WorkRow({
                         loop
                         playsInline
                         autoPlay
+                        preload="metadata"
                       />
                     ) : (
                       <Image

@@ -33,7 +33,20 @@ export function HeroSection() {
     const lowPower = navigator.hardwareConcurrency
       ? navigator.hardwareConcurrency < 4
       : false;
-    if (reduced || lowPower) {
+    // Skip the heavy WebGL on phones/tablets — the poster looks great and
+    // mobile is where Core Web Vitals are hardest to win.
+    const smallScreen = window.matchMedia("(max-width: 820px)").matches;
+    // Respect data-saver / very slow connections if exposed.
+    const nav = navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    };
+    const slowNet =
+      nav.connection?.saveData === true ||
+      (nav.connection?.effectiveType
+        ? /(^|-)2g$/.test(nav.connection.effectiveType)
+        : false);
+
+    if (reduced || lowPower || smallScreen || slowNet) {
       setAllow3D(false);
     } else {
       // Mount the WebGL scene only after the browser is idle, so the

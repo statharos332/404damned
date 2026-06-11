@@ -96,42 +96,7 @@ export const projects: Project[] = [
         liveUrl: "https://skgviptransfers.com/en",
         featured: true
     },
-    {
-        slug: "nuovomegazino",
-        title: "A High-End Coming Soon Fashion E-Commerce Experience",
-        client: "Nuovo Megazino",
-        category: "E-Commerce / Fashion",
-        year: "2026",
-        summary:
-            "A coming soon luxury fashion e-commerce platform for Italian clothing, built with cinematic UI, motion-driven storytelling and premium brand positioning.",
-        cover: "/work/nuovomegazino/shot-1.mp4",
-        services: ["Web Development", "UI/UX Design", "Motion Design", "Branding"],
-        stack: ["Next.js", "Gutenberg Blocks", "GSAP", "Tailwind", "Vercel"],
-        challenge:
-            "The brand needed a strong digital presence before launch to build hype and establish a luxury identity in a competitive Italian fashion market.",
-        approach:
-            "We designed a coming soon experience focused on emotion and anticipation, combining custom GSAP animations, dynamic loaders, and a structured Gutenberg-based content system for scalability.",
-        outcome:
-            "A high-impact pre-launch experience that builds brand desire, captures early leads, and positions Nuovo Megazino as a premium fashion destination before the store goes live.",
-        results: [
-            { label: "Anticipation", value: "Built before product release" },
-            { label: "Brand perception", value: "Positioned as premium fashion label" },
-            { label: "Foundation", value: "E-commerce system fully architected" }
-        ],
-        media: [
-            { type: "video", src: "/work/nuovomegazino/shot-1.mp4", ratio: "landscape" },
-            { type: "image", src: "/work/nuovomegazino/shot-2.svg", ratio: "portrait" },
-            { type: "video", src: "/work/nuovomegazino/clip-1.mp4", ratio: "landscape", poster: "/work/nuovomegazino/cover.svg" },
-            { type: "image", src: "/work/nuovomegazino/cover.svg", ratio: "portrait" }
-        ],
-        tags: ["E-Commerce", "Fashion", "Motion", "Luxury"],
-        gallery: [
-            "/work/nuovomegazino/shot-1.svg",
-            "/work/nuovomegazino/shot-2.svg"
-        ],
-        liveUrl: "",
-        featured: true
-    },
+
     {
         slug: "etsyboost-ai",
         title: "AI-Powered Etsy SEO Listing Engine",
@@ -140,7 +105,7 @@ export const projects: Project[] = [
         year: "2026",
         summary:
             "An AI-driven SEO automation system that transforms raw product inputs into high-converting Etsy listings optimized for search and conversion.",
-        cover: "/work/etsyboost-ai/shot-2.mp4",
+        cover: "/work/etsyboost-ai/cover.svg",
         services: ["AI Automation", "SEO Optimization", "E-commerce Tools"],
         stack: ["OpenAI", "Next.js", "Prompt Engineering"],
         challenge:
