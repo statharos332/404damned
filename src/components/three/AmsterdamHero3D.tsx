@@ -478,18 +478,20 @@ function City() {
 }
 
 // ── Super-realistic canal water: planar reflection + ripple shader ──
-function Water() {
+function Water({ lite = false }: { lite?: boolean }) {
   const ref = useRef<THREE.Mesh>(null);
   const { gl, scene, camera } = useThree();
 
   // Off-screen target for the mirrored scene
   const reflRT = useMemo(
-    () =>
-      new THREE.WebGLRenderTarget(1024, 1024, {
+    () => {
+      const size = lite ? 512 : 1024;
+      return new THREE.WebGLRenderTarget(size, size, {
         minFilter: THREE.LinearFilter,
         magFilter: THREE.LinearFilter,
-      }),
-    []
+      });
+    },
+    [lite]
   );
   const reflCam = useMemo(() => new THREE.PerspectiveCamera(56, 1, 0.1, 600), []);
   const WATER_Y = -0.05;
@@ -560,7 +562,8 @@ function Water() {
     // Render it every OTHER frame — visually identical on rippling water,
     // but roughly halves this pass's GPU/CPU cost.
     frameCount.current++;
-    if (frameCount.current % 2 !== 0) return;
+    const skip = lite ? 3 : 2; // mobile renders reflection less often
+    if (frameCount.current % skip !== 0) return;
 
     // Mirror the main camera across the water plane and render the scene
 
@@ -718,13 +721,15 @@ function Post() {
 
 export default function AmsterdamHero3D({
   scrollProgress,
+  lite = false,
 }: {
   scrollProgress: React.MutableRefObject<number>;
+  lite?: boolean;
 }) {
   return (
     <Canvas
-      shadows
-      dpr={[1, 1.5]}
+      shadows={!lite}
+      dpr={lite ? [1, 1] : [1, 1.5]}
       gl={{
         antialias: false,
         toneMapping: THREE.ACESFilmicToneMapping,
@@ -743,14 +748,14 @@ export default function AmsterdamHero3D({
               files="/hdr/tears_of_steel_bridge_1k.exr"
               background={false}
               blur={0.35}
-              resolution={1024}
+              resolution={lite ? 256 : 1024}
           />
         <Lighting />
         <City />
-        <Water />
-        <Sparkles count={80} scale={[2 * CANAL_HALF, 12, 160]} size={2} speed={0.25} opacity={0.5} color="#ffc070" position={[0, 5, -70]} />
+        <Water lite={lite} />
+        <Sparkles count={lite ? 30 : 80} scale={[2 * CANAL_HALF, 12, 160]} size={2} speed={0.25} opacity={0.5} color="#ffc070" position={[0, 5, -70]} />
         <CameraRig scrollProgress={scrollProgress} />
-        <Post />
+        {!lite && <Post />}
       </Suspense>
 
       <AdaptiveDpr pixelated />

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { LazyVideo } from "@/components/ui/LazyVideo";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects, getCategories, type Project } from "@/data/projects";
 
@@ -141,15 +142,10 @@ function WorkRow({
                     }`}
                   >
                     {m.type === "video" ? (
-                      <video
-                        className="w-full h-full object-fit"
+                      <LazyVideo
                         src={m.src}
                         poster={m.poster}
-                        muted
-                        loop
-                        playsInline
-                        autoPlay
-                        preload="metadata"
+                        className="w-full h-full object-cover"
                       />
                     ) : (
                       <Image

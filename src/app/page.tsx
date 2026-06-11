@@ -43,6 +43,10 @@ const BriefCTA = dynamic(
   () => import("@/components/sections/BriefCTA").then((m) => m.BriefCTA),
   { loading: () => sectionFallback }
 );
+const InsightsPreview = dynamic(
+  () => import("@/components/sections/InsightsPreview").then((m) => m.InsightsPreview),
+  { loading: () => sectionFallback }
+);
 const ContactSection = dynamic(
   () => import("@/components/sections/ContactSection").then((m) => m.ContactSection),
   { loading: () => sectionFallback }
@@ -71,7 +75,8 @@ export default function Home() {
       <WhySection />
       <ProcessSection />
       {/*<ClientsStrip />*/}
-      <PricingSection />
+      <InsightsPreview />
+      {/*<PricingSection />*/}
       <BriefCTA />
       <ContactSection />
       <Footer />

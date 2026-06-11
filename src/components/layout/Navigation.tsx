@@ -3,17 +3,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useBooking } from "@/components/ui/BookingProvider";
 
 const navLinks = [
   { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
+  { label: "Work", href: "/work" },
+  { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "#pricing" },
 ];
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openBooking } = useBooking();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -59,13 +61,13 @@ export function Navigation() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="#contact"
+            <button
+              onClick={openBooking}
               className="relative text-sm font-bold tracking-wider uppercase bg-[#D6001C] text-white px-6 py-3 hover:bg-[#FF1A35] transition-all duration-300 group"
             >
               <span>Book a Call</span>
               <div className="absolute inset-0 border border-[#D6001C] translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" />
-            </Link>
+            </button>
           </div>
 
           {/* Hamburger */}

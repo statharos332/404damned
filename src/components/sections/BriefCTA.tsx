@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { useBooking } from "@/components/ui/BookingProvider";
 
 export function BriefCTA() {
+  const { openBooking } = useBooking();
   return (
     <section className="relative bg-[#050505] py-32 md:py-48 overflow-hidden border-t border-white/10 scanlines">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-30" />
@@ -39,12 +41,12 @@ export function BriefCTA() {
               &rarr;
             </span>
           </Link>
-          <Link
-            href="#contact"
+          <button
+            onClick={openBooking}
             className="border border-white/20 hover:border-[#00E5FF] hover:text-[#00E5FF] text-white px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase transition-all font-mono"
           >
             [ book_a_call ]
-          </Link>
+          </button>
         </div>
 
         <p className="mt-10 font-mono text-xs text-gray-600">
