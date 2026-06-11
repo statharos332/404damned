@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useBooking } from "@/components/ui/BookingProvider";
+import { useShowreel } from "@/components/ui/ShowreelProvider";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -16,6 +17,7 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { openBooking } = useBooking();
+  const { openShowreel } = useShowreel();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -119,6 +121,26 @@ export function Navigation() {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.45 }}
+              >
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    openShowreel();
+                  }}
+                  className="flex items-center gap-3 text-2xl font-bold tracking-tight text-white hover:text-[#00E5FF] transition-colors"
+                >
+                  <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#D6001C]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D6001C] animate-pulse" />
+                    REC
+                  </span>
+                  Watch Showreel
+                  <span className="text-[#00E5FF]">▶</span>
+                </button>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

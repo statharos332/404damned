@@ -5,6 +5,8 @@ import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { LightningStrike } from "@/components/ui/LightningStrike";
 import { BookingProvider } from "@/components/ui/BookingProvider";
+import { Showreel } from "@/components/ui/Showreel";
+import { ShowreelProvider } from "@/components/ui/ShowreelProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -172,7 +174,10 @@ export default function RootLayout({
           <CustomCursor />
           <LightningStrike />
           <BookingProvider>
-            {children}
+            <ShowreelProvider>
+              {children}
+              <Showreel />
+            </ShowreelProvider>
           </BookingProvider>
         </SmoothScrollProvider>
         <Analytics />
