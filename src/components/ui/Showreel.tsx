@@ -104,7 +104,7 @@ export function Showreel() {
 
               <div className="px-3 py-1.5 border-t border-white/10">
                 <span className="font-mono text-[0.55rem] uppercase tracking-widest text-white/50">
-                  [ this_is_us ] →
+                  [ this_is_404_Damned ] →
                 </span>
               </div>
             </div>
