@@ -186,6 +186,13 @@
     width: 38px;
     height: 38px;
   }
+
+  /* On touch / mobile devices: hide the custom X cursor entirely and
+     bring back the normal cursor (there's no mouse to follow). */
+  @media (hover: none), (pointer: coarse), (max-width: 820px) {
+    .x-cursor { display: none !important; }
+    body { cursor: auto; }
+  }
 }
 
 /* ── BRUTALIST / TECHNO UTILITIES ───────────────────────── */
@@ -395,4 +402,174 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .electrified { animation: none; }
+}
+
+/* ── ⚡ LIGHTNING IMPACT ON VIDEO ────────────────────────── */
+/* Bright hot core where the bolt hits the footage */
+.video-impact-glow {
+  fill: #ffffff;
+  opacity: 0;
+  transform-origin: center;
+  animation: video-impact-glow 0.6s ease-out forwards;
+  filter: drop-shadow(0 0 18px #00E5FF) drop-shadow(0 0 36px #00E5FF)
+    drop-shadow(0 0 60px #D6001C);
+}
+@keyframes video-impact-glow {
+  0% { opacity: 0; r: 2; }
+  15% { opacity: 1; r: 26; }
+  45% { opacity: 0.6; r: 16; }
+  100% { opacity: 0; r: 8; }
+}
+
+/* Electric arms crawling out across the footage */
+.video-impact-tendril {
+  stroke: #aef4ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  filter: drop-shadow(0 0 5px #00E5FF) drop-shadow(0 0 10px #00E5FF);
+  animation: tendril-draw 0.28s ease-out forwards,
+    tendril-fade 0.5s ease-out 0.28s forwards;
+}
+@keyframes tendril-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes tendril-fade {
+  0% { opacity: 1; }
+  40% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* A larger, slower shock ring just for video hits */
+.video-shock-ring {
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  opacity: 0;
+  animation: video-shock 0.7s ease-out 0.05s forwards;
+}
+@keyframes video-shock {
+  0% { opacity: 0.9; r: 6; stroke-width: 3; }
+  100% { opacity: 0; r: 120; stroke-width: 0; }
+}
+
+/* ── ⚡ LOGO STRIKE (hanging sign breaks on scroll) ──────── */
+.logo-bolt {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  animation: logo-bolt-strike 0.13s ease-out forwards,
+    logo-bolt-fade 0.55s ease-out 0.13s forwards;
+}
+.logo-bolt-core {
+  stroke: #ffffff;
+  stroke-width: 7;
+  filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #00E5FF)
+    drop-shadow(0 0 40px #D6001C);
+}
+.logo-bolt-glow {
+  stroke: #5fe9ff;
+  stroke-width: 18;
+  opacity: 0.55;
+  filter: blur(6px);
+}
+.logo-bolt-glow-red {
+  stroke: #D6001C;
+  stroke-width: 38;
+  opacity: 0.25;
+  filter: blur(14px);
+}
+@keyframes logo-bolt-strike {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes logo-bolt-fade {
+  0%, 45% { opacity: 1; }
+  55% { opacity: 0.35; }
+  65% { opacity: 1; }
+  78% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+/* full-screen flash when the big bolt lands */
+.logo-screen-flash {
+  fill: #ffffff;
+  opacity: 0;
+  animation: logo-screen-flash 0.45s ease-out forwards;
+}
+@keyframes logo-screen-flash {
+  0% { opacity: 0; }
+  8% { opacity: 0.22; }
+  18% { opacity: 0.04; }
+  28% { opacity: 0.12; }
+  100% { opacity: 0; }
+}
+
+/* a quick physical jolt of the logo at the moment of impact */
+.logo-jolt {
+  animation: logo-jolt 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+@keyframes logo-jolt {
+  0% { transform: translate(0, 0) rotate(0); }
+  12% { transform: translate(-2px, 1px) rotate(-2deg); }
+  24% { transform: translate(3px, -1px) rotate(2deg); }
+  38% { transform: translate(-2px, 1px) rotate(-1.5deg); }
+  52% { transform: translate(2px, 0) rotate(1deg); }
+  68% { transform: translate(-1px, 0) rotate(-0.5deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+.logo-impact-flash {
+  fill: #ffffff;
+  opacity: 0;
+  animation: logo-impact-flash 0.5s ease-out 0.16s forwards;
+  filter: drop-shadow(0 0 14px #00E5FF) drop-shadow(0 0 28px #D6001C);
+}
+@keyframes logo-impact-flash {
+  0% { opacity: 0; r: 0.3; }
+  25% { opacity: 1; r: 2.5; }
+  100% { opacity: 0; r: 0.8; }
+}
+.logo-impact-ring {
+  stroke: #00E5FF;
+  stroke-width: 2;
+  opacity: 0;
+  animation: logo-impact-ring 0.6s ease-out 0.18s forwards;
+}
+@keyframes logo-impact-ring {
+  0% { opacity: 0.9; r: 1; }
+  100% { opacity: 0; r: 9; }
+}
+
+/* the sign electrifies briefly after the strike */
+.logo-zap {
+  animation: logo-zap 0.9s steps(2);
+}
+@keyframes logo-zap {
+  0%, 100% { filter: none; }
+  10% { filter: brightness(1.8) drop-shadow(0 0 8px #00E5FF); }
+  25% { filter: brightness(1) drop-shadow(0 0 2px #00E5FF); }
+  40% { filter: brightness(1.6) drop-shadow(0 0 10px #D6001C); }
+  55% { filter: brightness(1.1); }
+  70% { filter: brightness(1.5) drop-shadow(0 0 6px #00E5FF); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-zap { animation: none; }
+}
+
+/* thin custom scrollbar for horizontal media strips */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(214, 0, 28, 0.5) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar { height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(214, 0, 28, 0.5);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(214, 0, 28, 0.8);
+  }
 }

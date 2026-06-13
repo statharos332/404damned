@@ -12,19 +12,31 @@ import { projects, getCategories, type Project } from "@/data/projects";
  * horizontal media strip mixing videos + portrait/landscape stills.
  * Category filter bar with a live count. Our own techno/terminal styling.
  */
-export function WorkExplorer() {
+export function WorkExplorer({
+  featuredOnly = false,
+  showFilters = true,
+}: {
+  featuredOnly?: boolean;
+  showFilters?: boolean;
+} = {}) {
   const categories = useMemo(() => getCategories(), []);
   const [filter, setFilter] = useState("All");
-  const [open, setOpen] = useState<string | null>(projects[0]?.slug ?? null);
+
+  const base = useMemo(
+    () => (featuredOnly ? projects.filter((p) => p.featured) : projects),
+    [featuredOnly]
+  );
+  const [open, setOpen] = useState<string | null>(base[0]?.slug ?? null);
 
   const filtered = useMemo(
-    () => (filter === "All" ? projects : projects.filter((p) => p.category === filter)),
-    [filter]
+    () => (filter === "All" ? base : base.filter((p) => p.category === filter)),
+    [filter, base]
   );
 
   return (
     <section className="bg-[#050505]">
       {/* Filter bar */}
+      {showFilters && (
       <div className="max-w-[1500px] mx-auto px-6 py-10 flex flex-wrap items-center gap-3 border-b border-white/10">
         <span className="font-mono text-xs text-gray-600 mr-2">
           [ {String(filtered.length).padStart(2, "0")} ] filter:
@@ -43,6 +55,7 @@ export function WorkExplorer() {
           </button>
         ))}
       </div>
+      )}
 
       {/* Rows */}
       <div className="max-w-[1500px] mx-auto px-6">
@@ -130,32 +143,37 @@ function WorkRow({
                 {project.summary}
               </p>
 
-              {/* horizontal scroll media strip */}
-              <div className="flex gap-4 overflow-x-auto pb-4 -mx-1 px-1 snap-x">
+              {/* horizontal scroll media strip — each item keeps its true
+                  proportions (fixed height, natural width, zero cropping) */}
+              <div className="flex gap-4 overflow-x-auto pb-4 -mx-1 px-1 snap-x scrollbar-thin items-center">
                 {project.media.map((m, idx) => (
                   <div
                     key={idx}
-                    className={`relative shrink-0 snap-start  overflow-hidden ${
-                      m.ratio === "portrait"
-                        ? "h-[360px] md:h-[400px] aspect-[4/5]"
-                        : "h-[360px] md:h-[400px] aspect-[3/2]"
-                    }`}
+                    className="group/media relative shrink-0 snap-start h-[300px] md:h-[420px] bg-[#0a0a0a] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#00E5FF]/40"
+                    style={{
+                      aspectRatio:
+                        m.aspect ?? (m.ratio === "portrait" ? "4 / 5" : "3 / 2"),
+                    }}
                   >
                     {m.type === "video" ? (
                       <LazyVideo
                         src={m.src}
                         poster={m.poster}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/media:scale-[1.04]"
                       />
                     ) : (
                       <Image
                         src={m.src}
                         alt={`${project.client} ${idx + 1}`}
                         fill
-                        sizes="460px"
-                        className="object-cover"
+                        sizes="(max-width: 768px) 80vw, 600px"
+                        className="object-cover transition-transform duration-700 group-hover/media:scale-[1.04]"
                       />
                     )}
+                    <span className="absolute top-3 left-3 z-10 font-mono text-[0.55rem] uppercase tracking-widest text-white/50 group-hover/media:text-[#00E5FF] transition-colors">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <div className="absolute inset-0 scanlines opacity-0 group-hover/media:opacity-100 transition-opacity pointer-events-none" />
                   </div>
                 ))}
               </div>

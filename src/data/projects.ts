@@ -22,6 +22,10 @@ export interface MediaItem {
   src: string; // /work/<slug>/...
   // portrait tiles read as 4:5, landscape as 3:2 — mix them like Lama Lama
   ratio?: "portrait" | "landscape";
+  // OPTIONAL: exact aspect ratio of the real file, e.g. "16/9", "9/16",
+  // "1/1", "4/3". Set this and the tile matches the media EXACTLY — no
+  // cropping, no letterbox. If omitted, falls back to `ratio` above.
+  aspect?: string;
   poster?: string; // optional poster for videos
 }
 

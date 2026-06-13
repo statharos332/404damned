@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useShowreel } from "./ShowreelProvider";
 
@@ -15,6 +16,7 @@ const REEL_POSTER = "/video/showreel_poster.webp";
  */
 export function Showreel() {
   const { openShowreel } = useShowreel();
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const previewRef = useRef<HTMLVideoElement>(null);
 
@@ -46,6 +48,9 @@ export function Showreel() {
       window.removeEventListener("scroll", update);
     };
   }, []);
+
+  // Only show the floating widget on the homepage.
+  if (pathname !== "/") return null;
 
   return (
     <AnimatePresence>
@@ -104,7 +109,7 @@ export function Showreel() {
 
               <div className="px-3 py-1.5 border-t border-white/10">
                 <span className="font-mono text-[0.55rem] uppercase tracking-widest text-white/50">
-                  [ this_is_404_Damned ] →
+                  [ this_is_us ] →
                 </span>
               </div>
             </div>

@@ -18,6 +18,32 @@ interface Bolt {
   y: number;
   path: string;
   forks: string[];
+  onVideo?: boolean;
+}
+
+// Builds several jagged "electric arm" paths radiating from an impact point,
+// used when lightning strikes the video so it looks like current crawling
+// across the footage.
+function makeTendrils(cx: number, cy: number): string[] {
+  const arms = 7;
+  const out: string[] = [];
+  for (let a = 0; a < arms; a++) {
+    const baseAngle = (a / arms) * Math.PI * 2 + Math.random() * 0.5;
+    const segs = 4 + Math.floor(Math.random() * 3);
+    let x = cx;
+    let y = cy;
+    let d = `M ${x.toFixed(1)} ${y.toFixed(1)}`;
+    let angle = baseAngle;
+    for (let s = 1; s <= segs; s++) {
+      const len = 18 + Math.random() * 34;
+      angle += (Math.random() - 0.5) * 1.1; // wander
+      x += Math.cos(angle) * len;
+      y += Math.sin(angle) * len;
+      d += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
+    }
+    out.push(d);
+  }
+  return out;
 }
 
 export function LightningStrike() {
@@ -108,12 +134,18 @@ export function LightningStrike() {
       const id = idRef.current++;
       const { main, forks } = makeBolt(x, y);
 
-      setBolts((b) => [...b, { id, x, y, path: main, forks }]);
+      // Did the bolt land on a video? If so, fire an extra "electric impact"
+      // burst at that point so it looks like real lightning hit the footage.
+      const onVideo = !!(e.target as HTMLElement)?.closest?.(
+        "video, .lightning-impact-surface"
+      );
+
+      setBolts((b) => [...b, { id, x, y, path: main, forks, onVideo }]);
       electrify(e.target as Element);
 
       window.setTimeout(() => {
         setBolts((b) => b.filter((bolt) => bolt.id !== id));
-      }, 700);
+      }, 900);
     };
 
     // capture phase on window → fires even if something stops propagation
@@ -147,6 +179,37 @@ export function LightningStrike() {
           <circle cx={bolt.x} cy={bolt.y} r="4" className="impact-flash" />
           <circle cx={bolt.x} cy={bolt.y} r="6" className="impact-ring" fill="none" />
           <circle cx={bolt.x} cy={bolt.y} r="6" className="impact-ring impact-ring-2" fill="none" />
+
+          {/* extra electric burst when the bolt strikes a video */}
+          {bolt.onVideo && (
+            <g className="video-impact">
+              {/* hot radial glow at the point of impact */}
+              <circle
+                cx={bolt.x}
+                cy={bolt.y}
+                r="2"
+                className="video-impact-glow"
+              />
+              {/* electric tendrils crawling out across the footage */}
+              {makeTendrils(bolt.x, bolt.y).map((d, i) => (
+                <path
+                  key={i}
+                  d={d}
+                  className="video-impact-tendril"
+                  fill="none"
+                  style={{ animationDelay: `${i * 0.015}s` }}
+                />
+              ))}
+              {/* third expanding shock ring */}
+              <circle
+                cx={bolt.x}
+                cy={bolt.y}
+                r="6"
+                className="impact-ring video-shock-ring"
+                fill="none"
+              />
+            </g>
+          )}
         </svg>
       ))}
     </div>

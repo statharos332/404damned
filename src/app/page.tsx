@@ -16,7 +16,7 @@ const CaseStudiesSection = dynamic(
   { loading: () => sectionFallback }
 );
 const WorkPreview = dynamic(
-  () => import("@/components/sections/WorkPreview").then((m) => m.WorkPreview),
+  () => import("@/components/sections/WorkExplorerHome").then((m) => m.WorkExplorerHome),
   { loading: () => sectionFallback }
 );
 const VibeSection = dynamic(

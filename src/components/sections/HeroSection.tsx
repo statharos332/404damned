@@ -44,7 +44,7 @@ export function HeroSection() {
     // Tall scroll container so the copy can fade as you move down.
     <div ref={heroRef} className="relative h-[180vh] bg-[#04060c]">
       {/* Sticky viewport holds the looping video + copy */}
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-screen overflow-hidden lightning-impact-surface">
         {/* Looping background video — muted, no controls, autoplay */}
         <video
           ref={videoRef}
