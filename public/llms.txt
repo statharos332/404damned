@@ -1,0 +1,37 @@
+# 404DAMNED
+
+## About
+404DAMNED is a digital agency based in Amsterdam focused on high-performance web development, creative web design, and AI-driven digital experiences. We build modern websites, eCommerce platforms, and custom digital products using Next.js, React, WordPress, and headless architecture.
+
+## What we do
+- High-end website design & development
+- Next.js & React applications
+- WordPress & WooCommerce development
+- eCommerce performance optimization
+- AI-integrated web experiences
+- UI/UX design systems
+- Conversion-focused landing pages
+
+## Who we serve
+- Startups
+- eCommerce brands
+- SaaS companies
+- Creative agencies
+- Businesses looking for premium digital presence
+
+## Core expertise
+Next.js, React, Tailwind CSS, Node.js, WordPress, WooCommerce, REST APIs, headless CMS, performance optimization, SEO, AI integration
+
+## Key differentiator
+We combine design, performance engineering, and AI workflows to build websites that are not only visually strong but also optimized for conversion and automation.
+
+## Services pages
+- https://www.404damned.com/services
+- https://www.404damned.com/projects
+- https://www.404damned.com/contact
+
+## Contact
+https://www.404damned.com/contact
+
+## Last updated
+2026-06-14

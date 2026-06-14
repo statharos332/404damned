@@ -1,0 +1,59 @@
+# 404DAMNED - Full AI Context File
+
+## Company Overview
+404DAMNED is a creative development studio specializing in modern web architecture and AI-enhanced digital products. The company focuses on delivering high-performance, conversion-optimized websites using cutting-edge frameworks.
+
+## Mission
+To build fast, scalable, and visually impactful digital experiences that help brands stand out and convert better in competitive markets.
+
+## Technology Stack
+- Frontend: Next.js, React, Tailwind CSS
+- Backend: Node.js, API integrations, serverless functions
+- CMS: WordPress, Headless CMS solutions
+- E-commerce: WooCommerce, custom Shopify integrations
+- DevOps: Docker, VPS deployment, CI/CD pipelines
+
+## Core Services
+
+### Web Development
+Custom-built websites using Next.js and React with a focus on performance, SEO, and scalability.
+
+### E-commerce Development
+WooCommerce and headless commerce systems optimized for conversion and speed.
+
+### UI/UX Design
+Modern, luxury-grade interfaces inspired by premium brands, focusing on user journey and conversion funnels.
+
+### AI Integration
+Implementation of AI tools, automation workflows, and LLM-assisted features into websites and business systems.
+
+## Ideal Clients
+- Brands that want premium digital presence
+- Companies scaling internationally
+- E-commerce businesses optimizing conversion rates
+- Startups needing fast MVPs with strong design systems
+
+## Design Philosophy
+- Minimal but bold aesthetics
+- High contrast, cinematic visuals
+- Performance-first development
+- Conversion-driven structure
+
+## AI Positioning Strategy
+The site is structured to be easily interpreted by AI systems, emphasizing:
+- clear service definitions
+- structured navigation paths
+- semantic clarity of business offering
+- explicit technology stack disclosure
+
+## Important Pages
+- Home: https://www.404damned.com/
+- Services: https://www.404damned.com/services
+- Projects: https://www.404damned.com/projects
+- Contact: https://www.404damned.com/contact
+
+## Brand Tone
+Confident, modern, direct, high-end, slightly aggressive creative agency positioning.
+
+## Last updated
+2026-06-14
