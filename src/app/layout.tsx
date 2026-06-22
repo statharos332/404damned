@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://404damned.nl"),
+  metadataBase: new URL("https://www.404damned.com"),
   title: {
     default: "404 DAMNED — Premium Digital Agency Amsterdam",
     template: "%s | 404 DAMNED",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "website Amsterdam",
     "SEO Amsterdam",
   ],
-  authors: [{ name: "404 DAMNED", url: "https://404damned.nl" }],
+  authors: [{ name: "404 DAMNED", url: "https://www.404damned.com" }],
   creator: "404 DAMNED",
   publisher: "404 DAMNED",
   robots: {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "nl_NL",
     alternateLocale: "en_US",
-    url: "https://404damned.nl",
+    url: "https://www.404damned.com",
     siteName: "404 DAMNED",
     title: "404 DAMNED — Premium Digital Agency Amsterdam",
     description:
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     // twitter image also comes from opengraph-image.tsx
   },
   alternates: {
-    canonical: "https://404damned.nl",
+    canonical: "https://www.404damned.com",
   },
 };
 
@@ -93,16 +93,16 @@ export const viewport: Viewport = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://404damned.nl/#organization",
+  "@id": "https://www.404damned.com/#organization",
   name: "404 DAMNED",
   alternateName: "404 DAMNED Digital Agency",
   description:
     "Premium digital agency in Amsterdam specialising in web development, e-commerce, AI automation, branding, SEO and growth systems for ambitious businesses.",
-  url: "https://404damned.nl",
-  logo: "https://404damned.nl/icon.svg",
-  image: "https://404damned.nl/opengraph-image",
-  telephone: "+31-20-000-0000",
-  email: "hello@404damned.nl",
+  url: "https://www.404damned.com",
+  logo: "https://www.404damned.com/icon.svg",
+  image: "https://www.404damned.com/opengraph-image",
+  telephone: "+31647625711",
+  email: "info@404damned.com",
   priceRange: "€€€€",
   foundingDate: "2017",
   slogan: "We don't build websites. We build digital weapons.",

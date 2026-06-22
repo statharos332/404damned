@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { posts } from "@/data/posts";
 
-const BASE_URL = "https://404damned.nl";
+const BASE_URL = "https://www.404damned.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

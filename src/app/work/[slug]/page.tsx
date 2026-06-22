@@ -30,7 +30,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${title} | 404 DAMNED`,
       description,
-      url: `https://404damned.nl/work/${project.slug}`,
+      url: `https://www.404damned.com/work/${project.slug}`,
       images: [{ url: project.cover, width: 1600, height: 1000, alt: title }],
     },
     twitter: {
@@ -61,10 +61,10 @@ export default async function ProjectPage({
     creator: {
       "@type": "Organization",
       name: "404 DAMNED",
-      url: "https://404damned.nl",
+      url: "https://www.404damned.com",
     },
     keywords: [...project.services, ...project.stack].join(", "),
-    image: `https://404damned.nl${project.cover}`,
+    image: `https://www.404damned.com${project.cover}`,
     description: project.summary,
   };
 

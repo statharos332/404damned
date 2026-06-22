@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Insights — 404 DAMNED",
     description:
       "Practical writing on web performance, e-commerce and AI automation from an Amsterdam digital studio.",
-    url: "https://404damned.nl/insights",
+    url: "https://www.404damned.com/insights",
   },
 };
 

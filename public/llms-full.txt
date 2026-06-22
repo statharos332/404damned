@@ -9,7 +9,7 @@ To build fast, scalable, and visually impactful digital experiences that help br
 ## Technology Stack
 - Frontend: Next.js, React, Tailwind CSS
 - Backend: Node.js, API integrations, serverless functions
-- CMS: WordPress, Headless CMS solutions
+- CMS: WordPress, headless CMS solutions
 - E-commerce: WooCommerce, custom Shopify integrations
 - DevOps: Docker, VPS deployment, CI/CD pipelines
 
@@ -28,7 +28,7 @@ Modern, luxury-grade interfaces inspired by premium brands, focusing on user jou
 Implementation of AI tools, automation workflows, and LLM-assisted features into websites and business systems.
 
 ## Ideal Clients
-- Brands that want premium digital presence
+- Brands that want a premium digital presence
 - Companies scaling internationally
 - E-commerce businesses optimizing conversion rates
 - Startups needing fast MVPs with strong design systems
@@ -41,19 +41,20 @@ Implementation of AI tools, automation workflows, and LLM-assisted features into
 
 ## AI Positioning Strategy
 The site is structured to be easily interpreted by AI systems, emphasizing:
-- clear service definitions
-- structured navigation paths
-- semantic clarity of business offering
-- explicit technology stack disclosure
+- Clear service definitions
+- Structured navigation paths
+- Semantic clarity of business offering
+- Explicit technology stack disclosure
 
 ## Important Pages
-- Home: https://www.404damned.com/
-- Services: https://www.404damned.com/services
-- Projects: https://www.404damned.com/projects
-- Contact: https://www.404damned.com/contact
+- [Home](https://www.404damned.com/): Overview of services, process, and pricing
+- [Work](https://www.404damned.com/work): Case studies and selected client projects
+- [Insights](https://www.404damned.com/insights): Articles on web performance, e-commerce, and AI automation
+- [Services](https://www.404damned.com/#services): What we offer
+- [Contact](https://www.404damned.com/#contact): Get in touch
 
 ## Brand Tone
 Confident, modern, direct, high-end, slightly aggressive creative agency positioning.
 
 ## Last updated
-2026-06-14
+2026-06-22

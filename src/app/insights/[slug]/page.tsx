@@ -25,7 +25,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${post.title} | 404 DAMNED`,
       description: post.excerpt,
-      url: `https://404damned.nl/insights/${post.slug}`,
+      url: `https://www.404damned.com/insights/${post.slug}`,
       type: "article",
       publishedTime: post.date,
     },
@@ -53,13 +53,13 @@ export default async function PostPage({
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Organization", name: "404 DAMNED", url: "https://404damned.nl" },
+    author: { "@type": "Organization", name: "404 DAMNED", url: "https://www.404damned.com" },
     publisher: {
       "@type": "Organization",
       name: "404 DAMNED",
-      logo: { "@type": "ImageObject", url: "https://404damned.nl/icon.svg" },
+      logo: { "@type": "ImageObject", url: "https://www.404damned.com/icon.svg" },
     },
-    mainEntityOfPage: `https://404damned.nl/insights/${post.slug}`,
+    mainEntityOfPage: `https://www.404damned.com/insights/${post.slug}`,
     keywords: post.keywords.join(", "),
   };
 
