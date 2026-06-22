@@ -1,52 +1,76 @@
-# 📧 Contact Form → Email (Resend + Vercel)
+# 📧 Contact Form → Email (Google Workspace OAuth2 + Vercel)
 
-Your form now POSTs to `/api/contact`, which emails every lead to your
-inbox. Setup takes ~2 minutes.
+Your form (and the booking modal) both POST to `/api/contact`, which emails
+every lead straight into your own `info@404damned.com` mailbox via
+Google Workspace, authenticated with **OAuth2** (no app password, no
+third-party email provider).
 
-## 1. Create a Resend account (free)
-- Go to **https://resend.com** → sign up
-- Free tier = **3,000 emails/month**, plenty for a contact form
-- **API Keys** → *Create API Key* → copy it (starts with `re_…`)
+## 1. What you need (from Google Cloud Console + OAuth Playground)
+- A Google Cloud project with the **Gmail API** enabled
+- An **OAuth 2.0 Client ID** (Web application) → gives you `client_id` +
+  `client_secret`
+- A **refresh token** for `info@404damned.com`, generated once via
+  [Google OAuth 2.0 Playground](https://developers.google.com/oauthplayground)
+  using the `https://mail.google.com/` (or narrower `gmail.send`) scope,
+  authorized while logged in as `info@404damned.com`
 
-## 2. Verify your sending domain (recommended)
-- Resend → **Domains** → *Add Domain* → enter `404damned.nl`
-- Add the DNS records it shows (in your domain registrar)
-- Once verified you can send from `noreply@404damned.nl`
-- **Shortcut to test first:** skip this and set
-  `CONTACT_FROM="404 DAMNED <onboarding@resend.dev>"` — works instantly,
-  just less branded. Switch to your domain when verified.
+If you've already done this, you have 4 values: `client_id`,
+`client_secret`, and a `refresh_token` from the token exchange response.
 
-## 3. Add 3 environment variables in Vercel
+> Scope note: `https://mail.google.com/` grants full mailbox access
+> (read/send/delete). If you only need to *send* mail, regenerate the
+> token with the narrower `https://www.googleapis.com/auth/gmail.send`
+> scope instead — same flow, smaller blast radius if the token ever leaks.
+
+## 2. Add environment variables in Vercel
 Vercel → your project → **Settings → Environment Variables** → add:
 
-| Name             | Value                                   |
-|------------------|-----------------------------------------|
-| `RESEND_API_KEY` | `re_xxxxxxxxxxxx` (from step 1)         |
-| `CONTACT_TO`     | `hello@404damned.nl` (where leads go)   |
-| `CONTACT_FROM`   | `404 DAMNED <noreply@404damned.nl>`     |
+| Name                    | Value                                    |
+|-------------------------|-------------------------------------------|
+| `GMAIL_USER`            | `info@404damned.com`                      |
+| `GOOGLE_CLIENT_ID`      | the OAuth client ID                       |
+| `GOOGLE_CLIENT_SECRET`  | the OAuth client secret                   |
+| `GOOGLE_REFRESH_TOKEN`  | the refresh token from step 1             |
+| `CONTACT_TO`            | `info@404damned.com` (optional — defaults to `GMAIL_USER`) |
 
 Apply to **Production, Preview, Development**. Then **redeploy** (Vercel →
 Deployments → ⋯ → Redeploy) so the new vars load.
 
-## 4. Local dev (optional)
+**Never commit these values.** They only belong in Vercel's env var UI and
+your local `.env.local` (already gitignored).
+
+## 3. Local dev
+`.env.local` (gitignored, not committed):
 ```bash
-cp .env.example .env.local   # fill in the 3 values
-npm install                  # installs resend
+GMAIL_USER=info@404damned.com
+GOOGLE_CLIENT_ID=...
+GOOGLE_CLIENT_SECRET=...
+GOOGLE_REFRESH_TOKEN=...
+CONTACT_TO=info@404damned.com
+```
+```bash
+npm install   # installs nodemailer
 npm run dev
 ```
 
-## 5. Test it
-Submit the form on your site. Check the inbox set in `CONTACT_TO`.
-Hit **Reply** in that email — it replies straight to the lead (reply-to
-is set to their address).
+## 4. Test it
+Submit the contact form (or book a call) on the site. Check the
+`info@404damned.com` inbox. Hit **Reply** in that email — it replies
+straight to the lead (reply-to is set to their address).
 
 ## Troubleshooting
 - **"Server email is not configured yet."** → a Vercel env var is missing
   or you didn't redeploy after adding them.
-- **Nothing arrives** → check **spam**; verify your domain (step 2);
-  open Vercel → your deployment → **Logs** to see the error.
-- **403 / domain error from Resend** → `CONTACT_FROM` must be on a
-  verified domain, or use `onboarding@resend.dev` while testing.
+- **`invalid_grant` / auth error** → the refresh token was revoked or
+  generated for the wrong Google account — regenerate it in the OAuth
+  Playground while logged in as `info@404damned.com`.
+- **Nothing arrives** → check spam; open Vercel → your deployment →
+  **Logs** to see the SMTP/OAuth error.
+
+## If the client secret or refresh token ever leak
+Go to **Google Cloud Console → APIs & Services → Credentials** to rotate
+the client secret, and **myaccount.google.com/permissions** (as
+`info@404damned.com`) to revoke the old refresh token, then redo step 1.
 
 ## Spam protection
 A hidden **honeypot** field is already included. Bots that fill it are

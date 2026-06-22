@@ -11,11 +11,7 @@ const nextConfig: NextConfig = {
 
   // Tree-shake big libraries so only what you use is bundled
   experimental: {
-    optimizePackageImports: [
-      "framer-motion",
-      "lucide-react",
-      "@react-three/drei",
-    ],
+    optimizePackageImports: ["framer-motion", "lucide-react"],
   },
 
   images: {
@@ -35,7 +31,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/:all*(glb|gltf|hdr|exr|mp4|webm|webp|avif|jpg|jpeg|png|svg)",
+        source: "/:all*(mp4|webm|webp|avif|jpg|jpeg|png|svg)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
@@ -49,15 +45,6 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
-  },
-
-  webpack: (config) => {
-    // three.js + HDR + GLTF imports stability
-    config.module.rules.push({
-      test: /\.(glb|gltf|hdr|exr)$/i,
-      type: "asset/resource",
-    });
-    return config;
   },
 };
 

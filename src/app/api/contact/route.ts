@@ -1,21 +1,34 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 /**
  * ============================================================
- *  404 DAMNED — Contact form → email  (Resend, Vercel-ready)
+ *  404 DAMNED — Contact form → email  (Google Workspace, OAuth2)
  * ============================================================
- *  Sends every submission to your inbox via Resend.
+ *  Sends every submission straight to info@404damned.com via your own
+ *  Google Workspace mailbox — no third-party email provider.
  *  Set these in Vercel → Project → Settings → Environment Variables:
- *    RESEND_API_KEY   = re_xxxxxxxxxxxxxxxx
- *    CONTACT_TO       = where leads land (e.g. hello@404damned.nl)
- *    CONTACT_FROM     = a verified sender on your domain
- *                       (e.g. "404 DAMNED <noreply@404damned.nl>")
- *  See VIDEO/EMAIL guide for the 2-minute setup.
+ *    GMAIL_USER           = info@404damned.com
+ *    GOOGLE_CLIENT_ID     = OAuth client ID
+ *    GOOGLE_CLIENT_SECRET = OAuth client secret
+ *    GOOGLE_REFRESH_TOKEN = long-lived refresh token for that mailbox
+ *    CONTACT_TO           = where leads land (defaults to GMAIL_USER)
+ *  See EMAIL_SETUP.md for the setup walkthrough.
  * ============================================================
  */
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getTransporter() {
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      type: "OAuth2",
+      user: process.env.GMAIL_USER,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+    },
+  });
+}
 
 // Basic shape of what the form sends
 interface ContactPayload {
@@ -66,8 +79,18 @@ export async function POST(req: Request) {
     }
 
     // 3) Guard against missing config so you get a clear error in logs
-    if (!process.env.RESEND_API_KEY || !process.env.CONTACT_TO || !process.env.CONTACT_FROM) {
-      console.error("Contact form: missing RESEND_API_KEY / CONTACT_TO / CONTACT_FROM env vars.");
+    const gmailUser = process.env.GMAIL_USER;
+    const contactTo = process.env.CONTACT_TO || gmailUser;
+    if (
+      !gmailUser ||
+      !contactTo ||
+      !process.env.GOOGLE_CLIENT_ID ||
+      !process.env.GOOGLE_CLIENT_SECRET ||
+      !process.env.GOOGLE_REFRESH_TOKEN
+    ) {
+      console.error(
+        "Contact form: missing GMAIL_USER / GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / GOOGLE_REFRESH_TOKEN / CONTACT_TO env vars."
+      );
       return NextResponse.json(
         { ok: false, error: "Server email is not configured yet." },
         { status: 500 }
@@ -80,9 +103,10 @@ export async function POST(req: Request) {
     const safeMessage = message ? escapeHtml(message) : "—";
 
     // 4) Send the email to you
-    const { error } = await resend.emails.send({
-      from: process.env.CONTACT_FROM,
-      to: process.env.CONTACT_TO.split(",").map((s) => s.trim()),
+    const transporter = getTransporter();
+    await transporter.sendMail({
+      from: `404 DAMNED <${gmailUser}>`,
+      to: contactTo.split(",").map((s) => s.trim()),
       replyTo: email, // hit "Reply" → answers the lead directly
       subject: `🔴 New brief — ${name}${company !== "—" ? ` (${company})` : ""}`,
       html: `
@@ -106,14 +130,6 @@ export async function POST(req: Request) {
         `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n` +
         `Service: ${service}\nBudget: ${budget}\n\nMessage:\n${message || "—"}`,
     });
-
-    if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json(
-        { ok: false, error: "Could not send. Please try again." },
-        { status: 502 }
-      );
-    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
