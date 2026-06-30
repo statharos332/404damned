@@ -1,11 +1,15 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
+  // The poster is the LCP. Defer the video until the page is loaded + idle so
+  // it never competes for bandwidth during first paint, and skip it entirely
+  // for users who asked for reduced motion.
+  const [showVideo, setShowVideo] = useState(false);
 
   // Fade the copy out as you scroll down through the hero.
   // Write opacity straight to the DOM (rAF-throttled) so we never trigger a
@@ -32,11 +36,32 @@ export function HeroSection() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Pause the video when the hero scrolls off-screen (saves CPU/battery),
-  // resume when it returns. Keeps Core Web Vitals clean.
+  // Load the background video only after the page is done loading and the main
+  // thread is idle — so it never blocks LCP. Honour reduced-motion (poster only).
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const idle = () => {
+      type RIC = (cb: () => void) => number;
+      const ric = (window as unknown as { requestIdleCallback?: RIC })
+        .requestIdleCallback;
+      if (ric) ric(() => setShowVideo(true));
+      else setTimeout(() => setShowVideo(true), 200);
+    };
+    if (document.readyState === "complete") idle();
+    else {
+      window.addEventListener("load", idle, { once: true });
+      return () => window.removeEventListener("load", idle);
+    }
+  }, []);
+
+  // Once the video exists, kick off playback and pause it when the hero scrolls
+  // off-screen (saves CPU/battery). Keeps Core Web Vitals clean.
   useEffect(() => {
     const v = videoRef.current;
-    if (!v || typeof IntersectionObserver === "undefined") return;
+    if (!showVideo || !v) return;
+    v.load();
+    v.play().catch(() => {});
+    if (typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -48,26 +73,30 @@ export function HeroSection() {
     );
     io.observe(v);
     return () => io.disconnect();
-  }, []);
+  }, [showVideo]);
 
   return (
     // Tall scroll container so the copy can fade as you move down.
     <div ref={heroRef} className="relative h-[180vh] bg-[#04060c]">
       {/* Sticky viewport holds the looping video + copy */}
       <div className="sticky top-0 h-screen overflow-hidden lightning-impact-surface">
-        {/* Looping background video — muted, no controls, autoplay */}
+        {/* Looping background video — muted, deferred until after load (idle).
+            Until then the poster carries the hero as the LCP element. */}
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
           poster="/video/hero_poster.webp"
-          autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
         >
-          <source src="/video/hero_opt.webm" type="video/webm" />
-          <source src="/video/hero_opt.mp4" type="video/mp4" />
+          {showVideo && (
+            <>
+              <source src="/video/hero_opt.webm" type="video/webm" />
+              <source src="/video/hero_opt.mp4" type="video/mp4" />
+            </>
+          )}
         </video>
 
         {/* Cinematic gradient mask for text legibility */}

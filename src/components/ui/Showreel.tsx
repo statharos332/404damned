@@ -18,7 +18,18 @@ export function Showreel() {
   const { openShowreel } = useShowreel();
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  // The widget is desktop-only (hidden md:block). Gate it in JS too so mobile
+  // never downloads the preview video for an element it can't even see.
+  const [isDesktop, setIsDesktop] = useState(false);
   const previewRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => setIsDesktop(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   // Show the widget only while we're over the hero (near the top). When you
   // scroll down past the hero it hides; scrolling back up reveals it again.
@@ -49,8 +60,8 @@ export function Showreel() {
     };
   }, []);
 
-  // Only show the floating widget on the homepage.
-  if (pathname !== "/") return null;
+  // Only show the floating widget on the homepage, desktop only.
+  if (pathname !== "/" || !isDesktop) return null;
 
   return (
     <AnimatePresence>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * 404 DAMNED — brushstroke "X" cursor (from the business card).
@@ -10,8 +10,19 @@ import { useEffect, useRef } from "react";
 export function CustomCursor() {
   const ref = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  // Only run on devices with a real pointer. On touch the cursor is hidden by
+  // CSS anyway — without this gate the rAF loop + listeners burn CPU on mobile
+  // for nothing, hurting LCP/TBT.
+  const [hasPointer, setHasPointer] = useState(false);
 
   useEffect(() => {
+    setHasPointer(
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    );
+  }, []);
+
+  useEffect(() => {
+    if (!hasPointer) return;
     const el = ref.current;
     const svg = svgRef.current;
     if (!el || !svg) return;
@@ -64,7 +75,9 @@ export function CustomCursor() {
       window.removeEventListener("mousedown", onDown);
       window.removeEventListener("mouseup", onUp);
     };
-  }, []);
+  }, [hasPointer]);
+
+  if (!hasPointer) return null;
 
   return (
     <div ref={ref} className="x-cursor" aria-hidden>

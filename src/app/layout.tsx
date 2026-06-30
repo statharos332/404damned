@@ -26,6 +26,9 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
+  // Only used in small labels/badges — don't preload-compete with the
+  // display + body fonts that drive the LCP text.
+  preload: false,
 });
 
 export const metadata: Metadata = {
