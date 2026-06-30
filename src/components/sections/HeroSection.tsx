@@ -91,12 +91,7 @@ export function HeroSection() {
           playsInline
           preload="none"
         >
-          {showVideo && (
-            <>
-              <source src="/video/hero_opt.webm" type="video/webm" />
-              <source src="/video/hero_opt.mp4" type="video/mp4" />
-            </>
-          )}
+          {showVideo && <source src="/video/hero_opt.mp4" type="video/mp4" />}
         </video>
 
         {/* Cinematic gradient mask for text legibility */}
