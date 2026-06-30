@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+
+  // Pin the workspace root so Next stops inferring it from stray parent
+  // lockfiles (was picking /Users/stathis/package-lock.json).
+  outputFileTracingRoot: dirname(fileURLToPath(import.meta.url)),
 
   // Ship smaller, faster JS
   compiler: {

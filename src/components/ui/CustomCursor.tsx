@@ -44,8 +44,9 @@ export function CustomCursor() {
       const vel = mx - lastX;
       lastX = mx;
       const rot = Math.max(-18, Math.min(18, vel * 0.6));
-      el.style.left = cx + "px";
-      el.style.top = cy + "px";
+      // GPU-composited transform instead of left/top (which triggers
+      // layout + paint every frame). translate(-50%,-50%) keeps it centred.
+      el.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
       svg.style.transform = `rotate(${rot}deg)`;
       raf = requestAnimationFrame(loop);
     };

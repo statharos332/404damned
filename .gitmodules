@@ -1,0 +1,3 @@
+[submodule ".404os"]
+	path = .404os
+	url = https://github.com/statharos332/404damned-os

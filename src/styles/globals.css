@@ -61,9 +61,7 @@
     padding: 0;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  /* No CSS smooth-scroll: Lenis owns scrolling. Two engines = jank. */
 
   body {
     background-color: #050505;
@@ -71,6 +69,14 @@
     font-family: var(--font-body);
     overflow-x: hidden;
     cursor: none;
+  }
+
+  /* Keyboard accessibility: the custom cursor hides the pointer, so a
+     visible focus ring is mandatory for non-mouse users. */
+  :focus-visible {
+    outline: 2px solid #00E5FF;
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   ::selection {
@@ -119,15 +125,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   }
 
-  .text-stroke {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-    color: transparent;
-  }
-
-  .text-stroke-red {
-    -webkit-text-stroke: 1px #D6001C;
-    color: transparent;
-  }
+  /* .text-stroke / .text-stroke-red live in the brutalist block below. */
 
   .glow-red {
     box-shadow: 0 0 30px rgba(214, 0, 28, 0.3), 0 0 60px rgba(214, 0, 28, 0.1);
@@ -171,7 +169,7 @@
     transform: translate(-50%, -50%);
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: left, top;
+    will-change: transform;
   }
   .x-cursor svg {
     width: 100%;
@@ -571,5 +569,20 @@
   }
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     background: rgba(214, 0, 28, 0.8);
+  }
+}
+
+/* ── ACCESSIBILITY: honour reduced-motion globally ──────────
+   Kills the ambient infinite loops (marquees, float, pulse, spin,
+   glitch) and neutralises one-shot transitions for users who ask
+   the OS for less motion. Lenis is disabled separately in JS. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

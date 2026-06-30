@@ -1,24 +1,34 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 export function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [textFade, setTextFade] = useState(1);
+  const copyRef = useRef<HTMLDivElement>(null);
 
   // Fade the copy out as you scroll down through the hero.
+  // Write opacity straight to the DOM (rAF-throttled) so we never trigger a
+  // React re-render per scroll frame — keeps the main thread free (Law 9).
   useEffect(() => {
-    const onScroll = () => {
-      if (!heroRef.current) return;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
       const el = heroRef.current;
+      const copy = copyRef.current;
+      if (!el || !copy) return;
       const max = el.offsetHeight - window.innerHeight;
       const scrolled = Math.min(max, Math.max(0, -el.getBoundingClientRect().top));
       const p = max > 0 ? scrolled / max : 0;
-      setTextFade(Math.max(0, 1 - p / 0.5));
+      copy.style.opacity = String(Math.max(0, 1 - p / 0.5));
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    update();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -65,8 +75,8 @@ export function HeroSection() {
 
         {/* Hero copy — bottom-left text, bottom-right buttons. Fades on scroll. */}
         <div
-          className="absolute inset-x-0 bottom-0 z-[3] px-6 sm:px-10 lg:px-16 pb-14 sm:pb-16 transition-opacity duration-200"
-          style={{ opacity: textFade }}
+          ref={copyRef}
+          className="absolute inset-x-0 bottom-0 z-[3] px-6 sm:px-10 lg:px-16 pb-14 sm:pb-16"
         >
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             {/* Left: badge + headline */}
