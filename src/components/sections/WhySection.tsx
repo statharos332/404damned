@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { m, useInView, useScroll, useTransform } from "framer-motion";
 
 const problems = [
   {
@@ -45,14 +45,14 @@ export function WhySection() {
         <div className="max-w-[1400px] mx-auto" ref={ref}>
           {/* Header */}
           <div className="mb-20">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
             >
               — Why We're Different
-            </motion.div>
-            <motion.h2
+            </m.div>
+            <m.h2
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.8 }}
@@ -63,13 +63,13 @@ export function WhySection() {
               <span className="text-stroke">Industry is</span>
               <br />
               <span className="text-[#D6001C]">Broken.</span>
-            </motion.h2>
+            </m.h2>
           </div>
 
           {/* Problem/Solution grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-24">
             {problems.map((item, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -89,7 +89,7 @@ export function WhySection() {
                     <p className="text-white font-medium">{item.solution}</p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -97,7 +97,7 @@ export function WhySection() {
 
       {/* Scrolling bold statements */}
       <div className="relative py-16 border-y border-white/5 overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-20 whitespace-nowrap will-change-transform">
+        <m.div style={{ x }} className="flex gap-20 whitespace-nowrap will-change-transform">
           {[...boldStatements, ...boldStatements].map((s, i) => (
             <span
               key={i}
@@ -109,13 +109,13 @@ export function WhySection() {
               <span className="text-[#D6001C] mx-10">—</span>
             </span>
           ))}
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Big statement */}
       <div className="px-6 md:px-12 mt-24">
         <div className="max-w-[1400px] mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -134,7 +134,7 @@ export function WhySection() {
             <p className="text-gray-600 mt-6 text-sm tracking-wider uppercase">
               — The 404 DAMNED Manifesto
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

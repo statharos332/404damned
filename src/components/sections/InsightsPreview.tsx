@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { posts } from "@/data/posts";
 
 export function InsightsPreview() {
@@ -32,7 +32,7 @@ export function InsightsPreview() {
 
         <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
           {latest.map((p, i) => (
-            <motion.div
+            <m.div
               key={p.slug}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -57,7 +57,7 @@ export function InsightsPreview() {
                   Read <span className="text-[#D6001C]">&rarr;</span>
                 </span>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

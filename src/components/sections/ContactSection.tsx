@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { m, useInView, AnimatePresence } from "framer-motion";
 
 const budgetOptions = [
   "€2.500 – €5.000",
@@ -67,14 +67,14 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Left — copy */}
           <div>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
             >
               — Start the War
-            </motion.div>
-            <motion.h2
+            </m.div>
+            <m.h2
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.8 }}
@@ -85,18 +85,18 @@ export function ContactSection() {
               <span className="text-[#D6001C]">Dominate</span>
               <br />
               Your Market?
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.7 }}
               className="text-gray-400 leading-relaxed mb-12 max-w-sm"
             >
               One conversation is all it takes. We&apos;ll tell you exactly what it will take to make your competitors irrelevant.
-            </motion.p>
+            </m.p>
 
             {/* Info */}
-              <motion.div
+              <m.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.3, duration: 0.7 }}
@@ -139,18 +139,18 @@ export function ContactSection() {
                           )}
                       </div>
                   ))}
-              </motion.div>
+              </m.div>
           </div>
 
           {/* Right — form */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <AnimatePresence mode="wait">
               {submitted ? (
-                <motion.div
+                <m.div
                   key="success"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -165,9 +165,9 @@ export function ContactSection() {
                   <p className="text-gray-400 max-w-xs">
                     We&apos;ll review your brief and reach out within 4 business hours. Prepare for impact.
                   </p>
-                </motion.div>
+                </m.div>
               ) : (
-                <motion.form
+                <m.form
                   key="form"
                   onSubmit={handleSubmit}
                   className="space-y-6 relative"
@@ -302,10 +302,10 @@ export function ContactSection() {
                       "Send the Brief →"
                     )}
                   </button>
-                </motion.form>
+                </m.form>
               )}
             </AnimatePresence>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

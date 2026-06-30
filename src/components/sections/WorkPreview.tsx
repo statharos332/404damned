@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { CoverMedia } from "@/components/ui/CoverMedia";
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { getFeaturedProjects } from "@/data/projects";
 
 export function WorkPreview() {
@@ -37,7 +37,7 @@ export function WorkPreview() {
         {/* featured grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {featured.map((p, i) => (
-            <motion.div
+            <m.div
               key={p.slug}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -80,7 +80,7 @@ export function WorkPreview() {
                   )}
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

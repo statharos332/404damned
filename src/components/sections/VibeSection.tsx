@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 // 404 DAMNED's own operating principles — mysterious, weighty, ours.
@@ -68,7 +68,7 @@ export function VibeSection() {
                 ? "group-hover:text-[#C6FF00]"
                 : "group-hover:text-[#D6001C]";
             return (
-              <motion.div
+              <m.div
                 key={v.n}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -85,7 +85,7 @@ export function VibeSection() {
                   {v.t}
                 </h3>
                 <p className="mt-4 text-gray-400 leading-relaxed">{v.d}</p>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

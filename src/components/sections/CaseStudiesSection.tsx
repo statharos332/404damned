@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 
 const capabilities = [
     {
@@ -59,16 +59,16 @@ export function CaseStudiesSection() {
         >
             <div className="max-w-[1400px] mx-auto" ref={sectionRef}>
                 <div className="mb-20">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6 }}
                         className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
                     >
                         — Core Expertise
-                    </motion.div>
+                    </m.div>
 
-                    <motion.h2
+                    <m.h2
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8, delay: 0.1 }}
@@ -77,7 +77,7 @@ export function CaseStudiesSection() {
                         Digital
                         <br />
                         <span className="text-stroke">Capabilities.</span>
-                    </motion.h2>
+                    </m.h2>
                 </div>
 
                 <div className="space-y-4">
@@ -111,7 +111,7 @@ function CapabilityCard({
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <motion.div
+        <m.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -173,7 +173,7 @@ function CapabilityCard({
                     </div>
                 </div>
 
-                <motion.div
+                <m.div
                     initial={false}
                     animate={{
                         height: expanded ? "auto" : 0,
@@ -203,8 +203,8 @@ function CapabilityCard({
                             </div>
                         </div>
                     </div>
-                </motion.div>
+                </m.div>
             </div>
-        </motion.div>
+        </m.div>
     );
 }

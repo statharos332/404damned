@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 
 const services = [
   {
@@ -62,7 +62,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
   };
 
   return (
-    <motion.div
+    <m.div
       ref={cardRef}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           </svg>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -139,15 +139,15 @@ export function ServicesSection() {
         {/* Header */}
         <div ref={ref} className="flex flex-col md:flex-row items-start justify-between mb-20 gap-8">
           <div>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
               className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
             >
               — What We Do
-            </motion.div>
-            <motion.h2
+            </m.div>
+            <m.h2
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -156,16 +156,16 @@ export function ServicesSection() {
               Digital
               <br />
               <span className="text-stroke">Arsenal.</span>
-            </motion.h2>
+            </m.h2>
           </div>
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="max-w-md text-gray-400 text-lg leading-relaxed md:text-right md:pt-20"
           >
             Six disciplines. One mission: making your competitors irrelevant.
-          </motion.p>
+          </m.p>
         </div>
 
         {/* Service grid */}

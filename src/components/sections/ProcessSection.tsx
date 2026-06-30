@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { m, useInView, AnimatePresence } from "framer-motion";
 
 const steps = [
   {
@@ -86,14 +86,14 @@ export function ProcessSection() {
       <div className="max-w-[1400px] mx-auto" ref={ref}>
         {/* Header */}
         <div className="mb-20">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
           >
             — How We Work
-          </motion.div>
-          <motion.h2
+          </m.div>
+          <m.h2
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.8 }}
@@ -102,14 +102,14 @@ export function ProcessSection() {
             The War
             <br />
             <span className="text-stroke">Room Process.</span>
-          </motion.h2>
+          </m.h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Step selector */}
           <div className="space-y-2">
             {steps.map((step, i) => (
-              <motion.button
+              <m.button
                 key={step.number}
                 initial={{ opacity: 0, x: -40 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -134,23 +134,23 @@ export function ProcessSection() {
                       <div className="text-xs text-gray-600 tracking-wider uppercase mt-1">{step.duration}</div>
                     </div>
                   </div>
-                  <motion.div
+                  <m.div
                     animate={{ rotate: activeStep === i ? 90 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
                     <svg className={`w-4 h-4 ${activeStep === i ? "text-[#D6001C]" : "text-gray-700"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </motion.div>
+                  </m.div>
                 </div>
-              </motion.button>
+              </m.button>
             ))}
           </div>
 
           {/* Detail panel */}
           <div className="lg:sticky lg:top-32">
             <AnimatePresence mode="wait">
-              <motion.div
+              <m.div
                 key={activeStep}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -184,7 +184,7 @@ export function ProcessSection() {
                   <div className="text-xs text-gray-600 tracking-wider uppercase mb-2">Output</div>
                   <div className="text-lg font-bold text-white">{steps[activeStep].output}</div>
                 </div>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </div>
         </div>

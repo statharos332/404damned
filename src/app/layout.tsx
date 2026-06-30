@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
+import { MotionProvider } from "@/components/layout/MotionProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { LightningStrike } from "@/components/ui/LightningStrike";
 import { BookingProvider } from "@/components/ui/BookingProvider";
@@ -174,14 +175,16 @@ export default function RootLayout({
       </head>
       <body className="bg-black text-white antialiased overflow-x-hidden">
         <SmoothScrollProvider>
-          <CustomCursor />
-          <LightningStrike />
-          <BookingProvider>
-            <ShowreelProvider>
-              {children}
-              <Showreel />
-            </ShowreelProvider>
-          </BookingProvider>
+          <MotionProvider>
+            <CustomCursor />
+            <LightningStrike />
+            <BookingProvider>
+              <ShowreelProvider>
+                {children}
+                <Showreel />
+              </ShowreelProvider>
+            </BookingProvider>
+          </MotionProvider>
         </SmoothScrollProvider>
         <Analytics />
         <SpeedInsights />

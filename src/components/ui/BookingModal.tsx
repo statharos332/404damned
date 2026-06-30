@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 /**
  * Custom "book a call" modal — brutalist take on a Cal.com-style picker.
@@ -132,7 +132,7 @@ export function BookingModal({
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           className="fixed inset-0 z-[10000] flex items-center justify-center p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -145,7 +145,7 @@ export function BookingModal({
           />
 
           {/* modal */}
-          <motion.div
+          <m.div
             className="relative w-full max-w-3xl bg-[#070708] border border-white/15 max-h-[90vh] overflow-y-auto"
             initial={{ scale: 0.94, y: 20, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -357,8 +357,8 @@ export function BookingModal({
                 </div>
               )}
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 const REEL_MP4 = "/video/showreel.mp4";
 const REEL_POSTER = "/video/showreel_poster.webp";
@@ -47,7 +47,7 @@ export function ShowreelModal({
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           className="fixed inset-0 z-[10001] flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -72,7 +72,7 @@ export function ShowreelModal({
             </button>
           </div>
 
-          <motion.div
+          <m.div
             className="relative w-full max-w-6xl mx-4 aspect-video bg-black border border-white/15"
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -90,14 +90,14 @@ export function ShowreelModal({
             >
               <source src={REEL_MP4} type="video/mp4" />
             </video>
-          </motion.div>
+          </m.div>
 
           <div className="absolute bottom-6 left-0 right-0 text-center">
             <span className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-white/30">
               esc / click outside to close
             </span>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

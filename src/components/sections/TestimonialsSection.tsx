@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { m, AnimatePresence, useInView } from "framer-motion";
 
 const testimonials = [
   {
@@ -46,14 +46,14 @@ export function TestimonialsSection() {
     <section className="py-32 md:py-48 px-6 md:px-12 bg-[#080808]">
       <div className="max-w-[1400px] mx-auto" ref={ref}>
         <div className="mb-20">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
           >
             — Client Victories
-          </motion.div>
-          <motion.h2
+          </m.div>
+          <m.h2
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.8 }}
@@ -62,7 +62,7 @@ export function TestimonialsSection() {
             What They
             <br />
             <span className="text-stroke">Actually Say.</span>
-          </motion.h2>
+          </m.h2>
         </div>
 
         {/* Testimonial display */}
@@ -70,7 +70,7 @@ export function TestimonialsSection() {
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#D6001C]/60 via-transparent to-transparent" />
 
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={active}
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -106,7 +106,7 @@ export function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
 
           {/* Controls */}

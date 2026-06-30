@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useBooking } from "@/components/ui/BookingProvider";
 import { useShowreel } from "@/components/ui/ShowreelProvider";
@@ -27,7 +27,7 @@ export function Navigation() {
 
   return (
     <>
-      <motion.nav
+      <m.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
@@ -78,26 +78,26 @@ export function Navigation() {
             className="md:hidden relative z-50 w-8 h-6 flex flex-col justify-between"
             aria-label="Toggle menu"
           >
-            <motion.span
+            <m.span
               animate={menuOpen ? { rotate: 45, y: 10 } : { rotate: 0, y: 0 }}
               className="block w-full h-px bg-white origin-left"
             />
-            <motion.span
+            <m.span
               animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               className="block w-full h-px bg-white"
             />
-            <motion.span
+            <m.span
               animate={menuOpen ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }}
               className="block w-full h-px bg-white origin-left"
             />
           </button>
         </div>
-      </motion.nav>
+      </m.nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
@@ -106,7 +106,7 @@ export function Navigation() {
           >
             <div className="flex flex-col gap-8">
               {navLinks.map((link, i) => (
-                <motion.div
+                <m.div
                   key={link.href}
                   initial={{ opacity: 0, x: 40 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -119,9 +119,9 @@ export function Navigation() {
                   >
                     {link.label}
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.45 }}
@@ -140,8 +140,8 @@ export function Navigation() {
                   Watch Showreel
                   <span className="text-[#00E5FF]">▶</span>
                 </button>
-              </motion.div>
-              <motion.div
+              </m.div>
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -154,9 +154,9 @@ export function Navigation() {
                 >
                   Book a Strategy Call
                 </Link>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

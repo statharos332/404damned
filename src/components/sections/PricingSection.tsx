@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import Link from "next/link";
 
 const plans = [
@@ -72,15 +72,15 @@ export function PricingSection() {
       <div className="max-w-[1400px] mx-auto" ref={ref}>
         {/* Header */}
         <div className="mb-20">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
           >
             — Investment
-          </motion.div>
+          </m.div>
           <div className="flex flex-col md:flex-row items-start justify-between gap-6">
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.8 }}
@@ -89,22 +89,22 @@ export function PricingSection() {
               Fair Prices.
               <br />
               <span className="text-stroke">Unfair Results.</span>
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.7 }}
               className="max-w-sm text-gray-400 md:pt-24"
             >
               Not the cheapest. Not the most expensive. The only agency where the math actually makes sense.
-            </motion.p>
+            </m.p>
           </div>
         </div>
 
         {/* Plans */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {plans.map((plan, i) => (
-            <motion.div
+            <m.div
               key={plan.name}
               initial={{ opacity: 0, y: 60 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -166,12 +166,12 @@ export function PricingSection() {
               >
                 {plan.cta}
               </Link>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Trust note */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6, duration: 0.7 }}
@@ -179,7 +179,7 @@ export function PricingSection() {
         >
           All projects include a discovery call. We only take on work we know we can win.
           <span className="text-gray-500 ml-2">No retainer lock-ins on Starter.</span>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
