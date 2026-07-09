@@ -13,6 +13,13 @@ const footerLinks = {
   Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
 };
 
+// Live pages — everything else is still an in-page anchor placeholder.
+const linkHrefs: Record<string, string> = {
+  "Privacy Policy": "/privacy-policy",
+  "Terms of Service": "/terms-of-service",
+  "Cookie Policy": "/cookie-policy",
+};
+
 export function Footer() {
   return (
     <footer className="border-t border-white/5 bg-[#050505]">
@@ -79,7 +86,7 @@ export function Footer() {
                   {links.map((link) => (
                     <li key={link}>
                       <Link
-                        href="#"
+                        href={linkHrefs[link] ?? "#"}
                         className="text-sm text-gray-500 hover:text-white transition-colors duration-300"
                       >
                         {link}
