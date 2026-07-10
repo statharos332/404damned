@@ -8,10 +8,17 @@ import { Footer } from "@/components/layout/Footer";
  */
 export default function NotFound() {
   return (
-    <main className="relative bg-[#050505] min-h-screen flex flex-col">
+    <main className="relative bg-[#050505] min-h-screen flex flex-col overflow-hidden">
+      {/* Old-TV analog noise: snow + scanlines + rolling sync bar */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-0">
+        <div className="tv-static absolute inset-0" />
+        <div className="tv-scanlines absolute inset-0" />
+        <div className="tv-rollbar absolute inset-x-0 top-0" />
+      </div>
+
       <Navigation />
 
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-40">
+      <section className="tv-flicker relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-40">
         <p className="font-mono text-xs uppercase tracking-[0.4em] text-[#D6001C] mb-8">
           [ Error / Signal lost ]
         </p>
@@ -65,7 +72,9 @@ export default function NotFound() {
         </div>
       </section>
 
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </main>
   );
 }

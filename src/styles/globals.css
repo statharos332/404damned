@@ -666,3 +666,57 @@
   94% { transform: translate(-3px, 2px); clip-path: inset(20% 0 60% 0); }
   96% { transform: translate(2px, -2px); clip-path: inset(70% 0 5% 0); }
 }
+
+/* ── Old-TV / analog noise (used on the 404) ────────────────
+   Animated greyscale snow + heavy scanlines + a rolling sync bar.
+   All CSS so the global reduced-motion killer freezes it. */
+.tv-static {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.08;
+  mix-blend-mode: screen;
+  animation: tvSnow 0.5s steps(5) infinite;
+}
+@keyframes tvSnow {
+  0%   { background-position: 0 0; }
+  25%  { background-position: -70px 40px; }
+  50%  { background-position: 50px -60px; }
+  75%  { background-position: -40px 70px; }
+  100% { background-position: 30px 20px; }
+}
+.tv-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.28) 0px,
+    rgba(0, 0, 0, 0.28) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply;
+}
+/* a bright sync band that rolls down the screen like a detuned CRT */
+.tv-rollbar {
+  height: 22%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(0, 229, 255, 0.05) 55%,
+    transparent
+  );
+  animation: tvRoll 7s linear infinite;
+}
+@keyframes tvRoll {
+  0%   { transform: translateY(-120%); }
+  100% { transform: translateY(560%); }
+}
+/* occasional whole-screen flicker */
+.tv-flicker {
+  animation: tvFlicker 6s steps(1) infinite;
+}
+@keyframes tvFlicker {
+  0%, 96%, 100% { opacity: 1; }
+  97% { opacity: 0.82; }
+  98% { opacity: 1; }
+  99% { opacity: 0.9; }
+}

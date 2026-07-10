@@ -152,6 +152,8 @@ export function ContactSection() {
               {submitted ? (
                 <m.div
                   key="success"
+                  role="status"
+                  aria-live="polite"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="border border-[#D6001C]/30 bg-[#D6001C]/5 p-12 text-center h-full flex flex-col items-center justify-center gap-6 min-h-[500px]"
@@ -175,8 +177,11 @@ export function ContactSection() {
                   {/* Name + Company */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Name *</label>
+                      <label htmlFor="contact-name" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Name *</label>
                       <input
+                        id="contact-name"
+                        name="name"
+                        autoComplete="name"
                         required
                         type="text"
                         value={formState.name}
@@ -186,8 +191,11 @@ export function ContactSection() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Company</label>
+                      <label htmlFor="contact-company" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Company</label>
                       <input
+                        id="contact-company"
+                        name="company"
+                        autoComplete="organization"
                         type="text"
                         value={formState.company}
                         onChange={(e) => setFormState((p) => ({ ...p, company: e.target.value }))}
@@ -199,8 +207,11 @@ export function ContactSection() {
 
                   {/* Email */}
                   <div>
-                    <label className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Email *</label>
+                    <label htmlFor="contact-email" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Email *</label>
                     <input
+                      id="contact-email"
+                      name="email"
+                      autoComplete="email"
                       required
                       type="email"
                       value={formState.email}
@@ -211,13 +222,14 @@ export function ContactSection() {
                   </div>
 
                   {/* Service */}
-                  <div>
-                    <label className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Service</label>
+                  <div role="group" aria-label="Service">
+                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Service</span>
                     <div className="flex flex-wrap gap-2">
                       {serviceOptions.map((s) => (
                         <button
                           key={s}
                           type="button"
+                          aria-pressed={formState.service === s}
                           onClick={() => setFormState((p) => ({ ...p, service: s }))}
                           className={`text-xs px-3 py-2 border transition-all duration-200 ${
                             formState.service === s
@@ -233,13 +245,14 @@ export function ContactSection() {
                   </div>
 
                   {/* Budget */}
-                  <div>
-                    <label className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Budget</label>
+                  <div role="group" aria-label="Budget">
+                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Budget</span>
                     <div className="flex flex-wrap gap-2">
                       {budgetOptions.map((b) => (
                         <button
                           key={b}
                           type="button"
+                          aria-pressed={formState.budget === b}
                           onClick={() => setFormState((p) => ({ ...p, budget: b }))}
                           className={`text-xs px-3 py-2 border transition-all duration-200 ${
                             formState.budget === b
@@ -256,8 +269,10 @@ export function ContactSection() {
 
                   {/* Message */}
                   <div>
-                    <label className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Tell us your situation</label>
+                    <label htmlFor="contact-message" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Tell us your situation</label>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState((p) => ({ ...p, message: e.target.value }))}
@@ -282,7 +297,7 @@ export function ContactSection() {
 
                   {/* Error message */}
                   {error && (
-                    <div className="border border-[#D6001C]/40 bg-[#D6001C]/10 text-[#FF6B7A] text-sm px-4 py-3">
+                    <div role="alert" aria-live="assertive" className="border border-[#D6001C]/40 bg-[#D6001C]/10 text-[#FF6B7A] text-sm px-4 py-3">
                       {error}
                     </div>
                   )}
