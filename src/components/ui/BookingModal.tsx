@@ -144,9 +144,12 @@ export function BookingModal({
             onClick={onClose}
           />
 
-          {/* modal */}
+          {/* modal — data-lenis-prevent lets it scroll natively on touch
+              (Lenis would otherwise capture the gesture); dvh keeps the
+              bottom above the mobile browser chrome. */}
           <m.div
-            className="relative w-full max-w-3xl bg-[#070708] border border-white/15 max-h-[90vh] overflow-y-auto"
+            data-lenis-prevent
+            className="relative w-full max-w-3xl bg-[#070708] border border-white/15 max-h-[90dvh] overflow-y-auto overscroll-contain"
             initial={{ scale: 0.94, y: 20, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.96, y: 10, opacity: 0 }}
