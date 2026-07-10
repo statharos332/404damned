@@ -84,10 +84,10 @@ export const projects: Project[] = [
         ],
 
         media: [
-            { type: "video", src: "/work/skg-vip-transfers/shot-1.mp4", ratio: "portrait" },
-            { type: "video", src: "/work/skg-vip-transfers/clip-1.mp4", ratio: "landscape", poster: "/work/skg-vip-transfers/shot-2.webp" },
-            { type: "image", src: "/work/skg-vip-transfers/shot-2.webp", ratio: "landscape" },
-            { type: "video", src: "/work/skg-vip-transfers/cover.mp4", ratio: "portrait" }
+            { type: "video", src: "/work/skg-vip-transfers/shot-1.mp4", aspect: "962 / 1530" },
+            { type: "video", src: "/work/skg-vip-transfers/clip-1.mp4", aspect: "1280 / 710", poster: "/work/skg-vip-transfers/shot-2.webp" },
+            { type: "image", src: "/work/skg-vip-transfers/shot-2.webp", aspect: "1280 / 706" },
+            { type: "video", src: "/work/skg-vip-transfers/cover.mp4", aspect: "972 / 1530" }
         ],
 
         tags: ["Booking System", "CRO", "Performance", "UX"],
@@ -124,10 +124,10 @@ export const projects: Project[] = [
             { label: "Manual effort", value: "Eliminated" }
         ],
         media: [
-            { type: "video", src: "/work/etsyboost-ai/shot-1.mp4", ratio: "portrait", poster: "/work/etsyboost-ai/shot-1.webp" },
-            { type: "video", src: "/work/etsyboost-ai/shot-3.mp4", ratio: "portrait" },
-            { type: "video", src: "/work/etsyboost-ai/shot-2.mp4", ratio: "landscape" },
-            { type: "image", src: "/work/etsyboost-ai/cover.svg", ratio: "portrait" }
+            { type: "video", src: "/work/etsyboost-ai/shot-1.mp4", aspect: "962 / 1530", poster: "/work/etsyboost-ai/shot-1.webp" },
+            { type: "video", src: "/work/etsyboost-ai/shot-3.mp4", aspect: "1542 / 1530" },
+            { type: "video", src: "/work/etsyboost-ai/shot-2.mp4", aspect: "1280 / 704" },
+            { type: "image", src: "/work/etsyboost-ai/cover.svg", aspect: "1600 / 1000" }
         ],
         tags: ["AI", "Automation", "SEO"],
         gallery: [

@@ -143,13 +143,16 @@ function WorkRow({
                 {project.summary}
               </p>
 
-              {/* horizontal scroll media strip — each item keeps its true
-                  proportions (fixed height, natural width, zero cropping) */}
-              <div className="flex gap-4 overflow-x-auto pb-4 -mx-1 px-1 snap-x scrollbar-thin items-center">
+              {/* media gallery — every tile is sized to the media's EXACT
+                  aspect ratio (zero cropping). On mobile each tile is
+                  full-width and stacks; on larger screens they flow into a
+                  wrapping row at a controlled height so nothing is huge and
+                  everything stays fully visible (no horizontal scrolling). */}
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 sm:items-center">
                 {project.media.map((m, idx) => (
                   <div
                     key={idx}
-                    className="group/media relative shrink-0 snap-start h-[300px] md:h-[420px] bg-[#0a0a0a] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#00E5FF]/40"
+                    className="group/media relative w-full sm:w-auto sm:h-[300px] lg:h-[360px] sm:shrink-0 max-w-full bg-[#0a0a0a] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#00E5FF]/40"
                     style={{
                       aspectRatio:
                         m.aspect ?? (m.ratio === "portrait" ? "4 / 5" : "3 / 2"),
