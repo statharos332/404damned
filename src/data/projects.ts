@@ -16,17 +16,13 @@ export interface ProjectResult {
   value: string; // e.g. "+212%"
 }
 
-// A single tile in the horizontal media strip — image OR video.
+// A single tile in the project media gallery — image OR video.
+// It renders at the file's own natural size (no forced aspect, no crop),
+// so just drop any image/video in and it sits as-is.
 export interface MediaItem {
   type: "image" | "video";
   src: string; // /work/<slug>/...
-  // portrait tiles read as 4:5, landscape as 3:2 — mix them like Lama Lama
-  ratio?: "portrait" | "landscape";
-  // OPTIONAL: exact aspect ratio of the real file, e.g. "16/9", "9/16",
-  // "1/1", "4/3". Set this and the tile matches the media EXACTLY — no
-  // cropping, no letterbox. If omitted, falls back to `ratio` above.
-  aspect?: string;
-  poster?: string; // optional poster for videos
+  poster?: string; // optional poster shown for videos until they load
 }
 
 export interface Project {
@@ -84,10 +80,10 @@ export const projects: Project[] = [
         ],
 
         media: [
-            { type: "video", src: "/work/skg-vip-transfers/shot-1.mp4", aspect: "962 / 1530" },
-            { type: "video", src: "/work/skg-vip-transfers/clip-1.mp4", aspect: "1280 / 710", poster: "/work/skg-vip-transfers/shot-2.webp" },
-            { type: "image", src: "/work/skg-vip-transfers/shot-2.webp", aspect: "1280 / 706" },
-            { type: "video", src: "/work/skg-vip-transfers/cover.mp4", aspect: "972 / 1530" }
+            { type: "video", src: "/work/skg-vip-transfers/shot-1.mp4" },
+            { type: "video", src: "/work/skg-vip-transfers/clip-1.mp4", poster: "/work/skg-vip-transfers/shot-2.webp" },
+            { type: "image", src: "/work/skg-vip-transfers/shot-2.webp" },
+            { type: "video", src: "/work/skg-vip-transfers/cover.mp4" }
         ],
 
         tags: ["Booking System", "CRO", "Performance", "UX"],
@@ -124,10 +120,10 @@ export const projects: Project[] = [
             { label: "Manual effort", value: "Eliminated" }
         ],
         media: [
-            { type: "video", src: "/work/etsyboost-ai/shot-1.mp4", aspect: "962 / 1530", poster: "/work/etsyboost-ai/shot-1.webp" },
-            { type: "video", src: "/work/etsyboost-ai/shot-3.mp4", aspect: "1542 / 1530" },
-            { type: "video", src: "/work/etsyboost-ai/shot-2.mp4", aspect: "1280 / 704" },
-            { type: "image", src: "/work/etsyboost-ai/cover.svg", aspect: "1600 / 1000" }
+            { type: "video", src: "/work/etsyboost-ai/shot-1.mp4", poster: "/work/etsyboost-ai/shot-1.webp" },
+            { type: "video", src: "/work/etsyboost-ai/shot-3.mp4" },
+            { type: "video", src: "/work/etsyboost-ai/shot-2.mp4" },
+            { type: "image", src: "/work/etsyboost-ai/cover.svg" }
         ],
         tags: ["AI", "Automation", "SEO"],
         gallery: [

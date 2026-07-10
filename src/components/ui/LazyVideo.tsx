@@ -3,19 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * A self-lazy video: loads (preload=none) and plays only when scrolled
- * into view, pauses when it leaves, and fades in over its poster.
- * Works for both vertical and horizontal (overflow) scrolling.
+ * A self-lazy video that renders at the file's OWN natural aspect ratio —
+ * no forced dimensions, no cropping. Whatever you drop in just sits as it
+ * is. Sizing is entirely controlled by the `className` you pass (e.g.
+ * `w-full h-auto` or `max-h-[400px] w-auto`).
  *
- * Once it has entered the viewport the <source> is kept mounted forever —
- * we only toggle play/pause after that. (Previously the src was removed
- * when the video scrolled out, and re-adding it raced with the play()
- * call, so videos never resumed after a horizontal scroll.)
+ * It loads (preload=none) and plays only when scrolled into view, pauses
+ * when it leaves. Once it has entered the viewport the source stays mounted
+ * forever — we only toggle play/pause after that — so videos always resume
+ * after a scroll (vertical or horizontal).
  */
 export function LazyVideo({
   src,
   poster,
-  className = "w-full h-full object-cover",
+  className = "w-full h-auto",
 }: {
   src: string;
   poster?: string;
@@ -62,24 +63,12 @@ export function LazyVideo({
   }, [inView, loaded]);
 
   return (
-    <div ref={wrapRef} className="relative w-full h-full">
-      {poster && (
-        <img
-          src={poster}
-          alt=""
-          aria-hidden="true"
-          className={className}
-          style={{
-            position: "absolute",
-            inset: 0,
-            opacity: loaded ? 0 : 1,
-            transition: "opacity .4s",
-          }}
-        />
-      )}
+    // The <video> is in normal flow and defines the box at its true aspect;
+    // the poster overlays it and fades out once the video is loaded.
+    <div ref={wrapRef} className="relative">
       <video
         ref={videoRef}
-        className={className}
+        className={`block ${className}`}
         src={loaded ? src : undefined}
         poster={poster}
         muted
@@ -88,6 +77,15 @@ export function LazyVideo({
         preload="none"
         style={{ opacity: loaded ? 1 : 0, transition: "opacity .4s" }}
       />
+      {poster && (
+        <img
+          src={poster}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          style={{ opacity: loaded ? 0 : 1, transition: "opacity .4s" }}
+        />
+      )}
     </div>
   );
 }
