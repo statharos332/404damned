@@ -6,6 +6,7 @@ import { CoverMedia } from "@/components/ui/CoverMedia";
 import { projects, getProject } from "@/data/projects";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 // Pre-render every case study at build time (fast + SEO-friendly)
 export function generateStaticParams() {
@@ -72,12 +73,21 @@ export default async function ProjectPage({
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(idx + 1) % projects.length];
 
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Work", path: "/work" },
+    { name: `${project.client} — ${project.title}`, path: `/work/${project.slug}` },
+  ]);
+
   return (
     <main className="relative bg-[#050505] min-h-screen">
       <Navigation />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
       {/* Hero */}

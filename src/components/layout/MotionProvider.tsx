@@ -1,6 +1,12 @@
 "use client";
 
-import { LazyMotion, domAnimation } from "framer-motion";
+import { LazyMotion } from "framer-motion";
+
+// Dynamically import the DOM animation feature set so it is only fetched when a
+// page actually renders an `m.*` component. Pages with no motion (legal,
+// insights, 404) never download the framer feature bundle at all.
+const loadFeatures = () =>
+  import("framer-motion").then((mod) => mod.domAnimation);
 
 /**
  * Loads only the DOM animation feature set of Framer Motion, lazily, instead of
@@ -11,7 +17,7 @@ import { LazyMotion, domAnimation } from "framer-motion";
  */
 export function MotionProvider({ children }: { children: React.ReactNode }) {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={loadFeatures} strict>
       {children}
     </LazyMotion>
   );

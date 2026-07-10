@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { m, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useBooking } from "@/components/ui/BookingProvider";
 import { useShowreel } from "@/components/ui/ShowreelProvider";
@@ -27,11 +26,9 @@ export function Navigation() {
 
   return (
     <>
-      <m.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] px-6 md:px-12 py-5 transition-all duration-500 ${
+      {/* Entrance is CSS (.nav-enter) — no framer-motion on every page */}
+      <nav
+        className={`nav-enter fixed top-0 left-0 right-0 z-[100] px-6 md:px-12 py-5 transition-all duration-500 ${
           scrolled
             ? "bg-[#050505]/90 backdrop-blur-xl border-b border-white/5"
             : ""
@@ -77,88 +74,82 @@ export function Navigation() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden relative z-50 w-8 h-6 flex flex-col justify-between"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
-            <m.span
-              animate={menuOpen ? { rotate: 45, y: 10 } : { rotate: 0, y: 0 }}
-              className="block w-full h-px bg-white origin-left"
+            <span
+              className={`block w-full h-px bg-white origin-left transition-transform duration-300 ${
+                menuOpen ? "rotate-45 translate-y-[3px]" : ""
+              }`}
             />
-            <m.span
-              animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-              className="block w-full h-px bg-white"
+            <span
+              className={`block w-full h-px bg-white transition-all duration-300 ${
+                menuOpen ? "opacity-0 scale-x-0" : ""
+              }`}
             />
-            <m.span
-              animate={menuOpen ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }}
-              className="block w-full h-px bg-white origin-left"
+            <span
+              className={`block w-full h-px bg-white origin-left transition-transform duration-300 ${
+                menuOpen ? "-rotate-45 -translate-y-[3px]" : ""
+              }`}
             />
           </button>
         </div>
-      </m.nav>
+      </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <m.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[90] bg-[#050505] flex flex-col justify-center px-8"
-          >
-            <div className="flex flex-col gap-8">
-              {navLinks.map((link, i) => (
-                <m.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-5xl font-bold tracking-tight hover:text-[#D6001C] transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </m.div>
-              ))}
-              <m.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.45 }}
+      {/* Mobile Menu — always mounted, slides via CSS (.mobile-menu) */}
+      <div
+        className="mobile-menu md:hidden fixed inset-0 z-[90] bg-[#050505] flex flex-col justify-center px-8"
+        data-open={menuOpen}
+        aria-hidden={!menuOpen}
+      >
+        <div className="flex flex-col gap-8">
+          {navLinks.map((link, i) => (
+            <div
+              key={link.href}
+              className="mobile-menu-item"
+              style={{ transitionDelay: menuOpen ? `${0.1 + i * 0.08}s` : "0s" }}
+            >
+              <Link
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-5xl font-bold tracking-tight hover:text-[#D6001C] transition-colors duration-300"
               >
-                <button
-                  onClick={() => {
-                    setMenuOpen(false);
-                    openShowreel();
-                  }}
-                  className="flex items-center gap-3 text-2xl font-bold tracking-tight text-white hover:text-[#00E5FF] transition-colors"
-                >
-                  <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#D6001C]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D6001C] animate-pulse" />
-                    REC
-                  </span>
-                  Watch Showreel
-                  <span className="text-[#00E5FF]">▶</span>
-                </button>
-              </m.div>
-              <m.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="mt-8"
-              >
-                <Link
-                  href="#contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="inline-block text-sm font-bold tracking-wider uppercase bg-[#D6001C] text-white px-8 py-4"
-                >
-                  Book a Strategy Call
-                </Link>
-              </m.div>
+                {link.label}
+              </Link>
             </div>
-          </m.div>
-        )}
-      </AnimatePresence>
+          ))}
+          <div
+            className="mobile-menu-item"
+            style={{ transitionDelay: menuOpen ? "0.45s" : "0s" }}
+          >
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                openShowreel();
+              }}
+              className="flex items-center gap-3 text-2xl font-bold tracking-tight text-white hover:text-[#00E5FF] transition-colors"
+            >
+              <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#D6001C]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6001C] animate-pulse" />
+                REC
+              </span>
+              Watch Showreel
+              <span className="text-[#00E5FF]">▶</span>
+            </button>
+          </div>
+          <div
+            className="mobile-menu-item mt-8"
+            style={{ transitionDelay: menuOpen ? "0.5s" : "0s" }}
+          >
+            <Link
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="inline-block text-sm font-bold tracking-wider uppercase bg-[#D6001C] text-white px-8 py-4"
+            >
+              Book a Strategy Call
+            </Link>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

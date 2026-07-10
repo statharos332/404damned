@@ -44,30 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     ...postPages,
-    {
-      url: `${BASE_URL}/#services`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/#process`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/#pricing`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/#contact`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.9,
-    },
     ...["privacy-policy", "terms-of-service", "cookie-policy"].map((slug) => ({
       url: `${BASE_URL}/${slug}`,
       lastModified: now,

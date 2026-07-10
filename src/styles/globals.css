@@ -586,3 +586,83 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Framer-free chrome entrances ───────────────────────────
+   Navigation + Showreel widget used to animate in via framer-motion,
+   pulling the whole framer bundle onto every page (incl. static
+   content pages). These CSS entrances replace that so legal/insights
+   ship zero framer JS. Reduced-motion block above neutralises them. */
+@keyframes navEnter {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-enter {
+  animation: navEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+@keyframes chromePop {
+  from { opacity: 0; transform: translateY(-12px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.chrome-pop {
+  animation: chromePop 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Mobile menu: slide in/out via a data-state class (no AnimatePresence) */
+.mobile-menu {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
+}
+.mobile-menu[data-open="true"] {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu-item {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu[data-open="true"] .mobile-menu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── 404 glitch headline ────────────────────────────────────
+   Two coloured, clip-path-sliced copies drift over the base text. */
+.glitch-404 {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+}
+.glitch-404::before,
+.glitch-404::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.glitch-404::before {
+  color: #D6001C;
+  animation: glitch404A 2.6s infinite steps(2, end);
+  clip-path: inset(0 0 0 0);
+}
+.glitch-404::after {
+  color: #00E5FF;
+  animation: glitch404B 3.1s infinite steps(2, end);
+  clip-path: inset(0 0 0 0);
+}
+@keyframes glitch404A {
+  0%, 92%, 100% { transform: translate(0); clip-path: inset(0 0 100% 0); }
+  93% { transform: translate(-4px, 2px); clip-path: inset(10% 0 55% 0); }
+  95% { transform: translate(3px, -2px); clip-path: inset(60% 0 15% 0); }
+  97% { transform: translate(-2px, 1px); clip-path: inset(30% 0 40% 0); }
+}
+@keyframes glitch404B {
+  0%, 90%, 100% { transform: translate(0); clip-path: inset(100% 0 0 0); }
+  91% { transform: translate(4px, -1px); clip-path: inset(45% 0 30% 0); }
+  94% { transform: translate(-3px, 2px); clip-path: inset(20% 0 60% 0); }
+  96% { transform: translate(2px, -2px); clip-path: inset(70% 0 5% 0); }
+}

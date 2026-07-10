@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, m } from "framer-motion";
 import { useShowreel } from "./ShowreelProvider";
 
 const REEL_MP4 = "/video/showreel_preview.mp4";
@@ -64,21 +63,21 @@ export function Showreel() {
   if (pathname !== "/" || !isDesktop) return null;
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <m.div
-          initial={{ opacity: 0, y: -16, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          /* hidden on mobile, fixed under the logo on desktop */
-          className="hidden md:block fixed z-[60] top-24 left-6 lg:left-10 w-[200px]"
-        >
-          <button
-            onClick={openShowreel}
-            className="group relative block w-full text-left"
-            aria-label="Play showreel"
-          >
+    /* hidden on mobile, fixed under the logo on desktop.
+       Visibility toggles via CSS (no framer-motion). */
+    <div
+      className={`hidden md:block fixed z-[60] top-24 left-6 lg:left-10 w-[200px] transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        visible
+          ? "opacity-100 translate-y-0 scale-100"
+          : "opacity-0 -translate-y-4 scale-90 pointer-events-none"
+      }`}
+      aria-hidden={!visible}
+    >
+      <button
+        onClick={openShowreel}
+        className="group relative block w-full text-left"
+        aria-label="Play showreel"
+      >
             <span className="absolute inset-0 border border-[#D6001C] translate-x-1.5 translate-y-1.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" />
 
             <div className="relative border border-white/20 bg-[#050505] overflow-hidden">
@@ -125,8 +124,6 @@ export function Showreel() {
               </div>
             </div>
           </button>
-        </m.div>
-      )}
-    </AnimatePresence>
+    </div>
   );
 }

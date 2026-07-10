@@ -3,6 +3,7 @@ import Link from "next/link";
 import { posts } from "@/data/posts";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Insights — Web, E-Commerce & AI",
@@ -19,8 +20,13 @@ export const metadata: Metadata = {
 
 export default function InsightsPage() {
   const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const breadcrumbs = breadcrumbJsonLd([{ name: "Insights", path: "/insights" }]);
   return (
     <main className="relative bg-[#050505] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <Navigation />
 
       <header className="max-w-[1100px] mx-auto px-6 pt-40 pb-16">

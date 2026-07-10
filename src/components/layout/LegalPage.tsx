@@ -2,14 +2,22 @@ import Link from "next/link";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { COMPANY, type LegalDoc } from "@/data/legal";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 /**
  * Shared renderer for the legal pages (privacy / terms / cookies).
  * Matches the studio's dark, editorial look used across insights.
  */
 export function LegalPage({ doc }: { doc: LegalDoc }) {
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: doc.metaTitle, path: `/${doc.slug}` },
+  ]);
   return (
     <main className="relative bg-[#050505] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <Navigation />
 
       <header className="max-w-[820px] mx-auto px-6 pt-40 pb-14">

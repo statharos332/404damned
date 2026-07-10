@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { WorkExplorer } from "@/components/sections/WorkExplorer";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Our Work — Case Studies",
@@ -18,8 +19,13 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
+  const breadcrumbs = breadcrumbJsonLd([{ name: "Work", path: "/work" }]);
   return (
     <main className="relative bg-[#050505] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <Navigation />
 
       {/* Header */}

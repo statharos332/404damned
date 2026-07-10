@@ -4,6 +4,7 @@ import Link from "next/link";
 import { posts, getPost } from "@/data/posts";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -66,12 +67,21 @@ export default async function PostPage({
   const idx = posts.findIndex((p) => p.slug === post.slug);
   const next = posts[(idx + 1) % posts.length];
 
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Insights", path: "/insights" },
+    { name: post.title, path: `/insights/${post.slug}` },
+  ]);
+
   return (
     <main className="relative bg-[#050505] min-h-screen">
       <Navigation />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
       <article className="max-w-[760px] mx-auto px-6 pt-40 pb-24">

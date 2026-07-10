@@ -80,7 +80,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "404 DAMNED — Premium Digital Agency Amsterdam",
     description: "We don't build websites. We build digital weapons.",
-    creator: "@404damned",
     // twitter image also comes from opengraph-image.tsx
   },
   alternates: {
@@ -112,9 +111,7 @@ const structuredData = {
   slogan: "We don't build websites. We build digital weapons.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Keizersgracht 123",
     addressLocality: "Amsterdam",
-    postalCode: "1015 CJ",
     addressRegion: "North Holland",
     addressCountry: "NL",
   },
@@ -137,8 +134,7 @@ const structuredData = {
   ],
   sameAs: [
     "https://www.linkedin.com/company/404damned",
-    "https://www.instagram.com/404damned",
-    "https://twitter.com/404damned",
+    "https://www.instagram.com/404_damned",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -160,6 +156,20 @@ const structuredData = {
   },
 };
 
+// Site-level identity — links every page back to the organization so Google
+// understands the whole domain belongs to one brand (helps sitelinks/knowledge).
+const websiteData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.404damned.com/#website",
+  url: "https://www.404damned.com",
+  name: "404 DAMNED",
+  description:
+    "Premium digital agency in Amsterdam — web development, e-commerce, AI automation, branding and SEO.",
+  inLanguage: "en",
+  publisher: { "@id": "https://www.404damned.com/#organization" },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -171,6 +181,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
         />
       </head>
       <body className="bg-black text-white antialiased overflow-x-hidden">

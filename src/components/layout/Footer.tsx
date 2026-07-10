@@ -64,14 +64,19 @@ export function Footer() {
                 Premium digital agency in Amsterdam. We build digital weapons for ambitious brands.
               </p>
               <div className="flex gap-4 mt-6">
-                {["LinkedIn", "Instagram", "Twitter"].map((social) => (
-                  <Link
-                    key={social}
-                    href="#"
+                {[
+                  { label: "LinkedIn", href: "https://www.linkedin.com/company/404damned" },
+                  { label: "Instagram", href: "https://www.instagram.com/404_damned" },
+                ].map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs text-gray-600 hover:text-[#D6001C] tracking-wider uppercase transition-colors duration-300"
                   >
-                    {social}
-                  </Link>
+                    {social.label}
+                  </a>
                 ))}
               </div>
             </div>
