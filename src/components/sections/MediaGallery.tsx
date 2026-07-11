@@ -61,13 +61,13 @@ export function MediaGallery({ project }: { project: Project }) {
             key={idx}
             onClick={() => setOpen(idx)}
             aria-label={`Open ${project.client} media ${idx + 1} of ${media.length}`}
-            className="group/cell relative shrink-0 h-16 sm:h-20 overflow-hidden border border-white/10 bg-[#0a0a0a] transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[#00E5FF] focus-visible:outline-none focus-visible:border-[#00E5FF] cursor-pointer"
+            className="group/cell relative shrink-0 h-24 sm:h-28 overflow-hidden border border-white/10 bg-[#0a0a0a] transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[#00E5FF] focus-visible:outline-none focus-visible:border-[#00E5FF] cursor-pointer"
           >
             {mi.type === "video" ? (
               <LazyVideo
                 src={mi.src}
                 poster={mi.poster}
-                className="h-16 sm:h-20 w-auto object-cover opacity-80 transition-opacity duration-300 group-hover/cell:opacity-100"
+                className="h-24 sm:h-28 w-auto object-cover opacity-80 transition-opacity duration-300 group-hover/cell:opacity-100"
               />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
@@ -76,7 +76,7 @@ export function MediaGallery({ project }: { project: Project }) {
                 alt={`${project.client} ${idx + 1}`}
                 loading="lazy"
                 decoding="async"
-                className="block h-16 sm:h-20 w-auto object-cover opacity-80 transition-opacity duration-300 group-hover/cell:opacity-100"
+                className="block h-24 sm:h-28 w-auto object-cover opacity-80 transition-opacity duration-300 group-hover/cell:opacity-100"
               />
             )}
             {/* index tag */}
@@ -143,91 +143,94 @@ export function MediaGallery({ project }: { project: Project }) {
               </div>
             </div>
 
-            {/* stage */}
-            <div className="relative z-10 flex-1 min-h-0 flex items-center justify-center px-4 sm:px-16">
-              {/* prev / next */}
-              {media.length > 1 && (
-                <>
-                  <button
-                    onClick={() => go(-1)}
-                    aria-label="Previous"
-                    className="absolute left-2 sm:left-5 z-20 w-11 h-11 flex items-center justify-center border border-white/15 bg-black/30 text-white/70 hover:text-[#00E5FF] hover:border-[#00E5FF] transition-colors font-mono text-lg focus-visible:outline-none focus-visible:border-[#00E5FF]"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    onClick={() => go(1)}
-                    aria-label="Next"
-                    className="absolute right-2 sm:right-5 z-20 w-11 h-11 flex items-center justify-center border border-white/15 bg-black/30 text-white/70 hover:text-[#00E5FF] hover:border-[#00E5FF] transition-colors font-mono text-lg focus-visible:outline-none focus-visible:border-[#00E5FF]"
-                  >
-                    ›
-                  </button>
-                </>
-              )}
+            {/* body: stage + filmstrip (vertical on the right, bottom on mobile) */}
+            <div className="relative z-10 flex-1 min-h-0 flex flex-col sm:flex-row">
+              {/* stage */}
+              <div className="relative flex-1 min-h-0 flex items-center justify-center px-4 sm:px-8 py-2">
+                {/* prev / next */}
+                {media.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => go(-1)}
+                      aria-label="Previous"
+                      className="absolute left-2 sm:left-4 z-20 w-11 h-11 flex items-center justify-center border border-white/15 bg-black/30 text-white/70 hover:text-[#00E5FF] hover:border-[#00E5FF] transition-colors font-mono text-lg focus-visible:outline-none focus-visible:border-[#00E5FF]"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      onClick={() => go(1)}
+                      aria-label="Next"
+                      className="absolute right-2 sm:right-4 z-20 w-11 h-11 flex items-center justify-center border border-white/15 bg-black/30 text-white/70 hover:text-[#00E5FF] hover:border-[#00E5FF] transition-colors font-mono text-lg focus-visible:outline-none focus-visible:border-[#00E5FF]"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
 
-              <AnimatePresence mode="wait" initial={false}>
-                <m.div
-                  key={open}
-                  className="relative border border-white/15 shadow-[0_0_80px_rgba(0,0,0,0.6)] overflow-hidden"
-                  initial={
-                    reduce
-                      ? { opacity: 0 }
-                      : { opacity: 0, scale: 0.94, y: 10 }
-                  }
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.4, ease }}
-                >
-                  {/* electric frame accent */}
-                  <span className="pointer-events-none absolute inset-0 z-10 border border-[#00E5FF]/0 [box-shadow:inset_0_0_0_1px_rgba(0,229,255,0.15)]" />
-                  {media[open].type === "video" ? (
-                    <LazyVideo
-                      src={media[open].src}
-                      poster={media[open].poster}
-                      className="max-h-[74vh] max-w-[90vw] w-auto h-auto"
-                    />
-                  ) : (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={media[open].src}
-                      alt={`${project.client} ${open + 1}`}
-                      className="block max-h-[74vh] max-w-[90vw] w-auto h-auto"
-                    />
-                  )}
-                </m.div>
-              </AnimatePresence>
-            </div>
+                <AnimatePresence mode="wait" initial={false}>
+                  <m.div
+                    key={open}
+                    className="relative border border-white/15 shadow-[0_0_80px_rgba(0,0,0,0.6)] overflow-hidden"
+                    initial={
+                      reduce
+                        ? { opacity: 0 }
+                        : { opacity: 0, scale: 0.94, y: 10 }
+                    }
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.4, ease }}
+                  >
+                    {/* electric frame accent */}
+                    <span className="pointer-events-none absolute inset-0 z-10 border border-[#00E5FF]/0 [box-shadow:inset_0_0_0_1px_rgba(0,229,255,0.15)]" />
+                    {media[open].type === "video" ? (
+                      <LazyVideo
+                        src={media[open].src}
+                        poster={media[open].poster}
+                        className="max-h-[56vh] sm:max-h-[80vh] max-w-[92vw] sm:max-w-[70vw] w-auto h-auto"
+                      />
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={media[open].src}
+                        alt={`${project.client} ${open + 1}`}
+                        className="block max-h-[56vh] sm:max-h-[80vh] max-w-[92vw] sm:max-w-[70vw] w-auto h-auto"
+                      />
+                    )}
+                  </m.div>
+                </AnimatePresence>
+              </div>
 
-            {/* filmstrip */}
-            <div className="relative z-10 flex justify-center gap-2 px-5 py-5 overflow-x-auto scrollbar-thin">
-              {media.map((mi, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setOpen(idx)}
-                  aria-label={`Go to media ${idx + 1}`}
-                  aria-current={idx === open}
-                  className={`relative shrink-0 h-12 w-16 overflow-hidden border transition-all duration-300 ${
-                    idx === open
-                      ? "border-[#00E5FF] opacity-100"
-                      : "border-white/10 opacity-50 hover:opacity-90"
-                  }`}
-                >
-                  {mi.poster || mi.type === "image" ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={mi.poster ?? mi.src}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <span className="w-full h-full flex items-center justify-center bg-[#0a0a0a] font-mono text-[0.55rem] text-white/50">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                  )}
-                </button>
-              ))}
+              {/* filmstrip — horizontal bottom on mobile, vertical column on the right on desktop */}
+              <div className="shrink-0 flex sm:flex-col gap-2 items-center justify-center sm:justify-center px-5 py-4 sm:px-4 sm:py-6 sm:w-28 lg:w-32 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto scrollbar-thin">
+                {media.map((mi, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setOpen(idx)}
+                    aria-label={`Go to media ${idx + 1}`}
+                    aria-current={idx === open}
+                    className={`relative shrink-0 h-12 w-16 sm:w-full sm:h-16 lg:h-20 overflow-hidden border transition-all duration-300 ${
+                      idx === open
+                        ? "border-[#00E5FF] opacity-100"
+                        : "border-white/10 opacity-50 hover:opacity-90"
+                    }`}
+                  >
+                    {mi.poster || mi.type === "image" ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={mi.poster ?? mi.src}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="w-full h-full flex items-center justify-center bg-[#0a0a0a] font-mono text-[0.55rem] text-white/50">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
           </m.div>
         )}
