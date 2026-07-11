@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { LazyVideo } from "@/components/ui/LazyVideo";
+import { MediaGallery } from "@/components/sections/MediaGallery";
 import { AnimatePresence, m } from "framer-motion";
 import { projects, getCategories, type Project } from "@/data/projects";
 
@@ -142,39 +142,9 @@ function WorkRow({
                 {project.summary}
               </p>
 
-              {/* media gallery — each tile renders at the file's OWN natural
-                  size. No forced aspect, no cropping: whatever you drop in
-                  just sits as it is. Full-width and stacked on mobile; on
-                  larger screens they flow into a wrapping row, capped only by
-                  a max-height so nothing gets huge. */}
-              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 sm:items-start">
-                {project.media.map((m, idx) => (
-                  <div
-                    key={idx}
-                    className="group/media relative w-full sm:w-auto max-w-full bg-[#0a0a0a] border border-white/5 overflow-hidden transition-colors duration-500 hover:border-[#00E5FF]/40"
-                  >
-                    {m.type === "video" ? (
-                      <LazyVideo
-                        src={m.src}
-                        poster={m.poster}
-                        className="w-full h-auto sm:w-auto sm:max-h-[340px] lg:max-h-[400px] max-w-full transition-transform duration-700 group-hover/media:scale-[1.04]"
-                      />
-                    ) : (
-                      <img
-                        src={m.src}
-                        alt={`${project.client} ${idx + 1}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="block w-full h-auto sm:w-auto sm:max-h-[340px] lg:max-h-[400px] max-w-full transition-transform duration-700 group-hover/media:scale-[1.04]"
-                      />
-                    )}
-                    <span className="absolute top-3 left-3 z-10 font-mono text-[0.55rem] uppercase tracking-widest text-white/50 group-hover/media:text-[#00E5FF] transition-colors">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <div className="absolute inset-0 scanlines opacity-0 group-hover/media:opacity-100 transition-opacity pointer-events-none" />
-                  </div>
-                ))}
-              </div>
+              {/* Contact-sheet gallery: a row of small living thumbnails that
+                  expand into a cinematic lightbox on click. */}
+              <MediaGallery project={project} />
 
               {/* result chips + CTAs */}
               <div className="flex flex-wrap items-end justify-between gap-6 mt-6">
