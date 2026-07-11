@@ -18,6 +18,12 @@ const linkHrefs: Record<string, string> = {
   "Privacy Policy": "/privacy-policy",
   "Terms of Service": "/terms-of-service",
   "Cookie Policy": "/cookie-policy",
+  "Web Development": "/services/web-development",
+  "E-Commerce": "/services/ecommerce",
+  "AI Automation": "/services/ai-automation",
+  Branding: "/services/branding",
+  SEO: "/services/seo",
+  "Social Media": "/services/social-media",
 };
 
 export function Footer() {

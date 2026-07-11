@@ -6,7 +6,7 @@ import { useBooking } from "@/components/ui/BookingProvider";
 import { useShowreel } from "@/components/ui/ShowreelProvider";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
   { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "#pricing" },

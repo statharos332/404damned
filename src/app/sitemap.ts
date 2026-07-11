@@ -1,11 +1,20 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { posts } from "@/data/posts";
+import { services } from "@/data/services";
 
 const BASE_URL = "https://www.404damned.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+
+  // Service landing pages — the commercial money pages
+  const servicePages: MetadataRoute.Sitemap = services.map((s) => ({
+    url: `${BASE_URL}/services/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
 
   // Each case study gets its own indexable URL
   const workPages: MetadataRoute.Sitemap = projects.map((p) => ({
@@ -30,6 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    {
+      url: `${BASE_URL}/services`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    ...servicePages,
     {
       url: `${BASE_URL}/work`,
       lastModified: now,
