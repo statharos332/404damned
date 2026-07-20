@@ -109,6 +109,31 @@ const structuredData = {
   priceRange: "€€€€",
   foundingDate: "2017",
   slogan: "We don't build websites. We build digital weapons.",
+  founder: {
+    "@type": "Person",
+    "@id": "https://www.404damned.com/about#nick-grigoriadis",
+    name: "Nick Grigoriadis",
+  },
+  employee: [
+    {
+      "@type": "Person",
+      "@id": "https://www.404damned.com/about#nick-grigoriadis",
+      name: "Nick Grigoriadis",
+      jobTitle: "Founder — Management & Project Management",
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.404damned.com/about#stathis-papounidis",
+      name: "Stathis Papounidis",
+      jobTitle: "Developer & Designer",
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.404damned.com/about#tatiana-petsiou",
+      name: "Tatiana Petsiou",
+      jobTitle: "Web Developer & Digital Marketing",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Amsterdam",

@@ -22,7 +22,9 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return { title: "Work" };
 
-  const title = `${project.client} — ${project.title}`;
+  // Keep the SERP title short — the full descriptive title lives as the
+  // on-page H1; a long title here just gets truncated with "..." in Google.
+  const title = `${project.client} — ${project.category} Case Study`;
   const description = project.summary;
   return {
     title,

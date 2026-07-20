@@ -9,42 +9,36 @@ const services = [
     title: "Web Development",
     description: "Custom Next.js, React and WordPress builds engineered for performance, conversion and scale. No templates. Pure code.",
     tags: ["Next.js", "React", "TypeScript", "Performance"],
-    metric: "2.3s avg load time",
   },
   {
     number: "02",
     title: "E-Commerce",
     description: "Magento & custom e-commerce ecosystems that turn browsers into buyers. Revenue-first architecture.",
     tags: ["Magento", "WooCommerce", "Checkout Optimization"],
-    metric: "+487% conversion avg",
   },
   {
     number: "03",
     title: "AI Automation",
     description: "Intelligent systems that replace repetitive work, qualify leads 24/7 and scale your operations without scaling headcount.",
     tags: ["GPT-4o", "Automation", "CRM", "Lead Scoring"],
-    metric: "80% task automation",
   },
   {
     number: "04",
     title: "Social Media",
-    description: "Content systems and growth architecture for brands that refuse to blend in. Algorithmic dominance.",
+    description: "Content systems and growth architecture for brands that refuse to blend in.",
     tags: ["Strategy", "Content", "Paid Ads", "Analytics"],
-    metric: "+312% reach growth",
   },
   {
     number: "05",
     title: "Branding",
     description: "Visual identities that make instant emotional impact. From strategy to complete brand systems.",
     tags: ["Identity", "Design System", "Motion", "Brand Strategy"],
-    metric: "100+ identities built",
   },
   {
     number: "06",
     title: "SEO",
     description: "Technical SEO and content infrastructure that compounds. We build assets, not campaigns.",
     tags: ["Technical SEO", "Content", "Link Building", "Analytics"],
-    metric: "+890% organic traffic",
   },
 ];
 
@@ -91,9 +85,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D6001C] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
 
         {/* Number */}
-        <div className="flex items-start justify-between mb-8">
+        <div className="mb-8">
           <span className="text-xs text-[#D6001C]/60 font-mono tracking-widest">{service.number}</span>
-          <span className="text-xs text-gray-600 tracking-wider uppercase font-medium">{service.metric}</span>
         </div>
 
         {/* Title */}

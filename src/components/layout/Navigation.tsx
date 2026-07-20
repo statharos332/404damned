@@ -8,6 +8,7 @@ import { useShowreel } from "@/components/ui/ShowreelProvider";
 const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
   { label: "Pricing", href: "#pricing" },
 ];

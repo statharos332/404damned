@@ -6,29 +6,29 @@ import { m, useInView, useScroll, useTransform } from "framer-motion";
 const problems = [
   {
     agency: "Traditional agencies",
-    problem: "Sell you a template and call it custom.",
-    solution: "We engineer each project from a blank file.",
+    problem: "Sell you a template, call it custom, then outsource the build.",
+    solution: "Every project starts from a blank file — the same three people scope it, build it and ship it.",
   },
   {
     agency: "Cheap freelancers",
-    problem: "Disappear after launch. No strategy, no growth.",
-    solution: "We embed in your business. We win when you win.",
+    problem: "Disappear the day the invoice clears.",
+    solution: "We're still around for the redesign, the new feature, the thing that breaks two years from now.",
   },
   {
     agency: "Marketing agencies",
-    problem: "Beautiful decks. Zero technical depth.",
-    solution: "We execute. Full-stack. No hand-offs.",
+    problem: "Sell you a strategy deck, then outsource the actual build.",
+    solution: "We build what we pitch — no hand-off to a dev shop you've never met.",
   },
   {
     agency: "Dev shops",
-    problem: "Technical excellence with zero commercial thinking.",
-    solution: "Every line of code is written to convert.",
+    problem: "Ship clean code with no opinion on whether it makes you money.",
+    solution: "Every build decision gets weighed against one question: does this convert.",
   },
 ];
 
 const boldStatements = [
   "If your website doesn't generate leads, it's a liability.",
-  "Your competitors are already using AI. Are you?",
+  "Three people build this. Not fifteen you'll never meet.",
   "Templates are for brands that have given up.",
   "Growth is engineered. Not wished for.",
 ];
@@ -123,16 +123,16 @@ export function WhySection() {
             className="border-l-4 border-[#D6001C] pl-10 py-4"
           >
             <p className="text-3xl md:text-5xl font-black leading-tight">
-              "We don&apos;t take clients.
+              "Three people build
               <br />
-              <span className="text-gray-500">We take </span>
-              <span className="text-[#D6001C]">partners.</span>
-              <span className="text-gray-500"> And we make them</span>
+              <span className="text-gray-500">everything here. </span>
+              <span className="text-[#D6001C]">No account managers,</span>
+              <span className="text-gray-500"> no hand-offs,</span>
               <br />
-              <span className="text-stroke-red">market leaders.</span>"
+              <span className="text-stroke-red">no one you'll never meet.</span>"
             </p>
             <p className="text-gray-600 mt-6 text-sm tracking-wider uppercase">
-              — The 404 DAMNED Manifesto
+              — How 404 DAMNED actually works
             </p>
           </m.div>
         </div>

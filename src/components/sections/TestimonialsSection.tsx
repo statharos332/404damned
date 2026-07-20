@@ -3,36 +3,16 @@
 import { useState, useRef } from "react";
 import { m, AnimatePresence, useInView } from "framer-motion";
 
-const testimonials = [
-  {
-    quote: "404 DAMNED rebuilt our entire digital presence in 6 weeks. Within 90 days we had more leads than the previous year combined. They don't play agency games. They just deliver.",
-    name: "Martijn de Vries",
-    title: "CEO, Noord Fashion House",
-    company: "NOORD",
-    result: "+487% revenue",
-  },
-  {
-    quote: "I've worked with 5 agencies in 8 years. None came close to this. The attention to conversion psychology is on another level. Our lead cost dropped by 68% in the first month.",
-    name: "Sophie Bakker",
-    title: "Marketing Director, Amstel Construction",
-    company: "ACG",
-    result: "+890% organic traffic",
-  },
-  {
-    quote: "They told us our old website was costing us €40,000/month in missed conversions. They were right. The new system paid for itself in 3 weeks.",
-    name: "Daan Visser",
-    title: "Owner, Canal Restaurant Group",
-    company: "CRG",
-    result: "+244% reservations",
-  },
-  {
-    quote: "What impressed me was how they challenged our brief. They said 'that's what you asked for but here's what you need.' They were right. Best digital investment we've made.",
-    name: "Lisa van den Berg",
-    title: "Founder, Bloom E-Commerce",
-    company: "BLOOM",
-    result: "3x conversion rate",
-  },
-];
+// Not wired into any page yet. Fill with real client quotes (name, title,
+// company, a verifiable result) before rendering this anywhere — no
+// placeholder/fictional testimonials.
+const testimonials: {
+  quote: string;
+  name: string;
+  title: string;
+  company: string;
+  result: string;
+}[] = [];
 
 export function TestimonialsSection() {
   const [active, setActive] = useState(0);
@@ -41,6 +21,8 @@ export function TestimonialsSection() {
 
   const next = () => setActive((p) => (p + 1) % testimonials.length);
   const prev = () => setActive((p) => (p - 1 + testimonials.length) % testimonials.length);
+
+  if (testimonials.length === 0) return null;
 
   return (
     <section className="py-32 md:py-48 px-6 md:px-12 bg-[#080808]">

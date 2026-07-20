@@ -6,6 +6,10 @@
  *  it auto-appears on /insights, gets its own /insights/<slug>
  *  page with metadata + Article structured data, and enters the
  *  sitemap. Body is simple block content (h2 / p / list).
+ *
+ *  authorSlug must match a slug in src/data/team.ts — bylines are
+ *  real people, not the brand. Pick whoever actually has the
+ *  background for the topic.
  * ============================================================
  */
 
@@ -21,7 +25,7 @@ export interface Post {
   category: string;
   readMins: number;
   date: string; // ISO
-  author: string;
+  authorSlug: string; // src/data/team.ts slug
   keywords: string[];
   body: Block[];
 }
@@ -35,7 +39,7 @@ export const posts: Post[] = [
     category: "Performance",
     readMins: 7,
     date: "2026-02-10",
-    author: "404 DAMNED",
+    authorSlug: "stathis-papounidis",
     keywords: [
       "website performance",
       "core web vitals",
@@ -44,19 +48,19 @@ export const posts: Post[] = [
       "conversion optimization",
     ],
     body: [
-      { type: "p", text: "Speed is not a vanity metric. A website that loads in under a second keeps people in, while a three-second load pushes a large share of visitors straight back to the search results. For an e-commerce store or a lead-driven business, that gap is the difference between growth and stagnation. This is how we think about speed when we build digital products." },
+      { type: "p", text: "Speed isn't a vanity metric, it's revenue. A site that loads in under a second keeps people in; a three-second load sends a large share of visitors straight back to the search results. For an e-commerce store or a lead-driven business, that gap is the difference between growth and stagnation — and it's the first thing I check on every project." },
       { type: "h2", text: "Core Web Vitals, in plain language" },
-      { type: "p", text: "Google measures three things that matter to real users. Largest Contentful Paint (LCP) is how long until the main content appears. Cumulative Layout Shift (CLS) is how much the page jumps around as it loads. Interaction to Next Paint (INP) is how quickly the page responds when someone taps or clicks. Win all three and you have a site that feels instant." },
-      { type: "h2", text: "The decisions that move the needle" },
+      { type: "p", text: "Google measures three things that matter to real users. Largest Contentful Paint (LCP) is how long until the main content shows up. Cumulative Layout Shift (CLS) is how much the page jumps around while it loads. Interaction to Next Paint (INP) is how fast the page responds when someone taps or clicks. Get all three right and the site feels instant, not just fast on paper." },
+      { type: "h2", text: "The decisions that actually move the needle" },
       { type: "list", items: [
-        "Ship less JavaScript. Every kilobyte of script blocks the main thread. Code-splitting and loading non-critical sections only when they scroll into view keeps the initial bundle tiny.",
-        "Optimize images and video. Modern formats like AVIF and WebP, correct sizing, and lazy-loading anything below the fold cut megabytes without losing quality.",
-        "Reserve space for media. Fixed aspect-ratio containers stop the layout from jumping, which keeps CLS near zero.",
-        "Defer the heavy stuff. 3D scenes, animations and embeds should mount after the page is interactive, never before the first paint.",
+        "Ship less JavaScript. Every kilobyte of script blocks the main thread, so code-splitting and loading non-critical sections only when they scroll into view keeps the initial bundle small.",
+        "Optimise images and video properly. Modern formats like AVIF and WebP, correct sizing, and lazy-loading anything below the fold cut megabytes without visibly losing quality.",
+        "Reserve space for media before it loads. Fixed aspect-ratio containers stop the layout jumping around, which is most of what keeps CLS near zero.",
+        "Defer the heavy stuff. 3D scenes, animations and embeds mount after the page is interactive — never before the first paint.",
       ]},
-      { type: "h2", text: "Why this sells more" },
-      { type: "p", text: "Faster pages convert better, rank higher, and cost less to advertise to, because quality scores improve when landing pages are quick. Speed compounds: it lifts SEO, paid performance and user trust at the same time. That is why we treat performance as a feature, not an afterthought." },
-      { type: "p", text: "If your current site feels sluggish, the fix is rarely a single switch. It is a series of deliberate engineering choices, applied consistently. That is the work we do." },
+      { type: "h2", text: "Why it actually sells more" },
+      { type: "p", text: "Faster pages convert better and rank higher, and they cost less to advertise to because ad quality scores improve when landing pages are quick. Speed compounds across SEO, paid performance and plain user trust at the same time, which is why I treat it as a feature to build for from the first commit, not a fix to bolt on afterwards." },
+      { type: "p", text: "If your site feels sluggish, the fix is rarely one switch you can flip. It's a series of deliberate choices applied consistently — which is most of what this work actually is." },
     ],
   },
   {
@@ -67,7 +71,7 @@ export const posts: Post[] = [
     category: "E-Commerce",
     readMins: 8,
     date: "2026-01-22",
-    author: "404 DAMNED",
+    authorSlug: "stathis-papounidis",
     keywords: [
       "headless ecommerce",
       "Magento",
@@ -76,20 +80,20 @@ export const posts: Post[] = [
       "ecommerce performance",
     ],
     body: [
-      { type: "p", text: "Headless commerce gets talked about like a magic upgrade. It is not magic, but for the right store it is a serious advantage. Here is an honest breakdown of when it pays off and when a traditional setup is the smarter call." },
+      { type: "p", text: "Headless commerce gets talked about like a magic upgrade. It isn't, but for the right store it's a genuine advantage. This is the honest version: when it pays off, when it doesn't, and how I'd actually decide for your store." },
       { type: "h2", text: "What headless actually means" },
-      { type: "p", text: "In a traditional store, the back end that manages products and orders is tightly bound to the front end that customers see. Going headless splits them apart: a commerce engine such as Magento or Shopify handles the data, while a separate, custom front end built in a framework like Next.js renders the experience. The two talk through an API." },
-      { type: "h2", text: "When it is worth it" },
+      { type: "p", text: "In a traditional store, the back end that manages products and orders is tightly bound to the front end customers see. Going headless splits the two apart: a commerce engine like Magento or Shopify handles the data, while a separate, custom front end — usually Next.js — renders the experience. They talk to each other through an API." },
+      { type: "h2", text: "When it's worth it" },
       { type: "list", items: [
-        "Performance matters to your revenue. A custom front end can hit load times a templated theme simply cannot, and faster stores convert more.",
-        "Your brand needs to feel unique. Headless removes the design ceiling of off-the-shelf themes, so the storefront looks like you and nobody else.",
-        "You sell across channels. One commerce back end can feed a website, an app, kiosks and marketplaces from a single source of truth.",
-        "You have traffic to justify it. The investment makes sense when small conversion gains translate into meaningful money.",
+        "Performance matters to your revenue. A custom front end reaches load times a templated theme can't touch, and faster stores convert more.",
+        "Your brand needs to feel distinct. Headless removes the design ceiling of off-the-shelf themes, so the storefront looks like you and nobody else.",
+        "You're selling across channels. One commerce back end can feed a website, an app, kiosks and marketplaces from a single source of truth.",
+        "You have the traffic to justify it. The investment makes sense once small conversion gains translate into real money.",
       ]},
-      { type: "h2", text: "When it is not" },
-      { type: "p", text: "If you are early, low-traffic, or need to ship next month on a tight budget, a well-built traditional store is often the right move. Headless adds engineering complexity, and complexity has a cost. The goal is the best outcome for your business, not the trendiest architecture." },
+      { type: "h2", text: "When it isn't" },
+      { type: "p", text: "If you're early, low-traffic, or need to ship next month on a tight budget, a well-built traditional store is usually the right move. Headless adds engineering complexity, and complexity has a cost. The goal is the best outcome for your business, not the trendiest architecture on your stack." },
       { type: "h2", text: "How to decide" },
-      { type: "p", text: "Start from the money. If a one-second speed improvement or a higher-converting custom checkout would noticeably grow revenue, headless usually pays for itself. If not, keep it simple. We are happy to build either, and we will tell you which one your situation actually needs." },
+      { type: "p", text: "Start from the money. If a one-second speed improvement or a higher-converting custom checkout would noticeably grow revenue, headless usually pays for itself. If not, keep it simple — I build both, and on a call I'll tell you which one your store actually needs, not the one that's more interesting to build." },
     ],
   },
   {
@@ -100,7 +104,7 @@ export const posts: Post[] = [
     category: "AI Automation",
     readMins: 6,
     date: "2026-01-08",
-    author: "404 DAMNED",
+    authorSlug: "stathis-papounidis",
     keywords: [
       "AI automation",
       "small business automation",
@@ -109,19 +113,19 @@ export const posts: Post[] = [
       "lead automation",
     ],
     body: [
-      { type: "p", text: "Most small businesses do not need a grand AI strategy. They need a handful of repetitive tasks to quietly disappear. Done right, automation gives a small team the leverage of a much bigger one. Here is where to start without over-engineering it." },
+      { type: "p", text: "Most small businesses don't need a grand AI strategy. They need a handful of repetitive tasks to quietly disappear. Done right, automation gives a small team the leverage of a much bigger one — this is where I'd actually start." },
       { type: "h2", text: "Start with the work nobody wants to do" },
-      { type: "p", text: "The best first automations are the boring, repeating ones: copying data between tools, sending the same follow-up emails, qualifying inbound leads, generating routine reports. These eat hours and add zero creative value, which makes them perfect candidates." },
+      { type: "p", text: "The best first automations are the boring, repeating ones: copying data between tools, sending the same follow-up emails, qualifying inbound leads, generating routine reports. They eat hours, add no creative value, and are exactly what current AI handles well." },
       { type: "h2", text: "High-impact, low-risk automations" },
       { type: "list", items: [
-        "Lead capture and routing. Every enquiry is captured, enriched, qualified by AI, and dropped into your CRM with the right priority and a draft reply ready.",
-        "Follow-up sequences. No lead goes cold because a human forgot. The system nudges at the right moments and stops when someone replies.",
-        "Content and reporting drafts. AI produces a first draft of recurring reports, summaries or posts that a person reviews, instead of writing from scratch.",
-        "Internal Q&A. A private assistant trained on your own documents answers staff questions instantly instead of digging through folders.",
+        "Lead capture and routing. Every enquiry gets captured, enriched, qualified and dropped into your CRM with the right priority and a draft reply ready to send.",
+        "Follow-up sequences. No lead goes cold because someone forgot — the system nudges at the right moments and stops the moment someone replies.",
+        "Content and reporting drafts. AI produces a first draft of recurring reports, summaries or posts, and a person reviews it instead of starting from a blank page.",
+        "Internal Q&A. A private assistant trained on your own documents answers staff questions instantly instead of someone digging through folders.",
       ]},
       { type: "h2", text: "Roll it out without breaking things" },
-      { type: "p", text: "Automate one workflow at a time. Keep a human in the loop for anything customer-facing until you trust the output. Measure the hours saved so the value is obvious. The point is not to replace your team, it is to free them from the busywork so they can do the work that actually grows the business." },
-      { type: "p", text: "If you are not sure which process to automate first, look for the task your team complains about most. That is usually where the fastest win is hiding." },
+      { type: "p", text: "Automate one workflow at a time. Keep a human in the loop for anything customer-facing until you trust the output. Measure the hours saved so the value is obvious rather than assumed. The point isn't replacing your team — it's freeing them from the busywork so they can do the parts of the job that actually grow the business." },
+      { type: "p", text: "If you're not sure which process to automate first, look for the task your team complains about most. That's usually where the fastest win is hiding." },
     ],
   },
 ];

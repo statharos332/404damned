@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { posts, getPost } from "@/data/posts";
+import { getTeamMember } from "@/data/team";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { breadcrumbJsonLd } from "@/lib/seo";
@@ -46,6 +47,7 @@ export default async function PostPage({
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
+  const author = getTeamMember(post.authorSlug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -54,7 +56,15 @@ export default async function PostPage({
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Organization", name: "404 DAMNED", url: "https://www.404damned.com" },
+    author: author
+      ? {
+          "@type": "Person",
+          "@id": `https://www.404damned.com/about#${author.slug}`,
+          name: author.name,
+          url: `https://www.404damned.com/about#${author.slug}`,
+          sameAs: [author.linkedin],
+        }
+      : { "@type": "Organization", name: "404 DAMNED", url: "https://www.404damned.com" },
     publisher: {
       "@type": "Organization",
       name: "404 DAMNED",
@@ -111,6 +121,26 @@ export default async function PostPage({
         <p className="mt-6 text-xl text-gray-400 leading-relaxed">
           {post.excerpt}
         </p>
+
+        {author && (
+          <Link
+            href={`/about#${author.slug}`}
+            className="mt-8 inline-flex items-center gap-3 group"
+          >
+            <span className="w-9 h-9 shrink-0 bg-[#D6001C]/10 border border-[#D6001C]/30 flex items-center justify-center text-[#D6001C] font-bold text-xs">
+              {author.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")}
+            </span>
+            <span className="font-mono text-xs uppercase tracking-widest">
+              <span className="text-gray-500">Written by </span>
+              <span className="text-white group-hover:text-[#D6001C] transition-colors">
+                {author.name}
+              </span>
+            </span>
+          </Link>
+        )}
 
         <div className="mt-12 space-y-6">
           {post.body.map((block, i) => {

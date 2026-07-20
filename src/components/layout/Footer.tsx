@@ -15,6 +15,7 @@ const footerLinks = {
 
 // Live pages — everything else is still an in-page anchor placeholder.
 const linkHrefs: Record<string, string> = {
+  About: "/about",
   "Privacy Policy": "/privacy-policy",
   "Terms of Service": "/terms-of-service",
   "Cookie Policy": "/cookie-policy",
