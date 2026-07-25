@@ -29,6 +29,7 @@ export const team: TeamMember[] = [
     role: "Founder — Management & Project Management",
     bio: "Nick runs the studio end to end — client relationships, project delivery and the business side of 404 DAMNED. His background is in company management and project management, with a career built on getting teams to actually ship. That's where the studio's discipline around timelines and delivery comes from.",
     linkedin: "https://www.linkedin.com/in/nick-grigoriadis-082094365/",
+    photo: "/team/nick-grigoriadis.jpg",
   },
   {
     slug: "stathis-papounidis",

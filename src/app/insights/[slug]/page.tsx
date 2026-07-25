@@ -1,11 +1,31 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { posts, getPost } from "@/data/posts";
+import { posts, getPost, type RichText } from "@/data/posts";
 import { getTeamMember } from "@/data/team";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { breadcrumbJsonLd } from "@/lib/seo";
+
+/** Render block text that may contain inline links. */
+function renderRich(rt: RichText) {
+  if (typeof rt === "string") return rt;
+  return rt.map((seg, k) =>
+    typeof seg === "string" ? (
+      seg
+    ) : (
+      <a
+        key={k}
+        href={seg.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#D6001C] underline underline-offset-2 hover:text-[#FF1A35]"
+      >
+        {seg.text}
+      </a>
+    ),
+  );
+}
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -160,7 +180,7 @@ export default async function PostPage({
                   {block.items.map((item, j) => (
                     <li key={j} className="flex gap-3 text-gray-300 leading-relaxed">
                       <span className="text-[#D6001C] font-mono shrink-0">/</span>
-                      <span>{item}</span>
+                      <span>{renderRich(item)}</span>
                     </li>
                   ))}
                 </ul>
@@ -168,7 +188,7 @@ export default async function PostPage({
             }
             return (
               <p key={i} className="text-lg text-gray-300 leading-relaxed">
-                {block.text}
+                {renderRich(block.text)}
               </p>
             );
           })}

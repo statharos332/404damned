@@ -13,10 +13,15 @@
  * ============================================================
  */
 
+/** An inline text segment: plain text, or a link. */
+export type Inline = string | { text: string; href: string };
+/** Block text: a plain string (legacy) or an array of inline segments. */
+export type RichText = string | Inline[];
+
 export type Block =
-  | { type: "p"; text: string }
+  | { type: "p"; text: RichText }
   | { type: "h2"; text: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: RichText[] };
 
 export interface Post {
   slug: string;
@@ -31,6 +36,97 @@ export interface Post {
 }
 
 export const posts: Post[] = [
+  {
+    slug: "nextjs-vs-wordpress-which-platform-converts-better",
+    title: "Next.js vs WordPress: Which Platform Actually Converts Better for Growing European Businesses?",
+    excerpt: "Next.js vs WordPress — real conversion data, speed benchmarks, TCO, and SEO impact to help European SMBs choose the platform that drives revenue.",
+    category: "Web Development",
+    readMins: 13,
+    date: "2026-07-25",
+    authorSlug: "stathis-papounidis",
+    keywords: ["Next.js vs WordPress performance comparison", "WordPress to Next.js migration conversion rate", "headless WordPress Next.js ecommerce", "Core Web Vitals WordPress 2025", "best platform for ecommerce conversions Europe", "Next.js vs WordPress SEO ranking", "total cost of ownership WordPress vs Next.js", "Next.js SMB website conversions"],
+    body: [
+      { type: "h2", text: "The Conversion Question: Why Your Platform Choice Is a Revenue Decision" },
+      { type: "p", text: "Most founders treat the choice between Next.js and WordPress as a technical detail — something to hand off to a developer and forget about. That's a mistake that compounds quietly in your analytics dashboard every single month." },
+      { type: "p", text: "Your platform determines how fast your pages load, how reliably your site stays online, how many security patches you're racing to apply, and ultimately how many visitors actually convert into paying customers. This is a revenue decision disguised as a technology decision." },
+      { type: "h2", text: "How a 1-Second Delay Silently Kills Your Sales Funnel" },
+      { type: "p", text: ["The relationship between load time and revenue is not linear — it's brutal. ", { text: "Research from Portent", href: "https://portent.com/blog/analytics/research-site-speed-hurting-everyones-revenue.htm" }, " shows that e-commerce sites loading in one second convert 2.5 times higher than sites loading in five seconds. That's not a marginal difference. If your store is pulling in €50,000 a month at a five-second load time, a one-second site could theoretically double your revenue without touching your product, pricing, or ad spend."] },
+      { type: "p", text: ["The scale compounds from there. ", { text: "Google's collaborative research with NitroPack", href: "https://nitropack.io/blog/how-page-speed-affects-conversion/" }, " found that a 0.1-second improvement in load time lifts e-commerce conversions by 8.4%. Shaving half a second off your product pages can be worth more than an entire paid media campaign."] },
+      { type: "p", text: "Your platform is either helping you win those fractions of a second or costing you them." },
+      { type: "h2", text: "The Metric That Matters More Than Aesthetics: Core Web Vitals and Revenue" },
+      { type: "p", text: "Core Web Vitals — Google's standardized set of user experience signals covering loading, interactivity, and visual stability — are no longer just SEO signals. They're direct proxies for conversion rate. A page that passes CWV thresholds loads fast, responds immediately to user input, and doesn't jump around as it renders. Pages that fail these checks frustrate users and bleed revenue. For European SMB founders, the question is straightforward: does your current platform help you pass or fail?" },
+      { type: "h2", text: "How WordPress and Next.js Actually Work (and Why It Changes Everything)" },
+      { type: "h2", text: "WordPress: A Dynamic, PHP-Generated Page Model" },
+      { type: "p", text: "WordPress processes each page request by querying a database, running PHP, assembling the page, and sending it to the browser. Out of the box, every visitor triggers this chain. Caching plugins like WP Rocket or LiteSpeed Cache can short-circuit parts of this, but they're mitigations, not solutions. The underlying architecture was designed in 2003 for blogs, not for high-throughput e-commerce experiences at the edge." },
+      { type: "h2", text: "Next.js: Static Generation, SSR, and Edge Delivery Explained Simply" },
+      { type: "p", text: "Next.js, built on React, gives developers three rendering modes: Static Site Generation (SSG), Server-Side Rendering (SSR), and Incremental Static Regeneration (ISR). For most e-commerce use cases, pages are pre-built at deploy time and served from a CDN edge node physically close to the visitor. There is no database query when someone lands on your product page. The HTML is already waiting. This architectural difference is why Next.js consistently produces faster Time to First Byte and Largest Contentful Paint scores than server-rendered WordPress." },
+      { type: "h2", text: "The Headless Middle Ground: WordPress as CMS, Next.js as Frontend" },
+      { type: "p", text: "You don't have to abandon WordPress content workflows entirely. Headless WordPress means your editorial team keeps the familiar wp-admin interface for writing and publishing content, while the frontend is decoupled and rebuilt in Next.js. Data flows via the WordPress REST API or WPGraphQL. Your content team is happy. Your users get Next.js performance. This is the architecture behind many successful migrations — but it comes with its own complexity, which we'll address later." },
+      { type: "h2", text: "Speed Benchmarks: What Real Data Says About Load Times in 2025" },
+      { type: "h2", text: "Core Web Vitals Pass Rates: WordPress vs Next.js in the Field" },
+      { type: "p", text: ["The numbers here should concern any WordPress-dependent business. According to the ", { text: "HTTP Archive Web Almanac 2024 CMS chapter", href: "https://almanac.httparchive.org/en/2024/cms" }, ", only 40% of WordPress origins pass all three mobile Core Web Vitals. That means six out of every ten WordPress sites are delivering a measurably poor user experience on mobile — the dominant browsing device for most European e-commerce audiences."] },
+      { type: "p", text: "Next.js sites built on modern deployment infrastructure consistently outperform this benchmark, particularly on Largest Contentful Paint and Cumulative Layout Shift, because static assets served from the edge simply arrive faster." },
+      { type: "h2", text: "What 40% Mobile CWV Pass Rate Means for Your Organic Rankings" },
+      { type: "p", text: "Google uses Core Web Vitals as a ranking signal. A site failing mobile CWV is competing with a structural disadvantage baked into its architecture. Your competitor running a well-optimized Next.js frontend can outrank you without writing a single extra blog post — simply because Google's crawlers and users both get a faster, more stable experience. In competitive e-commerce niches across the Netherlands, Germany, and the Nordics, that advantage compounds over months and years." },
+      { type: "h2", text: "Real-World Load Time Ranges and What Moves the Needle" },
+      { type: "p", text: "A stock WordPress install with WooCommerce and twelve plugins will typically score Largest Contentful Paint between 3.5 and 6 seconds on mobile without aggressive optimization. A Next.js site serving pre-rendered pages from Vercel's edge network regularly achieves LCP under 1.5 seconds on the same connection. The delta is real, consistent, and directly attributable to architecture — not just developer skill." },
+      { type: "h2", text: "SEO Impact: Which Platform Ranks Higher and Earns More Organic Traffic?" },
+      { type: "h2", text: "Crawlability, Indexability, and Rendering Differences" },
+      { type: "p", text: "WordPress serves fully rendered HTML to Googlebot by default, which is a genuine advantage. React-based Next.js sites using SSG or SSR also deliver pre-rendered HTML, so crawlability is not the concern it once was with client-side-only React. The rendering advantage WordPress once held has largely dissolved." },
+      { type: "h2", text: "SEO Plugins vs Full Technical Control: Pros, Cons, and Trade-Offs" },
+      { type: "p", text: "WordPress's SEO plugin ecosystem — Yoast, Rank Math, All in One SEO — lowers the barrier to managing meta tags, sitemaps, and structured data. For a marketing team without developer access, this matters. Next.js offers no equivalent out-of-the-box, but developers have full programmatic control over every meta tag, canonical, and structured data block. In skilled hands, Next.js gives you more precise technical SEO implementation. In unskilled hands, it can ship an improperly indexed site. The platform is more powerful; the margin for error is higher too." },
+      { type: "h2", text: "How Platform Speed Compounds Into Long-Term SEO Gains" },
+      { type: "p", text: "Speed improvements don't just affect ranking signals directly. Faster pages reduce bounce rates, increase pages per session, and improve engagement metrics that indirectly signal content quality to search engines. A site that loads in 1.2 seconds earns more qualified dwell time than one that loads in 4 seconds, and that behavioral data accumulates. The platform that delivers the best conversion experience is, almost by definition, the one that wins the SEO long game." },
+      { type: "h2", text: "Security, Stability, and Uptime: The Hidden Conversion Killers" },
+      { type: "h2", text: "WordPress Plugin Vulnerabilities: 7,966 New Flaws in 2024" },
+      { type: "p", text: ["Security rarely gets factored into platform conversion discussions, but a hacked or defaced store converts at zero percent. The ", { text: "Patchstack State of WordPress Security 2025", href: "https://patchstack.com/whitepaper/state-of-wordpress-security-in-2025/" }, " report is sobering: 7,966 new vulnerabilities were disclosed in 2024, a 34% increase year-over-year, with 96% of those flaws residing in third-party plugins. If your WordPress site runs WooCommerce plus ten plugins — and virtually every serious WooCommerce store does — you are managing a substantial, constantly evolving attack surface."] },
+      { type: "h2", text: "How Next.js Architecture Reduces the Attack Surface" },
+      { type: "p", text: "A Next.js frontend served as static files or edge functions has no publicly accessible database, no plugin system to exploit, and no wp-admin login page for bots to hammer with brute-force attacks. Your attack surface is dramatically smaller. Backend integrations — payment processors, inventory systems, CRMs — connect via secure APIs with scoped credentials. Compromising your frontend does not mean compromising your customer data." },
+      { type: "h2", text: "What Downtime or a Hack Actually Costs an E-Commerce Brand" },
+      { type: "p", text: "If your store generates €5,000 per day in revenue and a plugin vulnerability takes you offline for eight hours during peak hours, that's a five-figure incident — before you factor in emergency developer costs, customer trust erosion, and potential GDPR notification obligations. Security is not a theoretical concern. It's a revenue protection mechanism." },
+      { type: "h2", text: "Total Cost of Ownership: Upfront Investment vs Long-Term ROI" },
+      { type: "h2", text: "WordPress: Lower Entry Cost, Higher Ongoing Maintenance Bill" },
+      { type: "p", text: "A well-built WooCommerce store can be commissioned for €5,000–€15,000. The sticker price looks attractive. But factor in: ongoing plugin license renewals (€500–€2,000/year), a security and maintenance retainer (€200–€500/month), hosting that can handle traffic spikes without crashing (€100–€400/month), and periodic performance optimization work. Over three years, a €10,000 WordPress build often runs to €25,000–€35,000 in total cost of ownership." },
+      { type: "h2", text: "Next.js: Higher Build Cost, Lower Hosting and Maintenance Over Time" },
+      { type: "p", text: "A custom Next.js build from a competent European development partner starts at €15,000–€40,000 depending on complexity. Hosting on Vercel, Netlify, or Cloudflare Pages is typically cheaper than equivalent managed WordPress hosting for high-traffic sites. No plugin licenses. No weekly core updates. No monthly patch reviews. Developer intervention for routine maintenance is rare. Over three years, the TCO often converges — and the performance dividend makes the investment economically rational for any store with meaningful transaction volume." },
+      { type: "h2", text: "A 3-Year TCO Comparison for European SMBs" },
+      { type: "p", text: "For a Dutch e-commerce brand doing €500,000 in annual revenue, the math is clear. A 10% conversion rate improvement — realistic given the speed benchmarks above — generates €50,000 in additional annual revenue. Against a €20,000 Next.js migration cost with lower ongoing overhead, the payback period is measured in months, not years. The question is never just \"what does the build cost?\" but \"what does the build earn?\"" },
+      { type: "h2", text: "Real Migration Case Studies: Businesses That Switched and Measured the Results" },
+      { type: "h2", text: "E-Commerce Brand Cuts Load Time 52% After WordPress-to-Next.js Migration" },
+      { type: "p", text: ["In a ", { text: "documented migration case study from Last Rev", href: "https://lastrev.com/blog/headless-cms-migration-ecommerce-case-study" }, ", a regional e-commerce brand moved from WordPress to a Next.js headless architecture and cut page load times by 52%. This wasn't a minor tweak — it was a structural transformation that changed how customers experienced the brand from the first millisecond of a page load."] },
+      { type: "h2", text: "PAIGE Fashion: 76% Conversion Rate Lift With Next.js and Shopify" },
+      { type: "p", text: ["Fashion brand PAIGE rebuilt their storefront using a headless Next.js and Shopify stack deployed on Vercel. The ", { text: "documented outcome", href: "https://vercel.com/blog/how-paige-grew-revenue-by-22-with-shopify-next-js-and-vercel" }, " was a 76% lift in conversion rates and a 22% increase in overall revenue. Not theoretical projections — measured business outcomes from the Next.js vs WordPress performance comparison playing out in a real commercial context."] },
+      { type: "h2", text: "When the Migration Backfired: Lessons From Headless Projects Gone Wrong" },
+      { type: "p", text: "Headless Next.js projects fail when they're underscoped, under-resourced, or handed to teams without genuine Next.js expertise. Common failure modes include: content editors losing CMS access mid-migration, API integrations breaking during product catalog updates, and inadequate redirect mapping that wipes out years of accumulated SEO equity. The architecture is powerful; it requires proportionally skilled execution. Due diligence on your development partner is not optional." },
+      { type: "h2", text: "How to Decide: The Right Platform for Your Business Stage and Goals" },
+      { type: "h2", text: "Choose WordPress If…" },
+      { type: "p", text: "You're pre-revenue or early-stage and need to move fast with a limited budget. Your content team is non-technical and needs an out-of-the-box editorial interface. Your conversion volumes are low enough that a 10–20% performance gap doesn't meaningfully impact monthly revenue. You have reliable, affordable WordPress maintenance support already in place." },
+      { type: "h2", text: "Choose Next.js If…" },
+      { type: "p", text: "You're running a store with meaningful transaction volume where a 5–10% conversion improvement is worth €10,000+ annually. You've hit the ceiling of what WordPress optimization can deliver. You need a frontend that can integrate cleanly with modern e-commerce stacks — Shopify, Medusa, Commercetools, Mollie, or custom ERP systems. You want to build a digital asset that doesn't require monthly emergency maintenance." },
+      { type: "h2", text: "The Hybrid Path: Headless WordPress With a Next.js Frontend" },
+      { type: "p", text: "For brands with established WordPress content workflows, the headless approach lets you retain editorial familiarity while dramatically upgrading frontend performance. Your writers keep WordPress. Your customers get Next.js speed. The architecture requires a developer who understands both systems deeply — but it's the most pragmatic migration path for content-heavy European e-commerce brands who can't afford to rebuild their content library from scratch." },
+      { type: "h2", text: "Action Plan: Next Steps for Ambitious SMB Founders in the Netherlands and Europe" },
+      { type: "h2", text: "Questions to Ask Before Commissioning a Build or Rebuild" },
+      { type: "p", text: "Before signing any contract, ask: What is my current average page load time on mobile? What is my store's Core Web Vitals pass rate today? What is the monthly revenue impact of a 10% conversion improvement? Can my current platform deliver LCP under 2.5 seconds without significant ongoing engineering effort? These questions shift the conversation from \"which platform do I prefer?\" to \"which platform makes me money?\"" },
+      { type: "h2", text: "How to Evaluate a Development Partner's Next.js Track Record" },
+      { type: "p", text: "Ask for Core Web Vitals scores from live sites they've built — not staging environments. Request Lighthouse reports. Ask how they handle ISR for large product catalogs. Ask specifically how they've implemented structured data for e-commerce in Next.js. Vague answers about \"using modern tech\" are red flags. Specific, measurable outcomes from past clients are the signal you need." },
+      { type: "h2", text: "Measuring Conversion Impact After Launch: KPIs and Timelines" },
+      { type: "p", text: "Set a 90-day measurement window post-launch. Track: conversion rate by device (mobile separately from desktop), LCP and CLS scores in Google Search Console, organic click-through rate changes, and revenue per session. Core Web Vitals improvements typically surface in rankings within 60–90 days. Conversion rate changes from speed improvements are often visible within the first 30 days of live traffic. Build a pre-launch benchmark report so you have a clean baseline for comparison." },
+      { type: "h2", text: "Frequently Asked Questions" },
+      { type: "h2", text: "Does Next.js rank better on Google than WordPress?" },
+      { type: "p", text: "Platform alone doesn't determine rankings — but speed and Core Web Vitals do influence them, and Next.js consistently delivers better performance scores than unoptimized WordPress installations. Given that only 40% of WordPress sites pass all three mobile Core Web Vitals, a well-built Next.js site has a structural ranking advantage in competitive search results." },
+      { type: "h2", text: "Can I keep using WordPress to write content if I switch to Next.js?" },
+      { type: "p", text: "Yes. The headless WordPress architecture decouples the CMS backend from the frontend. Your editorial team continues using the familiar WordPress dashboard, while the Next.js frontend pulls content via API and serves it at edge speed. This is the most common migration path for content-rich brands who don't want to disrupt publishing workflows." },
+      { type: "h2", text: "How much does it cost to migrate from WordPress to a Next.js site in Europe?" },
+      { type: "p", text: "A credible Next.js migration from a European development partner typically ranges from €15,000 to €60,000+ depending on the complexity of your product catalog, integrations, custom functionality, and content volume. Simpler brochure sites or smaller stores sit at the lower end; complex multi-language e-commerce builds with ERP integrations sit at the higher end." },
+      { type: "h2", text: "Is Next.js overkill for a small business website or online shop?" },
+      { type: "p", text: "For a pre-revenue startup or a store doing fewer than €5,000 per month, the engineering overhead of Next.js probably outweighs the performance dividend. WordPress is a rational choice at that scale. Once your store reaches a point where conversion rate improvements translate to meaningful monthly revenue gains, the calculus shifts in Next.js's favor." },
+      { type: "h2", text: "How long does a WordPress-to-Next.js migration typically take?" },
+      { type: "p", text: "A straightforward migration with limited custom functionality typically takes 8–16 weeks from project kickoff to production launch. Complex builds with custom integrations, multi-language support, or large product catalogs can run 4–6 months. Rushing the timeline is the primary cause of failed headless migrations — adequate QA, redirect mapping, and content editor training are non-negotiable." },
+      { type: "h2", text: "Will switching platforms hurt my existing SEO rankings?" },
+      { type: "p", text: "Any platform migration carries SEO risk if handled poorly. Properly executed — with comprehensive redirect mapping from old URLs to new, preserved canonical structures, maintained XML sitemaps, and a clean crawl validation post-launch — migrations do not need to result in ranking losses. Brands that migrate to a faster Next.js frontend often see ranking improvements within 60–90 days as Core Web Vitals improvements register in Google's systems." }
+    ],
+  },
   {
     slug: "what-makes-a-website-actually-fast",
     title: "What Actually Makes a Website Fast (and Why It Sells More)",
