@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { getTranslations } from "next-intl/server";
 import { Navigation } from "@/components/layout/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ScrollingStrip } from "@/components/sections/ScrollingStrip";
@@ -56,19 +57,20 @@ const Footer = dynamic(
   { loading: () => <div className="h-64 bg-[#050505]" aria-hidden /> }
 );
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations("Home");
   return (
     <main className="relative">
       <Navigation />
       <HeroSection />
 
       {/* signature scrolling strip right after the hero */}
-      <ScrollingStrip words={["CODE", "CREATE", "DOMINATE"]} />
+      <ScrollingStrip words={t.raw("strip1") as string[]} />
 
       <ServicesSection />
       <CaseStudiesSection />
 
-      <ScrollingStrip words={["NO TEMPLATES", "ONLY WEAPONS"]} reverse />
+      <ScrollingStrip words={t.raw("strip2") as string[]} reverse />
 
       <WorkPreview />
       <VibeSection />

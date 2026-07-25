@@ -1,15 +1,20 @@
 "use client";
 
-import Link from "next/link";
 import { CoverMedia } from "@/components/ui/CoverMedia";
 import { useRef } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { m, useInView } from "framer-motion";
+import { Link } from "@/i18n/navigation";
 import { getFeaturedProjects } from "@/data/projects";
+import { getFeaturedProjectsNl } from "@/data/projects.nl";
+import { pickLocale } from "@/lib/utils";
 
 export function WorkPreview() {
+  const t = useTranslations("WorkPreview");
+  const locale = useLocale();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const featured = getFeaturedProjects();
+  const featured = pickLocale(getFeaturedProjects(), getFeaturedProjectsNl(), locale);
 
   return (
     <section id="work" className="bg-[#050505] py-28 md:py-40">
@@ -18,19 +23,19 @@ export function WorkPreview() {
         <div className="flex flex-wrap items-end justify-between gap-6 mb-16">
           <div>
             <p className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
-              [ Recent kills ]
+              {t("kicker")}
             </p>
             <h2 className="font-display font-black uppercase leading-[0.9] tracking-tight text-[clamp(2.4rem,5.5vw,5rem)] text-white">
-              Proof in the
+              {t("heading1")}
               <br />
-              <span className="text-[#D6001C]">wreckage.</span>
+              <span className="text-[#D6001C]">{t("heading2")}</span>
             </h2>
           </div>
           <Link
             href="/work"
             className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-white hover:gap-4 transition-all border-b border-[#D6001C] pb-2 font-mono"
           >
-            See all work <span className="text-[#D6001C]">&rarr;</span>
+            {t("seeAll")} <span className="text-[#D6001C]">&rarr;</span>
           </Link>
         </div>
 

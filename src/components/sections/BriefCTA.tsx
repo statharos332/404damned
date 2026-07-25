@@ -1,10 +1,12 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { useBooking } from "@/components/ui/BookingProvider";
 
 export function BriefCTA() {
+  const t = useTranslations("BriefCTA");
   const { openBooking } = useBooking();
   return (
     <section className="relative bg-[#050505] py-32 md:py-48 overflow-hidden border-t border-white/10 scanlines">
@@ -16,19 +18,18 @@ export function BriefCTA() {
 
       <div className="relative max-w-[1400px] mx-auto px-6 text-center">
         <div className="flex justify-center">
-          <SectionLabel accent="red">Open a channel</SectionLabel>
+          <SectionLabel accent="red">{t("sectionLabel")}</SectionLabel>
         </div>
 
         <h2
           className="glitch mt-8 font-display font-black uppercase leading-[0.82] tracking-tight text-[clamp(3rem,11vw,10rem)] text-white"
-          data-text="PICK A FIGHT"
+          data-text={t("headline")}
         >
-          PICK A FIGHT
+          {t("headline")}
         </h2>
 
         <p className="mt-8 max-w-md mx-auto text-gray-400 text-lg leading-relaxed">
-          Tell us who you&apos;re up against. We&apos;ll build the thing that
-          ends the argument.
+          {t("subtitle")}
         </p>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
@@ -36,7 +37,7 @@ export function BriefCTA() {
             href="#contact"
             className="group relative bg-[#D6001C] hover:bg-[#FF1A35] text-white px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-1"
           >
-            Start the Brief
+            {t("ctaBrief")}
             <span className="ml-2 inline-block group-hover:translate-x-1 transition-transform">
               &rarr;
             </span>
@@ -45,12 +46,12 @@ export function BriefCTA() {
             onClick={openBooking}
             className="border border-white/20 hover:border-[#00E5FF] hover:text-[#00E5FF] text-white px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase transition-all font-mono"
           >
-            [ book_a_call ]
+            {t("ctaCall")}
           </button>
         </div>
 
         <p className="mt-10 font-mono text-xs text-gray-600">
-          AMSTERDAM · 52.3676&deg; N, 4.9041&deg; E · EST. RESPONSE &lt; 24H
+          {t("footerLine")}
         </p>
       </div>
     </section>

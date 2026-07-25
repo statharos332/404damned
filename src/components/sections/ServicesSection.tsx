@@ -2,47 +2,16 @@
 
 import { useRef, useState } from "react";
 import { m, useInView } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const services = [
-  {
-    number: "01",
-    title: "Web Development",
-    description: "Custom Next.js, React and WordPress builds engineered for performance, conversion and scale. No templates. Pure code.",
-    tags: ["Next.js", "React", "TypeScript", "Performance"],
-  },
-  {
-    number: "02",
-    title: "E-Commerce",
-    description: "Magento & custom e-commerce ecosystems that turn browsers into buyers. Revenue-first architecture.",
-    tags: ["Magento", "WooCommerce", "Checkout Optimization"],
-  },
-  {
-    number: "03",
-    title: "AI Automation",
-    description: "Intelligent systems that replace repetitive work, qualify leads 24/7 and scale your operations without scaling headcount.",
-    tags: ["GPT-4o", "Automation", "CRM", "Lead Scoring"],
-  },
-  {
-    number: "04",
-    title: "Social Media",
-    description: "Content systems and growth architecture for brands that refuse to blend in.",
-    tags: ["Strategy", "Content", "Paid Ads", "Analytics"],
-  },
-  {
-    number: "05",
-    title: "Branding",
-    description: "Visual identities that make instant emotional impact. From strategy to complete brand systems.",
-    tags: ["Identity", "Design System", "Motion", "Brand Strategy"],
-  },
-  {
-    number: "06",
-    title: "SEO",
-    description: "Technical SEO and content infrastructure that compounds. We build assets, not campaigns.",
-    tags: ["Technical SEO", "Content", "Link Building", "Analytics"],
-  },
-];
+interface ServiceItem {
+  number: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+function ServiceCard({ service, index }: { service: ServiceItem; index: number }) {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -123,6 +92,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 }
 
 export function ServicesSection() {
+  const t = useTranslations("ServicesGrid");
+  const services = t.raw("items") as ServiceItem[];
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -138,7 +109,7 @@ export function ServicesSection() {
               transition={{ duration: 0.6 }}
               className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
             >
-              — What We Do
+              {t("kicker")}
             </m.div>
             <m.h2
               initial={{ opacity: 0, y: 40 }}
@@ -146,9 +117,9 @@ export function ServicesSection() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl md:text-7xl font-black tracking-tight leading-[0.9] uppercase"
             >
-              Digital
+              {t("heading1")}
               <br />
-              <span className="text-stroke">Arsenal.</span>
+              <span className="text-stroke">{t("heading2")}</span>
             </m.h2>
           </div>
           <m.p
@@ -157,7 +128,7 @@ export function ServicesSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="max-w-md text-gray-400 text-lg leading-relaxed md:text-right md:pt-20"
           >
-            Six disciplines. One mission: making your competitors irrelevant.
+            {t("subtitle")}
           </m.p>
         </div>
 

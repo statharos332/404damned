@@ -1,16 +1,8 @@
+import { useTranslations } from "next-intl";
+
 export function MarqueeBar() {
-  const items = [
-    "Web Development",
-    "E-Commerce",
-    "AI Automation",
-    "Next.js",
-    "Magento",
-    "WordPress",
-    "Branding",
-    "SEO",
-    "Social Media",
-    "Digital Strategy",
-  ];
+  const t = useTranslations("MarqueeBar");
+  const items = t.raw("items") as string[];
 
   return (
     <div className="relative py-5 border-y border-white/5 bg-[#D6001C]/5 overflow-hidden">

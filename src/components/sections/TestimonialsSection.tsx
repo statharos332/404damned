@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { m, AnimatePresence, useInView } from "framer-motion";
 
 // Not wired into any page yet. Fill with real client quotes (name, title,
@@ -15,6 +16,7 @@ const testimonials: {
 }[] = [];
 
 export function TestimonialsSection() {
+  const t = useTranslations("Testimonials");
   const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -33,7 +35,7 @@ export function TestimonialsSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
           >
-            — Client Victories
+            {t("kicker")}
           </m.div>
           <m.h2
             initial={{ opacity: 0, y: 40 }}
@@ -41,9 +43,9 @@ export function TestimonialsSection() {
             transition={{ delay: 0.1, duration: 0.8 }}
             className="text-5xl md:text-7xl font-black tracking-tight leading-[0.9] uppercase"
           >
-            What They
+            {t("heading1")}
             <br />
-            <span className="text-stroke">Actually Say.</span>
+            <span className="text-stroke">{t("heading2")}</span>
           </m.h2>
         </div>
 
@@ -81,7 +83,7 @@ export function TestimonialsSection() {
                 {/* Result card */}
                 <div className="flex items-center justify-center lg:justify-end">
                   <div className="w-full max-w-[240px] border border-[#D6001C]/20 bg-[#D6001C]/5 p-8 text-center">
-                    <div className="text-xs text-[#D6001C]/60 tracking-widest uppercase mb-4">Result</div>
+                    <div className="text-xs text-[#D6001C]/60 tracking-widest uppercase mb-4">{t("result")}</div>
                     <div className="text-4xl font-black text-[#D6001C]">
                       {testimonials[active].result}
                     </div>

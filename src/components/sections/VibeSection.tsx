@@ -2,37 +2,19 @@
 
 import { useRef } from "react";
 import { m, useInView } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
-// 404 DAMNED's own operating principles — mysterious, weighty, ours.
-const doctrine = [
-  {
-    n: "001",
-    t: "Refuse the template",
-    d: "A site that looks like everyone else's performs like everyone else's. We start from zero, every time.",
-    accent: "red",
-  },
-  {
-    n: "002",
-    t: "Engineer the obsession",
-    d: "Speed, motion, weight — tuned until a visitor can't look away. Attention is the only currency that converts.",
-    accent: "electric",
-  },
-  {
-    n: "003",
-    t: "Ship weapons, not decor",
-    d: "Pretty is the floor. Everything we build is aimed at a number: revenue, leads, dominance.",
-    accent: "lime",
-  },
-  {
-    n: "004",
-    t: "Leave no survivors",
-    d: "Your competitors are the benchmark. We build the thing that makes their site feel like a relic.",
-    accent: "red",
-  },
-] as const;
+interface DoctrineItem {
+  n: string;
+  t: string;
+  d: string;
+  accent: "red" | "electric" | "lime";
+}
 
 export function VibeSection() {
+  const t = useTranslations("Vibe");
+  const doctrine = t.raw("doctrine") as DoctrineItem[];
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -43,14 +25,14 @@ export function VibeSection() {
       <div className="pointer-events-none absolute bottom-0 right-0 w-[35rem] h-[35rem] rounded-full bg-[#00E5FF]/8 blur-[120px]" />
 
       <div className="relative max-w-[1400px] mx-auto px-6" ref={ref}>
-        <SectionLabel accent="electric">The Doctrine</SectionLabel>
+        <SectionLabel accent="electric">{t("sectionLabel")}</SectionLabel>
         <h2 className="mt-6 font-display font-black uppercase leading-[0.88] tracking-tight text-[clamp(2.6rem,6vw,6rem)] text-white max-w-4xl">
-          Four rules.
+          {t("heading1")}
           <br />
-          <span className="text-stroke">No exceptions.</span>
+          <span className="text-stroke">{t("heading2")}</span>
         </h2>
         <p className="mt-6 max-w-lg text-gray-400 text-lg leading-relaxed font-mono text-sm">
-          {"// how we operate when the lights go down in Amsterdam"}
+          {t("subtitle")}
         </p>
 
         <div className="mt-20 grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">

@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { posts, getPost, type RichText } from "@/data/posts";
+import { postsNl, getPostNl } from "@/data/posts.nl";
 import { getTeamMember } from "@/data/team";
+import { getTeamMemberNl } from "@/data/team.nl";
+import { pickLocale } from "@/lib/utils";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
+import { routing } from "@/i18n/routing";
 
 /** Render block text that may contain inline links. */
 function renderRich(rt: RichText) {
@@ -28,26 +33,32 @@ function renderRich(rt: RichText) {
 }
 
 export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
+  return routing.locales.flatMap((locale) =>
+    posts.map((p) => ({ locale, slug: p.slug }))
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getPost(slug);
+  const { locale, slug } = await params;
+  const post = pickLocale(getPost(slug), getPostNl(slug), locale);
   if (!post) return { title: "Insights" };
+  const path = `/insights/${post.slug}`;
   return {
     title: post.title,
     description: post.excerpt,
     keywords: post.keywords,
-    alternates: { canonical: `/insights/${post.slug}` },
+    alternates: {
+      canonical: localizedPath(path, locale),
+      languages: languageAlternates(path),
+    },
     openGraph: {
       title: `${post.title} | 404 DAMNED`,
       description: post.excerpt,
-      url: `https://www.404damned.com/insights/${post.slug}`,
+      url: `https://www.404damned.com${localizedPath(path, locale)}`,
       type: "article",
       publishedTime: post.date,
     },
@@ -62,12 +73,14 @@ export async function generateMetadata({
 export default async function PostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const post = getPost(slug);
+  const { locale, slug } = await params;
+  const t = await getTranslations("InsightsDetail");
+  const post = pickLocale(getPost(slug), getPostNl(slug), locale);
   if (!post) notFound();
-  const author = getTeamMember(post.authorSlug);
+  const author = pickLocale(getTeamMember(post.authorSlug), getTeamMemberNl(post.authorSlug), locale);
+  const localizedPosts = pickLocale(posts, postsNl, locale);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -94,13 +107,16 @@ export default async function PostPage({
     keywords: post.keywords.join(", "),
   };
 
-  const idx = posts.findIndex((p) => p.slug === post.slug);
-  const next = posts[(idx + 1) % posts.length];
+  const idx = localizedPosts.findIndex((p) => p.slug === post.slug);
+  const next = localizedPosts[(idx + 1) % localizedPosts.length];
 
-  const breadcrumbs = breadcrumbJsonLd([
-    { name: "Insights", path: "/insights" },
-    { name: post.title, path: `/insights/${post.slug}` },
-  ]);
+  const breadcrumbs = breadcrumbJsonLd(
+    [
+      { name: t("breadcrumbInsights"), path: "/insights" },
+      { name: post.title, path: `/insights/${post.slug}` },
+    ],
+    { locale, homeLabel: "Home" }
+  );
 
   return (
     <main className="relative bg-[#050505] min-h-screen">
@@ -119,14 +135,14 @@ export default async function PostPage({
           href="/insights"
           className="font-mono text-xs text-gray-500 hover:text-[#D6001C] transition-colors"
         >
-          &larr; All insights
+          &larr; {t("allInsights")}
         </Link>
 
         <div className="flex items-center gap-3 mt-8 mb-4 font-mono text-[0.65rem] uppercase tracking-widest">
           <span className="text-[#00E5FF]">{post.category}</span>
-          <span className="text-gray-600">{post.readMins} min read</span>
+          <span className="text-gray-600">{t("minRead", { count: post.readMins })}</span>
           <span className="text-gray-600">
-            {new Date(post.date).toLocaleDateString("en-GB", {
+            {new Date(post.date).toLocaleDateString(locale === "nl" ? "nl-NL" : "en-GB", {
               day: "numeric",
               month: "short",
               year: "numeric",
@@ -154,7 +170,7 @@ export default async function PostPage({
                 .join("")}
             </span>
             <span className="font-mono text-xs uppercase tracking-widest">
-              <span className="text-gray-500">Written by </span>
+              <span className="text-gray-500">{t("writtenBy")} </span>
               <span className="text-white group-hover:text-[#D6001C] transition-colors">
                 {author.name}
               </span>
@@ -197,13 +213,13 @@ export default async function PostPage({
         {/* CTA */}
         <div className="mt-16 border-t border-white/10 pt-10">
           <p className="text-gray-400 mb-5">
-            Got a project where this matters? Let&apos;s talk.
+            {t("ctaPrompt")}
           </p>
           <Link
             href="/#contact"
             className="inline-block bg-[#D6001C] hover:bg-[#FF1A35] text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
-            Start a Project &rarr;
+            {t("startProject")} &rarr;
           </Link>
         </div>
       </article>
@@ -211,7 +227,7 @@ export default async function PostPage({
       {/* Next post */}
       <section className="max-w-[760px] mx-auto px-6 pb-24 border-t border-white/10">
         <p className="mt-10 font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">
-          Next read
+          {t("nextRead")}
         </p>
         <Link href={`/insights/${next.slug}`} className="group block">
           <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white group-hover:text-[#D6001C] transition-colors">

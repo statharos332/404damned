@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { m, useInView, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const budgetOptions = [
   "€2.500 – €5.000",
@@ -10,17 +11,9 @@ const budgetOptions = [
   "€30.000+",
 ];
 
-const serviceOptions = [
-  "Web Development",
-  "E-Commerce",
-  "AI Automation",
-  "Branding",
-  "SEO",
-  "Social Media",
-  "Full Partnership",
-];
-
 export function ContactSection() {
+  const t = useTranslations("Contact");
+  const serviceOptions = t.raw("serviceOptions") as string[];
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formState, setFormState] = useState({
@@ -49,12 +42,12 @@ export function ContactSection() {
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Something went wrong. Please try again.");
+        throw new Error(data.error || t("errorGeneric"));
       }
       setSubmitted(true);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Something went wrong. Please try again."
+        err instanceof Error ? err.message : t("errorGeneric")
       );
     } finally {
       setLoading(false);
@@ -72,7 +65,7 @@ export function ContactSection() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
             >
-              — Start the War
+              {t("kicker")}
             </m.div>
             <m.h2
               initial={{ opacity: 0, y: 40 }}
@@ -80,11 +73,11 @@ export function ContactSection() {
               transition={{ delay: 0.1, duration: 0.8 }}
               className="text-5xl md:text-6xl font-black tracking-tight leading-[0.9] uppercase mb-8"
             >
-              Ready to
+              {t("heading1")}
               <br />
-              <span className="text-[#D6001C]">Dominate</span>
+              <span className="text-[#D6001C]">{t("heading2")}</span>
               <br />
-              Your Market?
+              {t("heading3")}
             </m.h2>
             <m.p
               initial={{ opacity: 0, y: 20 }}
@@ -92,7 +85,7 @@ export function ContactSection() {
               transition={{ delay: 0.2, duration: 0.7 }}
               className="text-gray-400 leading-relaxed mb-12 max-w-sm"
             >
-              One conversation is all it takes. We&apos;ll tell you exactly what it will take to make your competitors irrelevant.
+              {t("subtitle")}
             </m.p>
 
             {/* Info */}
@@ -104,22 +97,22 @@ export function ContactSection() {
               >
                   {[
                       {
-                          label: "Email",
+                          label: t("infoEmail"),
                           value: "info@404damned.com",
                           href: "mailto:info@404damned.com",
                       },
                       {
-                          label: "Phone",
+                          label: t("infoPhone"),
                           value: "+31 647 62 5711",
                           href: "tel:+31647625711",
                       },
                       {
-                          label: "Location",
+                          label: t("infoLocation"),
                           value: "Amsterdam",
                       },
                       {
-                          label: "Response time",
-                          value: "Within 4 business hours",
+                          label: t("infoResponseTime"),
+                          value: t("infoResponseValue"),
                       },
                   ].map((item) => (
                       <div key={item.label} className="flex gap-4">
@@ -163,9 +156,9 @@ export function ContactSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-black">Message received.</h3>
+                  <h3 className="text-2xl font-black">{t("successTitle")}</h3>
                   <p className="text-gray-400 max-w-xs">
-                    We&apos;ll review your brief and reach out within 4 business hours. Prepare for impact.
+                    {t("successBody")}
                   </p>
                 </m.div>
               ) : (
@@ -177,7 +170,7 @@ export function ContactSection() {
                   {/* Name + Company */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-name" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Name *</label>
+                      <label htmlFor="contact-name" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelName")}</label>
                       <input
                         id="contact-name"
                         name="name"
@@ -191,7 +184,7 @@ export function ContactSection() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-company" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Company</label>
+                      <label htmlFor="contact-company" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelCompany")}</label>
                       <input
                         id="contact-company"
                         name="company"
@@ -207,7 +200,7 @@ export function ContactSection() {
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="contact-email" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Email *</label>
+                    <label htmlFor="contact-email" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelEmail")}</label>
                     <input
                       id="contact-email"
                       name="email"
@@ -222,8 +215,8 @@ export function ContactSection() {
                   </div>
 
                   {/* Service */}
-                  <div role="group" aria-label="Service">
-                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Service</span>
+                  <div role="group" aria-label={t("labelService")}>
+                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelService")}</span>
                     <div className="flex flex-wrap gap-2">
                       {serviceOptions.map((s) => (
                         <button
@@ -245,8 +238,8 @@ export function ContactSection() {
                   </div>
 
                   {/* Budget */}
-                  <div role="group" aria-label="Budget">
-                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Budget</span>
+                  <div role="group" aria-label={t("labelBudget")}>
+                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelBudget")}</span>
                     <div className="flex flex-wrap gap-2">
                       {budgetOptions.map((b) => (
                         <button
@@ -269,7 +262,7 @@ export function ContactSection() {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="contact-message" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">Tell us your situation</label>
+                    <label htmlFor="contact-message" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelMessage")}</label>
                     <textarea
                       id="contact-message"
                       name="message"
@@ -277,7 +270,7 @@ export function ContactSection() {
                       value={formState.message}
                       onChange={(e) => setFormState((p) => ({ ...p, message: e.target.value }))}
                       className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 outline-none px-4 py-3 text-white text-sm transition-colors duration-300 resize-none placeholder:text-gray-700"
-                      placeholder="What are you trying to achieve? What's broken? What does success look like?"
+                      placeholder={t("messagePlaceholder")}
                     />
                   </div>
 
@@ -311,10 +304,10 @@ export function ContactSection() {
                     {loading ? (
                       <>
                         <div className="w-4 h-4 border border-white/30 border-t-white rounded-full animate-spin" />
-                        Sending...
+                        {t("sending")}
                       </>
                     ) : (
-                      "Send the Brief →"
+                      t("send")
                     )}
                   </button>
                 </m.form>

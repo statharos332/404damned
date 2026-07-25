@@ -1,26 +1,44 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, getLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { posts } from "@/data/posts";
+import { postsNl } from "@/data/posts.nl";
+import { pickLocale } from "@/lib/utils";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Insights — Web, E-Commerce & AI",
-  description:
-    "Practical writing on web performance, headless e-commerce, AI automation and growth from 404 DAMNED, a premium digital studio in Amsterdam.",
-  alternates: { canonical: "/insights" },
-  openGraph: {
-    title: "Insights — 404 DAMNED",
-    description:
-      "Practical writing on web performance, e-commerce and AI automation from an Amsterdam digital studio.",
-    url: "https://www.404damned.com/insights",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "InsightsHub" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: localizedPath("/insights", locale),
+      languages: languageAlternates("/insights"),
+    },
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      url: `https://www.404damned.com${localizedPath("/insights", locale)}`,
+    },
+  };
+}
 
-export default function InsightsPage() {
-  const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
-  const breadcrumbs = breadcrumbJsonLd([{ name: "Insights", path: "/insights" }]);
+export default async function InsightsPage() {
+  const locale = await getLocale();
+  const t = await getTranslations("InsightsHub");
+  const localizedPosts = pickLocale(posts, postsNl, locale);
+  const sorted = [...localizedPosts].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const breadcrumbs = breadcrumbJsonLd(
+    [{ name: t("breadcrumb"), path: "/insights" }],
+    { locale, homeLabel: "Home" }
+  );
   return (
     <main className="relative bg-[#050505] min-h-screen">
       <script
@@ -31,16 +49,15 @@ export default function InsightsPage() {
 
       <header className="max-w-[1100px] mx-auto px-6 pt-40 pb-16">
         <p className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
-          [ Insights ]
+          {t("kicker")}
         </p>
         <h1 className="font-display font-black uppercase leading-[0.9] tracking-tight text-[clamp(2.8rem,7vw,6rem)] text-white">
-          Field notes
+          {t("heading1")}
           <br />
-          <span className="text-[#D6001C]">from the build.</span>
+          <span className="text-[#D6001C]">{t("heading2")}</span>
         </h1>
         <p className="mt-6 max-w-xl text-gray-400 leading-relaxed">
-          No fluff. Practical thinking on performance, e-commerce, AI and
-          everything we use to build digital weapons that actually convert.
+          {t("intro")}
         </p>
       </header>
 
@@ -58,7 +75,7 @@ export default function InsightsPage() {
               <div>
                 <div className="flex items-center gap-3 mb-2 font-mono text-[0.65rem] uppercase tracking-widest">
                   <span className="text-[#00E5FF]">{p.category}</span>
-                  <span className="text-gray-600">{p.readMins} min read</span>
+                  <span className="text-gray-600">{t("minRead", { count: p.readMins })}</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
                   {p.title}
@@ -68,7 +85,7 @@ export default function InsightsPage() {
                 </p>
               </div>
               <span className="hidden md:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white group-hover:gap-4 transition-all whitespace-nowrap">
-                Read <span className="text-[#D6001C]">&rarr;</span>
+                {t("read")} <span className="text-[#D6001C]">&rarr;</span>
               </span>
             </Link>
           ))}

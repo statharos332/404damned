@@ -1,0 +1,508 @@
+{
+  "Metadata": {
+    "title": "404 DAMNED — Premium Digital Agency Amsterdam",
+    "description": "We don't build websites. We build digital weapons. Premium web development, e-commerce, AI automation & growth systems for ambitious Dutch businesses.",
+    "ogDescription": "We don't build websites. We build digital weapons. Premium web development, e-commerce & AI automation for ambitious businesses.",
+    "twitterDescription": "We don't build websites. We build digital weapons.",
+    "keywords": [
+      "digital agency Amsterdam",
+      "web development Amsterdam",
+      "Next.js development",
+      "e-commerce development",
+      "Magento development",
+      "AI automation",
+      "premium digital agency Netherlands",
+      "website Amsterdam",
+      "SEO Amsterdam"
+    ],
+    "orgDescription": "Premium digital agency in Amsterdam specialising in web development, e-commerce, AI automation, branding, SEO and growth systems for ambitious businesses.",
+    "slogan": "We don't build websites. We build digital weapons.",
+    "siteDescription": "Premium digital agency in Amsterdam — web development, e-commerce, AI automation, branding and SEO.",
+    "founderTitle": "Founder — Management & Project Management",
+    "developerTitle": "Developer & Designer",
+    "marketingTitle": "Web Developer & Digital Marketing",
+    "offerCatalog": [
+      "Web Development",
+      "E-commerce Development",
+      "Magento Development",
+      "WordPress Development",
+      "Next.js Applications",
+      "AI Automation",
+      "Social Media Management",
+      "Branding",
+      "SEO"
+    ]
+  },
+  "NotFound": {
+    "eyebrow": "[ Error / Signal lost ]",
+    "headingStart": "This page got what it",
+    "headingHighlight": "deserved.",
+    "body": "The URL you hit doesn't exist — or it was taken out. Everything we build on purpose, though, is very much alive. Pick a way back in.",
+    "backToBase": "Back to Base",
+    "seeWork": "See the Work",
+    "insights": "Insights",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "Nav": {
+    "services": "Services",
+    "work": "Work",
+    "about": "About",
+    "insights": "Insights",
+    "pricing": "Pricing",
+    "bookCall": "Book a Call",
+    "toggleMenu": "Toggle menu",
+    "watchShowreel": "Watch Showreel",
+    "bookStrategyCall": "Book a Strategy Call"
+  },
+  "Footer": {
+    "kicker": "Ready to stop losing market share?",
+    "ctaLine1": "Let's build your",
+    "ctaLine2": "digital weapon.",
+    "bookStrategyCall": "Book a Strategy Call",
+    "brandBlurb": "Premium digital agency in Amsterdam. We build digital weapons for ambitious brands.",
+    "categoryServices": "Services",
+    "categoryCompany": "Company",
+    "categoryLegal": "Legal",
+    "linkWebDevelopment": "Web Development",
+    "linkEcommerce": "E-Commerce",
+    "linkAiAutomation": "AI Automation",
+    "linkBranding": "Branding",
+    "linkSeo": "SEO",
+    "linkSocialMedia": "Social Media",
+    "linkAbout": "About",
+    "linkProcess": "Process",
+    "linkCaseStudies": "Case Studies",
+    "linkPricing": "Pricing",
+    "linkContact": "Contact",
+    "linkPrivacyPolicy": "Privacy Policy",
+    "linkTermsOfService": "Terms of Service",
+    "linkCookiePolicy": "Cookie Policy",
+    "copyright": "© {year} 404 DAMNED — KVK 42082502 — Amsterdam, Netherlands",
+    "tagline": "Designed & built in Amsterdam with intention."
+  },
+  "Hero": {
+    "badge": "Amsterdam · Digital Weapons Manufacturer",
+    "headline1": "Code.",
+    "headline2": "Create.",
+    "headline3": "Dominate.",
+    "ctaBook": "Book a Strategy Call",
+    "ctaWork": "View Our Work"
+  },
+  "ServicesGrid": {
+    "kicker": "— What We Do",
+    "heading1": "Digital",
+    "heading2": "Arsenal.",
+    "subtitle": "Six disciplines. One mission: making your competitors irrelevant.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Web Development",
+        "description": "Custom Next.js, React and WordPress builds engineered for performance, conversion and scale. No templates. Pure code.",
+        "tags": ["Next.js", "React", "TypeScript", "Performance"]
+      },
+      {
+        "number": "02",
+        "title": "E-Commerce",
+        "description": "Magento & custom e-commerce ecosystems that turn browsers into buyers. Revenue-first architecture.",
+        "tags": ["Magento", "WooCommerce", "Checkout Optimization"]
+      },
+      {
+        "number": "03",
+        "title": "AI Automation",
+        "description": "Intelligent systems that replace repetitive work, qualify leads 24/7 and scale your operations without scaling headcount.",
+        "tags": ["GPT-4o", "Automation", "CRM", "Lead Scoring"]
+      },
+      {
+        "number": "04",
+        "title": "Social Media",
+        "description": "Content systems and growth architecture for brands that refuse to blend in.",
+        "tags": ["Strategy", "Content", "Paid Ads", "Analytics"]
+      },
+      {
+        "number": "05",
+        "title": "Branding",
+        "description": "Visual identities that make instant emotional impact. From strategy to complete brand systems.",
+        "tags": ["Identity", "Design System", "Motion", "Brand Strategy"]
+      },
+      {
+        "number": "06",
+        "title": "SEO",
+        "description": "Technical SEO and content infrastructure that compounds. We build assets, not campaigns.",
+        "tags": ["Technical SEO", "Content", "Link Building", "Analytics"]
+      }
+    ]
+  },
+  "Capabilities": {
+    "kicker": "— Core Expertise",
+    "heading1": "Digital",
+    "heading2": "Capabilities.",
+    "items": [
+      {
+        "id": "01",
+        "title": "High-Performance Websites",
+        "category": "Design + Development",
+        "description": "Custom-built websites designed for credibility, speed, and conversion. Every project starts with strategy and ends with a digital asset that supports measurable business growth.",
+        "highlights": ["Custom UI/UX Design", "Next.js Development", "WordPress Development"],
+        "tags": ["Next.js", "WordPress", "Performance", "SEO"]
+      },
+      {
+        "id": "02",
+        "title": "E-Commerce Platforms",
+        "category": "Commerce Infrastructure",
+        "description": "Scalable e-commerce experiences built for ambitious brands. From product architecture to checkout optimisation, every detail is engineered for growth.",
+        "highlights": ["Magento Development", "WooCommerce Solutions", "Headless Commerce"],
+        "tags": ["Magento", "WooCommerce", "Headless", "CRO"]
+      },
+      {
+        "id": "03",
+        "title": "AI & Automation Systems",
+        "category": "Digital Operations",
+        "description": "Automation solutions that eliminate repetitive work, improve lead handling, and create more efficient business processes.",
+        "highlights": ["Lead Qualification", "CRM Automation", "Workflow Optimisation"],
+        "tags": ["AI", "Automation", "CRM", "Integrations"]
+      }
+    ]
+  },
+  "Clients": {
+    "sectionLabel": "Deployed for",
+    "metricNote": "// awards are nice. the metric we chase is the one in your bank account.",
+    "recognitionNote": "// recognition log — populated on contact",
+    "recognition": [
+      { "org": "AWWWARDS", "label": "Honorable Mention", "count": "—" },
+      { "org": "CSSDA", "label": "Special Kudos", "count": "—" },
+      { "org": "FWA", "label": "Of the Day", "count": "—" }
+    ]
+  },
+  "Vibe": {
+    "sectionLabel": "The Doctrine",
+    "heading1": "Four rules.",
+    "heading2": "No exceptions.",
+    "subtitle": "// how we operate when the lights go down in Amsterdam",
+    "doctrine": [
+      {
+        "n": "001",
+        "t": "Refuse the template",
+        "d": "A site that looks like everyone else's performs like everyone else's. We start from zero, every time.",
+        "accent": "red"
+      },
+      {
+        "n": "002",
+        "t": "Engineer the obsession",
+        "d": "Speed, motion, weight — tuned until a visitor can't look away. Attention is the only currency that converts.",
+        "accent": "electric"
+      },
+      {
+        "n": "003",
+        "t": "Ship weapons, not decor",
+        "d": "Pretty is the floor. Everything we build is aimed at a number: revenue, leads, dominance.",
+        "accent": "lime"
+      },
+      {
+        "n": "004",
+        "t": "Leave no survivors",
+        "d": "Your competitors are the benchmark. We build the thing that makes their site feel like a relic.",
+        "accent": "red"
+      }
+    ]
+  },
+  "Why": {
+    "kicker": "— Why We're Different",
+    "heading1": "The Agency",
+    "heading2": "Industry is",
+    "heading3": "Broken.",
+    "problems": [
+      {
+        "agency": "Traditional agencies",
+        "problem": "Sell you a template, call it custom, then outsource the build.",
+        "solution": "Every project starts from a blank file — the same three people scope it, build it and ship it."
+      },
+      {
+        "agency": "Cheap freelancers",
+        "problem": "Disappear the day the invoice clears.",
+        "solution": "We're still around for the redesign, the new feature, the thing that breaks two years from now."
+      },
+      {
+        "agency": "Marketing agencies",
+        "problem": "Sell you a strategy deck, then outsource the actual build.",
+        "solution": "We build what we pitch — no hand-off to a dev shop you've never met."
+      },
+      {
+        "agency": "Dev shops",
+        "problem": "Ship clean code with no opinion on whether it makes you money.",
+        "solution": "Every build decision gets weighed against one question: does this convert."
+      }
+    ],
+    "boldStatements": [
+      "If your website doesn't generate leads, it's a liability.",
+      "Three people build this. Not fifteen you'll never meet.",
+      "Templates are for brands that have given up.",
+      "Growth is engineered. Not wished for."
+    ],
+    "quoteStart": "Three people build",
+    "quotePart1": "everything here.",
+    "quotePart2": "No account managers,",
+    "quotePart3": "no hand-offs,",
+    "quotePart4": "no one you'll never meet.",
+    "quoteCaption": "— How 404 DAMNED actually works"
+  },
+  "Process": {
+    "kicker": "— How We Work",
+    "heading1": "The War",
+    "heading2": "Room Process.",
+    "activitiesLabel": "Activities",
+    "outputLabel": "Output",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery",
+        "duration": "Week 1",
+        "description": "Deep dive into your business, market position, competitors and growth ambitions. We don't touch a pixel until we understand your commercial reality.",
+        "activities": ["Stakeholder interviews", "Competitive audit", "Technical assessment", "Goal definition"],
+        "output": "Strategy Brief"
+      },
+      {
+        "number": "02",
+        "title": "Strategy",
+        "duration": "Week 1-2",
+        "description": "We architect the complete digital system — from user journeys to conversion paths to technical infrastructure. Every decision is documented and justified.",
+        "activities": ["User journey mapping", "Conversion architecture", "Tech stack decision", "KPI framework"],
+        "output": "Project Blueprint"
+      },
+      {
+        "number": "03",
+        "title": "Design",
+        "duration": "Week 2-3",
+        "description": "Visual systems that command attention and drive action. We design in high fidelity from day one. No wireframe games.",
+        "activities": ["Brand direction", "UI/UX design", "Motion design", "Design system"],
+        "output": "Complete Design System"
+      },
+      {
+        "number": "04",
+        "title": "Development",
+        "duration": "Week 3-6",
+        "description": "Pixel-perfect implementation with obsessive attention to performance, accessibility and scalability. Clean code. Zero tech debt.",
+        "activities": ["Frontend development", "Backend integration", "AI implementation", "QA testing"],
+        "output": "Production-Ready Build"
+      },
+      {
+        "number": "05",
+        "title": "Growth",
+        "duration": "Ongoing",
+        "description": "Launch is the starting line, not the finish. We run continuous optimisation, A/B testing and growth experiments to compound your results over time.",
+        "activities": ["A/B testing", "SEO compounding", "Performance monitoring", "Monthly growth reports"],
+        "output": "Monthly Growth System"
+      }
+    ]
+  },
+  "BriefCTA": {
+    "sectionLabel": "Open a channel",
+    "headline": "PICK A FIGHT",
+    "subtitle": "Tell us who you're up against. We'll build the thing that ends the argument.",
+    "ctaBrief": "Start the Brief",
+    "ctaCall": "[ book_a_call ]",
+    "footerLine": "AMSTERDAM · 52.3676° N, 4.9041° E · EST. RESPONSE < 24H"
+  },
+  "Contact": {
+    "kicker": "— Start the War",
+    "heading1": "Ready to",
+    "heading2": "Dominate",
+    "heading3": "Your Market?",
+    "subtitle": "One conversation is all it takes. We'll tell you exactly what it will take to make your competitors irrelevant.",
+    "infoEmail": "Email",
+    "infoPhone": "Phone",
+    "infoLocation": "Location",
+    "infoResponseTime": "Response time",
+    "infoResponseValue": "Within 4 business hours",
+    "successTitle": "Message received.",
+    "successBody": "We'll review your brief and reach out within 4 business hours. Prepare for impact.",
+    "labelName": "Name *",
+    "labelCompany": "Company",
+    "labelEmail": "Email *",
+    "labelService": "Service",
+    "labelBudget": "Budget",
+    "labelMessage": "Tell us your situation",
+    "messagePlaceholder": "What are you trying to achieve? What's broken? What does success look like?",
+    "serviceOptions": ["Web Development", "E-Commerce", "AI Automation", "Branding", "SEO", "Social Media", "Full Partnership"],
+    "errorGeneric": "Something went wrong. Please try again.",
+    "sending": "Sending...",
+    "send": "Send the Brief →"
+  },
+  "InsightsPreview": {
+    "kicker": "[ Insights ]",
+    "heading": "Field notes.",
+    "allInsights": "All insights",
+    "read": "Read"
+  },
+  "WorkPreview": {
+    "kicker": "[ Recent kills ]",
+    "heading1": "Proof in the",
+    "heading2": "wreckage.",
+    "seeAll": "See all work"
+  },
+  "WorkExplorer": {
+    "filter": "filter:",
+    "viewCase": "View case",
+    "live": "[ live ]"
+  },
+  "MediaGallery": {
+    "openMedia": "Open {client} media {index} of {total}",
+    "shotsCount": "{count} shots · tap to enlarge",
+    "mediaViewer": "{client} media viewer",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next",
+    "goToMedia": "Go to media {index}"
+  },
+  "Pricing": {
+    "kicker": "— Investment",
+    "heading1": "Fair Prices.",
+    "heading2": "Unfair Results.",
+    "subtitle": "Not the cheapest. Not the most expensive. The only agency where the math actually makes sense.",
+    "mostPopular": "Most Popular",
+    "trustNote": "All projects include a discovery call. We only take on work we know we can win.",
+    "trustNoteExtra": "No retainer lock-ins on Starter.",
+    "plans": [
+      {
+        "name": "Starter",
+        "tagline": "For businesses ready to compete.",
+        "price": "From 3.500",
+        "period": "one-time",
+        "description": "A focused, high-performance digital presence built for credibility and conversion.",
+        "features": ["Custom design (up to 8 pages)", "Next.js or WordPress development", "Mobile-first responsive", "Basic SEO setup", "Google Analytics 4", "Contact form + CRM integration", "3-month post-launch support"],
+        "cta": "Start the conversation",
+        "featured": false
+      },
+      {
+        "name": "Growth",
+        "tagline": "For businesses that scale seriously.",
+        "price": "From 8.500",
+        "period": "one-time + optional monthly",
+        "description": "Full digital system: design, development, automation, and performance optimization.",
+        "features": ["Everything in Starter", "AI lead qualification system", "Advanced integrations / e-commerce", "Full SEO architecture", "Conversion rate optimisation", "Monthly growth support (optional)", "Analytics & tracking setup", "Priority communication channel"],
+        "cta": "Most ambitious brands choose this",
+        "featured": true
+      },
+      {
+        "name": "Enterprise",
+        "tagline": "For long-term digital partnerships.",
+        "price": "Custom",
+        "period": "retainer",
+        "description": "We operate as your embedded digital team, focused on continuous growth and optimization.",
+        "features": ["Everything in Growth", "Dedicated team access", "Custom automation & AI systems", "Ongoing optimization", "Strategic advisory", "SLA-based support", "Monthly reporting", "Quarterly strategy reviews"],
+        "cta": "Apply for partnership",
+        "featured": false,
+        "isCustomPrice": true
+      }
+    ]
+  },
+  "Testimonials": {
+    "kicker": "— Client Victories",
+    "heading1": "What They",
+    "heading2": "Actually Say.",
+    "result": "Result"
+  },
+  "MarqueeBar": {
+    "items": ["Web Development", "E-Commerce", "AI Automation", "Next.js", "Magento", "WordPress", "Branding", "SEO", "Social Media", "Digital Strategy"]
+  },
+  "Home": {
+    "strip1": ["CODE", "CREATE", "DOMINATE"],
+    "strip2": ["NO TEMPLATES", "ONLY WEAPONS"]
+  },
+  "ServicePageChrome": {
+    "breadcrumbServices": "Services",
+    "bookCall": "Book a Strategy Call",
+    "seeWork": "See the Work",
+    "included": "What's included",
+    "stackTools": "Stack & tools",
+    "faqTitle": "Frequently asked questions",
+    "relatedServices": "Related services",
+    "ctaLine1": "Let's build your",
+    "ctaLine2": "digital weapon.",
+    "startConversation": "Start a Conversation"
+  },
+  "ServicesHub": {
+    "metaTitle": "Services — Digital Agency in Amsterdam",
+    "metaDescription": "Web development, e-commerce, AI automation, branding, SEO and social media — the full arsenal of a premium digital agency in Amsterdam. See what we build.",
+    "keywords": ["digital agency Amsterdam", "digital agency services Amsterdam", "web design agency Netherlands", "creative agency Amsterdam"],
+    "ogTitle": "Services — 404 DAMNED, Digital Agency Amsterdam",
+    "ogDescription": "Web development, e-commerce, AI automation, branding, SEO and social media from a premium Amsterdam digital agency.",
+    "breadcrumb": "Services",
+    "kicker": "[ Services ]",
+    "heading1": "One agency.",
+    "heading2": "The whole arsenal.",
+    "intro": "404 DAMNED is a premium digital agency in Amsterdam. From custom web development and e-commerce to AI automation, branding, SEO and social — everything an ambitious business needs to dominate its market, built by one team that actually talks to each other.",
+    "explore": "Explore"
+  },
+  "WorkHub": {
+    "metaTitle": "Case Studies — Web Development, E-Commerce & AI Work",
+    "metaDescription": "Real client work: a high-conversion booking platform, an AI-powered Etsy SEO engine, and more as projects wrap. See what 404 DAMNED actually builds.",
+    "ogTitle": "Case Studies — 404 DAMNED",
+    "ogDescription": "Real client work from an Amsterdam studio: booking platforms, e-commerce and AI automation, not a pitch deck.",
+    "breadcrumb": "Work",
+    "kicker": "Our Work",
+    "heading1": "Proof, not",
+    "heading2": "promises.",
+    "intro": "Two builds so far, each solving a different problem: a high-conversion booking platform for a transfer service, and an AI engine that writes Etsy listings. More lands here as projects wrap.",
+    "ctaHeading": "Your project is next.",
+    "startConversation": "Start a Conversation"
+  },
+  "WorkDetail": {
+    "breadcrumbWork": "Work",
+    "allWork": "All Work",
+    "challenge": "The Challenge",
+    "approach": "Our Approach",
+    "outcome": "The Outcome",
+    "servicesLabel": "Services",
+    "stackLabel": "Stack",
+    "visitLiveSite": "Visit Live Site",
+    "nextProject": "Next Project",
+    "view": "View"
+  },
+  "InsightsHub": {
+    "metaTitle": "Insights — Web, E-Commerce & AI",
+    "metaDescription": "Practical writing on web performance, headless e-commerce, AI automation and growth from 404 DAMNED, a premium digital studio in Amsterdam.",
+    "ogTitle": "Insights — 404 DAMNED",
+    "ogDescription": "Practical writing on web performance, e-commerce and AI automation from an Amsterdam digital studio.",
+    "breadcrumb": "Insights",
+    "kicker": "[ Insights ]",
+    "heading1": "Field notes",
+    "heading2": "from the build.",
+    "intro": "No fluff. Practical thinking on performance, e-commerce, AI and everything we use to build digital weapons that actually convert.",
+    "minRead": "{count} min read",
+    "read": "Read"
+  },
+  "InsightsDetail": {
+    "breadcrumbInsights": "Insights",
+    "allInsights": "All insights",
+    "minRead": "{count} min read",
+    "writtenBy": "Written by",
+    "ctaPrompt": "Got a project where this matters? Let's talk.",
+    "startProject": "Start a Project",
+    "nextRead": "Next read"
+  },
+  "About": {
+    "metaTitle": "About — The Team Behind 404 DAMNED",
+    "metaDescription": "404 DAMNED is three people, not a faceless agency: Nick Grigoriadis, Stathis Papounidis and Tatiana Petsiou. Real names, real LinkedIn profiles, real work.",
+    "keywords": ["404 DAMNED team", "digital agency Amsterdam founders", "who is 404 damned"],
+    "ogDescription": "404 DAMNED is three people, not a faceless agency. Meet the team.",
+    "breadcrumb": "About",
+    "kicker": "[ About ]",
+    "heading1": "This is who you're",
+    "heading2": "actually hiring.",
+    "intro": "404 DAMNED isn't a faceless agency with a rotating cast of account managers. It's three people — Nick, Stathis and Tatiana — who work on your project directly. No hand-offs, no anonymous \"team\".",
+    "storyHeading": "The name is newer than the work",
+    "storyBody": "404 DAMNED as a studio is the result of experience that goes back to 2017 — years of freelance work and time inside other companies and agencies, long before this name existed. Nick brought company and project management, Stathis brought web development and e-commerce, and Tatiana brought web development and digital marketing. At some point the three of us realised we were better off building under one name than separately, so we did.",
+    "teamHeading": "The team",
+    "ctaHeading1": "Talk to the people",
+    "ctaHeading2": "who'll do the work.",
+    "ctaBookCall": "Book a Strategy Call"
+  },
+  "LegalPageChrome": {
+    "lastUpdated": "Last updated",
+    "questionsBefore": "Questions about this document? Reach us at",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy"
+  }
+}

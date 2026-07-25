@@ -2,68 +2,24 @@
 
 import { useRef } from "react";
 import { m, useInView } from "framer-motion";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
-const plans = [
-    {
-        name: "Starter",
-        tagline: "For businesses ready to compete.",
-        price: "From 3.500",
-        period: "one-time",
-        description: "A focused, high-performance digital presence built for credibility and conversion.",
-        features: [
-            "Custom design (up to 8 pages)",
-            "Next.js or WordPress development",
-            "Mobile-first responsive",
-            "Basic SEO setup",
-            "Google Analytics 4",
-            "Contact form + CRM integration",
-            "3-month post-launch support",
-        ],
-        cta: "Start the conversation",
-        featured: false,
-    },
-    {
-        name: "Growth",
-        tagline: "For businesses that scale seriously.",
-        price: "From 8.500",
-        period: "one-time + optional monthly",
-        description: "Full digital system: design, development, automation, and performance optimization.",
-        features: [
-            "Everything in Starter",
-            "AI lead qualification system",
-            "Advanced integrations / e-commerce",
-            "Full SEO architecture",
-            "Conversion rate optimisation",
-            "Monthly growth support (optional)",
-            "Analytics & tracking setup",
-            "Priority communication channel",
-        ],
-        cta: "Most ambitious brands choose this",
-        featured: true,
-    },
-    {
-        name: "Enterprise",
-        tagline: "For long-term digital partnerships.",
-        price: "Custom",
-        period: "retainer",
-        description: "We operate as your embedded digital team, focused on continuous growth and optimization.",
-        features: [
-            "Everything in Growth",
-            "Dedicated team access",
-            "Custom automation & AI systems",
-            "Ongoing optimization",
-            "Strategic advisory",
-            "SLA-based support",
-            "Monthly reporting",
-            "Quarterly strategy reviews",
-        ],
-        cta: "Apply for partnership",
-        featured: false,
-    },
-];
+interface Plan {
+  name: string;
+  tagline: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  cta: string;
+  featured: boolean;
+  isCustomPrice?: boolean;
+}
 
 export function PricingSection() {
+  const t = useTranslations("Pricing");
+  const plans = t.raw("plans") as Plan[];
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -77,7 +33,7 @@ export function PricingSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
           >
-            — Investment
+            {t("kicker")}
           </m.div>
           <div className="flex flex-col md:flex-row items-start justify-between gap-6">
             <m.h2
@@ -86,9 +42,9 @@ export function PricingSection() {
               transition={{ delay: 0.1, duration: 0.8 }}
               className="text-5xl md:text-7xl font-black tracking-tight leading-[0.9] uppercase"
             >
-              Fair Prices.
+              {t("heading1")}
               <br />
-              <span className="text-stroke">Unfair Results.</span>
+              <span className="text-stroke">{t("heading2")}</span>
             </m.h2>
             <m.p
               initial={{ opacity: 0, y: 20 }}
@@ -96,7 +52,7 @@ export function PricingSection() {
               transition={{ delay: 0.2, duration: 0.7 }}
               className="max-w-sm text-gray-400 md:pt-24"
             >
-              Not the cheapest. Not the most expensive. The only agency where the math actually makes sense.
+              {t("subtitle")}
             </m.p>
           </div>
         </div>
@@ -121,7 +77,7 @@ export function PricingSection() {
               {plan.featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="bg-[#D6001C] text-white text-xs font-bold tracking-widest uppercase px-4 py-1">
-                    Most Popular
+                    {t("mostPopular")}
                   </span>
                 </div>
               )}
@@ -130,8 +86,8 @@ export function PricingSection() {
                 <div className="text-xs text-gray-500 tracking-widest uppercase font-mono mb-2">{plan.name}</div>
                 <div className="text-sm text-gray-400 mb-6">{plan.tagline}</div>
                 <div className="flex items-baseline gap-2">
-                  {plan.price === "Custom" ? (
-                    <span className="text-4xl font-black">Custom</span>
+                  {plan.isCustomPrice ? (
+                    <span className="text-4xl font-black">{plan.price}</span>
                   ) : (
                     <>
                       <span className="text-2xl text-gray-500">€</span>
@@ -177,8 +133,8 @@ export function PricingSection() {
           transition={{ delay: 0.6, duration: 0.7 }}
           className="mt-12 text-center text-sm text-gray-600"
         >
-          All projects include a discovery call. We only take on work we know we can win.
-          <span className="text-gray-500 ml-2">No retainer lock-ins on Starter.</span>
+          {t("trustNote")}
+          <span className="text-gray-500 ml-2">{t("trustNoteExtra")}</span>
         </m.div>
       </div>
     </section>

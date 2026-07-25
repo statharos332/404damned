@@ -1,33 +1,39 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
-const footerLinks = {
-  Services: [
-    "Web Development",
-    "E-Commerce",
-    "AI Automation",
-    "Branding",
-    "SEO",
-    "Social Media",
-  ],
-  Company: ["About", "Process", "Case Studies", "Pricing", "Contact"],
-  Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
-};
+const serviceLinks = [
+  { key: "linkWebDevelopment", href: "/services/web-development" },
+  { key: "linkEcommerce", href: "/services/ecommerce" },
+  { key: "linkAiAutomation", href: "/services/ai-automation" },
+  { key: "linkBranding", href: "/services/branding" },
+  { key: "linkSeo", href: "/services/seo" },
+  { key: "linkSocialMedia", href: "/services/social-media" },
+];
 
 // Live pages — everything else is still an in-page anchor placeholder.
-const linkHrefs: Record<string, string> = {
-  About: "/about",
-  "Privacy Policy": "/privacy-policy",
-  "Terms of Service": "/terms-of-service",
-  "Cookie Policy": "/cookie-policy",
-  "Web Development": "/services/web-development",
-  "E-Commerce": "/services/ecommerce",
-  "AI Automation": "/services/ai-automation",
-  Branding: "/services/branding",
-  SEO: "/services/seo",
-  "Social Media": "/services/social-media",
-};
+const companyLinks = [
+  { key: "linkAbout", href: "/about" },
+  { key: "linkProcess", href: "#" },
+  { key: "linkCaseStudies", href: "#" },
+  { key: "linkPricing", href: "#" },
+  { key: "linkContact", href: "#" },
+];
+
+const legalLinks = [
+  { key: "linkPrivacyPolicy", href: "/privacy-policy" },
+  { key: "linkTermsOfService", href: "/terms-of-service" },
+  { key: "linkCookiePolicy", href: "/cookie-policy" },
+];
 
 export function Footer() {
+  const t = useTranslations("Footer");
+  const columns = [
+    { category: t("categoryServices"), links: serviceLinks },
+    { category: t("categoryCompany"), links: companyLinks },
+    { category: t("categoryLegal"), links: legalLinks },
+  ];
+
   return (
     <footer className="border-t border-white/5 bg-[#050505]">
       {/* Big CTA */}
@@ -35,19 +41,19 @@ export function Footer() {
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
           <div>
             <div className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
-              Ready to stop losing market share?
+              {t("kicker")}
             </div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-[0.95]">
-              Let&apos;s build your
+              {t("ctaLine1")}
               <br />
-              <span className="text-[#D6001C]">digital weapon.</span>
+              <span className="text-[#D6001C]">{t("ctaLine2")}</span>
             </h2>
           </div>
           <Link
             href="#contact"
             className="group relative inline-flex items-center gap-3 bg-[#D6001C] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#FF1A35] transition-colors duration-300 shrink-0"
           >
-            Book a Strategy Call
+            {t("bookStrategyCall")}
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -68,7 +74,7 @@ export function Footer() {
                 <span className="text-white font-bold text-sm tracking-[0.2em] uppercase">DAMNED</span>
               </Link>
               <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
-                Premium digital agency in Amsterdam. We build digital weapons for ambitious brands.
+                {t("brandBlurb")}
               </p>
               <div className="flex gap-3 mt-6">
                 {[
@@ -105,19 +111,19 @@ export function Footer() {
             </div>
 
             {/* Link columns */}
-            {Object.entries(footerLinks).map(([category, links]) => (
+            {columns.map(({ category, links }) => (
               <div key={category}>
                 <div className="text-xs text-gray-600 tracking-[0.2em] uppercase font-medium mb-4">
                   {category}
                 </div>
                 <ul className="space-y-3">
                   {links.map((link) => (
-                    <li key={link}>
+                    <li key={link.key}>
                       <Link
-                        href={linkHrefs[link] ?? "#"}
+                        href={link.href}
                         className="text-sm text-gray-500 hover:text-white transition-colors duration-300"
                       >
-                        {link}
+                        {t(link.key)}
                       </Link>
                     </li>
                   ))}
@@ -132,10 +138,11 @@ export function Footer() {
       <div className="px-6 md:px-12 py-6 border-t border-white/5">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-xs text-gray-700">
-            © {new Date().getFullYear()} 404 DAMNED — KVK 42082502 — Amsterdam, Netherlands
+            {t("copyright", { year: new Date().getFullYear() })}
           </div>
-          <div className="text-xs text-gray-700">
-            Designed & built in Amsterdam with intention.
+          <div className="flex items-center gap-4">
+            <div className="text-xs text-gray-700">{t("tagline")}</div>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

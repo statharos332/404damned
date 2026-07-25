@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { LazyVideo } from "@/components/ui/LazyVideo";
 import type { Project } from "@/data/projects";
@@ -15,6 +16,7 @@ import type { Project } from "@/data/projects";
  * just sits, small in the row and large on the stage.
  */
 export function MediaGallery({ project }: { project: Project }) {
+  const t = useTranslations("MediaGallery");
   const media = project.media;
   const [open, setOpen] = useState<number | null>(null);
   const reduce = useReducedMotion();
@@ -60,7 +62,7 @@ export function MediaGallery({ project }: { project: Project }) {
           <button
             key={idx}
             onClick={() => setOpen(idx)}
-            aria-label={`Open ${project.client} media ${idx + 1} of ${media.length}`}
+            aria-label={t("openMedia", { client: project.client, index: idx + 1, total: media.length })}
             className="group/cell relative shrink-0 h-24 sm:h-28 overflow-hidden border border-white/10 bg-[#0a0a0a] transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[#00E5FF] focus-visible:outline-none focus-visible:border-[#00E5FF] cursor-pointer"
           >
             {mi.type === "video" ? (
@@ -91,7 +93,7 @@ export function MediaGallery({ project }: { project: Project }) {
           </button>
         ))}
         <span className="self-center pl-1 font-mono text-[0.6rem] uppercase tracking-widest text-gray-600 whitespace-nowrap">
-          {String(media.length).padStart(2, "0")} shots · tap to enlarge
+          {t("shotsCount", { count: String(media.length).padStart(2, "0") })}
         </span>
       </div>
 
@@ -102,7 +104,7 @@ export function MediaGallery({ project }: { project: Project }) {
             className="fixed inset-0 z-[10000] flex flex-col"
             role="dialog"
             aria-modal="true"
-            aria-label={`${project.client} media viewer`}
+            aria-label={t("mediaViewer", { client: project.client })}
             data-lenis-prevent
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -135,7 +137,7 @@ export function MediaGallery({ project }: { project: Project }) {
                 <button
                   ref={closeBtnRef}
                   onClick={close}
-                  aria-label="Close"
+                  aria-label={t("close")}
                   className="w-10 h-10 flex items-center justify-center border border-white/15 text-white/70 hover:text-[#D6001C] hover:border-[#D6001C] transition-colors font-mono text-xl focus-visible:outline-none focus-visible:border-[#00E5FF]"
                 >
                   ×
@@ -152,14 +154,14 @@ export function MediaGallery({ project }: { project: Project }) {
                   <>
                     <button
                       onClick={() => go(-1)}
-                      aria-label="Previous"
+                      aria-label={t("previous")}
                       className="absolute left-2 sm:left-4 z-20 w-11 h-11 flex items-center justify-center border border-white/15 bg-black/30 text-white/70 hover:text-[#00E5FF] hover:border-[#00E5FF] transition-colors font-mono text-lg focus-visible:outline-none focus-visible:border-[#00E5FF]"
                     >
                       ‹
                     </button>
                     <button
                       onClick={() => go(1)}
-                      aria-label="Next"
+                      aria-label={t("next")}
                       className="absolute right-2 sm:right-4 z-20 w-11 h-11 flex items-center justify-center border border-white/15 bg-black/30 text-white/70 hover:text-[#00E5FF] hover:border-[#00E5FF] transition-colors font-mono text-lg focus-visible:outline-none focus-visible:border-[#00E5FF]"
                     >
                       ›
@@ -206,7 +208,7 @@ export function MediaGallery({ project }: { project: Project }) {
                   <button
                     key={idx}
                     onClick={() => setOpen(idx)}
-                    aria-label={`Go to media ${idx + 1}`}
+                    aria-label={t("goToMedia", { index: idx + 1 })}
                     aria-current={idx === open}
                     className={`relative shrink-0 h-12 w-16 sm:w-full sm:h-16 lg:h-20 overflow-hidden border transition-all duration-300 ${
                       idx === open

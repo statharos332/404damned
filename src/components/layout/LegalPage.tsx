@@ -1,17 +1,24 @@
-import Link from "next/link";
+import { getTranslations, getLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { COMPANY, type LegalDoc } from "@/data/legal";
+import { COMPANY_NL } from "@/data/legal.nl";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { pickLocale } from "@/lib/utils";
 
 /**
  * Shared renderer for the legal pages (privacy / terms / cookies).
  * Matches the studio's dark, editorial look used across insights.
  */
-export function LegalPage({ doc }: { doc: LegalDoc }) {
-  const breadcrumbs = breadcrumbJsonLd([
-    { name: doc.metaTitle, path: `/${doc.slug}` },
-  ]);
+export async function LegalPage({ doc }: { doc: LegalDoc }) {
+  const locale = await getLocale();
+  const t = await getTranslations("LegalPageChrome");
+  const company = pickLocale(COMPANY, COMPANY_NL, locale);
+  const breadcrumbs = breadcrumbJsonLd(
+    [{ name: doc.metaTitle, path: `/${doc.slug}` }],
+    { locale, homeLabel: "Home" }
+  );
   return (
     <main className="relative bg-[#050505] min-h-screen">
       <script
@@ -31,7 +38,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
         </h1>
         <p className="mt-6 text-lg text-gray-400 leading-relaxed">{doc.intro}</p>
         <p className="mt-6 font-mono text-xs uppercase tracking-widest text-gray-600">
-          Last updated: {COMPANY.updated}
+          {t("lastUpdated")}: {company.updated}
         </p>
       </header>
 
@@ -106,12 +113,12 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
         {/* Contact / other policies */}
         <div className="mt-12">
           <p className="text-gray-400 mb-5">
-            Questions about this document? Reach us at{" "}
+            {t("questionsBefore")}{" "}
             <a
-              href={`mailto:${COMPANY.email}`}
+              href={`mailto:${company.email}`}
               className="text-[#D6001C] hover:text-[#FF1A35] transition-colors"
             >
-              {COMPANY.email}
+              {company.email}
             </a>
             .
           </p>
@@ -120,19 +127,19 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
               href="/privacy-policy"
               className="text-gray-500 hover:text-white transition-colors"
             >
-              Privacy Policy
+              {t("privacyPolicy")}
             </Link>
             <Link
               href="/terms-of-service"
               className="text-gray-500 hover:text-white transition-colors"
             >
-              Terms of Service
+              {t("termsOfService")}
             </Link>
             <Link
               href="/cookie-policy"
               className="text-gray-500 hover:text-white transition-colors"
             >
-              Cookie Policy
+              {t("cookiePolicy")}
             </Link>
           </div>
         </div>

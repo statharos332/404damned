@@ -1,34 +1,52 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, getLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { WorkExplorer } from "@/components/sections/WorkExplorer";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
 import { projects } from "@/data/projects";
+import { projectsNl } from "@/data/projects.nl";
+import { pickLocale } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Case Studies — Web Development, E-Commerce & AI Work",
-  description:
-    "Real client work: a high-conversion booking platform, an AI-powered Etsy SEO engine, and more as projects wrap. See what 404 DAMNED actually builds.",
-  alternates: { canonical: "/work" },
-  openGraph: {
-    title: "Case Studies — 404 DAMNED",
-    description:
-      "Real client work from an Amsterdam studio: booking platforms, e-commerce and AI automation, not a pitch deck.",
-    url: "https://www.404damned.com/work",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "WorkHub" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: localizedPath("/work", locale),
+      languages: languageAlternates("/work"),
+    },
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      url: `https://www.404damned.com${localizedPath("/work", locale)}`,
+    },
+  };
+}
 
-export default function WorkPage() {
-  const breadcrumbs = breadcrumbJsonLd([{ name: "Work", path: "/work" }]);
+export default async function WorkPage() {
+  const locale = await getLocale();
+  const t = await getTranslations("WorkHub");
+  const localizedProjects = pickLocale(projects, projectsNl, locale);
+  const breadcrumbs = breadcrumbJsonLd(
+    [{ name: t("breadcrumb"), path: "/work" }],
+    { locale, homeLabel: "Home" }
+  );
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: projects.map((p, i) => ({
+    itemListElement: localizedProjects.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: `${p.client} — ${p.title}`,
-      url: `https://www.404damned.com/work/${p.slug}`,
+      url: `https://www.404damned.com${localizedPath(`/work/${p.slug}`, locale)}`,
     })),
   };
   return (
@@ -45,17 +63,15 @@ export default function WorkPage() {
       {/* Header */}
       <header className="max-w-[1400px] mx-auto px-6 pt-40 pb-16">
         <p className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
-          Our Work
+          {t("kicker")}
         </p>
         <h1 className="font-display font-black uppercase leading-[0.9] tracking-tight text-[clamp(2.8rem,7vw,6rem)] text-white">
-          Proof, not
+          {t("heading1")}
           <br />
-          <span className="text-[#D6001C]">promises.</span>
+          <span className="text-[#D6001C]">{t("heading2")}</span>
         </h1>
         <p className="mt-6 max-w-xl text-gray-400 leading-relaxed">
-          Two builds so far, each solving a different problem: a
-          high-conversion booking platform for a transfer service, and an AI
-          engine that writes Etsy listings. More lands here as projects wrap.
+          {t("intro")}
         </p>
       </header>
 
@@ -66,13 +82,13 @@ export default function WorkPage() {
       <section className="max-w-[1500px] mx-auto px-6 pb-32">
         <div className="mt-28 text-center border-t border-white/10 pt-20">
           <h2 className="font-display font-black uppercase text-4xl md:text-6xl text-white tracking-tight">
-            Your project is next.
+            {t("ctaHeading")}
           </h2>
           <Link
             href="/#contact"
             className="mt-8 inline-block bg-[#D6001C] hover:bg-[#FF1A35] text-white px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
-            Start a Conversation &rarr;
+            {t("startConversation")} &rarr;
           </Link>
         </div>
       </section>

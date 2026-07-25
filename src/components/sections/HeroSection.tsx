@@ -1,8 +1,10 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations("Hero");
   const heroRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
@@ -108,17 +110,17 @@ export function HeroSection() {
               <div className="inline-flex items-center gap-3 border border-white/10 bg-[#04060c]/40 backdrop-blur px-4 py-2 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D6001C] animate-pulse" />
                 <span className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.3em] uppercase text-white/45 font-bold">
-                  Amsterdam &middot; Digital Weapons Manufacturer
+                  {t("badge")}
                 </span>
               </div>
 
               <h1 className="font-display font-black uppercase leading-[0.9] tracking-tight text-[clamp(2.6rem,6vw,6rem)] text-white">
-                <span className="block">Code.</span>
+                <span className="block">{t("headline1")}</span>
                 <span className="block text-[#D6001C] [text-shadow:0_0_80px_rgba(214,0,28,0.5)]">
-                  Create.
+                  {t("headline2")}
                 </span>
                 <span className="block text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.2)]">
-                  Dominate.
+                  {t("headline3")}
                 </span>
               </h1>
             </div>
@@ -129,14 +131,14 @@ export function HeroSection() {
                 href="#contact"
                 className="w-full sm:w-auto text-center bg-[#D6001C] hover:bg-[#FF1A35] text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
               >
-                Book a Strategy Call &rarr;
+                {t("ctaBook")} &rarr;
               </a>
               <a
                 href="#work"
                 className="w-full sm:w-auto text-center lg:text-right text-white/50 hover:text-white text-xs font-bold tracking-[0.18em] uppercase transition-colors flex items-center justify-center lg:justify-end gap-2"
               >
                 <span className="w-8 h-px bg-current" />
-                View Our Work
+                {t("ctaWork")}
               </a>
             </div>
           </div>

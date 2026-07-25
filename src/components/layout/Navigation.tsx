@@ -1,23 +1,26 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useBooking } from "@/components/ui/BookingProvider";
 import { useShowreel } from "@/components/ui/ShowreelProvider";
-
-const navLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
-  { label: "Pricing", href: "#pricing" },
-];
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 export function Navigation() {
+  const t = useTranslations("Nav");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { openBooking } = useBooking();
   const { openShowreel } = useShowreel();
+
+  const navLinks = [
+    { key: "services", label: t("services"), href: "/services" },
+    { key: "work", label: t("work"), href: "/work" },
+    { key: "about", label: t("about"), href: "/about" },
+    { key: "insights", label: t("insights"), href: "/insights" },
+    { key: "pricing", label: t("pricing"), href: "#pricing" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -59,13 +62,14 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* CTA */}
+          {/* Language switcher + CTA */}
           <div className="hidden md:flex items-center gap-6">
+            <LanguageSwitcher />
             <button
               onClick={openBooking}
               className="relative text-sm font-bold tracking-wider uppercase bg-[#D6001C] text-white px-6 py-3 hover:bg-[#FF1A35] transition-all duration-300 group"
             >
-              <span>Book a Call</span>
+              <span>{t("bookCall")}</span>
               <div className="absolute inset-0 border border-[#D6001C] translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" />
             </button>
           </div>
@@ -74,7 +78,7 @@ export function Navigation() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden relative z-50 w-8 h-6 flex flex-col justify-between"
-            aria-label="Toggle menu"
+            aria-label={t("toggleMenu")}
             aria-expanded={menuOpen}
           >
             <span
@@ -133,7 +137,7 @@ export function Navigation() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D6001C] animate-pulse" />
                 REC
               </span>
-              Watch Showreel
+              {t("watchShowreel")}
               <span className="text-[#00E5FF]">▶</span>
             </button>
           </div>
@@ -146,8 +150,14 @@ export function Navigation() {
               onClick={() => setMenuOpen(false)}
               className="inline-block text-sm font-bold tracking-wider uppercase bg-[#D6001C] text-white px-8 py-4"
             >
-              Book a Strategy Call
+              {t("bookStrategyCall")}
             </Link>
+          </div>
+          <div
+            className="mobile-menu-item mt-8"
+            style={{ transitionDelay: menuOpen ? "0.55s" : "0s" }}
+          >
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

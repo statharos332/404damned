@@ -12,3 +12,8 @@ export function formatEur(amount: number): string {
     minimumFractionDigits: 0,
   }).format(amount);
 }
+
+/** Picks the English or Dutch variant of a parallel data array/object by locale. */
+export function pickLocale<T>(en: T, nl: T, locale: string): T {
+  return locale === "nl" ? nl : en;
+}

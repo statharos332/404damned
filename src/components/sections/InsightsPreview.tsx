@@ -1,14 +1,20 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { m, useInView } from "framer-motion";
+import { Link } from "@/i18n/navigation";
 import { posts } from "@/data/posts";
+import { postsNl } from "@/data/posts.nl";
+import { pickLocale } from "@/lib/utils";
 
 export function InsightsPreview() {
+  const t = useTranslations("InsightsPreview");
+  const locale = useLocale();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const latest = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+  const localizedPosts = pickLocale(posts, postsNl, locale);
+  const latest = [...localizedPosts].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
 
   return (
     <section className="bg-[#050505] py-28 md:py-36 border-t border-white/10">
@@ -16,17 +22,17 @@ export function InsightsPreview() {
         <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
           <div>
             <p className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
-              [ Insights ]
+              {t("kicker")}
             </p>
             <h2 className="font-display font-black uppercase leading-[0.9] tracking-tight text-[clamp(2.2rem,5vw,4.5rem)] text-white">
-              Field notes.
+              {t("heading")}
             </h2>
           </div>
           <Link
             href="/insights"
             className="font-mono inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-white hover:gap-4 transition-all border-b border-[#D6001C] pb-2"
           >
-            All insights <span className="text-[#D6001C]">&rarr;</span>
+            {t("allInsights")} <span className="text-[#D6001C]">&rarr;</span>
           </Link>
         </div>
 
@@ -54,7 +60,7 @@ export function InsightsPreview() {
                   {p.excerpt}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white group-hover:gap-4 transition-all">
-                  Read <span className="text-[#D6001C]">&rarr;</span>
+                  {t("read")} <span className="text-[#D6001C]">&rarr;</span>
                 </span>
               </Link>
             </m.div>

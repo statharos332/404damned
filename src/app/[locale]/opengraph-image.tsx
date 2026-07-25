@@ -10,7 +10,20 @@ export const alt = "404 DAMNED — Premium Digital Agency Amsterdam";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isNl = locale === "nl";
+  const headline = isNl
+    ? ["Wij bouwen geen websites.", "Wij bouwen digitale wapens."]
+    : ["We don't build websites.", "We build digital weapons."];
+  const services = isNl
+    ? "Web · E-commerce · AI-automatisering · Branding · SEO"
+    : "Web · E-commerce · AI Automation · Branding · SEO";
+
   return new ImageResponse(
     (
       <div
@@ -68,7 +81,7 @@ export default function OpenGraphImage() {
               textTransform: "uppercase",
             }}
           >
-            We don&apos;t build websites.
+            {headline[0]}
           </div>
           <div
             style={{
@@ -80,7 +93,7 @@ export default function OpenGraphImage() {
               textTransform: "uppercase",
             }}
           >
-            We build digital weapons.
+            {headline[1]}
           </div>
         </div>
 
@@ -95,7 +108,7 @@ export default function OpenGraphImage() {
           }}
         >
           <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 24 }}>
-            Web · E-commerce · AI Automation · Branding · SEO
+            {services}
           </div>
           <div
             style={{

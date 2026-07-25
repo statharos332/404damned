@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 // Replace with real names as you win them.
@@ -8,19 +9,20 @@ const clients = [
   "WESTERPARK", "OUD-ZUID", "CENTRUM",
 ];
 
-// Recognition log — fill in as they land.
-const recognition = [
-  { org: "AWWWARDS", label: "Honorable Mention", count: "—" },
-  { org: "CSSDA", label: "Special Kudos", count: "—" },
-  { org: "FWA", label: "Of the Day", count: "—" },
-];
+interface Recognition {
+  org: string;
+  label: string;
+  count: string;
+}
 
 export function ClientsStrip() {
+  const t = useTranslations("Clients");
+  const recognition = t.raw("recognition") as Recognition[];
   const row = [...clients, ...clients];
   return (
     <section className="relative bg-[#050505] py-20 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 mb-10">
-        <SectionLabel accent="lime">Deployed for</SectionLabel>
+        <SectionLabel accent="lime">{t("sectionLabel")}</SectionLabel>
       </div>
 
       <div className="relative overflow-hidden">
@@ -41,7 +43,7 @@ export function ClientsStrip() {
 
       <div className="max-w-[1400px] mx-auto px-6 mt-20">
         <p className="text-gray-400 max-w-xl leading-relaxed mb-10 font-mono text-sm">
-          {"// awards are nice. the metric we chase is the one in your bank account."}
+          {t("metricNote")}
         </p>
         <div className="grid sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
           {recognition.map((a) => (
@@ -53,7 +55,7 @@ export function ClientsStrip() {
           ))}
         </div>
         <p className="mt-4 text-xs text-gray-600 font-mono">
-          {"// recognition log — populated on contact"}
+          {t("recognitionNote")}
         </p>
       </div>
     </section>

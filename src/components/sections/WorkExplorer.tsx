@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { MediaGallery } from "@/components/sections/MediaGallery";
 import { AnimatePresence, m } from "framer-motion";
 import { projects, getCategories, type Project } from "@/data/projects";
+import { projectsNl, getCategoriesNl } from "@/data/projects.nl";
+import { pickLocale } from "@/lib/utils";
 
 /**
  * Expandable work rows (brutalist). Click a row → it opens an inline
@@ -18,18 +21,25 @@ export function WorkExplorer({
   featuredOnly?: boolean;
   showFilters?: boolean;
 } = {}) {
-  const categories = useMemo(() => getCategories(), []);
-  const [filter, setFilter] = useState("All");
+  const t = useTranslations("WorkExplorer");
+  const locale = useLocale();
+  const allProjects = pickLocale(projects, projectsNl, locale);
+  const categories = useMemo(
+    () => pickLocale(getCategories(), getCategoriesNl(), locale),
+    [locale]
+  );
+  const allLabel = categories[0];
+  const [filter, setFilter] = useState(allLabel);
 
   const base = useMemo(
-    () => (featuredOnly ? projects.filter((p) => p.featured) : projects),
-    [featuredOnly]
+    () => (featuredOnly ? allProjects.filter((p) => p.featured) : allProjects),
+    [featuredOnly, allProjects]
   );
   const [open, setOpen] = useState<string | null>(base[0]?.slug ?? null);
 
   const filtered = useMemo(
-    () => (filter === "All" ? base : base.filter((p) => p.category === filter)),
-    [filter, base]
+    () => (filter === allLabel ? base : base.filter((p) => p.category === filter)),
+    [filter, base, allLabel]
   );
 
   return (
@@ -38,7 +48,7 @@ export function WorkExplorer({
       {showFilters && (
       <div className="max-w-[1500px] mx-auto px-6 py-10 flex flex-wrap items-center gap-3 border-b border-white/10">
         <span className="font-mono text-xs text-gray-600 mr-2">
-          [ {String(filtered.length).padStart(2, "0")} ] filter:
+          [ {String(filtered.length).padStart(2, "0")} ] {t("filter")}
         </span>
         {categories.map((c) => (
           <button
@@ -65,6 +75,8 @@ export function WorkExplorer({
             index={i}
             isOpen={open === p.slug}
             onToggle={() => setOpen(open === p.slug ? null : p.slug)}
+            viewCaseLabel={t("viewCase")}
+            liveLabel={t("live")}
           />
         ))}
       </div>
@@ -77,11 +89,15 @@ function WorkRow({
   index,
   isOpen,
   onToggle,
+  viewCaseLabel,
+  liveLabel,
 }: {
   project: Project;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
+  viewCaseLabel: string;
+  liveLabel: string;
 }) {
   return (
     <div className="border-b border-white/10 group">
@@ -165,7 +181,7 @@ function WorkRow({
                     href={`/work/${project.slug}`}
                     className="font-mono text-xs uppercase tracking-widest bg-[#D6001C] hover:bg-[#FF1A35] text-white px-6 py-3 transition-colors"
                   >
-                    View case &rarr;
+                    {viewCaseLabel} &rarr;
                   </Link>
                   {project.liveUrl ? (
                     <a
@@ -174,7 +190,7 @@ function WorkRow({
                       rel="noopener noreferrer"
                       className="font-mono text-xs uppercase tracking-widest border border-white/20 hover:border-[#00E5FF] hover:text-[#00E5FF] text-white px-6 py-3 transition-colors"
                     >
-                      [ live ]
+                      {liveLabel}
                     </a>
                   ) : null}
                 </div>

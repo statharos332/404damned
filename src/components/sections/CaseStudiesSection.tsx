@@ -2,50 +2,20 @@
 
 import { useRef, useState } from "react";
 import { m, useInView } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const capabilities = [
-    {
-        id: "01",
-        title: "High-Performance Websites",
-        category: "Design + Development",
-        description:
-            "Custom-built websites designed for credibility, speed, and conversion. Every project starts with strategy and ends with a digital asset that supports measurable business growth.",
-        highlights: [
-            "Custom UI/UX Design",
-            "Next.js Development",
-            "WordPress Development",
-        ],
-        tags: ["Next.js", "WordPress", "Performance", "SEO"],
-    },
-    {
-        id: "02",
-        title: "E-Commerce Platforms",
-        category: "Commerce Infrastructure",
-        description:
-            "Scalable e-commerce experiences built for ambitious brands. From product architecture to checkout optimisation, every detail is engineered for growth.",
-        highlights: [
-            "Magento Development",
-            "WooCommerce Solutions",
-            "Headless Commerce",
-        ],
-        tags: ["Magento", "WooCommerce", "Headless", "CRO"],
-    },
-    {
-        id: "03",
-        title: "AI & Automation Systems",
-        category: "Digital Operations",
-        description:
-            "Automation solutions that eliminate repetitive work, improve lead handling, and create more efficient business processes.",
-        highlights: [
-            "Lead Qualification",
-            "CRM Automation",
-            "Workflow Optimisation",
-        ],
-        tags: ["AI", "Automation", "CRM", "Integrations"],
-    },
-];
+interface Capability {
+    id: string;
+    title: string;
+    category: string;
+    description: string;
+    highlights: string[];
+    tags: string[];
+}
 
 export function CaseStudiesSection() {
+    const t = useTranslations("Capabilities");
+    const capabilities = t.raw("items") as Capability[];
     const sectionRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(sectionRef, {
         once: true,
@@ -65,7 +35,7 @@ export function CaseStudiesSection() {
                         transition={{ duration: 0.6 }}
                         className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
                     >
-                        — Core Expertise
+                        {t("kicker")}
                     </m.div>
 
                     <m.h2
@@ -74,9 +44,9 @@ export function CaseStudiesSection() {
                         transition={{ duration: 0.8, delay: 0.1 }}
                         className="text-5xl md:text-7xl font-black tracking-tight leading-[0.9] uppercase"
                     >
-                        Digital
+                        {t("heading1")}
                         <br />
-                        <span className="text-stroke">Capabilities.</span>
+                        <span className="text-stroke">{t("heading2")}</span>
                     </m.h2>
                 </div>
 
@@ -98,7 +68,7 @@ function CapabilityCard({
                             capability,
                             index,
                         }: {
-    capability: (typeof capabilities)[0];
+    capability: Capability;
     index: number;
 }) {
     const ref = useRef<HTMLDivElement>(null);

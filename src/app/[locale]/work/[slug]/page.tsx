@@ -1,39 +1,49 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { CoverMedia } from "@/components/ui/CoverMedia";
 import { projects, getProject } from "@/data/projects";
+import { projectsNl, getProjectNl } from "@/data/projects.nl";
+import { pickLocale } from "@/lib/utils";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
+import { routing } from "@/i18n/routing";
 
 // Pre-render every case study at build time (fast + SEO-friendly)
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return routing.locales.flatMap((locale) =>
+    projects.map((p) => ({ locale, slug: p.slug }))
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const project = getProject(slug);
+  const { locale, slug } = await params;
+  const project = pickLocale(getProject(slug), getProjectNl(slug), locale);
   if (!project) return { title: "Work" };
 
   // Keep the SERP title short — the full descriptive title lives as the
   // on-page H1; a long title here just gets truncated with "..." in Google.
   const title = `${project.client} — ${project.category} Case Study`;
   const description = project.summary;
+  const path = `/work/${project.slug}`;
   return {
     title,
     description,
-    alternates: { canonical: `/work/${project.slug}` },
+    alternates: {
+      canonical: localizedPath(path, locale),
+      languages: languageAlternates(path),
+    },
     openGraph: {
       title: `${title} | 404 DAMNED`,
       description,
-      url: `https://www.404damned.com/work/${project.slug}`,
+      url: `https://www.404damned.com${localizedPath(path, locale)}`,
       images: [{ url: project.cover, width: 1600, height: 1000, alt: title }],
     },
     twitter: {
@@ -48,11 +58,13 @@ export async function generateMetadata({
 export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const project = getProject(slug);
+  const { locale, slug } = await params;
+  const t = await getTranslations("WorkDetail");
+  const project = pickLocale(getProject(slug), getProjectNl(slug), locale);
   if (!project) notFound();
+  const localizedProjects = pickLocale(projects, projectsNl, locale);
 
   // Structured data → eligible for rich results
   const jsonLd = {
@@ -72,13 +84,16 @@ export default async function ProjectPage({
   };
 
   // index of current project for prev/next
-  const idx = projects.findIndex((p) => p.slug === project.slug);
-  const next = projects[(idx + 1) % projects.length];
+  const idx = localizedProjects.findIndex((p) => p.slug === project.slug);
+  const next = localizedProjects[(idx + 1) % localizedProjects.length];
 
-  const breadcrumbs = breadcrumbJsonLd([
-    { name: "Work", path: "/work" },
-    { name: `${project.client} — ${project.title}`, path: `/work/${project.slug}` },
-  ]);
+  const breadcrumbs = breadcrumbJsonLd(
+    [
+      { name: t("breadcrumbWork"), path: "/work" },
+      { name: `${project.client} — ${project.title}`, path: `/work/${project.slug}` },
+    ],
+    { locale, homeLabel: "Home" }
+  );
 
   return (
     <main className="relative bg-[#050505] min-h-screen">
@@ -98,7 +113,7 @@ export default async function ProjectPage({
           href="/work"
           className="text-xs font-mono text-gray-500 hover:text-[#D6001C] transition-colors"
         >
-          &larr; All Work
+          &larr; {t("allWork")}
         </Link>
         <div className="flex items-center gap-3 text-xs font-mono text-[#D6001C]/70 mt-8 mb-4">
           <span>{project.client}</span>
@@ -148,9 +163,9 @@ export default async function ProjectPage({
       {/* Narrative */}
       <article className="max-w-[760px] mx-auto px-6 pb-12 space-y-12">
         {[
-          { h: "The Challenge", b: project.challenge },
-          { h: "Our Approach", b: project.approach },
-          { h: "The Outcome", b: project.outcome },
+          { h: t("challenge"), b: project.challenge },
+          { h: t("approach"), b: project.approach },
+          { h: t("outcome"), b: project.outcome },
         ].map((block) => (
           <div key={block.h}>
             <h2 className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
@@ -164,7 +179,7 @@ export default async function ProjectPage({
         <div className="grid sm:grid-cols-2 gap-8 border-t border-white/10 pt-10">
           <div>
             <h3 className="text-xs text-gray-500 tracking-[0.2em] uppercase mb-3">
-              Services
+              {t("servicesLabel")}
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.services.map((s) => (
@@ -179,7 +194,7 @@ export default async function ProjectPage({
           </div>
           <div>
             <h3 className="text-xs text-gray-500 tracking-[0.2em] uppercase mb-3">
-              Stack
+              {t("stackLabel")}
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((s) => (
@@ -201,7 +216,7 @@ export default async function ProjectPage({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-bold tracking-[0.15em] uppercase text-white hover:text-[#D6001C] transition-colors"
           >
-            Visit Live Site <span className="text-[#D6001C]">&rarr;</span>
+            {t("visitLiveSite")} <span className="text-[#D6001C]">&rarr;</span>
           </a>
         ) : null}
       </article>
@@ -229,14 +244,14 @@ export default async function ProjectPage({
       {/* Next project */}
       <section className="max-w-[1100px] mx-auto px-6 py-24 border-t border-white/10">
         <p className="text-xs text-gray-500 tracking-[0.3em] uppercase font-mono mb-4">
-          Next Project
+          {t("nextProject")}
         </p>
         <Link href={`/work/${next.slug}`} className="group block">
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl text-white group-hover:text-[#D6001C] transition-colors tracking-tight">
             {next.title}
           </h2>
           <span className="mt-4 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-gray-400 group-hover:gap-4 transition-all">
-            View <span className="text-[#D6001C]">&rarr;</span>
+            {t("view")} <span className="text-[#D6001C]">&rarr;</span>
           </span>
         </Link>
       </section>

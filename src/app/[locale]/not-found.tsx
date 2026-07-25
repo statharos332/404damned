@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 
@@ -6,7 +7,9 @@ import { Footer } from "@/components/layout/Footer";
  * Branded 404 — the signature moment for a studio literally called
  * "404 DAMNED". Framer-free (pure CSS glitch) so it stays instant.
  */
-export default function NotFound() {
+export default async function NotFound() {
+  const t = await getTranslations("NotFound");
+
   return (
     <main className="relative bg-[#050505] min-h-screen flex flex-col overflow-hidden">
       {/* Old-TV analog noise: snow + scanlines + rolling sync bar */}
@@ -20,7 +23,7 @@ export default function NotFound() {
 
       <section className="tv-flicker relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-40">
         <p className="font-mono text-xs uppercase tracking-[0.4em] text-[#D6001C] mb-8">
-          [ Error / Signal lost ]
+          {t("eyebrow")}
         </p>
 
         <h1
@@ -31,13 +34,11 @@ export default function NotFound() {
         </h1>
 
         <h2 className="mt-4 font-display font-black uppercase tracking-tight text-2xl sm:text-4xl text-white">
-          This page got what it{" "}
-          <span className="text-[#D6001C]">deserved.</span>
+          {t("headingStart")} <span className="text-[#D6001C]">{t("headingHighlight")}</span>
         </h2>
 
         <p className="mt-6 max-w-md text-gray-400 leading-relaxed">
-          The URL you hit doesn&apos;t exist — or it was taken out. Everything we
-          build on purpose, though, is very much alive. Pick a way back in.
+          {t("body")}
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
@@ -45,21 +46,21 @@ export default function NotFound() {
             href="/"
             className="w-full sm:w-auto text-center bg-[#D6001C] hover:bg-[#FF1A35] text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
-            Back to Base &rarr;
+            {t("backToBase")} &rarr;
           </Link>
           <Link
             href="/work"
             className="w-full sm:w-auto text-center border border-white/15 hover:border-white/40 text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
           >
-            See the Work
+            {t("seeWork")}
           </Link>
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest">
           {[
-            { label: "Insights", href: "/insights" },
-            { label: "Services", href: "/#services" },
-            { label: "Contact", href: "/#contact" },
+            { label: t("insights"), href: "/insights" },
+            { label: t("services"), href: "/#services" },
+            { label: t("contact"), href: "/#contact" },
           ].map((l) => (
             <Link
               key={l.href}

@@ -1,8 +1,11 @@
-import Link from "next/link";
+import { getTranslations, getLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { getService, type Service } from "@/data/services";
+import { getServiceNl } from "@/data/services.nl";
+import { pickLocale } from "@/lib/utils";
 
 const BASE = "https://www.404damned.com";
 
@@ -10,7 +13,9 @@ const BASE = "https://www.404damned.com";
  * Shared renderer for the SEO service landing pages. Carries the visible,
  * useful content Google needs plus Service + FAQPage + BreadcrumbList JSON-LD.
  */
-export function ServicePage({ service }: { service: Service }) {
+export async function ServicePage({ service }: { service: Service }) {
+  const locale = await getLocale();
+  const t = await getTranslations("ServicePageChrome");
   const url = `${BASE}/services/${service.slug}`;
 
   const serviceLd = {
@@ -39,13 +44,16 @@ export function ServicePage({ service }: { service: Service }) {
     })),
   };
 
-  const breadcrumbs = breadcrumbJsonLd([
-    { name: "Services", path: "/services" },
-    { name: service.name, path: `/services/${service.slug}` },
-  ]);
+  const breadcrumbs = breadcrumbJsonLd(
+    [
+      { name: t("breadcrumbServices"), path: "/services" },
+      { name: service.name, path: `/services/${service.slug}` },
+    ],
+    { locale, homeLabel: "Home" }
+  );
 
   const related = service.related
-    .map((slug) => getService(slug))
+    .map((slug) => pickLocale(getService(slug), getServiceNl(slug), locale))
     .filter((s): s is Service => Boolean(s));
 
   return (
@@ -75,13 +83,13 @@ export function ServicePage({ service }: { service: Service }) {
             href="/#contact"
             className="bg-[#D6001C] hover:bg-[#FF1A35] text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
-            Book a Strategy Call &rarr;
+            {t("bookCall")} &rarr;
           </Link>
           <Link
             href="/work"
             className="border border-white/15 hover:border-white/40 text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
           >
-            See the Work
+            {t("seeWork")}
           </Link>
         </div>
       </header>
@@ -112,7 +120,7 @@ export function ServicePage({ service }: { service: Service }) {
       <section className="max-w-[900px] mx-auto px-6 py-10 border-t border-white/10 grid md:grid-cols-2 gap-12">
         <div>
           <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[#00E5FF] mb-6">
-            What&apos;s included
+            {t("included")}
           </h2>
           <ul className="space-y-3">
             {service.deliverables.map((d) => (
@@ -125,7 +133,7 @@ export function ServicePage({ service }: { service: Service }) {
         </div>
         <div>
           <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[#00E5FF] mb-6">
-            Stack &amp; tools
+            {t("stackTools")}
           </h2>
           <div className="flex flex-wrap gap-2">
             {service.stack.map((t) => (
@@ -143,7 +151,7 @@ export function ServicePage({ service }: { service: Service }) {
       {/* FAQ */}
       <section className="max-w-[900px] mx-auto px-6 py-10 border-t border-white/10">
         <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-8">
-          Frequently asked questions
+          {t("faqTitle")}
         </h2>
         <div className="divide-y divide-white/10 border-y border-white/10">
           {service.faqs.map((f) => (
@@ -159,7 +167,7 @@ export function ServicePage({ service }: { service: Service }) {
       {related.length > 0 && (
         <section className="max-w-[900px] mx-auto px-6 py-10 border-t border-white/10">
           <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-gray-500 mb-6">
-            Related services
+            {t("relatedServices")}
           </h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {related.map((r) => (
@@ -184,14 +192,14 @@ export function ServicePage({ service }: { service: Service }) {
       <section className="max-w-[900px] mx-auto px-6 py-20">
         <div className="border-t border-white/10 pt-14 text-center">
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl text-white tracking-tight text-balance">
-            Let&apos;s build your{" "}
-            <span className="text-[#D6001C]">digital weapon.</span>
+            {t("ctaLine1")}{" "}
+            <span className="text-[#D6001C]">{t("ctaLine2")}</span>
           </h2>
           <Link
             href="/#contact"
             className="mt-8 inline-block bg-[#D6001C] hover:bg-[#FF1A35] text-white px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
-            Start a Conversation &rarr;
+            {t("startConversation")} &rarr;
           </Link>
         </div>
       </section>

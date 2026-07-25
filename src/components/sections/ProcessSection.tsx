@@ -2,81 +2,20 @@
 
 import { useState, useRef } from "react";
 import { m, useInView, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const steps = [
-  {
-    number: "01",
-    title: "Discovery",
-    duration: "Week 1",
-    description:
-      "Deep dive into your business, market position, competitors and growth ambitions. We don't touch a pixel until we understand your commercial reality.",
-    activities: [
-      "Stakeholder interviews",
-      "Competitive audit",
-      "Technical assessment",
-      "Goal definition",
-    ],
-    output: "Strategy Brief",
-  },
-  {
-    number: "02",
-    title: "Strategy",
-    duration: "Week 1-2",
-    description:
-      "We architect the complete digital system — from user journeys to conversion paths to technical infrastructure. Every decision is documented and justified.",
-    activities: [
-      "User journey mapping",
-      "Conversion architecture",
-      "Tech stack decision",
-      "KPI framework",
-    ],
-    output: "Project Blueprint",
-  },
-  {
-    number: "03",
-    title: "Design",
-    duration: "Week 2-3",
-    description:
-      "Visual systems that command attention and drive action. We design in high fidelity from day one. No wireframe games.",
-    activities: [
-      "Brand direction",
-      "UI/UX design",
-      "Motion design",
-      "Design system",
-    ],
-    output: "Complete Design System",
-  },
-  {
-    number: "04",
-    title: "Development",
-    duration: "Week 3-6",
-    description:
-      "Pixel-perfect implementation with obsessive attention to performance, accessibility and scalability. Clean code. Zero tech debt.",
-    activities: [
-      "Frontend development",
-      "Backend integration",
-      "AI implementation",
-      "QA testing",
-    ],
-    output: "Production-Ready Build",
-  },
-  {
-    number: "05",
-    title: "Growth",
-    duration: "Ongoing",
-    description:
-      "Launch is the starting line, not the finish. We run continuous optimisation, A/B testing and growth experiments to compound your results over time.",
-    activities: [
-      "A/B testing",
-      "SEO compounding",
-      "Performance monitoring",
-      "Monthly growth reports",
-    ],
-    output: "Monthly Growth System",
-  },
-];
+interface Step {
+  number: string;
+  title: string;
+  duration: string;
+  description: string;
+  activities: string[];
+  output: string;
+}
 
 export function ProcessSection() {
+  const t = useTranslations("Process");
+  const steps = t.raw("steps") as Step[];
   const [activeStep, setActiveStep] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -91,7 +30,7 @@ export function ProcessSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
           >
-            — How We Work
+            {t("kicker")}
           </m.div>
           <m.h2
             initial={{ opacity: 0, y: 40 }}
@@ -99,9 +38,9 @@ export function ProcessSection() {
             transition={{ delay: 0.1, duration: 0.8 }}
             className="text-5xl md:text-7xl font-black tracking-tight leading-[0.9] uppercase"
           >
-            The War
+            {t("heading1")}
             <br />
-            <span className="text-stroke">Room Process.</span>
+            <span className="text-stroke">{t("heading2")}</span>
           </m.h2>
         </div>
 
@@ -169,7 +108,7 @@ export function ProcessSection() {
                 </p>
 
                 <div className="mb-8">
-                  <div className="text-xs text-gray-600 tracking-wider uppercase mb-4">Activities</div>
+                  <div className="text-xs text-gray-600 tracking-wider uppercase mb-4">{t("activitiesLabel")}</div>
                   <div className="grid grid-cols-2 gap-2">
                     {steps[activeStep].activities.map((activity) => (
                       <div key={activity} className="flex items-center gap-2 text-sm text-gray-400">
@@ -181,7 +120,7 @@ export function ProcessSection() {
                 </div>
 
                 <div className="border-t border-white/5 pt-6">
-                  <div className="text-xs text-gray-600 tracking-wider uppercase mb-2">Output</div>
+                  <div className="text-xs text-gray-600 tracking-wider uppercase mb-2">{t("outputLabel")}</div>
                   <div className="text-lg font-bold text-white">{steps[activeStep].output}</div>
                 </div>
               </m.div>

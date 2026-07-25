@@ -1,33 +1,47 @@
 import type { Metadata } from "next";
+import { getTranslations, getLocale } from "next-intl/server";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
 import { team } from "@/data/team";
+import { teamNl } from "@/data/team.nl";
+import { pickLocale } from "@/lib/utils";
 
 const BASE = "https://www.404damned.com";
 
-export const metadata: Metadata = {
-  title: "About — The Team Behind 404 DAMNED",
-  description:
-    "404 DAMNED is three people, not a faceless agency: Nick Grigoriadis, Stathis Papounidis and Tatiana Petsiou. Real names, real LinkedIn profiles, real work.",
-  keywords: [
-    "404 DAMNED team",
-    "digital agency Amsterdam founders",
-    "who is 404 damned",
-  ],
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About — The Team Behind 404 DAMNED",
-    description:
-      "404 DAMNED is three people, not a faceless agency. Meet the team.",
-    url: `${BASE}/about`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "About" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    keywords: t.raw("keywords") as string[],
+    alternates: {
+      canonical: localizedPath("/about", locale),
+      languages: languageAlternates("/about"),
+    },
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("ogDescription"),
+      url: `${BASE}${localizedPath("/about", locale)}`,
+    },
+  };
+}
 
-export default function AboutPage() {
-  const breadcrumbs = breadcrumbJsonLd([{ name: "About", path: "/about" }]);
+export default async function AboutPage() {
+  const locale = await getLocale();
+  const t = await getTranslations("About");
+  const localizedTeam = pickLocale(team, teamNl, locale);
+  const breadcrumbs = breadcrumbJsonLd(
+    [{ name: t("breadcrumb"), path: "/about" }],
+    { locale, homeLabel: "Home" }
+  );
 
-  const peopleLd = team.map((p) => ({
+  const peopleLd = localizedTeam.map((p) => ({
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${BASE}/about#${p.slug}`,
@@ -61,18 +75,15 @@ export default function AboutPage() {
       {/* Hero */}
       <header className="max-w-[900px] mx-auto px-6 pt-40 pb-14">
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D6001C] mb-4">
-          [ About ]
+          {t("kicker")}
         </p>
         <h1 className="font-display font-black uppercase leading-[0.92] tracking-tight text-[clamp(2.4rem,6vw,4.75rem)] text-white text-balance">
-          This is who you&apos;re
+          {t("heading1")}
           <br />
-          <span className="text-[#D6001C]">actually hiring.</span>
+          <span className="text-[#D6001C]">{t("heading2")}</span>
         </h1>
         <p className="mt-6 text-lg text-gray-400 leading-relaxed max-w-2xl">
-          404 DAMNED isn&apos;t a faceless agency with a rotating cast of
-          account managers. It&apos;s three people — Nick, Stathis and Tatiana
-          — who work on your project directly. No hand-offs, no anonymous
-          &ldquo;team&rdquo;.
+          {t("intro")}
         </p>
       </header>
 
@@ -80,16 +91,10 @@ export default function AboutPage() {
       <section className="max-w-[900px] mx-auto px-6 pb-4">
         <div className="border-t border-white/10 py-10">
           <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-4">
-            The name is newer than the work
+            {t("storyHeading")}
           </h2>
           <p className="text-gray-300 leading-relaxed max-w-2xl">
-            404 DAMNED as a studio is the result of experience that goes back
-            to 2017 — years of freelance work and time inside other companies
-            and agencies, long before this name existed. Nick brought company
-            and project management, Stathis brought web development and
-            e-commerce, and Tatiana brought web development and digital
-            marketing. At some point the three of us realised we were better
-            off building under one name than separately, so we did.
+            {t("storyBody")}
           </p>
         </div>
       </section>
@@ -97,10 +102,10 @@ export default function AboutPage() {
       {/* Team */}
       <section className="max-w-[900px] mx-auto px-6 py-10 border-t border-white/10">
         <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[#00E5FF] mb-8">
-          The team
+          {t("teamHeading")}
         </h2>
         <div className="grid sm:grid-cols-1 gap-6">
-          {team.map((p) => {
+          {localizedTeam.map((p) => {
             const initials = p.name
               .split(" ")
               .map((n) => n[0])
@@ -156,15 +161,15 @@ export default function AboutPage() {
       <section className="max-w-[900px] mx-auto px-6 py-20">
         <div className="border-t border-white/10 pt-14 text-center">
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl text-white tracking-tight text-balance">
-            Talk to the people
+            {t("ctaHeading1")}
             <br />
-            <span className="text-[#D6001C]">who&apos;ll do the work.</span>
+            <span className="text-[#D6001C]">{t("ctaHeading2")}</span>
           </h2>
           <a
             href="/#contact"
             className="mt-8 inline-block bg-[#D6001C] hover:bg-[#FF1A35] text-white px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
-            Book a Strategy Call &rarr;
+            {t("ctaBookCall")} &rarr;
           </a>
         </div>
       </section>

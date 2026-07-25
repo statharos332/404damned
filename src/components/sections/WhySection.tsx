@@ -2,38 +2,18 @@
 
 import { useRef } from "react";
 import { m, useInView, useScroll, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const problems = [
-  {
-    agency: "Traditional agencies",
-    problem: "Sell you a template, call it custom, then outsource the build.",
-    solution: "Every project starts from a blank file — the same three people scope it, build it and ship it.",
-  },
-  {
-    agency: "Cheap freelancers",
-    problem: "Disappear the day the invoice clears.",
-    solution: "We're still around for the redesign, the new feature, the thing that breaks two years from now.",
-  },
-  {
-    agency: "Marketing agencies",
-    problem: "Sell you a strategy deck, then outsource the actual build.",
-    solution: "We build what we pitch — no hand-off to a dev shop you've never met.",
-  },
-  {
-    agency: "Dev shops",
-    problem: "Ship clean code with no opinion on whether it makes you money.",
-    solution: "Every build decision gets weighed against one question: does this convert.",
-  },
-];
-
-const boldStatements = [
-  "If your website doesn't generate leads, it's a liability.",
-  "Three people build this. Not fifteen you'll never meet.",
-  "Templates are for brands that have given up.",
-  "Growth is engineered. Not wished for.",
-];
+interface Problem {
+  agency: string;
+  problem: string;
+  solution: string;
+}
 
 export function WhySection() {
+  const t = useTranslations("Why");
+  const problems = t.raw("problems") as Problem[];
+  const boldStatements = t.raw("boldStatements") as string[];
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -50,7 +30,7 @@ export function WhySection() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4"
             >
-              — Why We're Different
+              {t("kicker")}
             </m.div>
             <m.h2
               initial={{ opacity: 0, y: 40 }}
@@ -58,11 +38,11 @@ export function WhySection() {
               transition={{ delay: 0.1, duration: 0.8 }}
               className="text-5xl md:text-7xl font-black tracking-tight leading-[0.9] uppercase"
             >
-              The Agency
+              {t("heading1")}
               <br />
-              <span className="text-stroke">Industry is</span>
+              <span className="text-stroke">{t("heading2")}</span>
               <br />
-              <span className="text-[#D6001C]">Broken.</span>
+              <span className="text-[#D6001C]">{t("heading3")}</span>
             </m.h2>
           </div>
 
@@ -123,16 +103,16 @@ export function WhySection() {
             className="border-l-4 border-[#D6001C] pl-10 py-4"
           >
             <p className="text-3xl md:text-5xl font-black leading-tight">
-              "Three people build
+              "{t("quoteStart")}
               <br />
-              <span className="text-gray-500">everything here. </span>
-              <span className="text-[#D6001C]">No account managers,</span>
-              <span className="text-gray-500"> no hand-offs,</span>
+              <span className="text-gray-500">{t("quotePart1")} </span>
+              <span className="text-[#D6001C]">{t("quotePart2")}</span>
+              <span className="text-gray-500"> {t("quotePart3")}</span>
               <br />
-              <span className="text-stroke-red">no one you'll never meet.</span>"
+              <span className="text-stroke-red">{t("quotePart4")}</span>"
             </p>
             <p className="text-gray-600 mt-6 text-sm tracking-wider uppercase">
-              — How 404 DAMNED actually works
+              {t("quoteCaption")}
             </p>
           </m.div>
         </div>
