@@ -1,109 +1,33 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import { HeroVideo } from "./HeroVideo";
+import { HeroScrollFade } from "./HeroScrollFade";
 
-import { useRef, useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-
-export function HeroSection() {
-  const t = useTranslations("Hero");
-  const heroRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const copyRef = useRef<HTMLDivElement>(null);
-  // The poster is the LCP. Defer the video until the page is loaded + idle so
-  // it never competes for bandwidth during first paint, and skip it entirely
-  // for users who asked for reduced motion.
-  const [showVideo, setShowVideo] = useState(false);
-
-  // Fade the copy out as you scroll down through the hero.
-  // Write opacity straight to the DOM (rAF-throttled) so we never trigger a
-  // React re-render per scroll frame — keeps the main thread free (Law 9).
-  useEffect(() => {
-    let ticking = false;
-    const update = () => {
-      ticking = false;
-      const el = heroRef.current;
-      const copy = copyRef.current;
-      if (!el || !copy) return;
-      const max = el.offsetHeight - window.innerHeight;
-      const scrolled = Math.min(max, Math.max(0, -el.getBoundingClientRect().top));
-      const p = max > 0 ? scrolled / max : 0;
-      copy.style.opacity = String(Math.max(0, 1 - p / 0.5));
-    };
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    update();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Load the background video only after the page is done loading and the main
-  // thread is idle — so it never blocks LCP. Honour reduced-motion (poster only).
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const idle = () => {
-      type RIC = (cb: () => void) => number;
-      const ric = (window as unknown as { requestIdleCallback?: RIC })
-        .requestIdleCallback;
-      if (ric) ric(() => setShowVideo(true));
-      else setTimeout(() => setShowVideo(true), 200);
-    };
-    if (document.readyState === "complete") idle();
-    else {
-      window.addEventListener("load", idle, { once: true });
-      return () => window.removeEventListener("load", idle);
-    }
-  }, []);
-
-  // Once the video exists, kick off playback and pause it when the hero scrolls
-  // off-screen (saves CPU/battery). Keeps Core Web Vitals clean.
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!showVideo || !v) return;
-    v.load();
-    v.play().catch(() => {});
-    if (typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) v.play().catch(() => {});
-          else v.pause();
-        });
-      },
-      { threshold: 0.05 }
-    );
-    io.observe(v);
-    return () => io.disconnect();
-  }, [showVideo]);
+/**
+ * Server-rendered on purpose: the badge/h1/CTAs below need zero client JS to
+ * paint, so the LCP text ships as plain HTML with nothing to hydrate first.
+ * The video background and the fade-on-scroll behaviour are split out into
+ * their own small client islands (HeroVideo, HeroScrollFade) instead of
+ * making the whole hero a client component.
+ */
+export async function HeroSection() {
+  const t = await getTranslations("Hero");
 
   return (
     // Tall scroll container so the copy can fade as you move down.
-    <div ref={heroRef} className="relative h-[180vh] bg-[#04060c]">
+    // `.hero-root` is a stable hook HeroScrollFade uses to find this
+    // ancestor at runtime — see that component for why.
+    <div className="hero-root relative h-[180vh] bg-[#04060c]">
       {/* Sticky viewport holds the looping video + copy */}
       <div className="sticky top-0 h-screen overflow-hidden lightning-impact-surface">
         {/* Looping background video — muted, deferred until after load (idle).
             Until then the poster carries the hero as the LCP element. */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/video/hero_poster.webp"
-          loop
-          muted
-          playsInline
-          preload="none"
-        >
-          {showVideo && <source src="/video/hero_opt.mp4" type="video/mp4" />}
-        </video>
+        <HeroVideo />
 
         {/* Cinematic gradient mask for text legibility */}
         <div className="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-t from-[#04060c] via-[#04060c]/30 via-40% to-[#04060c]/40" />
 
         {/* Hero copy — bottom-left text, bottom-right buttons. Fades on scroll. */}
-        <div
-          ref={copyRef}
-          className="absolute inset-x-0 bottom-0 z-[3] px-6 sm:px-10 lg:px-16 pb-14 sm:pb-16"
-        >
+        <HeroScrollFade className="absolute inset-x-0 bottom-0 z-[3] px-6 sm:px-10 lg:px-16 pb-14 sm:pb-16">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             {/* Left: badge + headline */}
             <div className="max-w-xl pointer-events-none">
@@ -142,8 +66,7 @@ export function HeroSection() {
               </a>
             </div>
           </div>
-        </div>
-
+        </HeroScrollFade>
       </div>
     </div>
   );
