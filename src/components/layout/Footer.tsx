@@ -11,13 +11,12 @@ const serviceLinks = [
   { key: "linkSocialMedia", href: "/services/social-media" },
 ];
 
-// Live pages — everything else is still an in-page anchor placeholder.
 const companyLinks = [
   { key: "linkAbout", href: "/about" },
-  { key: "linkProcess", href: "#" },
-  { key: "linkCaseStudies", href: "#" },
-  { key: "linkPricing", href: "#" },
-  { key: "linkContact", href: "#" },
+  { key: "linkProcess", href: "/#process" },
+  { key: "linkCaseStudies", href: "/work" },
+  { key: "linkPricing", href: "/#pricing" },
+  { key: "linkContact", href: "/#contact" },
 ];
 
 const legalLinks = [
@@ -50,7 +49,7 @@ export function Footer() {
             </h2>
           </div>
           <Link
-            href="#contact"
+            href="/#contact"
             className="group relative inline-flex items-center gap-3 bg-[#D6001C] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#FF1A35] transition-colors duration-300 shrink-0"
           >
             {t("bookStrategyCall")}

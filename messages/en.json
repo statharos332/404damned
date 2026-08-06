@@ -20,7 +20,6 @@
     "siteDescription": "Premium digital agency in Amsterdam — web development, e-commerce, AI automation, branding and SEO.",
     "founderTitle": "Founder — Management & Project Management",
     "developerTitle": "Developer & Designer",
-    "marketingTitle": "Web Developer & Digital Marketing",
     "offerCatalog": [
       "Web Development",
       "E-commerce Development",
@@ -215,7 +214,7 @@
       {
         "agency": "Traditional agencies",
         "problem": "Sell you a template, call it custom, then outsource the build.",
-        "solution": "Every project starts from a blank file — the same three people scope it, build it and ship it."
+        "solution": "Every project starts from a blank file — the same two people scope it, build it and ship it."
       },
       {
         "agency": "Cheap freelancers",
@@ -235,11 +234,11 @@
     ],
     "boldStatements": [
       "If your website doesn't generate leads, it's a liability.",
-      "Three people build this. Not fifteen you'll never meet.",
+      "Two people build this. Not fifteen you'll never meet.",
       "Templates are for brands that have given up.",
       "Growth is engineered. Not wished for."
     ],
-    "quoteStart": "Three people build",
+    "quoteStart": "Two people build",
     "quotePart1": "everything here.",
     "quotePart2": "No account managers,",
     "quotePart3": "no hand-offs,",
@@ -301,7 +300,7 @@
     "subtitle": "Tell us who you're up against. We'll build the thing that ends the argument.",
     "ctaBrief": "Start the Brief",
     "ctaCall": "[ book_a_call ]",
-    "footerLine": "AMSTERDAM · 52.3676° N, 4.9041° E · EST. RESPONSE < 24H"
+    "footerLine": "AMSTERDAM · 52.3676° N, 4.9041° E · RESPONSE WITHIN 4 BUSINESS HOURS"
   },
   "Contact": {
     "kicker": "— Start the War",
@@ -483,17 +482,18 @@
   },
   "About": {
     "metaTitle": "About — The Team Behind 404 DAMNED",
-    "metaDescription": "404 DAMNED is three people, not a faceless agency: Nick Grigoriadis, Stathis Papounidis and Tatiana Petsiou. Real names, real LinkedIn profiles, real work.",
+    "metaDescription": "404 DAMNED is two people, not a faceless agency: Nick Grigoriadis and Stathis Papounidis, with Tatiana Petsiou joining as the third. Real names, real LinkedIn profiles, real work.",
     "keywords": ["404 DAMNED team", "digital agency Amsterdam founders", "who is 404 damned"],
-    "ogDescription": "404 DAMNED is three people, not a faceless agency. Meet the team.",
+    "ogDescription": "404 DAMNED is two people, not a faceless agency — with a third joining soon. Meet the team.",
     "breadcrumb": "About",
     "kicker": "[ About ]",
     "heading1": "This is who you're",
     "heading2": "actually hiring.",
-    "intro": "404 DAMNED isn't a faceless agency with a rotating cast of account managers. It's three people — Nick, Stathis and Tatiana — who work on your project directly. No hand-offs, no anonymous \"team\".",
+    "intro": "404 DAMNED isn't a faceless agency with a rotating cast of account managers. It's two people — Nick and Stathis — who work on your project directly, with Tatiana joining soon as the third. No hand-offs, no anonymous \"team\".",
     "storyHeading": "The name is newer than the work",
-    "storyBody": "404 DAMNED as a studio is the result of experience that goes back to 2017 — years of freelance work and time inside other companies and agencies, long before this name existed. Nick brought company and project management, Stathis brought web development and e-commerce, and Tatiana brought web development and digital marketing. At some point the three of us realised we were better off building under one name than separately, so we did.",
+    "storyBody": "404 DAMNED as a studio is the result of experience that goes back to 2017 — years of freelance work and time inside other companies and agencies, long before this name existed. Nick brought company and project management, Stathis brought web development and e-commerce. At some point the two of us realised we were better off building under one name than separately, so we did. Tatiana, who brings web development and digital marketing, is joining as the third.",
     "teamHeading": "The team",
+    "comingSoon": "Joining soon",
     "ctaHeading1": "Talk to the people",
     "ctaHeading2": "who'll do the work.",
     "ctaBookCall": "Book a Strategy Call"

@@ -1,26 +1,25 @@
 {
   "Metadata": {
-    "title": "404 DAMNED — Premium Digital Bureau Amsterdam",
-    "description": "Wij bouwen geen websites. Wij bouwen digitale wapens. Premium webontwikkeling, e-commerce, AI-automatisering & groeisystemen voor ambitieuze Nederlandse bedrijven.",
-    "ogDescription": "Wij bouwen geen websites. Wij bouwen digitale wapens. Premium webontwikkeling, e-commerce & AI-automatisering voor ambitieuze bedrijven.",
-    "twitterDescription": "Wij bouwen geen websites. Wij bouwen digitale wapens.",
+    "title": "404 DAMNED — Digital Bureau Amsterdam | Magento & Next.js",
+    "description": "Website, webshop of Magento-migratie — vaste prijzen en rechtstreeks contact met de developer die het bouwt. Digital bureau in Amsterdam voor ambitieuze Nederlandse bedrijven.",
+    "ogDescription": "Website, webshop of Magento-migratie. Vaste prijzen, rechtstreeks contact met de developer, geen tussenlagen.",
+    "twitterDescription": "Website, webshop of Magento-migratie — vaste prijzen, rechtstreeks contact met de developer.",
     "keywords": [
       "digital bureau Amsterdam",
       "website laten bouwen Amsterdam",
-      "Next.js ontwikkeling",
       "webshop laten bouwen",
+      "Magento bureau Nederland",
       "Magento ontwikkeling",
+      "WooCommerce specialist",
+      "Next.js ontwikkeling",
       "AI-automatisering",
-      "premium digital bureau Nederland",
-      "website laten maken Amsterdam",
       "SEO bureau Amsterdam"
     ],
-    "orgDescription": "Premium digital bureau in Amsterdam, gespecialiseerd in webontwikkeling, e-commerce, AI-automatisering, branding, SEO en groeisystemen voor ambitieuze bedrijven.",
-    "slogan": "Wij bouwen geen websites. Wij bouwen digitale wapens.",
-    "siteDescription": "Premium digital bureau in Amsterdam — webontwikkeling, e-commerce, AI-automatisering, branding en SEO.",
-    "founderTitle": "Oprichter — Management & Project Management",
+    "orgDescription": "Digital bureau in Amsterdam, gespecialiseerd in Magento- en WooCommerce-webshops, webontwikkeling met Next.js en WordPress, AI-automatisering en SEO.",
+    "slogan": "Vaste prijzen. Rechtstreeks contact met de developer.",
+    "siteDescription": "Digital bureau in Amsterdam — webontwikkeling, e-commerce (Magento/WooCommerce), AI-automatisering en SEO.",
+    "founderTitle": "Oprichter — Bedrijfsvoering & Projectmanagement",
     "developerTitle": "Developer & Designer",
-    "marketingTitle": "Webontwikkelaar & Digital Marketing",
     "offerCatalog": [
       "Webontwikkeling",
       "E-commerce ontwikkeling",
@@ -56,11 +55,11 @@
     "bookStrategyCall": "Plan een strategiegesprek"
   },
   "Footer": {
-    "kicker": "Klaar om te stoppen met marktaandeel verliezen?",
-    "ctaLine1": "Laten we jouw",
-    "ctaLine2": "digitale wapen bouwen.",
+    "kicker": "Klaar voor een website die wél iets oplevert?",
+    "ctaLine1": "Laten we",
+    "ctaLine2": "je project bouwen.",
     "bookStrategyCall": "Plan een strategiegesprek",
-    "brandBlurb": "Premium digital bureau in Amsterdam. Wij bouwen digitale wapens voor ambitieuze merken.",
+    "brandBlurb": "Digital bureau in Amsterdam. Klein team, vaste prijzen, rechtstreeks contact met wie het bouwt.",
     "categoryServices": "Diensten",
     "categoryCompany": "Bedrijf",
     "categoryLegal": "Juridisch",
@@ -79,21 +78,21 @@
     "linkTermsOfService": "Algemene Voorwaarden",
     "linkCookiePolicy": "Cookiebeleid",
     "copyright": "© {year} 404 DAMNED — KVK 42082502 — Amsterdam, Nederland",
-    "tagline": "Met intentie ontworpen en gebouwd in Amsterdam."
+    "tagline": "Doordacht ontworpen en gebouwd in Amsterdam."
   },
   "Hero": {
-    "badge": "Amsterdam · Fabrikant van Digitale Wapens",
-    "headline1": "Code.",
-    "headline2": "Creëer.",
-    "headline3": "Domineer.",
+    "badge": "Amsterdam · Web- & Magento-bureau",
+    "headline1": "Denk.",
+    "headline2": "Bouw.",
+    "headline3": "Bewijs.",
     "ctaBook": "Plan een strategiegesprek",
     "ctaWork": "Bekijk ons werk"
   },
   "ServicesGrid": {
     "kicker": "— Wat wij doen",
-    "heading1": "Digitaal",
-    "heading2": "Arsenaal.",
-    "subtitle": "Zes disciplines. Eén missie: je concurrenten irrelevant maken.",
+    "heading1": "Wat wij",
+    "heading2": "bouwen.",
+    "subtitle": "Zes disciplines, onder één dak. Van eerste schets tot livegang volgt hetzelfde team het project van begin tot eind.",
     "items": [
       {
         "number": "01",
@@ -175,33 +174,33 @@
     ]
   },
   "Vibe": {
-    "sectionLabel": "De Doctrine",
-    "heading1": "Vier regels.",
-    "heading2": "Geen uitzonderingen.",
-    "subtitle": "// hoe wij werken als de lichten uitgaan in Amsterdam",
+    "sectionLabel": "De Aanpak",
+    "heading1": "Vier principes.",
+    "heading2": "Geen compromissen.",
+    "subtitle": "// hoe wij hier werken — geen poespas",
     "doctrine": [
       {
         "n": "001",
-        "t": "Weiger het sjabloon",
-        "d": "Een site die eruitziet als die van iedereen, presteert ook als die van iedereen. Wij beginnen elke keer bij nul.",
+        "t": "Geen sjablonen",
+        "d": "Een site die eruitziet als alle andere, presteert ook zo. Ieder project begint bij nul.",
         "accent": "red"
       },
       {
         "n": "002",
-        "t": "Ontwerp de obsessie",
-        "d": "Snelheid, motion, gewicht — afgesteld tot een bezoeker niet kan wegkijken. Aandacht is de enige valuta die converteert.",
+        "t": "Elk detail telt",
+        "d": "Snelheid, motion, gewicht — afgesteld tot in de puntjes. Aandacht is wat converteert, niet net-goed-genoeg.",
         "accent": "electric"
       },
       {
         "n": "003",
-        "t": "Lever wapens, geen decoratie",
-        "d": "Mooi is de ondergrens. Alles wat wij bouwen is gericht op één getal: omzet, leads, dominantie.",
+        "t": "Resultaat boven decoratie",
+        "d": "Mooi is het startpunt, niet het doel. Alles wat wij bouwen wordt afgerekend op één ding: levert het omzet en leads op.",
         "accent": "lime"
       },
       {
         "n": "004",
-        "t": "Laat geen overlevenden",
-        "d": "Jouw concurrenten zijn de benchmark. Wij bouwen het ding dat hun site laat aanvoelen als een relikwie.",
+        "t": "Direct contact, geen tussenpersonen",
+        "d": "Je werkt rechtstreeks met de mensen die bouwen — geen accountmanager die jouw vraag doorzet naar een developer die je nooit spreekt.",
         "accent": "red"
       }
     ]
@@ -215,7 +214,7 @@
       {
         "agency": "Traditionele bureaus",
         "problem": "Verkopen je een sjabloon, noemen het custom, en besteden de bouw vervolgens uit.",
-        "solution": "Elk project begint bij een leeg bestand — dezelfde drie mensen bepalen de scope, bouwen het en leveren het op."
+        "solution": "Elk project begint bij een leeg bestand — dezelfde twee mensen bepalen de scope, bouwen het en leveren het op."
       },
       {
         "agency": "Goedkope freelancers",
@@ -235,11 +234,11 @@
     ],
     "boldStatements": [
       "Als je website geen leads oplevert, is het een blok aan je been.",
-      "Drie mensen bouwen dit. Niet vijftien die je nooit ontmoet.",
-      "Sjablonen zijn voor merken die het hebben opgegeven.",
+      "Twee mensen bouwen dit. Niet vijftien die je nooit ontmoet.",
+      "Een sjabloon werkt, tot het moment dat iedereen hetzelfde sjabloon gebruikt.",
       "Groei wordt ontworpen. Niet gewenst."
     ],
-    "quoteStart": "Drie mensen bouwen",
+    "quoteStart": "Twee mensen bouwen",
     "quotePart1": "hier alles.",
     "quotePart2": "Geen account managers,",
     "quotePart3": "geen overdrachten,",
@@ -248,8 +247,8 @@
   },
   "Process": {
     "kicker": "— Hoe wij werken",
-    "heading1": "Het War Room",
-    "heading2": "proces.",
+    "heading1": "Het proces,",
+    "heading2": "stap voor stap.",
     "activitiesLabel": "Activiteiten",
     "outputLabel": "Oplevering",
     "steps": [
@@ -296,26 +295,26 @@
     ]
   },
   "BriefCTA": {
-    "sectionLabel": "Open een kanaal",
-    "headline": "ZOEK RUZIE",
-    "subtitle": "Vertel ons tegen wie je het opneemt. Wij bouwen het ding dat de discussie beëindigt.",
+    "sectionLabel": "Begin hier",
+    "headline": "VASTE PRIJS, GEEN VERRASSINGEN",
+    "subtitle": "Vertel ons wat je nodig hebt. Binnen een paar dagen krijg je een concreet voorstel — geen wollig verkooppraatje.",
     "ctaBrief": "Start de briefing",
     "ctaCall": "[ plan_een_gesprek ]",
-    "footerLine": "AMSTERDAM · 52.3676° N, 4.9041° E · GEM. REACTIETIJD < 24U"
+    "footerLine": "AMSTERDAM · 52.3676° N, 4.9041° E · REACTIE BINNEN 4 WERKUREN"
   },
   "Contact": {
-    "kicker": "— Begin de strijd",
-    "heading1": "Klaar om",
-    "heading2": "je markt",
-    "heading3": "te domineren?",
-    "subtitle": "Eén gesprek is alles wat nodig is. Wij vertellen je precies wat er nodig is om je concurrenten irrelevant te maken.",
+    "kicker": "— Neem contact op",
+    "heading1": "Klaar voor een",
+    "heading2": "website die",
+    "heading3": "wél werkt?",
+    "subtitle": "Eén gesprek is genoeg om te weten of we bij elkaar passen. Je krijgt eerlijk advies, ook als het antwoord 'dit heb je niet nodig' is.",
     "infoEmail": "E-mail",
     "infoPhone": "Telefoon",
     "infoLocation": "Locatie",
     "infoResponseTime": "Reactietijd",
     "infoResponseValue": "Binnen 4 werkuren",
     "successTitle": "Bericht ontvangen.",
-    "successBody": "Wij bekijken je briefing en nemen binnen 4 werkuren contact op. Bereid je voor op impact.",
+    "successBody": "Wij bekijken je bericht en nemen binnen 4 werkuren contact op.",
     "labelName": "Naam *",
     "labelCompany": "Bedrijf",
     "labelEmail": "E-mail *",
@@ -335,9 +334,9 @@
     "read": "Lees"
   },
   "WorkPreview": {
-    "kicker": "[ Recente kills ]",
-    "heading1": "Bewijs in de",
-    "heading2": "puinhopen.",
+    "kicker": "[ Recent werk ]",
+    "heading1": "Bewijs, geen",
+    "heading2": "praatjes.",
     "seeAll": "Bekijk al ons werk"
   },
   "WorkExplorer": {
@@ -358,9 +357,9 @@
     "kicker": "— Investering",
     "heading1": "Eerlijke prijzen.",
     "heading2": "Oneerlijke resultaten.",
-    "subtitle": "Niet de goedkoopste. Niet de duurste. Het enige bureau waar de rekensom daadwerkelijk klopt.",
+    "subtitle": "Niet de goedkoopste, niet de duurste — een prijs waar de rekensom voor jou klopt.",
     "mostPopular": "Meest gekozen",
-    "trustNote": "Elk project begint met een discovery-gesprek. Wij nemen alleen werk aan waarvan we weten dat we het kunnen winnen.",
+    "trustNote": "Elk project begint met een kennismakingsgesprek. Wij nemen alleen werk aan waarvan we zeker weten dat we het goed kunnen doen.",
     "trustNoteExtra": "Geen retainer-verplichting bij Starter.",
     "plans": [
       {
@@ -380,7 +379,7 @@
         "period": "eenmalig + optioneel maandelijks",
         "description": "Compleet digitaal systeem: design, development, automatisering en performance-optimalisatie.",
         "features": ["Alles uit Starter", "AI-leadkwalificatiesysteem", "Geavanceerde integraties / e-commerce", "Volledige SEO-architectuur", "Conversieoptimalisatie", "Maandelijkse groei-support (optioneel)", "Analytics & tracking-inrichting", "Prioriteitskanaal voor communicatie"],
-        "cta": "Meest ambitieuze merken kiezen dit",
+        "cta": "Meest gekozen door groeiende bedrijven",
         "featured": true
       },
       {
@@ -397,7 +396,7 @@
     ]
   },
   "Testimonials": {
-    "kicker": "— Klantoverwinningen",
+    "kicker": "— Wat klanten zeggen",
     "heading1": "Wat ze",
     "heading2": "écht zeggen.",
     "result": "Resultaat"
@@ -406,8 +405,8 @@
     "items": ["Webontwikkeling", "E-commerce", "AI-automatisering", "Next.js", "Magento", "WordPress", "Branding", "SEO", "Social media", "Digitale strategie"]
   },
   "Home": {
-    "strip1": ["CODE", "CREËER", "DOMINEER"],
-    "strip2": ["GEEN TEMPLATES", "ALLEEN WAPENS"]
+    "strip1": ["DENK", "BOUW", "BEWIJS"],
+    "strip2": ["GEEN TEMPLATES", "ALTIJD MAATWERK"]
   },
   "ServicePageChrome": {
     "breadcrumbServices": "Diensten",
@@ -417,21 +416,21 @@
     "stackTools": "Stack & tools",
     "faqTitle": "Veelgestelde vragen",
     "relatedServices": "Gerelateerde diensten",
-    "ctaLine1": "Laten we jouw",
-    "ctaLine2": "digitale wapen bouwen.",
+    "ctaLine1": "Laten we",
+    "ctaLine2": "je project bouwen.",
     "startConversation": "Start een gesprek"
   },
   "ServicesHub": {
     "metaTitle": "Diensten — Digital Bureau in Amsterdam",
-    "metaDescription": "Webontwikkeling, e-commerce, AI-automatisering, branding, SEO en social media — het complete arsenaal van een premium digital bureau in Amsterdam. Bekijk wat wij bouwen.",
-    "keywords": ["digital bureau Amsterdam", "digital bureau diensten Amsterdam", "webdesign bureau Nederland", "creatief bureau Amsterdam"],
+    "metaDescription": "Webontwikkeling, e-commerce (Magento/WooCommerce), AI-automatisering, branding en SEO — alle diensten van een klein digital bureau in Amsterdam. Bekijk wat wij bouwen.",
+    "keywords": ["digital bureau Amsterdam", "Magento bureau Nederland", "webshop laten bouwen", "webdesign bureau Amsterdam"],
     "ogTitle": "Diensten — 404 DAMNED, Digital Bureau Amsterdam",
-    "ogDescription": "Webontwikkeling, e-commerce, AI-automatisering, branding, SEO en social media van een premium digital bureau in Amsterdam.",
+    "ogDescription": "Webontwikkeling, e-commerce, AI-automatisering, branding en SEO van een digital bureau in Amsterdam met een klein, vast team.",
     "breadcrumb": "Diensten",
     "kicker": "[ Diensten ]",
-    "heading1": "Eén bureau.",
-    "heading2": "Het complete arsenaal.",
-    "intro": "404 DAMNED is een premium digital bureau in Amsterdam. Van custom webontwikkeling en e-commerce tot AI-automatisering, branding, SEO en social — alles wat een ambitieus bedrijf nodig heeft om zijn markt te domineren, gebouwd door één team dat daadwerkelijk met elkaar praat.",
+    "heading1": "Eén team.",
+    "heading2": "Alle disciplines.",
+    "intro": "404 DAMNED is een digital bureau in Amsterdam. Van webontwikkeling en e-commerce (Magento, WooCommerce) tot AI-automatisering, branding, SEO en social — gebouwd door één klein team, van eerste gesprek tot livegang.",
     "explore": "Bekijk"
   },
   "WorkHub": {
@@ -461,14 +460,14 @@
   },
   "InsightsHub": {
     "metaTitle": "Inzichten — Web, E-commerce & AI",
-    "metaDescription": "Praktische artikelen over webperformance, headless e-commerce, AI-automatisering en groei van 404 DAMNED, een premium digitale studio in Amsterdam.",
+    "metaDescription": "Praktische artikelen over webperformance, headless e-commerce, AI-automatisering en groei van 404 DAMNED, een digitale studio in Amsterdam.",
     "ogTitle": "Inzichten — 404 DAMNED",
     "ogDescription": "Praktische artikelen over webperformance, e-commerce en AI-automatisering van een Amsterdamse digitale studio.",
     "breadcrumb": "Inzichten",
     "kicker": "[ Inzichten ]",
     "heading1": "Veldnotities",
     "heading2": "uit de praktijk.",
-    "intro": "Geen fluff. Praktisch denkwerk over performance, e-commerce, AI en alles wat we gebruiken om digitale wapens te bouwen die daadwerkelijk converteren.",
+    "intro": "Geen fluff. Praktisch denkwerk over performance, e-commerce, AI en alles wat we gebruiken om sites en shops te bouwen die daadwerkelijk converteren.",
     "minRead": "{count} min leestijd",
     "read": "Lees"
   },
@@ -483,17 +482,18 @@
   },
   "About": {
     "metaTitle": "Over ons — Het team achter 404 DAMNED",
-    "metaDescription": "404 DAMNED bestaat uit drie mensen, geen anoniem bureau: Nick Grigoriadis, Stathis Papounidis en Tatiana Petsiou. Echte namen, echte LinkedIn-profielen, echt werk.",
+    "metaDescription": "404 DAMNED bestaat uit twee mensen, geen anoniem bureau: Nick Grigoriadis en Stathis Papounidis, met Tatiana Petsiou als derde op komst. Echte namen, echte LinkedIn-profielen, echt werk.",
     "keywords": ["404 DAMNED team", "oprichters digital bureau Amsterdam", "wie is 404 damned"],
-    "ogDescription": "404 DAMNED bestaat uit drie mensen, geen anoniem bureau. Maak kennis met het team.",
+    "ogDescription": "404 DAMNED bestaat uit twee mensen, geen anoniem bureau — een derde sluit binnenkort aan. Maak kennis met het team.",
     "breadcrumb": "Over ons",
     "kicker": "[ Over ons ]",
     "heading1": "Dit is wie je",
     "heading2": "daadwerkelijk inhuurt.",
-    "intro": "404 DAMNED is geen anoniem bureau met een wisselende cast van accountmanagers. Het zijn drie mensen — Nick, Stathis en Tatiana — die rechtstreeks aan jouw project werken. Geen overdrachten, geen anoniem 'team'.",
+    "intro": "404 DAMNED is geen anoniem bureau met een wisselende cast van accountmanagers. Het zijn twee mensen — Nick en Stathis — die rechtstreeks aan jouw project werken, met Tatiana die binnenkort aansluit als derde. Geen overdrachten, geen anoniem 'team'.",
     "storyHeading": "De naam is jonger dan het werk",
-    "storyBody": "404 DAMNED als studio is het resultaat van ervaring die teruggaat tot 2017 — jaren freelance werk en tijd bij andere bedrijven en bureaus, lang voordat deze naam bestond. Nick bracht bedrijfsvoering en projectmanagement mee, Stathis bracht webontwikkeling en e-commerce mee, en Tatiana bracht webontwikkeling en digital marketing mee. Op een gegeven moment realiseerden we ons met zijn drieën dat we beter af waren onder één naam dan apart, dus dat deden we.",
+    "storyBody": "404 DAMNED als studio is het resultaat van ervaring die teruggaat tot 2017 — jaren freelance werk en tijd bij andere bedrijven en bureaus, lang voordat deze naam bestond. Nick bracht bedrijfsvoering en projectmanagement mee, Stathis bracht webontwikkeling en e-commerce mee. Op een gegeven moment realiseerden wij tweeën dat we beter af waren onder één naam dan apart, dus dat deden we. Tatiana, die webontwikkeling en digital marketing meebrengt, sluit binnenkort aan als derde.",
     "teamHeading": "Het team",
+    "comingSoon": "Binnenkort",
     "ctaHeading1": "Praat met de mensen",
     "ctaHeading2": "die het werk doen.",
     "ctaBookCall": "Plan een strategiegesprek"

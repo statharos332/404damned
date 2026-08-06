@@ -155,12 +155,10 @@ export default async function RootLayout({
         name: "Stathis Papounidis",
         jobTitle: t("developerTitle"),
       },
-      {
-        "@type": "Person",
-        "@id": "https://www.404damned.com/about#tatiana-petsiou",
-        name: "Tatiana Petsiou",
-        jobTitle: t("marketingTitle"),
-      },
+      // Tatiana Petsiou is joining as the third team member but isn't
+      // formally on board yet — omitted from `employee` until then so
+      // this structured data stays accurate. She's still shown on the
+      // About page, marked as "joining soon".
     ],
     address: {
       "@type": "PostalAddress",

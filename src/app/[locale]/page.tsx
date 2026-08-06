@@ -78,7 +78,7 @@ export default async function Home() {
       <ProcessSection />
       {/*<ClientsStrip />*/}
       <InsightsPreview />
-      {/*<PricingSection />*/}
+      <PricingSection />
       <BriefCTA />
       <ContactSection />
       <Footer />

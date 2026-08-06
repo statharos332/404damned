@@ -19,7 +19,7 @@ export function Navigation() {
     { key: "work", label: t("work"), href: "/work" },
     { key: "about", label: t("about"), href: "/about" },
     { key: "insights", label: t("insights"), href: "/insights" },
-    { key: "pricing", label: t("pricing"), href: "#pricing" },
+    { key: "pricing", label: t("pricing"), href: "/#pricing" },
   ];
 
   useEffect(() => {
@@ -146,7 +146,7 @@ export function Navigation() {
             style={{ transitionDelay: menuOpen ? "0.5s" : "0s" }}
           >
             <Link
-              href="#contact"
+              href="/#contact"
               onClick={() => setMenuOpen(false)}
               className="inline-block text-sm font-bold tracking-wider uppercase bg-[#D6001C] text-white px-8 py-4"
             >

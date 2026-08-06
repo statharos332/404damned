@@ -41,16 +41,18 @@ export default async function AboutPage() {
     { locale, homeLabel: "Home" }
   );
 
-  const peopleLd = localizedTeam.map((p) => ({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${BASE}/about#${p.slug}`,
-    name: p.name,
-    jobTitle: p.role,
-    worksFor: { "@id": `${BASE}/#organization` },
-    url: `${BASE}/about#${p.slug}`,
-    sameAs: [p.linkedin],
-  }));
+  const peopleLd = localizedTeam
+    .filter((p) => !p.comingSoon)
+    .map((p) => ({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": `${BASE}/about#${p.slug}`,
+      name: p.name,
+      jobTitle: p.role,
+      worksFor: { "@id": `${BASE}/#organization` },
+      url: `${BASE}/about#${p.slug}`,
+      sameAs: [p.linkedin],
+    }));
 
   const aboutLd = {
     "@context": "https://schema.org",
@@ -135,6 +137,11 @@ export default async function AboutPage() {
                     <h3 className="text-xl font-black text-white tracking-tight">
                       {p.name}
                     </h3>
+                    {p.comingSoon && (
+                      <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#00E5FF] border border-[#00E5FF]/30 px-2 py-0.5">
+                        {t("comingSoon")}
+                      </span>
+                    )}
                     <a
                       href={p.linkedin}
                       target="_blank"

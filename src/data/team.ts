@@ -20,6 +20,10 @@ export interface TeamMember {
   bio: string;
   linkedin: string;
   photo?: string; // /team/<slug>.jpg
+  /** True while this person hasn't formally joined the studio yet — shown
+   * as "joining soon" on the site and excluded from Person/employee
+   * structured data until it flips to false. */
+  comingSoon?: boolean;
 }
 
 export const team: TeamMember[] = [
@@ -42,8 +46,9 @@ export const team: TeamMember[] = [
     slug: "tatiana-petsiou",
     name: "Tatiana Petsiou",
     role: "Web Developer & Digital Marketing",
-    bio: "Tatiana works across web development and digital marketing — e-commerce builds, newsletter marketing, and custom WooCommerce projects built on template systems like ACF. She's the one making sure a site keeps performing after launch, not just on the day it ships.",
+    bio: "Tatiana works across web development and digital marketing — e-commerce builds, newsletter marketing, and custom WooCommerce projects built on template systems like ACF. She's joining 404 DAMNED as its third team member.",
     linkedin: "https://www.linkedin.com/in/tatiana-petsiou-723756148/",
+    comingSoon: true,
   },
 ];
 

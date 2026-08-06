@@ -13,7 +13,7 @@ export const teamNl: TeamMember[] = [
   {
     slug: "nick-grigoriadis",
     name: "Nick Grigoriadis",
-    role: "Oprichter — Management & Project Management",
+    role: "Oprichter — Bedrijfsvoering & Projectmanagement",
     bio: "Nick runt de studio van A tot Z — klantcontact, projectlevering en de zakelijke kant van 404 DAMNED. Zijn achtergrond ligt in bedrijfsvoering en projectmanagement, met een carrière die draait om teams die daadwerkelijk opleveren. Vandaar de discipline binnen de studio als het gaat om deadlines en levering.",
     linkedin: "https://www.linkedin.com/in/nick-grigoriadis-082094365/",
     photo: "/team/nick-grigoriadis.jpg",
@@ -29,8 +29,9 @@ export const teamNl: TeamMember[] = [
     slug: "tatiana-petsiou",
     name: "Tatiana Petsiou",
     role: "Webontwikkelaar & Digital Marketing",
-    bio: "Tatiana werkt op het snijvlak van webontwikkeling en digital marketing — e-commercebouw, nieuwsbriefmarketing en custom WooCommerce-projecten op templatesystemen zoals ACF. Zij is degene die ervoor zorgt dat een site na livegang blijft presteren, niet alleen op de dag van lancering.",
+    bio: "Tatiana werkt op het snijvlak van webontwikkeling en digital marketing — e-commercebouw, nieuwsbriefmarketing en custom WooCommerce-projecten op templatesystemen zoals ACF. Zij sluit binnenkort aan als derde teamlid van 404 DAMNED.",
     linkedin: "https://www.linkedin.com/in/tatiana-petsiou-723756148/",
+    comingSoon: true,
   },
 ];
 
