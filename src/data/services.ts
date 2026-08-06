@@ -326,6 +326,7 @@ export const services: Service[] = [
       "Keyword & search strategy",
       "On-page optimization",
       "Structured data / schema",
+      "AI-crawler visibility (llms.txt) for WordPress sites",
       "Content strategy & landing pages",
       "Search Console reporting",
     ],
@@ -342,6 +343,10 @@ export const services: Service[] = [
       {
         q: "What's the difference between technical SEO and content?",
         a: "Technical SEO makes the site fast and legible to search engines. Content gives them something worth ranking. A flawless technical site with nothing to say won't rank, and great content on a broken site won't either — you need both.",
+      },
+      {
+        q: "What is llms.txt and do you set it up?",
+        a: "It's an emerging convention — a clean, machine-readable index of your site for AI systems like ChatGPT and Perplexity to read instead of guessing at your HTML. For WordPress sites we can generate one automatically, with real AI-written summaries per page instead of keyword-guessing. We wrote up exactly how it works, including a real bug we found testing it live, in our insights section.",
       },
     ],
     related: ["web-development", "ecommerce", "ai-automation"],

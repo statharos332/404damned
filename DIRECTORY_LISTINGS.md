@@ -29,31 +29,30 @@ ones get flagged and can get a profile rejected or delisted.
 
 ## One-liner / profile headline
 
-> Amsterdam studio of three — custom web development, e-commerce and AI
+> Amsterdam studio of two — custom web development, e-commerce and AI
 > automation for growing businesses.
 
 ---
 
 ## Short bio (~100 words — profile summary field)
 
-> 404 DAMNED is a three-person digital studio based in Amsterdam. Nick
-> Grigoriadis leads project and client management, Stathis Papounidis
-> handles development and design, and Tatiana Petsiou covers web
-> development and digital marketing. We build custom Next.js and React
-> websites, Shopify/Magento/WooCommerce stores, and AI automation systems —
-> no templates, no account managers, no hand-off to a team you've never
-> met. Every project is scoped, built and delivered by the same three
-> people, from the first call to launch.
+> 404 DAMNED is a two-person digital studio based in Amsterdam. Nick
+> Grigoriadis leads project and client management, and Stathis Papounidis
+> handles development and design (Tatiana Petsiou is joining as a third).
+> We build custom Next.js and React websites, Shopify/Magento/WooCommerce
+> stores, and AI automation systems — no templates, no account managers,
+> no hand-off to a team you've never met. Every project is scoped, built
+> and delivered by the same people, from the first call to launch.
 
 ---
 
 ## Long "About us" (~220 words)
 
 > 404 DAMNED started as freelance and agency experience going back to
-> 2017, before the studio existed under this name. Today it's three
-> people: Nick Grigoriadis (management & project delivery), Stathis
-> Papounidis (development & design) and Tatiana Petsiou (web development &
-> digital marketing).
+> 2017, before the studio existed under this name. Today it's two people:
+> Nick Grigoriadis (management & project delivery) and Stathis Papounidis
+> (development & design) — with Tatiana Petsiou, who brings web
+> development & digital marketing, joining as a third.
 >
 > We build custom websites and web apps in Next.js and React, e-commerce
 > stores on Shopify, Magento and WooCommerce, and AI automation systems
@@ -63,8 +62,8 @@ ones get flagged and can get a profile rejected or delisted.
 > Recent work includes a high-conversion booking platform for SKG VIP
 > Transfers, a premium transfer service, and an AI-powered SEO listing
 > engine for Etsy sellers (EtsyBoost AI). Every project is built from
-> scratch — no theme, no template — and handled directly by the same three
-> people who scope it, from first call through launch and beyond.
+> scratch — no theme, no template — and handled directly by the people who
+> scope it, from first call through launch and beyond.
 >
 > Based in Amsterdam, working with clients across the Netherlands.
 
@@ -87,7 +86,10 @@ Match these to whatever category picker the directory uses:
   narrative. 2017 is when the founders' individual experience started, not
   necessarily when 404 DAMNED itself was registered (KVK). Use the actual
   KVK registration year here if it's different — check before submitting.
-- **"Number of employees"** — 3.
+- **"Number of employees"** — 2 (Nick, Stathis). If the directory wants a
+  full team roster rather than a headcount, Tatiana can be listed too but
+  flagged as joining soon — don't let her read as an equal, currently
+  active third on a platform where the site itself now says two.
 - **"Notable clients"** — only list SKG VIP Transfers and EtsyBoost AI.
   Don't pad the list.
 - **Portfolio / case studies** — link directly to
@@ -101,8 +103,8 @@ Match these to whatever category picker the directory uses:
   https://www.linkedin.com/in/nick-grigoriadis-082094365/
 - **Stathis Papounidis** — Developer & Designer —
   https://www.linkedin.com/in/stathis-papounidis-132b91129/
-- **Tatiana Petsiou** — Web Developer & Digital Marketing —
-  https://www.linkedin.com/in/tatiana-petsiou-723756148/
+- **Tatiana Petsiou** — Web Developer & Digital Marketing — *joining soon,
+  not yet active* — https://www.linkedin.com/in/tatiana-petsiou-723756148/
 
 ## Contact / NAP (keep identical everywhere — consistency helps local SEO)
 

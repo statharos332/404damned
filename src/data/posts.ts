@@ -33,6 +33,8 @@ export interface Post {
   authorSlug: string; // src/data/team.ts slug
   keywords: string[];
   body: Block[];
+  /** Optional hero image for the article page + social share cards. /insights/<slug>/cover.svg */
+  cover?: string;
 }
 
 export const posts: Post[] = [
@@ -222,6 +224,48 @@ export const posts: Post[] = [
       { type: "h2", text: "Roll it out without breaking things" },
       { type: "p", text: "Automate one workflow at a time. Keep a human in the loop for anything customer-facing until you trust the output. Measure the hours saved so the value is obvious rather than assumed. The point isn't replacing your team — it's freeing them from the busywork so they can do the parts of the job that actually grow the business." },
       { type: "p", text: "If you're not sure which process to automate first, look for the task your team complains about most. That's usually where the fastest win is hiding." },
+    ],
+  },
+  {
+    slug: "llms-txt-ai-visibility-wordpress",
+    title: "AI Visibility for WordPress: What llms.txt Actually Does",
+    excerpt:
+      "ChatGPT, Claude and Perplexity are starting to answer questions directly instead of sending a click — and most WordPress sites are unreadable to them. We built a plugin that generates a real, AI-summarized llms.txt automatically, then tested it against a live install to make sure it actually works.",
+    category: "AI Automation",
+    readMins: 7,
+    date: "2026-08-06",
+    authorSlug: "stathis-papounidis",
+    cover: "/insights/llms-txt-ai-visibility-wordpress/cover.svg",
+    keywords: [
+      "llms.txt",
+      "AI visibility WordPress",
+      "generative engine optimization",
+      "llms.txt WordPress plugin",
+      "AI crawler visibility",
+      "GEO",
+    ],
+    body: [
+      { type: "p", text: "A growing share of search doesn't end in a click anymore. Someone asks ChatGPT, Claude or Perplexity a question, gets a direct answer, and never visits a website at all. Being the source behind that answer is starting to matter as much as ranking on page one — and most sites, WordPress ones especially, are genuinely hard for an AI system to read." },
+      { type: "h2", text: "What llms.txt actually is" },
+      { type: "p", text: ["In September 2024, Jeremy Howard (Answer.AI) proposed ", { text: "llms.txt", href: "https://llmstxt.org/" }, " — a plain-text, markdown-formatted file at the root of a site, the same idea as robots.txt or sitemap.xml but written for language models instead of search crawlers. A model has a limited context window and no patience for a page built from navigation menus, cookie banners, ads and three levels of nested divs around the actual sentence it needs. llms.txt skips straight to a clean list of what the site actually contains."] },
+      { type: "p", text: "The convention defines two files: llms.txt, a short index of the site's key pages with one-line descriptions, and llms-full.txt, a fuller export with real page content included. Neither is confirmed to be read by every AI crawler yet — this is still an emerging convention, not an official web standard — but it costs nothing to publish and it's exactly the kind of thing that compounds if you're early." },
+      { type: "h2", text: "Why WordPress sites specifically have a problem" },
+      { type: "p", text: "On a typical WordPress site, the content a visitor actually reads rarely lives cleanly in one field. Page builders like Elementor store real page copy as serialized JSON, not as post_content. ACF fields hold product specs, service descriptions and FAQ answers in custom field structures a generic crawler has no reason to look inside. A plugin that only reads post_content misses most of the site." },
+      { type: "h2", text: "What we built" },
+      { type: "p", text: "We built a WordPress plugin that generates both files automatically and keeps them current as content changes. The mechanical part extracts and cleans text from post_content, ACF fields and Elementor's stored data, filtering out filenames, URLs and layout noise that would otherwise pollute the output." },
+      { type: "p", text: "The part that makes it genuinely AI-powered: each page is sent to OpenAI once, with the extracted text, and comes back with a real classification (Services, Products, Contact, Blog, Careers, and so on) and a natural-language summary — not a keyword-frequency guess. That result is cached against the page's content hash, so a page that hasn't changed doesn't get re-summarized (and doesn't cost anything) the next time the file regenerates. If there's no API key configured, or a request fails, it falls back to a solid rule-based extractor automatically — the public file never breaks because an API call didn't go through." },
+      { type: "list", items: [
+        "Two auto-generated endpoints: /llms.txt (short index) and /llms-full.txt (full content, grouped by category with confidence scores)",
+        "Real content extraction from post_content, ACF fields and Elementor builder data",
+        "AI-generated summaries and classification per page, cached per content hash so nothing gets re-processed unnecessarily",
+        "Automatic fallback to a rule-based extractor whenever AI isn't configured or a request fails",
+        "Regenerates automatically when content is published, edited or trashed",
+      ]},
+      { type: "h2", text: "We didn't just assume it works" },
+      { type: "p", text: "Code that looks right and code that works are two different claims, so before writing any of this up we deployed the plugin on a clean, throwaway WordPress install and hit the actual endpoints. That caught something a code review alone wouldn't have: WordPress's own canonical-redirect logic was silently 301-redirecting /llms.txt to /llms.txt/ before our handler ever ran — harmless in a browser, but the kind of thing that quietly breaks a crawler that doesn't follow redirects. We fixed it, then re-tested with a deliberately invalid API key to confirm the AI failure path falls back cleanly instead of breaking the page. Both checked out." },
+      { type: "h2", text: "The honest caveat" },
+      { type: "p", text: "We're not going to tell you llms.txt is a guaranteed ranking factor, because nobody can say that truthfully yet — it's an emerging convention, not an established one, and adoption among the major AI crawlers is still uneven. What we can say is that publishing a clean, accurate, machine-readable index of your site costs nothing to have and matters more the earlier you're one of the sites that already has it." },
+      { type: "p", text: "If you run a WordPress site and want an AI-readable index of what's actually on it — set up properly, not bolted on — that's exactly what we do." },
     ],
   },
 ];

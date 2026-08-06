@@ -199,6 +199,48 @@ export const postsNl: Post[] = [
       { type: "p", text: "Weet je niet zeker welk proces je eerst moet automatiseren, kijk dan naar de taak waar je team het meest over klaagt. Daar zit meestal de snelste winst verstopt." },
     ],
   },
+  {
+    slug: "llms-txt-ai-visibility-wordpress",
+    title: "AI-zichtbaarheid voor WordPress: wat llms.txt daadwerkelijk doet",
+    excerpt:
+      "ChatGPT, Claude en Perplexity beantwoorden steeds vaker vragen direct, zonder dat er een klik naar je website aan te pas komt — en de meeste WordPress-sites zijn voor die systemen simpelweg onleesbaar. Wij bouwden een plugin die automatisch een echt, AI-samengevat llms.txt genereert, en testten hem op een live installatie om zeker te weten dat hij het ook echt doet.",
+    category: "AI-automatisering",
+    readMins: 7,
+    date: "2026-08-06",
+    authorSlug: "stathis-papounidis",
+    cover: "/insights/llms-txt-ai-visibility-wordpress/cover.svg",
+    keywords: [
+      "llms.txt",
+      "AI-zichtbaarheid WordPress",
+      "generative engine optimization",
+      "llms.txt WordPress plugin",
+      "AI crawler zichtbaarheid",
+      "GEO",
+    ],
+    body: [
+      { type: "p", text: "Een steeds groter deel van zoekgedrag eindigt niet meer in een klik. Iemand stelt een vraag aan ChatGPT, Claude of Perplexity, krijgt direct antwoord, en bezoekt nooit een website. De bron achter dat antwoord zijn begint net zo belangrijk te worden als op pagina 1 staan in Google — en de meeste sites, WordPress-sites voorop, zijn voor een AI-systeem oprecht lastig te lezen." },
+      { type: "h2", text: "Wat llms.txt daadwerkelijk is" },
+      { type: "p", text: ["In september 2024 stelde Jeremy Howard (Answer.AI) ", { text: "llms.txt", href: "https://llmstxt.org/" }, " voor — een platte, markdown-opgemaakte tekstfile in de root van een website, hetzelfde idee als robots.txt of sitemap.xml, maar geschreven voor language models in plaats van zoekmachine-crawlers. Een model heeft een beperkt context-venster en geen geduld voor een pagina opgebouwd uit navigatiemenu's, cookiebanners, advertenties en drie lagen geneste divs rond de ene zin die het nodig heeft. llms.txt slaat dat allemaal over en geeft direct een schone lijst van wat de site daadwerkelijk bevat."] },
+      { type: "p", text: "De conventie kent twee bestanden: llms.txt, een korte index van de belangrijkste pagina's met een omschrijving van één regel, en llms-full.txt, een uitgebreidere export met de echte paginainhoud erbij. Geen enkele AI-crawler garandeert op dit moment dat hij het bestand daadwerkelijk gebruikt — dit is een opkomende conventie, geen officiële webstandaard — maar het publiceren ervan kost niets, en het is precies het soort ding dat zich opstapelt als je er vroeg bij bent." },
+      { type: "h2", text: "Waarom WordPress-sites specifiek een probleem hebben" },
+      { type: "p", text: "Op een gemiddelde WordPress-site staat de content die een bezoeker daadwerkelijk leest zelden netjes in één veld. Pagebuilders zoals Elementor slaan de echte pagina-tekst op als geserialiseerde JSON, niet als post_content. ACF-velden bevatten productspecificaties, dienstomschrijvingen en FAQ-antwoorden in custom field-structuren waar een generieke crawler geen enkele reden heeft om in te kijken. Een plugin die alleen post_content leest, mist het grootste deel van de site." },
+      { type: "h2", text: "Wat wij bouwden" },
+      { type: "p", text: "Wij bouwden een WordPress-plugin die beide bestanden automatisch genereert en actueel houdt zodra content verandert. Het mechanische deel haalt tekst uit post_content, ACF-velden en de opgeslagen data van Elementor, en filtert bestandsnamen, URL's en layout-ruis eruit die de output anders zouden vervuilen." },
+      { type: "p", text: "Het deel dat het daadwerkelijk AI-powered maakt: elke pagina wordt één keer naar OpenAI gestuurd, met de geëxtraheerde tekst, en komt terug met een echte classificatie (Diensten, Producten, Contact, Blog, Vacatures, enzovoort) en een samenvatting in natuurlijke taal — geen gok op basis van keyword-frequentie. Dat resultaat wordt gecachet op basis van de content-hash van de pagina, dus een pagina die niet is veranderd wordt bij de volgende regeneratie niet opnieuw samengevat (en kost dus ook niets extra). Staat er geen API-key ingesteld, of mislukt een aanvraag, dan valt het systeem automatisch terug op een degelijke regelgebaseerde extractor — het publieke bestand breekt nooit omdat een API-call niet doorging." },
+      { type: "list", items: [
+        "Twee automatisch gegenereerde endpoints: /llms.txt (korte index) en /llms-full.txt (volledige inhoud, gegroepeerd per categorie met confidence-score)",
+        "Echte content-extractie uit post_content, ACF-velden en Elementor builder-data",
+        "AI-gegenereerde samenvattingen en classificatie per pagina, gecachet per content-hash zodat niets onnodig opnieuw wordt verwerkt",
+        "Automatische terugval op een regelgebaseerde extractor zodra AI niet is ingesteld of een aanvraag mislukt",
+        "Regenereert automatisch zodra content wordt gepubliceerd, bewerkt of verwijderd",
+      ]},
+      { type: "h2", text: "We namen niet zomaar aan dat het werkte" },
+      { type: "p", text: "Code die er goed uitziet en code die werkt zijn twee verschillende dingen, dus voordat we hier iets over schreven zetten we de plugin op een schone, wegwerp-WordPress-installatie en riepen we de echte endpoints aan. Dat ving iets op wat een code review alleen nooit had gevonden: WordPress' eigen canonical-redirect-logica stuurde /llms.txt stilletjes met een 301 door naar /llms.txt/, nog voordat onze handler ooit werd aangeroepen — onschuldig in een browser, maar precies het soort ding dat een crawler die geen redirects volgt stilletjes laat mislukken. We losten het op, en testten daarna opnieuw met een bewust ongeldige API-key om te bevestigen dat het AI-foutpad netjes terugvalt in plaats van de pagina te breken. Beide klopten." },
+      { type: "h2", text: "De eerlijke kanttekening" },
+      { type: "p", text: "Wij gaan niet beweren dat llms.txt een gegarandeerde rankingfactor is, want niemand kan dat op dit moment eerlijk zeggen — het is een opkomende conventie, geen gevestigde standaard, en de adoptie onder de grote AI-crawlers is nog ongelijk. Wat we wel kunnen zeggen: een schone, accurate, machine-leesbare index van je site publiceren kost niets, en weegt zwaarder naarmate je vroeger bij de sites hoort die hem al hebben." },
+      { type: "p", text: "Run je een WordPress-site en wil je een AI-leesbare index van wat er daadwerkelijk op staat — goed opgezet, niet er half achteraf aangeplakt — dat is precies wat wij doen." },
+    ],
+  },
 ];
 
 export function getPostNl(slug: string): Post | undefined {

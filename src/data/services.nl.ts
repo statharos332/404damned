@@ -291,6 +291,7 @@ export const servicesNl: Service[] = [
       "Keyword- & zoekstrategie",
       "On-page optimalisatie",
       "Structured data / schema",
+      "AI-crawler zichtbaarheid (llms.txt) voor WordPress-sites",
       "Contentstrategie & landingspagina's",
       "Search Console-rapportage",
     ],
@@ -307,6 +308,10 @@ export const servicesNl: Service[] = [
       {
         q: "Wat is het verschil tussen technische SEO en content?",
         a: "Technische SEO maakt de site snel en leesbaar voor zoekmachines. Content geeft ze iets om te ranken. Een technisch perfecte site die niets te zeggen heeft, gaat niet ranken, en geweldige content op een kapotte site ook niet — je hebt beide nodig.",
+      },
+      {
+        q: "Wat is llms.txt en zetten jullie dat op?",
+        a: "Een opkomende conventie — een schone, machine-leesbare index van je site zodat AI-systemen als ChatGPT en Perplexity die kunnen lezen in plaats van te gokken op je HTML. Voor WordPress-sites bouwen we dat automatisch, met echte AI-samenvattingen per pagina in plaats van een gok op keywords. Hoe het precies werkt, inclusief een echte bug die we live tegenkwamen tijdens het testen, staat uitgeschreven in onze inzichten.",
       },
     ],
     related: ["web-development", "ecommerce", "ai-automation"],

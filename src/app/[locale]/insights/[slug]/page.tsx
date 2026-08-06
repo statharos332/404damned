@@ -61,11 +61,13 @@ export async function generateMetadata({
       url: `https://www.404damned.com${localizedPath(path, locale)}`,
       type: "article",
       publishedTime: post.date,
+      images: post.cover ? [{ url: `https://www.404damned.com${post.cover}` }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: post.cover ? [`https://www.404damned.com${post.cover}`] : undefined,
     },
   };
 }
@@ -149,6 +151,15 @@ export default async function PostPage({
             })}
           </span>
         </div>
+
+        {post.cover && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={post.cover}
+            alt=""
+            className="mt-8 mb-8 w-full border border-white/10"
+          />
+        )}
 
         <h1 className="font-display font-black uppercase leading-[0.95] tracking-tight text-[clamp(2.2rem,5vw,4rem)] text-white">
           {post.title}
