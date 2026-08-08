@@ -132,6 +132,49 @@ export const projects: Project[] = [
         ],
         liveUrl: "https://etsyboost-ai.vercel.app/",
         featured: true
+    },
+
+    {
+        slug: "llms-txt-ai-visibility-wordpress",
+        title: "AI-Powered llms.txt Generation for WordPress",
+        client: "AI Visibility",
+        category: "AI Automation",
+        year: "2026",
+        summary:
+            "A WordPress plugin that generates an AI-readable index of a site's real content automatically — genuine OpenAI-written summaries and classification, not keyword guessing.",
+        cover: "/work/llms-txt-ai-visibility-wordpress/cover.svg",
+
+        services: ["AI Automation", "SEO", "Plugin Development"],
+
+        stack: ["WordPress", "PHP", "OpenAI API", "ACF", "Elementor"],
+
+        challenge:
+            "AI systems like ChatGPT and Perplexity increasingly answer questions directly instead of sending a click, and need something better than raw HTML to read. WordPress makes this harder than it looks: real page content is scattered across post_content, ACF fields and Elementor's serialized builder data, not sitting in one obvious place a generic tool would check.",
+
+        approach:
+            "We built a plugin that generates two files — llms.txt and llms-full.txt — automatically, pulling real content from post_content, ACF and Elementor. Each page gets a genuine OpenAI-written summary and category classification, cached per content hash so nothing gets reprocessed unnecessarily, with an automatic fallback to a rule-based extractor whenever AI isn't configured or a request fails. Before calling it done, we deployed it on a live WordPress install and found a real bug — WordPress's own canonical-redirect logic was silently 301-redirecting the endpoint before our handler ever ran — fixed it, then verified the AI path end-to-end with a real API key and a real spend.",
+
+        outcome:
+            "A working, tested plugin that makes a site's actual content legible to AI systems, with classification that's measurably better than keyword matching. An \"About us\" page our rule-based fallback misclassified as \"Contact\" at 55% confidence — because the text mentioned \"direct contact with the developer\" — landed correctly under \"Company\" at 95% confidence once AI was switched on, with a real written summary instead of a truncated sentence.",
+
+        results: [
+            { label: "Content sources covered", value: "3" },
+            { label: "Classification confidence", value: "55% → 95%" },
+            { label: "Fallback reliability", value: "100%" }
+        ],
+
+        media: [
+            { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-1.png" },
+            { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-2.png" },
+            { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-3.png" },
+            { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-4.png" }
+        ],
+
+        tags: ["AI", "WordPress", "SEO", "GEO"],
+
+        gallery: [],
+
+        featured: true
     }
 ];
 

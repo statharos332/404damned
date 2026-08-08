@@ -385,15 +385,15 @@
       {
         "name": "Enterprise",
         "tagline": "For long-term digital partnerships.",
-        "price": "Custom",
-        "period": "retainer",
+        "price": "From 1,200",
+        "period": "per month, retainer",
         "description": "We operate as your embedded digital team, focused on continuous growth and optimization.",
         "features": ["Everything in Growth", "Dedicated team access", "Custom automation & AI systems", "Ongoing optimization", "Strategic advisory", "SLA-based support", "Monthly reporting", "Quarterly strategy reviews"],
         "cta": "Apply for partnership",
-        "featured": false,
-        "isCustomPrice": true
+        "featured": false
       }
-    ]
+    ],
+    "careNote": "Already live elsewhere? Care & maintenance plans (security patches, updates, priority fixes) start at €300/month."
   },
   "Testimonials": {
     "kicker": "— Client Victories",
@@ -442,7 +442,7 @@
     "kicker": "Our Work",
     "heading1": "Proof, not",
     "heading2": "promises.",
-    "intro": "Two builds so far, each solving a different problem: a high-conversion booking platform for a transfer service, and an AI engine that writes Etsy listings. More lands here as projects wrap.",
+    "intro": "Three builds so far, each solving a different problem: a high-conversion booking platform for a transfer service, an AI engine that writes Etsy listings, and a WordPress plugin that makes sites legible to AI search. More lands here as projects wrap.",
     "ctaHeading": "Your project is next.",
     "startConversation": "Start a Conversation"
   },

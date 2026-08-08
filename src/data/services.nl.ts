@@ -49,7 +49,7 @@ export const servicesNl: Service[] = [
       "Core Web Vitals & snelheidsoptimalisatie",
       "Technische SEO-basis",
       "Analytics & conversietracking",
-      "Doorlopende support & doorontwikkeling",
+      "Care- & onderhoudsabonnementen (vanaf €300/mnd)",
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Headless CMS", "Vercel"],
     faqs: [
@@ -68,6 +68,10 @@ export const servicesNl: Service[] = [
       {
         q: "Gaat mijn website ook echt scoren in Google?",
         a: "De build zelf is snel, crawlbaar en gestructureerd opgeleverd — dat is de basis die nodig is om te kunnen ranken. Of hij daadwerkelijk gaat scoren hangt ook af van content en backlinks over tijd, waar we apart bij kunnen helpen.",
+      },
+      {
+        q: "Bieden jullie ook ondersteuning na livegang?",
+        a: "Ja, op twee manieren. Care-abonnementen beginnen vanaf €300/maand: security patches, dependency-updates, monitoring en bugfixes met voorrang. Wil je dat we actief blijven doorbouwen — nieuwe features, doorlopende CRO — dan is dat een Growth-retainer vanaf €1.200/maand. De meeste klanten beginnen met Care en stappen op als ze meer nodig hebben.",
       },
     ],
     related: ["ecommerce", "seo", "ai-automation"],
@@ -112,6 +116,7 @@ export const servicesNl: Service[] = [
       "Betaal- & verzendintegraties",
       "Snelheid & Core Web Vitals-afstelling",
       "Analytics & tracking-inrichting",
+      "Magento/WooCommerce care-abonnementen (vanaf €300/mnd)",
     ],
     stack: ["Shopify", "Magento / Adobe Commerce", "Next.js", "Headless commerce", "Stripe", "Vercel"],
     faqs: [
@@ -130,6 +135,10 @@ export const servicesNl: Service[] = [
       {
         q: "Hoe verhogen jullie de conversieratio?",
         a: "Door frictie weg te nemen, in deze volgorde: paginasnelheid, lengte van de checkout, duidelijkheid van productpagina's, mobiele UX, vertrouwenssignalen. Daarna meten we tegen echte analytics in plaats van te gokken wat de volgende stap is.",
+      },
+      {
+        q: "Onderhouden jullie ook Magento- of WooCommerce-webshops na livegang?",
+        a: "Ja — Magento heeft dat specifiek meer nodig dan de meeste platforms. Care-abonnementen beginnen vanaf €300/maand: security patches, versie-upgrades, uptime-monitoring en bugfixes met voorrang. Wil je dat we actief blijven doorbouwen — nieuwe features, doorlopende CRO — dan is dat een Growth-retainer vanaf €1.200/maand. Werkt hetzelfde of we jouw shop hebben gebouwd of je overstapt van een ander bureau.",
       },
     ],
     related: ["web-development", "seo", "branding"],

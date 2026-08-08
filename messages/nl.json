@@ -385,15 +385,15 @@
       {
         "name": "Enterprise",
         "tagline": "Voor langdurige digitale partnerships.",
-        "price": "Op maat",
-        "period": "retainer",
+        "price": "Vanaf 1.200",
+        "period": "per maand, retainer",
         "description": "Wij opereren als jouw ingebedde digitale team, gericht op continue groei en optimalisatie.",
         "features": ["Alles uit Growth", "Toegang tot vast team", "Custom automatisering & AI-systemen", "Doorlopende optimalisatie", "Strategisch advies", "Support op basis van SLA", "Maandelijkse rapportage", "Kwartaal strategiesessies"],
         "cta": "Vraag een partnership aan",
-        "featured": false,
-        "isCustomPrice": true
+        "featured": false
       }
-    ]
+    ],
+    "careNote": "Al live elders? Onderhoud & care-abonnementen (security patches, updates, priority fixes) vanaf €300/maand."
   },
   "Testimonials": {
     "kicker": "— Wat klanten zeggen",
@@ -442,7 +442,7 @@
     "kicker": "Ons werk",
     "heading1": "Bewijs, geen",
     "heading2": "beloftes.",
-    "intro": "Tot nu toe twee builds, elk met een ander probleem: een sterk converterend boekingsplatform voor een transferdienst, en een AI-engine die Etsy-listings schrijft. Er komt meer bij zodra projecten worden opgeleverd.",
+    "intro": "Tot nu toe drie builds, elk met een ander probleem: een sterk converterend boekingsplatform voor een transferdienst, een AI-engine die Etsy-listings schrijft, en een WordPress-plugin die sites leesbaar maakt voor AI-zoekmachines. Er komt meer bij zodra projecten worden opgeleverd.",
     "ctaHeading": "Jouw project is de volgende.",
     "startConversation": "Start een gesprek"
   },

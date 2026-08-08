@@ -21,7 +21,8 @@ export type RichText = string | Inline[];
 export type Block =
   | { type: "p"; text: RichText }
   | { type: "h2"; text: string }
-  | { type: "list"; items: RichText[] };
+  | { type: "list"; items: RichText[] }
+  | { type: "image"; src: string; alt: string; caption?: string };
 
 export interface Post {
   slug: string;
@@ -261,8 +262,11 @@ export const posts: Post[] = [
         "Automatic fallback to a rule-based extractor whenever AI isn't configured or a request fails",
         "Regenerates automatically when content is published, edited or trashed",
       ]},
+      { type: "image", src: "/insights/llms-txt-ai-visibility-wordpress/screenshot-admin.png", alt: "The AI Visibility plugin settings screen in WordPress admin, showing AI Generation Active", caption: "The actual settings screen, screenshotted from a live WordPress install — not a mockup." },
       { type: "h2", text: "We didn't just assume it works" },
       { type: "p", text: "Code that looks right and code that works are two different claims, so before writing any of this up we deployed the plugin on a clean, throwaway WordPress install and hit the actual endpoints. That caught something a code review alone wouldn't have: WordPress's own canonical-redirect logic was silently 301-redirecting /llms.txt to /llms.txt/ before our handler ever ran — harmless in a browser, but the kind of thing that quietly breaks a crawler that doesn't follow redirects. We fixed it, then re-tested with a deliberately invalid API key to confirm the AI failure path falls back cleanly instead of breaking the page. Both checked out." },
+      { type: "p", text: "Then we tested it with a real key. The difference showed immediately: our rule-based fallback had classified an \"About us\" page as \"Contact\" — because the text happened to mention \"direct contact with the developer\" — at 55% confidence. With AI switched on, the same page landed correctly under \"Company\" at 95% confidence, with a genuinely written summary instead of a truncated sentence." },
+      { type: "image", src: "/insights/llms-txt-ai-visibility-wordpress/screenshot-preview.png", alt: "Real AI-generated llms.txt preview showing natural-language Dutch summaries", caption: "Real output from that test, live-generated — not sample copy written for this article." },
       { type: "h2", text: "The honest caveat" },
       { type: "p", text: "We're not going to tell you llms.txt is a guaranteed ranking factor, because nobody can say that truthfully yet — it's an emerging convention, not an established one, and adoption among the major AI crawlers is still uneven. What we can say is that publishing a clean, accurate, machine-readable index of your site costs nothing to have and matters more the earlier you're one of the sites that already has it." },
       { type: "p", text: "If you run a WordPress site and want an AI-readable index of what's actually on it — set up properly, not bolted on — that's exactly what we do." },

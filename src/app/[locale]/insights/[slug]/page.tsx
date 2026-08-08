@@ -213,6 +213,19 @@ export default async function PostPage({
                 </ul>
               );
             }
+            if (block.type === "image") {
+              return (
+                <figure key={i} className="pt-4">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={block.src} alt={block.alt} className="w-full border border-white/10" />
+                  {block.caption && (
+                    <figcaption className="mt-3 text-sm text-gray-500 font-mono">
+                      {block.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            }
             return (
               <p key={i} className="text-lg text-gray-300 leading-relaxed">
                 {renderRich(block.text)}

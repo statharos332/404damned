@@ -84,7 +84,7 @@ export const services: Service[] = [
       "Core Web Vitals & speed optimization",
       "Technical SEO foundation",
       "Analytics & conversion tracking",
-      "Ongoing support & iteration",
+      "Care & maintenance plans (from €300/mo)",
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Headless CMS", "Vercel"],
     faqs: [
@@ -103,6 +103,10 @@ export const services: Service[] = [
       {
         q: "Will my website actually rank on Google?",
         a: "The build itself ships fast, crawlable and structured — that's the foundation ranking needs. Whether it actually ranks also depends on content and backlinks over time, which we can help with separately.",
+      },
+      {
+        q: "Do you offer ongoing support after launch?",
+        a: "Yes, two ways. Care plans start at €300/month — security patches, dependency updates, monitoring and priority bugfixes, for any site whether we built it or not. Growth retainers start at €1,200/month for teams that want us actively building: new features, CRO experiments, ongoing optimization. Most clients start with Care and move up if they need more.",
       },
     ],
     related: ["ecommerce", "seo", "ai-automation"],
@@ -147,6 +151,7 @@ export const services: Service[] = [
       "Payment & shipping integrations",
       "Speed & Core Web Vitals tuning",
       "Analytics & tracking setup",
+      "Magento/WooCommerce care plans (from €300/mo)",
     ],
     stack: ["Shopify", "Magento / Adobe Commerce", "Next.js", "Headless commerce", "Stripe", "Vercel"],
     faqs: [
@@ -165,6 +170,10 @@ export const services: Service[] = [
       {
         q: "How do you increase conversion rate?",
         a: "By removing friction, in order: page speed, checkout length, product page clarity, mobile UX, trust signals. Then we measure against real analytics instead of guessing what to fix next.",
+      },
+      {
+        q: "Do you maintain Magento or WooCommerce stores after launch?",
+        a: "Yes — Magento specifically needs it more than most platforms. Care plans start at €300/month: security patches, version upgrades, uptime monitoring, priority bugfixes. If you want us actively building on top (new features, ongoing CRO), that's a Growth retainer starting at €1,200/month. Works the same whether we built your store or you're moving from another agency.",
       },
     ],
     related: ["web-development", "seo", "branding"],

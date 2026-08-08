@@ -14,7 +14,6 @@ interface Plan {
   features: string[];
   cta: string;
   featured: boolean;
-  isCustomPrice?: boolean;
 }
 
 export function PricingSection() {
@@ -86,14 +85,8 @@ export function PricingSection() {
                 <div className="text-xs text-gray-500 tracking-widest uppercase font-mono mb-2">{plan.name}</div>
                 <div className="text-sm text-gray-400 mb-6">{plan.tagline}</div>
                 <div className="flex items-baseline gap-2">
-                  {plan.isCustomPrice ? (
-                    <span className="text-4xl font-black">{plan.price}</span>
-                  ) : (
-                    <>
-                      <span className="text-2xl text-gray-500">€</span>
-                      <span className="text-4xl font-black">{plan.price}</span>
-                    </>
-                  )}
+                  <span className="text-2xl text-gray-500">€</span>
+                  <span className="text-4xl font-black">{plan.price}</span>
                 </div>
                 <div className="text-xs text-gray-600 mt-1">{plan.period}</div>
               </div>
@@ -135,6 +128,16 @@ export function PricingSection() {
         >
           {t("trustNote")}
           <span className="text-gray-500 ml-2">{t("trustNoteExtra")}</span>
+        </m.div>
+
+        {/* Care / maintenance note — for people who already have a site */}
+        <m.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.7, duration: 0.7 }}
+          className="mt-3 text-center text-sm text-gray-600"
+        >
+          {t("careNote")}
         </m.div>
       </div>
     </section>

@@ -95,6 +95,49 @@ export const projectsNl: Project[] = [
     liveUrl: "https://etsyboost-ai.vercel.app/",
     featured: true,
   },
+
+  {
+    slug: "llms-txt-ai-visibility-wordpress",
+    title: "AI-gedreven llms.txt-generatie voor WordPress",
+    client: "AI Visibility",
+    category: "AI-automatisering",
+    year: "2026",
+    summary:
+      "Een WordPress-plugin die automatisch een AI-leesbare index van de echte content van een site genereert — oprechte OpenAI-samenvattingen en classificatie, geen gok op keywords.",
+    cover: "/work/llms-txt-ai-visibility-wordpress/cover.svg",
+
+    services: ["AI-automatisering", "SEO", "Plugin-ontwikkeling"],
+
+    stack: ["WordPress", "PHP", "OpenAI API", "ACF", "Elementor"],
+
+    challenge:
+      "AI-systemen als ChatGPT en Perplexity beantwoorden steeds vaker vragen direct in plaats van een klik door te sturen, en hebben iets beters nodig dan ruwe HTML om te lezen. WordPress maakt dat lastiger dan het lijkt: echte pagina-inhoud staat verspreid over post_content, ACF-velden en de geserialiseerde builder-data van Elementor, niet op één voor de hand liggende plek die een generieke tool zou checken.",
+
+    approach:
+      "Wij bouwden een plugin die automatisch twee bestanden genereert — llms.txt en llms-full.txt — en haalt echte content op uit post_content, ACF en Elementor. Elke pagina krijgt een oprecht door OpenAI geschreven samenvatting en categorie-classificatie, gecachet per content-hash zodat niets onnodig opnieuw wordt verwerkt, met een automatische terugval op een regelgebaseerde extractor zodra AI niet is ingesteld of een aanvraag mislukt. Voordat we het klaar noemden, zetten we hem op een live WordPress-installatie en vonden we een echte bug — WordPress' eigen canonical-redirect-logica stuurde het endpoint stilletjes met een 301 door voordat onze handler ooit werd aangeroepen — losten we op, en verifieerden daarna het AI-pad van begin tot eind met een echte API-key en echte kosten.",
+
+    outcome:
+      "Een werkende, geteste plugin die de echte content van een site leesbaar maakt voor AI-systemen, met classificatie die meetbaar beter is dan keyword-matching. Een 'Over ons'-pagina die onze regelgebaseerde fallback verkeerd classificeerde als 'Contact' met 55% confidence — omdat de tekst 'rechtstreeks contact met de developer' noemde — kwam correct onder 'Company' terecht met 95% confidence zodra AI werd aangezet, met een echte geschreven samenvatting in plaats van een afgekapte zin.",
+
+    results: [
+      { label: "Content-bronnen gedekt", value: "3" },
+      { label: "Classificatie-confidence", value: "55% → 95%" },
+      { label: "Betrouwbaarheid bij AI-uitval", value: "100%" },
+    ],
+
+    media: [
+      { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-1.png" },
+      { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-2.png" },
+      { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-3.png" },
+      { type: "image", src: "/work/llms-txt-ai-visibility-wordpress/shot-4.png" },
+    ],
+
+    tags: ["AI", "WordPress", "SEO", "GEO"],
+
+    gallery: [],
+
+    featured: true,
+  },
 ];
 
 export function getProjectNl(slug: string): Project | undefined {
