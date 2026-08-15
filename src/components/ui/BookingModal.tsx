@@ -22,9 +22,11 @@ const MONTHS = [
 export function BookingModal({
   open,
   onClose,
+  triggerRef,
 }: {
   open: boolean;
   onClose: () => void;
+  triggerRef?: React.RefObject<HTMLElement | null>;
 }) {
   const today = useMemo(() => {
     const d = new Date();
@@ -131,7 +133,17 @@ export function BookingModal({
             {/* modal — data-lenis-prevent lets it scroll natively on touch
                 (Lenis would otherwise capture the gesture); dvh keeps the
                 bottom above the mobile browser chrome. */}
-            <Dialog.Content asChild forceMount>
+            <Dialog.Content
+              asChild
+              forceMount
+              onCloseAutoFocus={(e) => {
+                // forceMount + externally-controlled `open` (no Dialog.Trigger)
+                // confuses Radix's own return-focus timing, so we do it
+                // ourselves using the element captured on open.
+                e.preventDefault();
+                triggerRef?.current?.focus();
+              }}
+            >
               <div className="fixed left-1/2 top-1/2 z-[10000] w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 outline-none">
                 <m.div
                   data-lenis-prevent

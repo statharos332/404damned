@@ -1,7 +1,20 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+
+// Not-found boundaries don't receive route params, so locale comes from
+// next-intl's request-scoped detection (src/i18n/request.ts) — same as
+// the default export below.
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("NotFound");
+  return {
+    title: "Page Not Found",
+    description: t("body"),
+    robots: { index: false, follow: true },
+  };
+}
 
 /**
  * Branded 404 — the signature moment for a studio literally called

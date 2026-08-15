@@ -182,7 +182,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer showCta={false} />
     </main>
   );
 }

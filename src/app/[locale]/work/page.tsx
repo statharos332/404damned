@@ -93,7 +93,7 @@ export default async function WorkPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer showCta={false} />
     </main>
   );
 }

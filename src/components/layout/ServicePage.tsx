@@ -214,7 +214,7 @@ export async function ServicePage({ service }: { service: Service }) {
         </div>
       </section>
 
-      <Footer />
+      <Footer showCta={false} />
     </main>
   );
 }
