@@ -342,7 +342,9 @@
   "WorkExplorer": {
     "filter": "filter:",
     "viewCase": "View case",
-    "live": "[ live ]"
+    "live": "[ live ]",
+    "clientWork": "Client work",
+    "inHouseBuild": "In-house build"
   },
   "MediaGallery": {
     "openMedia": "Open {client} media {index} of {total}",
@@ -456,7 +458,9 @@
     "stackLabel": "Stack",
     "visitLiveSite": "Visit Live Site",
     "nextProject": "Next Project",
-    "view": "View"
+    "view": "View",
+    "clientWork": "Client work",
+    "inHouseBuild": "In-house build"
   },
   "InsightsHub": {
     "metaTitle": "Insights — Web, E-Commerce & AI",

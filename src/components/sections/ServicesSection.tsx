@@ -73,7 +73,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
           {service.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs text-gray-500 border border-white/5 px-3 py-1 group-hover:border-[#D6001C]/20 group-hover:text-gray-400 transition-all duration-300"
+              className="text-xs text-gray-400 border border-white/5 px-3 py-1 group-hover:border-[#D6001C]/20 group-hover:text-gray-400 transition-all duration-300"
             >
               {tag}
             </span>

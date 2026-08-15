@@ -101,7 +101,7 @@ function CapabilityCard({
             </span>
 
                         <div>
-                            <div className="text-xs text-gray-500 tracking-wider uppercase mb-2">
+                            <div className="text-xs text-gray-400 tracking-wider uppercase mb-2">
                                 {capability.category}
                             </div>
 
@@ -128,7 +128,7 @@ function CapabilityCard({
                         }`}
                     >
                         <svg
-                            className="w-6 h-6 text-gray-600 group-hover:text-[#D6001C]"
+                            className="w-6 h-6 text-gray-400 group-hover:text-[#D6001C]"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"

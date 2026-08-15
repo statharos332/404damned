@@ -50,7 +50,7 @@ export function BriefCTA() {
           </button>
         </div>
 
-        <p className="mt-10 font-mono text-xs text-gray-600">
+        <p className="mt-10 font-mono text-xs text-gray-400">
           {t("footerLine")}
         </p>
       </div>

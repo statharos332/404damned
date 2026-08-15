@@ -92,7 +92,7 @@ export function MediaGallery({ project }: { project: Project }) {
             <span className="pointer-events-none absolute inset-0 scanlines opacity-0 group-hover/cell:opacity-100 transition-opacity" />
           </button>
         ))}
-        <span className="self-center pl-1 font-mono text-[0.6rem] uppercase tracking-widest text-gray-600 whitespace-nowrap">
+        <span className="self-center pl-1 font-mono text-[0.6rem] uppercase tracking-widest text-gray-400 whitespace-nowrap">
           {t("shotsCount", { count: String(media.length).padStart(2, "0") })}
         </span>
       </div>

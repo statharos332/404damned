@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { posts } from "@/data/posts";
@@ -63,32 +64,60 @@ export default async function InsightsPage() {
 
       <section className="max-w-[1100px] mx-auto px-6 pb-32">
         <div className="border-t border-white/10">
-          {sorted.map((p, i) => (
-            <Link
-              key={p.slug}
-              href={`/insights/${p.slug}`}
-              className="group grid md:grid-cols-[auto_1fr_auto] gap-4 md:gap-10 items-baseline border-b border-white/10 py-10"
-            >
-              <span className="font-mono text-xs text-gray-600">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <div className="flex items-center gap-3 mb-2 font-mono text-[0.65rem] uppercase tracking-widest">
-                  <span className="text-[#00E5FF]">{p.category}</span>
-                  <span className="text-gray-600">{t("minRead", { count: p.readMins })}</span>
+          {sorted.map((p, i) => {
+            const accent = i % 2 === 0 ? "#D6001C" : "#00E5FF";
+            return (
+              <Link
+                key={p.slug}
+                href={`/insights/${p.slug}`}
+                className="group relative grid md:grid-cols-[auto_1fr_auto] gap-5 md:gap-10 items-center border-b border-white/10 py-8 md:py-9"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -z-10 bg-white/[0.03] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out"
+                />
+                <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0 border border-white/10 group-hover:border-white/25 bg-[#0a0a0a] overflow-hidden transition-colors duration-300">
+                  {p.cover ? (
+                    <Image
+                      src={p.cover}
+                      alt=""
+                      fill
+                      sizes="96px"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 flex items-center justify-center font-display font-black text-3xl md:text-4xl"
+                      style={{ color: `${accent}1a` }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  )}
+                  <span
+                    aria-hidden
+                    className="absolute bottom-0 left-0 right-0 h-0.5"
+                    style={{ backgroundColor: accent }}
+                  />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
-                  {p.title}
-                </h2>
-                <p className="mt-3 text-gray-400 leading-relaxed max-w-2xl">
-                  {p.excerpt}
-                </p>
-              </div>
-              <span className="hidden md:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white group-hover:gap-4 transition-all whitespace-nowrap">
-                {t("read")} <span className="text-[#D6001C]">&rarr;</span>
-              </span>
-            </Link>
-          ))}
+                <div>
+                  <div className="flex items-center gap-3 mb-2 font-mono text-[0.65rem] uppercase tracking-widest">
+                    <span style={{ color: accent }}>{p.category}</span>
+                    <span className="text-gray-400">{t("minRead", { count: p.readMins })}</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
+                    {p.title}
+                  </h2>
+                  <p className="mt-3 text-gray-400 leading-relaxed max-w-2xl">
+                    {p.excerpt}
+                  </p>
+                </div>
+                <span className="hidden md:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white group-hover:gap-4 transition-all whitespace-nowrap">
+                  {t("read")} <span className="text-[#D6001C]">&rarr;</span>
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

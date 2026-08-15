@@ -57,6 +57,7 @@ export const projectsNl: Project[] = [
 
     liveUrl: "https://skgviptransfers.com/en",
     featured: true,
+    clientWork: true,
   },
 
   {
@@ -94,6 +95,7 @@ export const projectsNl: Project[] = [
     ],
     liveUrl: "https://etsyboost-ai.vercel.app/",
     featured: true,
+    clientWork: false,
   },
 
   {
@@ -137,6 +139,7 @@ export const projectsNl: Project[] = [
     gallery: [],
 
     featured: true,
+    clientWork: false,
   },
 ];
 

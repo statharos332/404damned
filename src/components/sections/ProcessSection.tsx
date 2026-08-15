@@ -63,21 +63,21 @@ export function ProcessSection() {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-5">
-                    <span className={`text-xs font-mono ${activeStep === i ? "text-[#D6001C]" : "text-gray-600"}`}>
+                    <span className={`text-xs font-mono ${activeStep === i ? "text-[#D6001C]" : "text-gray-400"}`}>
                       {step.number}
                     </span>
                     <div>
                       <div className={`text-xl font-black tracking-tight ${activeStep === i ? "text-white" : "text-gray-400"}`}>
                         {step.title}
                       </div>
-                      <div className="text-xs text-gray-600 tracking-wider uppercase mt-1">{step.duration}</div>
+                      <div className="text-xs text-gray-400 tracking-wider uppercase mt-1">{step.duration}</div>
                     </div>
                   </div>
                   <m.div
                     animate={{ rotate: activeStep === i ? 90 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg className={`w-4 h-4 ${activeStep === i ? "text-[#D6001C]" : "text-gray-700"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className={`w-4 h-4 ${activeStep === i ? "text-[#D6001C]" : "text-gray-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </m.div>
@@ -108,7 +108,7 @@ export function ProcessSection() {
                 </p>
 
                 <div className="mb-8">
-                  <div className="text-xs text-gray-600 tracking-wider uppercase mb-4">{t("activitiesLabel")}</div>
+                  <div className="text-xs text-gray-400 tracking-wider uppercase mb-4">{t("activitiesLabel")}</div>
                   <div className="grid grid-cols-2 gap-2">
                     {steps[activeStep].activities.map((activity) => (
                       <div key={activity} className="flex items-center gap-2 text-sm text-gray-400">
@@ -120,7 +120,7 @@ export function ProcessSection() {
                 </div>
 
                 <div className="border-t border-white/5 pt-6">
-                  <div className="text-xs text-gray-600 tracking-wider uppercase mb-2">{t("outputLabel")}</div>
+                  <div className="text-xs text-gray-400 tracking-wider uppercase mb-2">{t("outputLabel")}</div>
                   <div className="text-lg font-bold text-white">{steps[activeStep].output}</div>
                 </div>
               </m.div>

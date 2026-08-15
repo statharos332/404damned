@@ -65,7 +65,7 @@ export default async function NotFound() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-gray-500 hover:text-[#D6001C] transition-colors"
+              className="text-gray-400 hover:text-[#D6001C] transition-colors"
             >
               {l.label}
             </Link>

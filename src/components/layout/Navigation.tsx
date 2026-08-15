@@ -50,7 +50,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -63,7 +63,7 @@ export function Navigation() {
           </div>
 
           {/* Language switcher + CTA */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             <LanguageSwitcher />
             <button
               onClick={openBooking}
@@ -77,7 +77,7 @@ export function Navigation() {
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden relative z-50 w-8 h-6 flex flex-col justify-between"
+            className="lg:hidden relative z-50 w-8 h-6 flex flex-col justify-between"
             aria-label={t("toggleMenu")}
             aria-expanded={menuOpen}
           >
@@ -102,7 +102,7 @@ export function Navigation() {
 
       {/* Mobile Menu — always mounted, slides via CSS (.mobile-menu) */}
       <div
-        className="mobile-menu md:hidden fixed inset-0 z-[90] bg-[#050505] flex flex-col justify-center px-8"
+        className="mobile-menu lg:hidden fixed inset-0 z-[90] bg-[#050505] flex flex-col justify-center px-8"
         data-open={menuOpen}
         aria-hidden={!menuOpen}
       >

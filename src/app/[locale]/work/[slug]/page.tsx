@@ -111,16 +111,25 @@ export default async function ProjectPage({
       <header className="max-w-[1100px] mx-auto px-6 pt-40 pb-12">
         <Link
           href="/work"
-          className="text-xs font-mono text-gray-500 hover:text-[#D6001C] transition-colors"
+          className="text-xs font-mono text-gray-400 hover:text-[#D6001C] transition-colors"
         >
           &larr; {t("allWork")}
         </Link>
-        <div className="flex items-center gap-3 text-xs font-mono text-[#D6001C]/70 mt-8 mb-4">
+        <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#D6001C]/70 mt-8 mb-4">
           <span>{project.client}</span>
           <span className="w-1 h-1 rounded-full bg-[#D6001C]/40" />
           <span>{project.category}</span>
           <span className="w-1 h-1 rounded-full bg-[#D6001C]/40" />
           <span>{project.year}</span>
+          <span
+            className={`font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 border ${
+              project.clientWork
+                ? "border-[#00E5FF]/30 text-[#00E5FF]"
+                : "border-white/10 text-gray-400"
+            }`}
+          >
+            {project.clientWork ? t("clientWork") : t("inHouseBuild")}
+          </span>
         </div>
         <h1 className="font-display font-black uppercase leading-[0.92] tracking-tight text-[clamp(2.4rem,6vw,5rem)] text-white">
           {project.title}
@@ -152,7 +161,7 @@ export default async function ProjectPage({
               <div className="text-3xl md:text-5xl font-black text-[#D6001C]">
                 {r.value}
               </div>
-              <div className="mt-2 text-[0.65rem] md:text-xs tracking-wider uppercase text-gray-500">
+              <div className="mt-2 text-[0.65rem] md:text-xs tracking-wider uppercase text-gray-400">
                 {r.label}
               </div>
             </div>
@@ -178,7 +187,7 @@ export default async function ProjectPage({
         {/* meta: services + stack */}
         <div className="grid sm:grid-cols-2 gap-8 border-t border-white/10 pt-10">
           <div>
-            <h3 className="text-xs text-gray-500 tracking-[0.2em] uppercase mb-3">
+            <h3 className="text-xs text-gray-400 tracking-[0.2em] uppercase mb-3">
               {t("servicesLabel")}
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -193,7 +202,7 @@ export default async function ProjectPage({
             </div>
           </div>
           <div>
-            <h3 className="text-xs text-gray-500 tracking-[0.2em] uppercase mb-3">
+            <h3 className="text-xs text-gray-400 tracking-[0.2em] uppercase mb-3">
               {t("stackLabel")}
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -243,7 +252,7 @@ export default async function ProjectPage({
 
       {/* Next project */}
       <section className="max-w-[1100px] mx-auto px-6 py-24 border-t border-white/10">
-        <p className="text-xs text-gray-500 tracking-[0.3em] uppercase font-mono mb-4">
+        <p className="text-xs text-gray-400 tracking-[0.3em] uppercase font-mono mb-4">
           {t("nextProject")}
         </p>
         <Link href={`/work/${next.slug}`} className="group block">

@@ -51,7 +51,7 @@ export function InsightsPreview() {
               >
                 <div className="flex items-center gap-3 mb-4 font-mono text-[0.6rem] uppercase tracking-widest">
                   <span className="text-[#00E5FF]">{p.category}</span>
-                  <span className="text-gray-600">{p.readMins} min</span>
+                  <span className="text-gray-400">{p.readMins} min</span>
                 </div>
                 <h3 className="text-xl font-black tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
                   {p.title}

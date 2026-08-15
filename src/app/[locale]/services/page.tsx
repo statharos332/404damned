@@ -7,6 +7,7 @@ import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
 import { services } from "@/data/services";
 import { servicesNl } from "@/data/services.nl";
 import { pickLocale } from "@/lib/utils";
+import { serviceIcons } from "@/lib/serviceIcons";
 
 export async function generateMetadata({
   params,
@@ -77,28 +78,46 @@ export default async function ServicesHub() {
 
       <section className="max-w-[1100px] mx-auto px-6 pb-32">
         <div className="border-t border-white/10">
-          {localizedServices.map((s, i) => (
-            <Link
-              key={s.slug}
-              href={`/services/${s.slug}`}
-              className="group grid md:grid-cols-[auto_1fr_auto] gap-4 md:gap-10 items-baseline border-b border-white/10 py-10"
-            >
-              <span className="font-mono text-xs text-gray-600">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
-                  {s.name}
-                </h2>
-                <p className="mt-2 text-gray-400 leading-relaxed max-w-2xl">
-                  {s.tagline}
-                </p>
-              </div>
-              <span className="hidden md:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white group-hover:gap-4 transition-all whitespace-nowrap">
-                {t("explore")} <span className="text-[#D6001C]">&rarr;</span>
-              </span>
-            </Link>
-          ))}
+          {localizedServices.map((s, i) => {
+            const Icon = serviceIcons[s.slug];
+            return (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="group relative grid md:grid-cols-[auto_1fr_auto] gap-5 md:gap-10 items-center border-b border-white/10 py-8 md:py-9"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -z-10 bg-white/[0.03] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out"
+                />
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 shrink-0 border border-white/15 group-hover:border-[#D6001C] flex items-center justify-center transition-colors duration-300">
+                    {Icon && (
+                      <Icon
+                        aria-hidden
+                        strokeWidth={1.5}
+                        className="w-5 h-5 text-gray-400 group-hover:text-[#D6001C] transition-colors duration-300"
+                      />
+                    )}
+                  </div>
+                  <span className="font-mono text-xs text-gray-400">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
+                    {s.name}
+                  </h2>
+                  <p className="mt-2 text-gray-400 leading-relaxed max-w-2xl">
+                    {s.tagline}
+                  </p>
+                </div>
+                <span className="hidden md:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white group-hover:gap-4 transition-all whitespace-nowrap">
+                  {t("explore")} <span className="text-[#D6001C]">&rarr;</span>
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
@@ -146,7 +147,7 @@ export default async function AboutPage() {
                       href={p.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs uppercase tracking-widest text-gray-500 hover:text-[#D6001C] transition-colors"
+                      className="font-mono text-xs uppercase tracking-widest text-gray-400 hover:text-[#D6001C] transition-colors"
                     >
                       LinkedIn &#8599;
                     </a>
@@ -172,12 +173,12 @@ export default async function AboutPage() {
             <br />
             <span className="text-[#D6001C]">{t("ctaHeading2")}</span>
           </h2>
-          <a
+          <Link
             href="/#contact"
             className="mt-8 inline-block bg-[#D6001C] hover:bg-[#FF1A35] text-white px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
             {t("ctaBookCall")} &rarr;
-          </a>
+          </Link>
         </div>
       </section>
 

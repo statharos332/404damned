@@ -58,7 +58,7 @@ export function VibeSection() {
                 className="group relative bg-[#050505] p-10 md:p-14 hover:bg-[#0a0a0a] transition-colors"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-xs text-gray-600 tracking-widest">
+                  <span className="font-mono text-xs text-gray-400 tracking-widest">
                     RULE_{v.n}
                   </span>
                   <span className={`w-2 h-2 rounded-full ${dot}`} />

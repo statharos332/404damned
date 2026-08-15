@@ -56,13 +56,13 @@ export function WhySection() {
                 transition={{ delay: 0.2 + i * 0.1, duration: 0.7 }}
                 className="group border border-white/5 p-8 hover:border-[#D6001C]/20 transition-all duration-500"
               >
-                <div className="text-xs text-gray-600 tracking-wider uppercase mb-4 font-mono">
+                <div className="text-xs text-gray-400 tracking-wider uppercase mb-4 font-mono">
                   {item.agency}
                 </div>
                 <div className="flex flex-col gap-4">
                   <div className="flex items-start gap-3">
                     <span className="mt-1 text-red-600">✗</span>
-                    <p className="text-gray-500 line-through decoration-red-900">{item.problem}</p>
+                    <p className="text-gray-400 line-through decoration-red-900">{item.problem}</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="mt-1 text-[#D6001C]">→</span>
@@ -103,15 +103,15 @@ export function WhySection() {
             className="border-l-4 border-[#D6001C] pl-10 py-4"
           >
             <p className="text-3xl md:text-5xl font-black leading-tight">
-              "{t("quoteStart")}
+              &ldquo;{t("quoteStart")}
               <br />
-              <span className="text-gray-500">{t("quotePart1")} </span>
+              <span className="text-gray-400">{t("quotePart1")} </span>
               <span className="text-[#D6001C]">{t("quotePart2")}</span>
-              <span className="text-gray-500"> {t("quotePart3")}</span>
+              <span className="text-gray-400"> {t("quotePart3")}</span>
               <br />
-              <span className="text-stroke-red">{t("quotePart4")}</span>"
+              <span className="text-stroke-red">{t("quotePart4")}</span>&rdquo;
             </p>
-            <p className="text-gray-600 mt-6 text-sm tracking-wider uppercase">
+            <p className="text-gray-400 mt-6 text-sm tracking-wider uppercase">
               {t("quoteCaption")}
             </p>
           </m.div>

@@ -75,7 +75,7 @@ export function TestimonialsSection() {
                     </div>
                     <div>
                       <div className="font-bold text-white">{testimonials[active].name}</div>
-                      <div className="text-sm text-gray-500">{testimonials[active].title}</div>
+                      <div className="text-sm text-gray-400">{testimonials[active].title}</div>
                     </div>
                   </div>
                 </div>
@@ -113,7 +113,7 @@ export function TestimonialsSection() {
                 className="w-10 h-10 border border-white/10 hover:border-[#D6001C]/40 flex items-center justify-center transition-all duration-300 group"
                 data-cursor-hover
               >
-                <svg className="w-4 h-4 text-gray-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -122,7 +122,7 @@ export function TestimonialsSection() {
                 className="w-10 h-10 border border-white/10 hover:border-[#D6001C]/40 flex items-center justify-center transition-all duration-300 group"
                 data-cursor-hover
               >
-                <svg className="w-4 h-4 text-gray-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>

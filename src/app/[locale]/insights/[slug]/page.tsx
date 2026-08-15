@@ -135,15 +135,15 @@ export default async function PostPage({
       <article className="max-w-[760px] mx-auto px-6 pt-40 pb-24">
         <Link
           href="/insights"
-          className="font-mono text-xs text-gray-500 hover:text-[#D6001C] transition-colors"
+          className="font-mono text-xs text-gray-400 hover:text-[#D6001C] transition-colors"
         >
           &larr; {t("allInsights")}
         </Link>
 
         <div className="flex items-center gap-3 mt-8 mb-4 font-mono text-[0.65rem] uppercase tracking-widest">
           <span className="text-[#00E5FF]">{post.category}</span>
-          <span className="text-gray-600">{t("minRead", { count: post.readMins })}</span>
-          <span className="text-gray-600">
+          <span className="text-gray-400">{t("minRead", { count: post.readMins })}</span>
+          <span className="text-gray-400">
             {new Date(post.date).toLocaleDateString(locale === "nl" ? "nl-NL" : "en-GB", {
               day: "numeric",
               month: "short",
@@ -181,7 +181,7 @@ export default async function PostPage({
                 .join("")}
             </span>
             <span className="font-mono text-xs uppercase tracking-widest">
-              <span className="text-gray-500">{t("writtenBy")} </span>
+              <span className="text-gray-400">{t("writtenBy")} </span>
               <span className="text-white group-hover:text-[#D6001C] transition-colors">
                 {author.name}
               </span>
@@ -219,7 +219,7 @@ export default async function PostPage({
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={block.src} alt={block.alt} className="w-full border border-white/10" />
                   {block.caption && (
-                    <figcaption className="mt-3 text-sm text-gray-500 font-mono">
+                    <figcaption className="mt-3 text-sm text-gray-400 font-mono">
                       {block.caption}
                     </figcaption>
                   )}
@@ -250,7 +250,7 @@ export default async function PostPage({
 
       {/* Next post */}
       <section className="max-w-[760px] mx-auto px-6 pb-24 border-t border-white/10">
-        <p className="mt-10 font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">
+        <p className="mt-10 font-mono text-xs text-gray-400 uppercase tracking-widest mb-3">
           {t("nextRead")}
         </p>
         <Link href={`/insights/${next.slug}`} className="group block">

@@ -342,7 +342,9 @@
   "WorkExplorer": {
     "filter": "filter:",
     "viewCase": "Bekijk case",
-    "live": "[ live ]"
+    "live": "[ live ]",
+    "clientWork": "Klantwerk",
+    "inHouseBuild": "Eigen build"
   },
   "MediaGallery": {
     "openMedia": "Open media {index} van {total} van {client}",
@@ -456,7 +458,9 @@
     "stackLabel": "Stack",
     "visitLiveSite": "Bezoek live site",
     "nextProject": "Volgend project",
-    "view": "Bekijk"
+    "view": "Bekijk",
+    "clientWork": "Klantwerk",
+    "inHouseBuild": "Eigen build"
   },
   "InsightsHub": {
     "metaTitle": "Inzichten — Web, E-commerce & AI",

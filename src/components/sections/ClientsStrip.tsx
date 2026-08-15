@@ -50,11 +50,11 @@ export function ClientsStrip() {
             <div key={a.org} className="bg-[#050505] p-8 group hover:bg-[#0a0a0a] transition-colors">
               <div className="text-4xl font-black text-[#00E5FF] font-mono">{a.count}</div>
               <div className="mt-2 font-bold text-white tracking-wide">{a.org}</div>
-              <div className="text-sm text-gray-500">{a.label}</div>
+              <div className="text-sm text-gray-400">{a.label}</div>
             </div>
           ))}
         </div>
-        <p className="mt-4 text-xs text-gray-600 font-mono">
+        <p className="mt-4 text-xs text-gray-400 font-mono">
           {t("recognitionNote")}
         </p>
       </div>

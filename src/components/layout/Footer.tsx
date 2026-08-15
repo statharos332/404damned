@@ -25,7 +25,7 @@ const legalLinks = [
   { key: "linkCookiePolicy", href: "/cookie-policy" },
 ];
 
-export function Footer() {
+export function Footer({ showCta = true }: { showCta?: boolean } = {}) {
   const t = useTranslations("Footer");
   const columns = [
     { category: t("categoryServices"), links: serviceLinks },
@@ -35,30 +35,34 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/5 bg-[#050505]">
-      {/* Big CTA */}
-      <div className="px-6 md:px-12 py-20 border-b border-white/5">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-          <div>
-            <div className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
-              {t("kicker")}
+      {/* Big CTA — skipped where a contact form already sits directly above
+          (e.g. the homepage), so it doesn't send people back up into the
+          form they just saw. */}
+      {showCta && (
+        <div className="px-6 md:px-12 py-20 border-b border-white/5">
+          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
+            <div>
+              <div className="text-xs text-[#D6001C] tracking-[0.3em] uppercase font-mono mb-4">
+                {t("kicker")}
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-[0.95]">
+                {t("ctaLine1")}
+                <br />
+                <span className="text-[#D6001C]">{t("ctaLine2")}</span>
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-[0.95]">
-              {t("ctaLine1")}
-              <br />
-              <span className="text-[#D6001C]">{t("ctaLine2")}</span>
-            </h2>
+            <Link
+              href="/#contact"
+              className="group relative inline-flex items-center gap-3 bg-[#D6001C] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#FF1A35] transition-colors duration-300 shrink-0"
+            >
+              {t("bookStrategyCall")}
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
-          <Link
-            href="/#contact"
-            className="group relative inline-flex items-center gap-3 bg-[#D6001C] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#FF1A35] transition-colors duration-300 shrink-0"
-          >
-            {t("bookStrategyCall")}
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
         </div>
-      </div>
+      )}
 
       {/* Links grid */}
       <div className="px-6 md:px-12 py-16">
@@ -72,7 +76,7 @@ export function Footer() {
                 </div>
                 <span className="text-white font-bold text-sm tracking-[0.2em] uppercase">DAMNED</span>
               </Link>
-              <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
+              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
                 {t("brandBlurb")}
               </p>
               <div className="flex gap-3 mt-6">
@@ -94,7 +98,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-9 h-9 flex items-center justify-center border border-white/10 text-gray-500 hover:text-white hover:border-[#D6001C] transition-colors duration-300"
+                    className="w-9 h-9 flex items-center justify-center border border-white/10 text-gray-400 hover:text-white hover:border-[#D6001C] transition-colors duration-300"
                   >
                     <svg
                       className="w-4 h-4"
@@ -112,7 +116,7 @@ export function Footer() {
             {/* Link columns */}
             {columns.map(({ category, links }) => (
               <div key={category}>
-                <div className="text-xs text-gray-600 tracking-[0.2em] uppercase font-medium mb-4">
+                <div className="text-xs text-gray-400 tracking-[0.2em] uppercase font-medium mb-4">
                   {category}
                 </div>
                 <ul className="space-y-3">
@@ -120,7 +124,7 @@ export function Footer() {
                     <li key={link.key}>
                       <Link
                         href={link.href}
-                        className="text-sm text-gray-500 hover:text-white transition-colors duration-300"
+                        className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
                       >
                         {t(link.key)}
                       </Link>
@@ -136,11 +140,11 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="px-6 md:px-12 py-6 border-t border-white/5">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-gray-700">
+          <div className="text-xs text-gray-400">
             {t("copyright", { year: new Date().getFullYear() })}
           </div>
           <div className="flex items-center gap-4">
-            <div className="text-xs text-gray-700">{t("tagline")}</div>
+            <div className="text-xs text-gray-400">{t("tagline")}</div>
             <LanguageSwitcher />
           </div>
         </div>

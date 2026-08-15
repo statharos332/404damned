@@ -6,6 +6,7 @@ import { breadcrumbJsonLd } from "@/lib/seo";
 import { getService, type Service } from "@/data/services";
 import { getServiceNl } from "@/data/services.nl";
 import { pickLocale } from "@/lib/utils";
+import { serviceIcons } from "@/lib/serviceIcons";
 
 const BASE = "https://www.404damned.com";
 
@@ -56,6 +57,8 @@ export async function ServicePage({ service }: { service: Service }) {
     .map((slug) => pickLocale(getService(slug), getServiceNl(slug), locale))
     .filter((s): s is Service => Boolean(s));
 
+  const Icon = serviceIcons[service.slug];
+
   return (
     <main className="relative bg-[#050505] min-h-screen">
       <Navigation />
@@ -69,9 +72,16 @@ export async function ServicePage({ service }: { service: Service }) {
 
       {/* Hero */}
       <header className="max-w-[900px] mx-auto px-6 pt-40 pb-14">
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D6001C] mb-4">
-          [ {service.name} · Amsterdam ]
-        </p>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-14 h-14 shrink-0 border border-[#D6001C]/40 bg-[#D6001C]/[0.06] flex items-center justify-center">
+            {Icon && (
+              <Icon aria-hidden strokeWidth={1.5} className="w-6 h-6 text-[#D6001C]" />
+            )}
+          </div>
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D6001C]">
+            [ {service.name} · Amsterdam ]
+          </p>
+        </div>
         <h1 className="font-display font-black uppercase leading-[0.92] tracking-tight text-[clamp(2.4rem,6vw,4.75rem)] text-white text-balance">
           {service.h1}
         </h1>
@@ -166,7 +176,7 @@ export async function ServicePage({ service }: { service: Service }) {
       {/* Related services */}
       {related.length > 0 && (
         <section className="max-w-[900px] mx-auto px-6 py-10 border-t border-white/10">
-          <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-gray-500 mb-6">
+          <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-gray-400 mb-6">
             {t("relatedServices")}
           </h2>
           <div className="grid sm:grid-cols-3 gap-4">
@@ -179,7 +189,7 @@ export async function ServicePage({ service }: { service: Service }) {
                 <h3 className="text-lg font-black uppercase tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
                   {r.name}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500 leading-relaxed">
+                <p className="mt-2 text-sm text-gray-400 leading-relaxed">
                   {r.tagline}
                 </p>
               </Link>

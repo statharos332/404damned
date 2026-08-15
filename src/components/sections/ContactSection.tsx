@@ -116,7 +116,7 @@ export function ContactSection() {
                       },
                   ].map((item) => (
                       <div key={item.label} className="flex gap-4">
-                          <div className="text-xs text-gray-600 tracking-wider uppercase w-28 pt-0.5">
+                          <div className="text-xs text-gray-400 tracking-wider uppercase w-28 pt-0.5">
                               {item.label}
                           </div>
 
@@ -170,7 +170,7 @@ export function ContactSection() {
                   {/* Name + Company */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-name" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelName")}</label>
+                      <label htmlFor="contact-name" className="text-xs text-gray-400 tracking-wider uppercase block mb-2">{t("labelName")}</label>
                       <input
                         id="contact-name"
                         name="name"
@@ -179,12 +179,12 @@ export function ContactSection() {
                         type="text"
                         value={formState.name}
                         onChange={(e) => setFormState((p) => ({ ...p, name: e.target.value }))}
-                        className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 outline-none px-4 py-3 text-white text-sm transition-colors duration-300 placeholder:text-gray-700"
+                        className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 px-4 py-3 text-white text-sm transition-colors duration-300 placeholder:text-gray-400"
                         placeholder="Jouw naam"
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-company" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelCompany")}</label>
+                      <label htmlFor="contact-company" className="text-xs text-gray-400 tracking-wider uppercase block mb-2">{t("labelCompany")}</label>
                       <input
                         id="contact-company"
                         name="company"
@@ -192,7 +192,7 @@ export function ContactSection() {
                         type="text"
                         value={formState.company}
                         onChange={(e) => setFormState((p) => ({ ...p, company: e.target.value }))}
-                        className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 outline-none px-4 py-3 text-white text-sm transition-colors duration-300 placeholder:text-gray-700"
+                        className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 px-4 py-3 text-white text-sm transition-colors duration-300 placeholder:text-gray-400"
                         placeholder="Bedrijfsnaam"
                       />
                     </div>
@@ -200,7 +200,7 @@ export function ContactSection() {
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="contact-email" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelEmail")}</label>
+                    <label htmlFor="contact-email" className="text-xs text-gray-400 tracking-wider uppercase block mb-2">{t("labelEmail")}</label>
                     <input
                       id="contact-email"
                       name="email"
@@ -209,14 +209,14 @@ export function ContactSection() {
                       type="email"
                       value={formState.email}
                       onChange={(e) => setFormState((p) => ({ ...p, email: e.target.value }))}
-                      className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 outline-none px-4 py-3 text-white text-sm transition-colors duration-300 placeholder:text-gray-700"
+                      className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 px-4 py-3 text-white text-sm transition-colors duration-300 placeholder:text-gray-400"
                       placeholder="jij@bedrijf.nl"
                     />
                   </div>
 
                   {/* Service */}
                   <div role="group" aria-label={t("labelService")}>
-                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelService")}</span>
+                    <span className="text-xs text-gray-400 tracking-wider uppercase block mb-2">{t("labelService")}</span>
                     <div className="flex flex-wrap gap-2">
                       {serviceOptions.map((s) => (
                         <button
@@ -227,7 +227,7 @@ export function ContactSection() {
                           className={`text-xs px-3 py-2 border transition-all duration-200 ${
                             formState.service === s
                               ? "border-[#D6001C] bg-[#D6001C]/10 text-[#D6001C]"
-                              : "border-white/10 text-gray-500 hover:border-white/20"
+                              : "border-white/10 text-gray-400 hover:border-white/20"
                           }`}
                           data-cursor-hover
                         >
@@ -239,7 +239,7 @@ export function ContactSection() {
 
                   {/* Budget */}
                   <div role="group" aria-label={t("labelBudget")}>
-                    <span className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelBudget")}</span>
+                    <span className="text-xs text-gray-400 tracking-wider uppercase block mb-2">{t("labelBudget")}</span>
                     <div className="flex flex-wrap gap-2">
                       {budgetOptions.map((b) => (
                         <button
@@ -250,7 +250,7 @@ export function ContactSection() {
                           className={`text-xs px-3 py-2 border transition-all duration-200 ${
                             formState.budget === b
                               ? "border-[#D6001C] bg-[#D6001C]/10 text-[#D6001C]"
-                              : "border-white/10 text-gray-500 hover:border-white/20"
+                              : "border-white/10 text-gray-400 hover:border-white/20"
                           }`}
                           data-cursor-hover
                         >
@@ -262,14 +262,14 @@ export function ContactSection() {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="contact-message" className="text-xs text-gray-600 tracking-wider uppercase block mb-2">{t("labelMessage")}</label>
+                    <label htmlFor="contact-message" className="text-xs text-gray-400 tracking-wider uppercase block mb-2">{t("labelMessage")}</label>
                     <textarea
                       id="contact-message"
                       name="message"
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState((p) => ({ ...p, message: e.target.value }))}
-                      className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 outline-none px-4 py-3 text-white text-sm transition-colors duration-300 resize-none placeholder:text-gray-700"
+                      className="w-full bg-transparent border border-white/10 focus:border-[#D6001C]/50 px-4 py-3 text-white text-sm transition-colors duration-300 resize-none placeholder:text-gray-400"
                       placeholder={t("messagePlaceholder")}
                     />
                   </div>

@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { AnimatePresence, m } from "framer-motion";
+import * as Dialog from "@radix-ui/react-dialog";
 
 /**
  * Custom "book a call" modal — brutalist take on a Cal.com-style picker.
@@ -39,24 +40,8 @@ export function BookingModal({
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
-  // lock body scroll while open
-  useEffect(() => {
-    if (open) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = prev;
-      };
-    }
-  }, [open]);
-
-  // close on Escape
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
+  // Radix Dialog handles body-scroll-lock, Escape-to-close, outside-click
+  // dismiss, focus trap and focus-return on its own — no manual wiring needed.
 
   // reset when closed
   useEffect(() => {
@@ -130,239 +115,248 @@ export function BookingModal({
   };
 
   return (
-    <AnimatePresence>
-      {open && (
-        <m.div
-          className="fixed inset-0 z-[10000] flex items-center justify-center p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {/* backdrop */}
-          <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            onClick={onClose}
-          />
+    <Dialog.Root open={open} onOpenChange={(next) => !next && onClose()}>
+      <AnimatePresence>
+        {open && (
+          <Dialog.Portal forceMount>
+            <Dialog.Overlay asChild forceMount>
+              <m.div
+                className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+            </Dialog.Overlay>
 
-          {/* modal — data-lenis-prevent lets it scroll natively on touch
-              (Lenis would otherwise capture the gesture); dvh keeps the
-              bottom above the mobile browser chrome. */}
-          <m.div
-            data-lenis-prevent
-            className="relative w-full max-w-3xl bg-[#070708] border border-white/15 max-h-[90dvh] overflow-y-auto overscroll-contain"
-            initial={{ scale: 0.94, y: 20, opacity: 0 }}
-            animate={{ scale: 1, y: 0, opacity: 1 }}
-            exit={{ scale: 0.96, y: 10, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* grid texture top */}
-            <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+            {/* modal — data-lenis-prevent lets it scroll natively on touch
+                (Lenis would otherwise capture the gesture); dvh keeps the
+                bottom above the mobile browser chrome. */}
+            <Dialog.Content asChild forceMount>
+              <div className="fixed left-1/2 top-1/2 z-[10000] w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 outline-none">
+                <m.div
+                  data-lenis-prevent
+                  className="relative bg-[#070708] border border-white/15 max-h-[90dvh] overflow-y-auto overscroll-contain"
+                  initial={{ scale: 0.94, y: 20, opacity: 0 }}
+                  animate={{ scale: 1, y: 0, opacity: 1 }}
+                  exit={{ scale: 0.96, y: 10, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* grid texture top */}
+                  <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
 
-            {/* header */}
-            <div className="relative flex items-center justify-between p-6 border-b border-white/10">
-              <div>
-                <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#00E5FF]">
-                  [ schedule ]
-                </p>
-                <h3 className="font-display font-black uppercase text-2xl text-white tracking-tight mt-1">
-                  Book a call
-                </h3>
-              </div>
-              <button
-                onClick={onClose}
-                aria-label="Close"
-                className="font-mono text-2xl text-gray-500 hover:text-[#D6001C] transition-colors w-10 h-10 flex items-center justify-center border border-white/10 hover:border-[#D6001C]"
-              >
-                ×
-              </button>
-            </div>
+                  {/* header */}
+                  <div className="relative flex items-center justify-between p-6 border-b border-white/10">
+                    <div>
+                      <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#00E5FF]">
+                        [ schedule ]
+                      </p>
+                      <Dialog.Title asChild>
+                        <h3 className="font-display font-black uppercase text-2xl text-white tracking-tight mt-1">
+                          Book a call
+                        </h3>
+                      </Dialog.Title>
+                      <Dialog.Description className="sr-only">
+                        Pick a date and time, then leave your details to book a strategy call with 404 Damned.
+                      </Dialog.Description>
+                    </div>
+                    <Dialog.Close asChild>
+                      <button
+                        aria-label="Close"
+                        className="font-mono text-2xl text-gray-400 hover:text-[#D6001C] transition-colors w-10 h-10 flex items-center justify-center border border-white/10 hover:border-[#D6001C]"
+                      >
+                        ×
+                      </button>
+                    </Dialog.Close>
+                  </div>
 
-            <div className="relative p-6">
-              {step === 1 && (
-                <div className="grid md:grid-cols-2 gap-8">
-                  {/* calendar */}
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-bold text-white">
-                        {MONTHS[month]} {year}
-                      </span>
-                      <div className="flex gap-2">
-                        <button
-                          disabled={!canPrev}
-                          onClick={() => setView(new Date(year, month - 1, 1))}
-                          className="w-8 h-8 border border-white/15 text-white disabled:opacity-30 hover:border-[#00E5FF] hover:text-[#00E5FF] transition-colors font-mono"
-                        >
-                          ‹
-                        </button>
-                        <button
-                          onClick={() => setView(new Date(year, month + 1, 1))}
-                          className="w-8 h-8 border border-white/15 text-white hover:border-[#00E5FF] hover:text-[#00E5FF] transition-colors font-mono"
-                        >
-                          ›
-                        </button>
+                  <div className="relative p-6">
+                {step === 1 && (
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {/* calendar */}
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="font-bold text-white">
+                          {MONTHS[month]} {year}
+                        </span>
+                        <div className="flex gap-2">
+                          <button
+                            disabled={!canPrev}
+                            onClick={() => setView(new Date(year, month - 1, 1))}
+                            className="w-8 h-8 border border-white/15 text-white disabled:opacity-30 hover:border-[#00E5FF] hover:text-[#00E5FF] transition-colors font-mono"
+                          >
+                            ‹
+                          </button>
+                          <button
+                            onClick={() => setView(new Date(year, month + 1, 1))}
+                            className="w-8 h-8 border border-white/15 text-white hover:border-[#00E5FF] hover:text-[#00E5FF] transition-colors font-mono"
+                          >
+                            ›
+                          </button>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-7 gap-1 mb-2">
+                        {DAYS.map((d) => (
+                          <div
+                            key={d}
+                            className="text-center font-mono text-[0.6rem] uppercase text-gray-400 py-1"
+                          >
+                            {d}
+                          </div>
+                        ))}
+                      </div>
+                      <div className="grid grid-cols-7 gap-1">
+                        {cells.map((date, i) => {
+                          if (!date) return <div key={i} />;
+                          const disabled = isPast(date) || isWeekend(date);
+                          const selected = selectedDate && sameDay(date, selectedDate);
+                          return (
+                            <button
+                              key={i}
+                              disabled={disabled}
+                              onClick={() => {
+                                setSelectedDate(date);
+                                setSlot(null);
+                              }}
+                              className={`aspect-square text-sm font-mono transition-all ${
+                                selected
+                                  ? "bg-[#D6001C] text-white"
+                                  : disabled
+                                  ? "text-gray-400 cursor-not-allowed"
+                                  : "text-gray-300 hover:bg-white/10 hover:text-white border border-transparent hover:border-white/20"
+                              }`}
+                            >
+                              {date.getDate()}
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
-                    <div className="grid grid-cols-7 gap-1 mb-2">
-                      {DAYS.map((d) => (
-                        <div
-                          key={d}
-                          className="text-center font-mono text-[0.6rem] uppercase text-gray-600 py-1"
-                        >
-                          {d}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-7 gap-1">
-                      {cells.map((date, i) => {
-                        if (!date) return <div key={i} />;
-                        const disabled = isPast(date) || isWeekend(date);
-                        const selected = selectedDate && sameDay(date, selectedDate);
-                        return (
+  
+                    {/* time slots */}
+                    <div>
+                      <p className="font-mono text-xs uppercase tracking-widest text-gray-400 mb-4">
+                        {selectedDate
+                          ? selectedDate.toLocaleDateString("en-GB", {
+                              weekday: "long",
+                              day: "numeric",
+                              month: "long",
+                            })
+                          : "Select a date first"}
+                      </p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {SLOTS.map((s) => (
                           <button
-                            key={i}
-                            disabled={disabled}
-                            onClick={() => {
-                              setSelectedDate(date);
-                              setSlot(null);
-                            }}
-                            className={`aspect-square text-sm font-mono transition-all ${
-                              selected
-                                ? "bg-[#D6001C] text-white"
-                                : disabled
-                                ? "text-gray-700 cursor-not-allowed"
-                                : "text-gray-300 hover:bg-white/10 hover:text-white border border-transparent hover:border-white/20"
+                            key={s}
+                            disabled={!selectedDate}
+                            onClick={() => setSlot(s)}
+                            className={`py-3 font-mono text-sm border transition-all ${
+                              slot === s
+                                ? "border-[#00E5FF] text-[#00E5FF] bg-[#00E5FF]/10"
+                                : "border-white/15 text-gray-300 hover:border-white/40 disabled:opacity-30 disabled:cursor-not-allowed"
                             }`}
                           >
-                            {date.getDate()}
+                            {s}
                           </button>
-                        );
-                      })}
+                        ))}
+                      </div>
+                      <p className="mt-4 font-mono text-[0.6rem] text-gray-400">
+                        {"// CET · Amsterdam · 30 min"}
+                      </p>
+                      <button
+                        disabled={!selectedDate || !slot}
+                        onClick={() => setStep(2)}
+                        className="mt-6 w-full bg-[#D6001C] hover:bg-[#FF1A35] disabled:opacity-30 disabled:cursor-not-allowed text-white py-4 font-bold tracking-[0.2em] uppercase text-xs transition-all"
+                      >
+                        Continue →
+                      </button>
                     </div>
                   </div>
-
-                  {/* time slots */}
-                  <div>
-                    <p className="font-mono text-xs uppercase tracking-widest text-gray-500 mb-4">
-                      {selectedDate
-                        ? selectedDate.toLocaleDateString("en-GB", {
-                            weekday: "long",
-                            day: "numeric",
-                            month: "long",
-                          })
-                        : "Select a date first"}
-                    </p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {SLOTS.map((s) => (
-                        <button
-                          key={s}
-                          disabled={!selectedDate}
-                          onClick={() => setSlot(s)}
-                          className={`py-3 font-mono text-sm border transition-all ${
-                            slot === s
-                              ? "border-[#00E5FF] text-[#00E5FF] bg-[#00E5FF]/10"
-                              : "border-white/15 text-gray-300 hover:border-white/40 disabled:opacity-30 disabled:cursor-not-allowed"
-                          }`}
-                        >
-                          {s}
-                        </button>
-                      ))}
-                    </div>
-                    <p className="mt-4 font-mono text-[0.6rem] text-gray-600">
-                      // CET · Amsterdam · 30 min
-                    </p>
+                )}
+  
+                {step === 2 && (
+                  <div className="max-w-md mx-auto">
                     <button
-                      disabled={!selectedDate || !slot}
-                      onClick={() => setStep(2)}
-                      className="mt-6 w-full bg-[#D6001C] hover:bg-[#FF1A35] disabled:opacity-30 disabled:cursor-not-allowed text-white py-4 font-bold tracking-[0.2em] uppercase text-xs transition-all"
+                      onClick={() => setStep(1)}
+                      className="font-mono text-xs text-gray-400 hover:text-white mb-6"
                     >
-                      Continue →
+                      ‹ back
                     </button>
-                  </div>
-                </div>
-              )}
-
-              {step === 2 && (
-                <div className="max-w-md mx-auto">
-                  <button
-                    onClick={() => setStep(1)}
-                    className="font-mono text-xs text-gray-500 hover:text-white mb-6"
-                  >
-                    ‹ back
-                  </button>
-                  <p className="font-mono text-xs text-[#00E5FF] mb-6">
-                    {selectedDate?.toLocaleDateString("en-GB", {
-                      weekday: "long",
-                      day: "numeric",
-                      month: "long",
-                    })}{" "}
-                    · {slot} CET
-                  </p>
-                  <div className="space-y-4">
-                    <input
-                      type="text"
-                      placeholder="Your name"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm outline-none transition-colors"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm outline-none transition-colors"
-                    />
-                    <textarea
-                      placeholder="What do you want to talk about? (optional)"
-                      rows={3}
-                      value={form.note}
-                      onChange={(e) => setForm({ ...form, note: e.target.value })}
-                      className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm outline-none transition-colors resize-none"
-                    />
-                    {error && (
-                      <p className="text-[#D6001C] font-mono text-xs">{error}</p>
-                    )}
-                    <button
-                      onClick={submit}
-                      disabled={sending}
-                      className="w-full bg-[#D6001C] hover:bg-[#FF1A35] disabled:opacity-50 text-white py-4 font-bold tracking-[0.2em] uppercase text-xs transition-all"
-                    >
-                      {sending ? "Sending…" : "Confirm booking →"}
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {step === 3 && (
-                <div className="text-center py-12">
-                  <div className="text-5xl mb-6">⚡</div>
-                  <h4 className="font-display font-black uppercase text-3xl text-white tracking-tight">
-                    Locked in.
-                  </h4>
-                  <p className="mt-4 text-gray-400 max-w-sm mx-auto">
-                    We got your request for{" "}
-                    <span className="text-white">
+                    <p className="font-mono text-xs text-[#00E5FF] mb-6">
                       {selectedDate?.toLocaleDateString("en-GB", {
                         weekday: "long",
                         day: "numeric",
                         month: "long",
                       })}{" "}
-                      at {slot}
-                    </span>
-                    . We&apos;ll confirm by email shortly.
-                  </p>
-                  <button
-                    onClick={onClose}
-                    className="mt-8 border border-white/20 hover:border-[#00E5FF] hover:text-[#00E5FF] text-white px-8 py-3 font-mono text-xs uppercase tracking-widest transition-all"
-                  >
-                    Close
-                  </button>
-                </div>
-              )}
-            </div>
-          </m.div>
-        </m.div>
-      )}
-    </AnimatePresence>
+                      · {slot} CET
+                    </p>
+                    <div className="space-y-4">
+                      <input
+                        type="text"
+                        placeholder="Your name"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm transition-colors"
+                      />
+                      <input
+                        type="email"
+                        placeholder="Your email"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm transition-colors"
+                      />
+                      <textarea
+                        placeholder="What do you want to talk about? (optional)"
+                        rows={3}
+                        value={form.note}
+                        onChange={(e) => setForm({ ...form, note: e.target.value })}
+                        className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm transition-colors resize-none"
+                      />
+                      {error && (
+                        <p className="text-[#D6001C] font-mono text-xs">{error}</p>
+                      )}
+                      <button
+                        onClick={submit}
+                        disabled={sending}
+                        className="w-full bg-[#D6001C] hover:bg-[#FF1A35] disabled:opacity-50 text-white py-4 font-bold tracking-[0.2em] uppercase text-xs transition-all"
+                      >
+                        {sending ? "Sending…" : "Confirm booking →"}
+                      </button>
+                    </div>
+                  </div>
+                )}
+  
+                {step === 3 && (
+                  <div className="text-center py-12">
+                    <div className="text-5xl mb-6">⚡</div>
+                    <h4 className="font-display font-black uppercase text-3xl text-white tracking-tight">
+                      Locked in.
+                    </h4>
+                    <p className="mt-4 text-gray-400 max-w-sm mx-auto">
+                      We got your request for{" "}
+                      <span className="text-white">
+                        {selectedDate?.toLocaleDateString("en-GB", {
+                          weekday: "long",
+                          day: "numeric",
+                          month: "long",
+                        })}{" "}
+                        at {slot}
+                      </span>
+                      . We&apos;ll confirm by email shortly.
+                    </p>
+                    <Dialog.Close asChild>
+                      <button className="mt-8 border border-white/20 hover:border-[#00E5FF] hover:text-[#00E5FF] text-white px-8 py-3 font-mono text-xs uppercase tracking-widest transition-all">
+                        Close
+                      </button>
+                    </Dialog.Close>
+                  </div>
+                )}
+                  </div>
+                </m.div>
+              </div>
+            </Dialog.Content>
+          </Dialog.Portal>
+        )}
+      </AnimatePresence>
+    </Dialog.Root>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 /**
  * A self-lazy video that renders at the file's OWN natural aspect ratio —
@@ -78,11 +79,13 @@ export function LazyVideo({
         style={{ opacity: loaded ? 1 : 0, transition: "opacity .4s" }}
       />
       {poster && (
-        <img
+        <Image
           src={poster}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          fill
+          sizes="100vw"
+          className="object-cover pointer-events-none"
           style={{ opacity: loaded ? 0 : 1, transition: "opacity .4s" }}
         />
       )}

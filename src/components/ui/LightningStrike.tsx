@@ -95,21 +95,10 @@ export function LightningStrike() {
       return { main, forks };
     };
 
-    const electrify = (el: Element | null) => {
-      if (!el) return;
-      // interactive elements get the full electric shell
-      const btn = el.closest(
-        "button, a, [role='button'], input[type='submit'], .electrify"
-      );
-      // headings / words get the text-zap flicker
-      const text = el.closest(
-        "h1, h2, h3, h4, .electric-text"
-      );
-      const target = (btn || text) as HTMLElement | null;
-      if (!target) return;
+    const electrify = (target: HTMLElement, isBtn: boolean) => {
       target.classList.remove("electrified", "electric-text");
       void target.offsetWidth;
-      if (btn) {
+      if (isBtn) {
         // interactive element → full electric shell (box glow + shake)
         target.classList.add("electrified");
       } else {
@@ -122,9 +111,31 @@ export function LightningStrike() {
       );
     };
 
+    // Throttle: a judge/visitor clicking rapidly through the page shouldn't
+    // get a full screen-flash on every single click — that reads as
+    // spammy, not premium.
+    let lastStrike = 0;
+    const COOLDOWN_MS = 260;
+
     const onClick = (e: MouseEvent) => {
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+
+      const el = e.target as HTMLElement;
+      // interactive elements get the full electric shell
+      const btn = el.closest(
+        "button, a, [role='button'], input[type='submit'], .electrify"
+      );
+      // headings / words get the text-zap flicker
+      const text = el.closest("h1, h2, h3, h4, .electric-text");
+      const target = (btn || text) as HTMLElement | null;
+      // Only strike where something actually reacts — clicks on plain
+      // background/whitespace shouldn't trigger the full effect.
+      if (!target) return;
+
+      const now = performance.now();
+      if (now - lastStrike < COOLDOWN_MS) return;
+      lastStrike = now;
 
       // clientX/Y are viewport-relative — correct for our position:fixed layer
       const x = e.clientX;
@@ -136,12 +147,10 @@ export function LightningStrike() {
 
       // Did the bolt land on a video? If so, fire an extra "electric impact"
       // burst at that point so it looks like real lightning hit the footage.
-      const onVideo = !!(e.target as HTMLElement)?.closest?.(
-        "video, .lightning-impact-surface"
-      );
+      const onVideo = !!el.closest?.("video, .lightning-impact-surface");
 
       setBolts((b) => [...b, { id, x, y, path: main, forks, onVideo }]);
-      electrify(e.target as Element);
+      electrify(target, !!btn);
 
       window.setTimeout(() => {
         setBolts((b) => b.filter((bolt) => bolt.id !== id));

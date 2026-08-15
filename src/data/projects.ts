@@ -46,6 +46,8 @@ export interface Project {
   tags: string[]; // category tags shown on the row
   liveUrl?: string;
   featured?: boolean; // shown on homepage preview
+  /** true = built for a paying third-party client. false = our own product/tool. */
+  clientWork: boolean;
 }
 
 export const projects: Project[] = [
@@ -94,7 +96,8 @@ export const projects: Project[] = [
         ],
 
         liveUrl: "https://skgviptransfers.com/en",
-        featured: true
+        featured: true,
+        clientWork: true
     },
 
     {
@@ -131,7 +134,8 @@ export const projects: Project[] = [
             "/work/etsyboost-ai/shot-2.svg"
         ],
         liveUrl: "https://etsyboost-ai.vercel.app/",
-        featured: true
+        featured: true,
+        clientWork: false
     },
 
     {
@@ -174,7 +178,8 @@ export const projects: Project[] = [
 
         gallery: [],
 
-        featured: true
+        featured: true,
+        clientWork: false
     }
 ];
 

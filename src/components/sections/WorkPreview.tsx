@@ -78,7 +78,7 @@ export function WorkPreview() {
                       <span className="text-2xl font-black text-white">
                         {p.results[0].value}
                       </span>
-                      <span className="text-[0.65rem] tracking-wider uppercase text-gray-500">
+                      <span className="text-[0.65rem] tracking-wider uppercase text-gray-400">
                         {p.results[0].label}
                       </span>
                     </div>

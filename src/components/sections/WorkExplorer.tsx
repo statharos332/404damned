@@ -47,7 +47,7 @@ export function WorkExplorer({
       {/* Filter bar */}
       {showFilters && (
       <div className="max-w-[1500px] mx-auto px-6 py-10 flex flex-wrap items-center gap-3 border-b border-white/10">
-        <span className="font-mono text-xs text-gray-600 mr-2">
+        <span className="font-mono text-xs text-gray-400 mr-2">
           [ {String(filtered.length).padStart(2, "0")} ] {t("filter")}
         </span>
         {categories.map((c) => (
@@ -57,7 +57,7 @@ export function WorkExplorer({
             className={`font-mono text-xs uppercase tracking-widest px-4 py-2 border transition-all ${
               filter === c
                 ? "border-[#D6001C] text-white bg-[#D6001C]/10"
-                : "border-white/15 text-gray-500 hover:text-white hover:border-white/40"
+                : "border-white/15 text-gray-400 hover:text-white hover:border-white/40"
             }`}
           >
             {c}
@@ -77,6 +77,8 @@ export function WorkExplorer({
             onToggle={() => setOpen(open === p.slug ? null : p.slug)}
             viewCaseLabel={t("viewCase")}
             liveLabel={t("live")}
+            clientWorkLabel={t("clientWork")}
+            inHouseBuildLabel={t("inHouseBuild")}
           />
         ))}
       </div>
@@ -91,6 +93,8 @@ function WorkRow({
   onToggle,
   viewCaseLabel,
   liveLabel,
+  clientWorkLabel,
+  inHouseBuildLabel,
 }: {
   project: Project;
   index: number;
@@ -98,6 +102,8 @@ function WorkRow({
   onToggle: () => void;
   viewCaseLabel: string;
   liveLabel: string;
+  clientWorkLabel: string;
+  inHouseBuildLabel: string;
 }) {
   return (
     <div className="border-b border-white/10 group">
@@ -106,7 +112,7 @@ function WorkRow({
         onClick={onToggle}
         className="w-full flex items-center gap-6 py-8 md:py-10 text-left"
       >
-        <span className="font-mono text-xs text-gray-600 w-10 shrink-0">
+        <span className="font-mono text-xs text-gray-400 w-10 shrink-0">
           {String(index + 1).padStart(2, "0")}
         </span>
         <div className="flex-1 min-w-0">
@@ -114,11 +120,20 @@ function WorkRow({
             <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#D6001C]">
               {project.client}
             </span>
+            <span
+              className={`font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 border ${
+                project.clientWork
+                  ? "border-[#00E5FF]/30 text-[#00E5FF]"
+                  : "border-white/10 text-gray-400"
+              }`}
+            >
+              {project.clientWork ? clientWorkLabel : inHouseBuildLabel}
+            </span>
             <span className="hidden md:flex gap-2">
               {project.tags.map((t) => (
                 <span
                   key={t}
-                  className="font-mono text-[0.6rem] uppercase tracking-wider text-gray-600 border border-white/10 px-2 py-0.5"
+                  className="font-mono text-[0.6rem] uppercase tracking-wider text-gray-400 border border-white/10 px-2 py-0.5"
                 >
                   {t}
                 </span>
@@ -136,7 +151,7 @@ function WorkRow({
         {/* +/- indicator */}
         <span
           className={`font-mono text-2xl md:text-3xl shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-45 text-[#00E5FF]" : "text-gray-500"
+            isOpen ? "rotate-45 text-[#00E5FF]" : "text-gray-400"
           }`}
         >
           +
@@ -170,7 +185,7 @@ function WorkRow({
                       <div className="text-2xl md:text-3xl font-black text-white font-mono">
                         {r.value}
                       </div>
-                      <div className="text-[0.6rem] tracking-wider uppercase text-gray-500">
+                      <div className="text-[0.6rem] tracking-wider uppercase text-gray-400">
                         {r.label}
                       </div>
                     </div>

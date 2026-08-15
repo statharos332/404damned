@@ -37,7 +37,7 @@ export async function LegalPage({ doc }: { doc: LegalDoc }) {
           <span className="text-[#D6001C]">{doc.titleAccent}</span>
         </h1>
         <p className="mt-6 text-lg text-gray-400 leading-relaxed">{doc.intro}</p>
-        <p className="mt-6 font-mono text-xs uppercase tracking-widest text-gray-600">
+        <p className="mt-6 font-mono text-xs uppercase tracking-widest text-gray-400">
           {t("lastUpdated")}: {company.updated}
         </p>
       </header>
@@ -49,7 +49,7 @@ export async function LegalPage({ doc }: { doc: LegalDoc }) {
             <li key={s.id}>
               <a
                 href={`#${s.id}`}
-                className="font-mono text-xs text-gray-500 hover:text-[#D6001C] transition-colors"
+                className="font-mono text-xs text-gray-400 hover:text-[#D6001C] transition-colors"
               >
                 {s.heading}
               </a>
@@ -125,19 +125,19 @@ export async function LegalPage({ doc }: { doc: LegalDoc }) {
           <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest">
             <Link
               href="/privacy-policy"
-              className="text-gray-500 hover:text-white transition-colors"
+              className="text-gray-400 hover:text-white transition-colors"
             >
               {t("privacyPolicy")}
             </Link>
             <Link
               href="/terms-of-service"
-              className="text-gray-500 hover:text-white transition-colors"
+              className="text-gray-400 hover:text-white transition-colors"
             >
               {t("termsOfService")}
             </Link>
             <Link
               href="/cookie-policy"
-              className="text-gray-500 hover:text-white transition-colors"
+              className="text-gray-400 hover:text-white transition-colors"
             >
               {t("cookiePolicy")}
             </Link>
