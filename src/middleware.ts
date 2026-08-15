@@ -12,9 +12,16 @@ const DUTCH_GEO_COUNTRIES = new Set(["NL"]);
 export default function middleware(request: NextRequest) {
   const hasLocaleCookie = request.cookies.has(LOCALE_COOKIE);
   const pathname = request.nextUrl.pathname;
-  const alreadyOnDutchPath = pathname === "/nl" || pathname.startsWith("/nl/");
+  // Skip the geo-redirect for ANY explicit locale prefix, not just /nl —
+  // otherwise a fresh NL visitor hitting an explicit /en/... URL (e.g. from
+  // a search result or shared link) gets double-prefixed to /nl/en/... and
+  // 404s. An explicit locale in the URL is the visitor's own choice; the
+  // geo-redirect only exists to pick a default for un-decided visitors.
+  const alreadyHasLocalePrefix = routing.locales.some(
+    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
+  );
 
-  if (!hasLocaleCookie && !alreadyOnDutchPath) {
+  if (!hasLocaleCookie && !alreadyHasLocalePrefix) {
     const country = request.headers.get("x-vercel-ip-country");
     if (country && DUTCH_GEO_COUNTRIES.has(country)) {
       const url = request.nextUrl.clone();
