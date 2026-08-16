@@ -33,7 +33,7 @@ export function Navigation() {
       {/* Entrance is CSS (.nav-enter) — no framer-motion on every page */}
       <nav
         className={`nav-enter fixed top-0 left-0 right-0 z-[100] px-6 md:px-12 py-5 transition-all duration-500 ${
-          scrolled
+          scrolled || menuOpen
             ? "bg-[#050505]/90 backdrop-blur-xl border-b border-white/5"
             : ""
         }`}
@@ -100,13 +100,20 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Menu — always mounted, slides via CSS (.mobile-menu) */}
+      {/* Mobile Menu — always mounted, slides via CSS (.mobile-menu).
+          justify-start + top padding (not justify-center) so it never
+          collides with the fixed logo/close button above it — real mobile
+          Safari's visible toolbar chrome leaves less height than the full
+          screen size, and this menu's content is tall enough to be flush
+          against the top there. overflow-y-auto is the fallback for even
+          shorter viewports (landscape, older phones). */}
       <div
-        className="mobile-menu lg:hidden fixed inset-0 z-[90] bg-[#050505] flex flex-col justify-center px-8"
+        data-lenis-prevent
+        className="mobile-menu lg:hidden fixed inset-0 z-[90] bg-[#050505] flex flex-col justify-start overflow-y-auto px-8 pt-28 pb-10"
         data-open={menuOpen}
         aria-hidden={!menuOpen}
       >
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 m-auto">
           {navLinks.map((link, i) => (
             <div
               key={link.href}
