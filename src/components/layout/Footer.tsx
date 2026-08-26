@@ -53,6 +53,7 @@ export function Footer({ showCta = true }: { showCta?: boolean } = {}) {
             </div>
             <Link
               href="/#contact"
+              prefetch={false}
               className="group relative inline-flex items-center gap-3 bg-[#D6001C] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#FF1A35] transition-colors duration-300 shrink-0"
             >
               {t("bookStrategyCall")}
@@ -70,7 +71,7 @@ export function Footer({ showCta = true }: { showCta?: boolean } = {}) {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
             {/* Brand */}
             <div className="col-span-2">
-              <Link href="/" className="flex items-center gap-3 mb-6">
+              <Link href="/" prefetch={false} className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 bg-[#D6001C] flex items-center justify-center">
                   <span className="text-white text-xs font-bold font-mono">404</span>
                 </div>
@@ -124,6 +125,7 @@ export function Footer({ showCta = true }: { showCta?: boolean } = {}) {
                     <li key={link.key}>
                       <Link
                         href={link.href}
+                        prefetch={false}
                         className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
                       >
                         {t(link.key)}

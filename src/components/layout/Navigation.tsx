@@ -40,7 +40,7 @@ export function Navigation() {
       >
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-3">
+          <Link href="/" prefetch={false} className="group flex items-center gap-3">
             <div className="w-8 h-8 bg-[#D6001C] flex items-center justify-center">
               <span className="text-white text-xs font-bold font-mono">404</span>
             </div>
@@ -55,6 +55,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 className="text-sm text-gray-400 hover:text-white transition-colors duration-300 tracking-wider uppercase font-medium"
               >
                 {link.label}
