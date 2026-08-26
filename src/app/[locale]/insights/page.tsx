@@ -70,6 +70,7 @@ export default async function InsightsPage() {
               <Link
                 key={p.slug}
                 href={`/insights/${p.slug}`}
+                prefetch={false}
                 className="group relative grid md:grid-cols-[auto_1fr_auto] gap-5 md:gap-10 items-center border-b border-white/10 py-8 md:py-9"
               >
                 <span

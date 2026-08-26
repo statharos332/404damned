@@ -194,6 +194,7 @@ function WorkRow({
                 <div className="flex items-center gap-4">
                   <Link
                     href={`/work/${project.slug}`}
+                    prefetch={false}
                     className="font-mono text-xs uppercase tracking-widest bg-[#D6001C] hover:bg-[#FF1A35] text-white px-6 py-3 transition-colors"
                   >
                     {viewCaseLabel} &rarr;

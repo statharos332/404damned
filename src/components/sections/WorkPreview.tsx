@@ -48,7 +48,7 @@ export function WorkPreview() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12 }}
             >
-              <Link href={`/work/${p.slug}`} className="group block">
+              <Link href={`/work/${p.slug}`} prefetch={false} className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#0c0c0c]">
                   <CoverMedia
                     src={p.cover}

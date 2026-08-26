@@ -47,6 +47,7 @@ export function InsightsPreview() {
             >
               <Link
                 href={`/insights/${p.slug}`}
+                prefetch={false}
                 className="group block p-8 md:p-10 hover:bg-[#0a0a0a] transition-colors h-full"
               >
                 <div className="flex items-center gap-3 mb-4 font-mono text-[0.6rem] uppercase tracking-widest">
