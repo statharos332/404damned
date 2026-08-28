@@ -13,6 +13,8 @@ interface Recognition {
   org: string;
   label: string;
   count: string;
+  url?: string;
+  badges?: string[];
 }
 
 export function ClientsStrip() {
@@ -46,13 +48,47 @@ export function ClientsStrip() {
           {t("metricNote")}
         </p>
         <div className="grid sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
-          {recognition.map((a) => (
-            <div key={a.org} className="bg-[#050505] p-8 group hover:bg-[#0a0a0a] transition-colors">
-              <div className="text-4xl font-black text-[#00E5FF] font-mono">{a.count}</div>
-              <div className="mt-2 font-bold text-white tracking-wide">{a.org}</div>
-              <div className="text-sm text-gray-400">{a.label}</div>
-            </div>
-          ))}
+          {recognition.map((a) => {
+            const inner = (
+              <>
+                {a.badges && a.badges.length > 0 ? (
+                  <div className="flex items-center gap-3">
+                    {a.badges.map((b) => (
+                      // eslint-disable-next-line @next/next/no-img-element -- fixed-size static badge SVG, not worth next/image overhead
+                      <img key={b} src={b} alt="" className="w-10 h-10 md:w-11 md:h-11" />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-4xl font-black text-[#00E5FF] font-mono">{a.count}</div>
+                )}
+                <div className="mt-4 font-bold text-white tracking-wide">
+                  {a.org}
+                  {a.url && (
+                    <span className="ml-2 text-xs text-gray-500 group-hover:text-[#00E5FF] transition-colors">
+                      &rarr;
+                    </span>
+                  )}
+                </div>
+                <div className="text-sm text-gray-400">{a.label}</div>
+              </>
+            );
+            return a.url ? (
+              <a
+                key={a.org}
+                href={a.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${a.org} — ${a.label}, verified listing (opens in a new tab)`}
+                className="group bg-[#050505] p-8 hover:bg-[#0a0a0a] transition-colors"
+              >
+                {inner}
+              </a>
+            ) : (
+              <div key={a.org} className="group bg-[#050505] p-8 hover:bg-[#0a0a0a] transition-colors">
+                {inner}
+              </div>
+            );
+          })}
         </div>
         <p className="mt-4 text-xs text-gray-400 font-mono">
           {t("recognitionNote")}

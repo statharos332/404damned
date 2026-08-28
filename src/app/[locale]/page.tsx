@@ -32,6 +32,10 @@ const ProcessSection = dynamic(
   () => import("@/components/sections/ProcessSection").then((m) => m.ProcessSection),
   { loading: () => sectionFallback }
 );
+const ClientsStrip = dynamic(
+  () => import("@/components/sections/ClientsStrip").then((m) => m.ClientsStrip),
+  { loading: () => sectionFallback }
+);
 const PricingSection = dynamic(
   () => import("@/components/sections/PricingSection").then((m) => m.PricingSection),
   { loading: () => sectionFallback }
@@ -72,7 +76,7 @@ export default async function Home() {
       <VibeSection />
       <WhySection />
       <ProcessSection />
-      {/*<ClientsStrip />*/}
+      <ClientsStrip />
       <InsightsPreview />
       <PricingSection />
       <BriefCTA />

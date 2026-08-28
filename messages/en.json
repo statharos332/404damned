@@ -169,7 +169,7 @@
     "recognitionNote": "// recognition log — populated on contact",
     "recognition": [
       { "org": "AWWWARDS", "label": "Honorable Mention", "count": "—" },
-      { "org": "CSSDA", "label": "Special Kudos", "count": "—" },
+      { "org": "CSSDA", "label": "Special Kudos", "count": "—", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] },
       { "org": "FWA", "label": "Of the Day", "count": "—" }
     ]
   },

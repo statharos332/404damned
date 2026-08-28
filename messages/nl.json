@@ -169,7 +169,7 @@
     "recognitionNote": "// erkenningenlog — wordt aangevuld bij contact",
     "recognition": [
       { "org": "AWWWARDS", "label": "Eervolle vermelding", "count": "—" },
-      { "org": "CSSDA", "label": "Speciale erkenning", "count": "—" },
+      { "org": "CSSDA", "label": "Speciale erkenning", "count": "—", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] },
       { "org": "FWA", "label": "Van de dag", "count": "—" }
     ]
   },
