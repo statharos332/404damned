@@ -164,6 +164,13 @@
       }
     ]
   },
+  "Award": {
+    "kicker": "[ Global recognition ]",
+    "heading1": "Globally",
+    "heading2": "recognized.",
+    "body": "CSS Design Awards named 404 DAMNED a Special Kudos winner — Best UI, Best UX and Best Innovation. Judged against studios across the planet.",
+    "linkLabel": "View the verified listing"
+  },
   "Clients": {
     "sectionLabel": "Deployed for",
     "metricNote": "// awards are nice. the metric we chase is the one in your bank account.",

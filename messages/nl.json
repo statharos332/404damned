@@ -164,6 +164,13 @@
       }
     ]
   },
+  "Award": {
+    "kicker": "[ Wereldwijde erkenning ]",
+    "heading1": "Wereldwijd",
+    "heading2": "erkend.",
+    "body": "CSS Design Awards riep 404 DAMNED uit tot Special Kudos-winnaar — Best UI, Best UX en Best Innovation. Beoordeeld tegenover studio's van over de hele wereld.",
+    "linkLabel": "Bekijk de geverifieerde vermelding"
+  },
   "Clients": {
     "sectionLabel": "Ingezet voor",
     "metricNote": "// awards zijn leuk. de metric die wij najagen staat op je bankrekening.",

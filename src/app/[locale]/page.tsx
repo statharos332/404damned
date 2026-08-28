@@ -32,8 +32,16 @@ const ProcessSection = dynamic(
   () => import("@/components/sections/ProcessSection").then((m) => m.ProcessSection),
   { loading: () => sectionFallback }
 );
-const ClientsStrip = dynamic(
-  () => import("@/components/sections/ClientsStrip").then((m) => m.ClientsStrip),
+// ClientsStrip's logo marquee is still placeholder neighborhood names
+// ("replace with real names as you win them") — keep it off until there
+// are real clients to show; a fake trust signal next to a real award
+// undercuts the award. The real recognition lives in AwardSection below.
+// const ClientsStrip = dynamic(
+//   () => import("@/components/sections/ClientsStrip").then((m) => m.ClientsStrip),
+//   { loading: () => sectionFallback }
+// );
+const AwardSection = dynamic(
+  () => import("@/components/sections/AwardSection").then((m) => m.AwardSection),
   { loading: () => sectionFallback }
 );
 const PricingSection = dynamic(
@@ -67,6 +75,10 @@ export default async function Home() {
       {/* signature scrolling strip right after the hero */}
       <ScrollingStrip words={t.raw("strip1") as string[]} />
 
+      {/* Real, verified award — placed early so it gets the attention a
+          global recognition deserves, not buried after five other sections. */}
+      <AwardSection />
+
       <ServicesSection />
       <CaseStudiesSection />
 
@@ -76,7 +88,6 @@ export default async function Home() {
       <VibeSection />
       <WhySection />
       <ProcessSection />
-      <ClientsStrip />
       <InsightsPreview />
       <PricingSection />
       <BriefCTA />
