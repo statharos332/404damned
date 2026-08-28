@@ -47,7 +47,11 @@ export function ClientsStrip() {
         <p className="text-gray-400 max-w-xl leading-relaxed mb-10 font-mono text-sm">
           {t("metricNote")}
         </p>
-        <div className="grid sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
+        <div
+          className={`grid gap-px bg-white/10 border border-white/10 ${
+            recognition.length > 1 ? "sm:grid-cols-3" : "max-w-sm"
+          }`}
+        >
           {recognition.map((a) => {
             const inner = (
               <>

@@ -31,11 +31,28 @@ export async function HeroSection() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             {/* Left: badge + headline */}
             <div className="max-w-xl pointer-events-none">
-              <div className="inline-flex items-center gap-3 border border-white/10 bg-[#04060c]/40 backdrop-blur px-4 py-2 mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D6001C] animate-pulse" />
-                <span className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.3em] uppercase text-white/45 font-bold">
-                  {t("badge")}
-                </span>
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="inline-flex items-center gap-3 border border-white/10 bg-[#04060c]/40 backdrop-blur px-4 py-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D6001C] animate-pulse" />
+                  <span className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.3em] uppercase text-white/45 font-bold">
+                    {t("badge")}
+                  </span>
+                </div>
+
+                {/* Real, verified award — kept lightweight (static SVG,
+                    no client JS) so it doesn't cost anything on LCP. */}
+                <a
+                  href="https://www.cssdesignawards.com/sites/404-damned/50030"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pointer-events-auto inline-flex items-center gap-2 border border-white/10 bg-[#04060c]/40 backdrop-blur px-3 py-1.5 hover:border-[#00E5FF]/40 transition-colors"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element -- fixed-size static badge SVG, not worth next/image overhead */}
+                  <img src="/badges/cssda-best-ui.svg" alt="" className="w-4 h-4" />
+                  <span className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] uppercase text-white/70 font-bold">
+                    {t("awardBadge")}
+                  </span>
+                </a>
               </div>
 
               <h1 className="font-display font-black uppercase leading-[0.9] tracking-tight text-[clamp(2.6rem,6vw,6rem)] text-white">

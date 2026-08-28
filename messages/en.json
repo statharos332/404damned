@@ -82,6 +82,7 @@
   },
   "Hero": {
     "badge": "Amsterdam · Digital Weapons Manufacturer",
+    "awardBadge": "CSSDA Special Kudos",
     "headline1": "Code.",
     "headline2": "Create.",
     "headline3": "Dominate.",
@@ -168,9 +169,7 @@
     "metricNote": "// awards are nice. the metric we chase is the one in your bank account.",
     "recognitionNote": "// recognition log — populated on contact",
     "recognition": [
-      { "org": "AWWWARDS", "label": "Honorable Mention", "count": "—" },
-      { "org": "CSSDA", "label": "Special Kudos", "count": "—", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] },
-      { "org": "FWA", "label": "Of the Day", "count": "—" }
+      { "org": "CSSDA", "label": "Special Kudos", "count": "—", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] }
     ]
   },
   "Vibe": {
