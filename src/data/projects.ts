@@ -180,6 +180,47 @@ export const projects: Project[] = [
 
         featured: true,
         clientWork: false
+    },
+
+    {
+        slug: "magento-1-to-headless-wordpress-migration",
+        title: "Migrating a 44,769-SKU Catalog Off a Failing Magento 1 Server",
+        client: "Greek E-Commerce Retailer",
+        category: "E-Commerce",
+        year: "2026",
+        summary:
+            "A 44,769-SKU catalog migrated off Magento 1 to a headless WordPress build with zero downtime, after reindexing and feed exports were bringing the old server down.",
+        cover: "/work/magento-1-to-headless-wordpress-migration/cover.svg",
+
+        services: ["E-Commerce", "Web Development", "Platform Migration"],
+
+        stack: ["WordPress", "Next.js", "Custom MU Plugin", "Headless"],
+
+        challenge:
+            "The client's store was running 44,769 SKUs on Magento 1 — long past end of life, with no security patches since 2020. It wasn't just a compliance risk: the platform's base architecture was struggling under its own catalog, and running a reindex at the same time as the feed exporter would overload the server outright. Search inside the store was unreliable on top of that. The catalog had outgrown what the setup could actually carry.",
+
+        approach:
+            "We rebuilt the store as a headless WordPress platform with a custom must-use plugin, and a Next.js front end — deliberately keeping how the site behaved for editors and customers as close to the original as possible, so the migration changed the foundation without changing the experience out from under anyone. The full catalog, all 44,769 SKUs, was migrated along with orders and customer accounts, with every old URL mapped forward. Cutover was staged so the store never went down during the switch.",
+
+        outcome:
+            "The store moved off Magento 1 in roughly two weeks with zero downtime during cutover. The reindex-and-export overload that used to threaten the server hasn't recurred since — the architecture that caused it is gone. We mapped every old URL to its new address as part of the migration itself; we didn't track post-migration ranking data for this client, so we're not going to claim a specific SEO result we can't back up.",
+
+        results: [
+            { label: "Products migrated", value: "44,769 SKUs" },
+            { label: "Downtime during cutover", value: "0" },
+            { label: "Migration timeline", value: "~2 weeks" }
+        ],
+
+        media: [
+            { type: "image", src: "/work/magento-1-to-headless-wordpress-migration/cover.svg" }
+        ],
+
+        tags: ["Migration", "Headless", "WordPress", "Magento"],
+
+        gallery: [],
+
+        featured: false,
+        clientWork: true
     }
 ];
 

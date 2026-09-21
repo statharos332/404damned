@@ -141,7 +141,7 @@ export const servicesNl: Service[] = [
         a: "Ja — Magento heeft dat specifiek meer nodig dan de meeste platforms. Care-abonnementen beginnen vanaf €300/maand: security patches, versie-upgrades, uptime-monitoring en bugfixes met voorrang. Wil je dat we actief blijven doorbouwen — nieuwe features, doorlopende CRO — dan is dat een Growth-retainer vanaf €1.200/maand. Werkt hetzelfde of we jouw shop hebben gebouwd of je overstapt van een ander bureau.",
       },
     ],
-    related: ["web-development", "seo", "branding"],
+    related: ["web-development", "seo", "branding", "ai-video"],
   },
 
   {
@@ -260,7 +260,7 @@ export const servicesNl: Service[] = [
         a: "Vaak, en dat is de sterkere combinatie. Wanneer hetzelfde team de identiteit en de site bouwt, komt het merk online volledig tot zijn recht in plaats van te verwateren ergens in de overdracht tussen twee bureaus.",
       },
     ],
-    related: ["web-development", "social-media", "ecommerce"],
+    related: ["web-development", "social-media", "ecommerce", "ai-video"],
   },
 
   {
@@ -323,7 +323,7 @@ export const servicesNl: Service[] = [
         a: "Een opkomende conventie — een schone, machine-leesbare index van je site zodat AI-systemen als ChatGPT en Perplexity die kunnen lezen in plaats van te gokken op je HTML. Voor WordPress-sites bouwen we dat automatisch, met echte AI-samenvattingen per pagina in plaats van een gok op keywords. Hoe het precies werkt, inclusief een echte bug die we live tegenkwamen tijdens het testen, staat uitgeschreven in onze inzichten.",
       },
     ],
-    related: ["web-development", "ecommerce", "ai-automation"],
+    related: ["web-development", "ecommerce", "ai-automation", "ai-ads"],
   },
 
   {
@@ -380,7 +380,129 @@ export const servicesNl: Service[] = [
         a: "Aan de hand van resultaten die er echt toe doen voor het bedrijf — bereik, engagement, volgersgroei en, waar van toepassing, verkeer en leads. Helder gerapporteerd, niet als vanity-cijfers zonder inhoud.",
       },
     ],
-    related: ["branding", "web-development", "seo"],
+    related: ["branding", "web-development", "seo", "ai-ads"],
+  },
+
+  {
+    slug: "ai-video",
+    name: "AI-videoproductie",
+    h1: "AI-videoproductie in Amsterdam",
+    tagline: "Cinematische product- en merkvideo, geregisseerd — niet zomaar geprompt.",
+    metaTitle: "AI-videoproductie Amsterdam — Cinematische product- & merkvideo",
+    metaDescription:
+      "AI-gegenereerde cinematische video voor producten en merken, geregisseerd door mensen die je positionering al kennen. Breng je eigen concept mee, of laat ons het schrijven. Plan een gesprek.",
+    keywords: [
+      "AI video laten maken Amsterdam",
+      "AI-gegenereerde productvideo",
+      "AI videobureau Nederland",
+      "cinematische AI-video reclame",
+      "AI merkvideo Nederland",
+    ],
+    intro:
+      "De meeste AI-video is duidelijk AI-video — stijve beweging, een generiek script, een demo die niemand vroeg. Wij gebruiken het als productiemiddel, niet als shortcut: echte regie, een echte edit, en een concept dat daadwerkelijk om jouw product is gebouwd, niet een template met je logo erop geplakt.",
+    sections: [
+      {
+        heading: "Twee manieren om te starten",
+        body: "Breng een scenario en een product mee en wij verzorgen regie, generatie en edit. Of, als je nog geen concept hebt, schrijven wij er een — een kort script gebouwd rond wat het product daadwerkelijk verkoopt — en produceren het van begin tot eind.",
+      },
+      {
+        heading: "Waar het echt goed in is",
+        body: "AI-video is snel en goedkoop vergeleken met een opname met een crew, een locatie en een cast, wat het het juiste middel maakt voor productspots, social ads en korte merkstukken die binnen dagen moeten bestaan, niet weken. Het is het verkeerde middel voor iets dat een echte acteursprestatie of een verhaal van speelfilmlengte nodig heeft — dat zeggen we ook, als een traditionele opname daadwerkelijk de betere keuze is voor wat je probeert te bereiken.",
+      },
+      {
+        heading: "Gebouwd op jouw merk, geen template",
+        body: "Als wij de branding of de webshop al hebben gedaan, genereren we geen video voor een vreemde — we kennen de positionering, het product en wat de shot moet bewijzen al. Dat is wat het resultaat weerhoudt van eruitzien als ieders AI-advertentie.",
+      },
+    ],
+    deliverables: [
+      "Concept & scenario schrijven",
+      "AI-videogeneratie & regie",
+      "Edit & kleurcorrectie",
+      "Versies voor ads, social & site",
+      "Sounddesign & voice-over",
+      "Revisierondes",
+    ],
+    stack: ["Concept & scriptschrijven", "AI-videogeneratie", "Prompt-regie", "Editing", "Sounddesign", "Motion graphics"],
+    faqs: [
+      {
+        q: "Is dit dezelfde kwaliteit als een echte filmopname?",
+        a: "Nee, en dat beweren we ook niet. Voor een productspot, een social ad of een kort merkstuk is het al goed genoeg en aanzienlijk sneller en goedkoper. Voor iets dat een echte acteursprestatie nodig heeft, adviseren we een opname te boeken in plaats van je het verkeerde middel te verkopen.",
+      },
+      {
+        q: "Wat heb je van mij nodig om te starten?",
+        a: "Óf je eigen scenario en product, klaar om te regisseren en produceren, óf gewoon het product en een idee van wat het moet communiceren — dan schrijven wij het concept.",
+      },
+      {
+        q: "Hoe snel kunnen jullie een video opleveren?",
+        a: "Dagen, geen weken, zodra het concept vaststaat — daar is AI-video vooral voor. Concept en script kosten meer tijd dan de generatie zelf.",
+      },
+      {
+        q: "Wat kost het?",
+        a: "Dat hangt af van het concept, het aantal versies en hoeveel regie en montage het nodig heeft, dus we bepalen de scope na een kort gesprek in plaats van vooraf een vast pakket aan te bieden.",
+      },
+    ],
+    related: ["branding", "ecommerce", "social-media"],
+  },
+
+  {
+    slug: "ai-ads",
+    name: "AI-advertenties",
+    h1: "AI-advertenties (ChatGPT Ads) beheer in Amsterdam",
+    tagline: "ChatGPT Ads-campagnes, live terwijl de veiling nog goedkoop is.",
+    metaTitle: "ChatGPT Ads bureau Amsterdam — AI-advertentiebeheer",
+    metaDescription:
+      "ChatGPT Ads-beheer voor Nederlandse bedrijven. Gesponsorde plaatsingen binnen AI-gesprekken, opgezet en gedraaid via OpenAI's Ads Manager. Plan een gesprek.",
+    keywords: [
+      "ChatGPT ads bureau",
+      "ChatGPT adverteren Nederland",
+      "AI-advertenties beheer Amsterdam",
+      "OpenAI Ads Manager bureau",
+      "AI-zoekadvertenties Nederland",
+    ],
+    intro:
+      "ChatGPT toont sinds augustus 2026 advertenties aan Free- en Go-gebruikers in Nederland. Dit is nieuw — we gaan niet doen alsof iemand jarenlange ChatGPT-advertentiedata heeft om op te leunen. Wat we wel kunnen vertellen: precies hoe het platform vandaag werkt, wat het kost om te testen, en of het je budget nu daadwerkelijk waard is.",
+    sections: [
+      {
+        heading: "Wat een ChatGPT-advertentie daadwerkelijk is",
+        body: "Een gesponsorde chat_card — een korte kop, een regel bodytekst en een afbeelding — geplaatst onder een AI-antwoord wanneer het contextueel relevant is voor wat iemand vraagt. Geen cookies, geen persoonlijke targeting; het matcht op het gesprek, niet op een getrackt profiel. Iemand die typt \"Ik zoek een Magento 2-developer in Nederland voor een migratie\" is precies zo'n gesprek waaronder een relevante advertentie kan verschijnen — dat is de targeting, geen keywordlijst. Het verschijnt alleen bij Free- en Go-gebruikers — iedereen met Plus, Pro, Team, Business of Enterprise ziet nooit een advertentie.",
+      },
+      {
+        heading: "Waarom nu, niet later",
+        body: "De veiling is nog jong. Self-serve toegang ging open zonder minimumbudget, en CPM's liggen nog laag vergeleken met waar ze waarschijnlijk landen zodra elk bureau in Amsterdam een campagne draait. Vroeg is de enige periode dat dit kanaal goedkoop is — dat is het echte argument om het nu te testen, geen belofte dat het beter presteert dan kanalen die je al vertrouwt.",
+      },
+      {
+        heading: "Hoe wij het runnen",
+        body: "Account- en campagne-opzet in OpenAI's Ads Manager, chat_card-creative dat leest als een antwoord in plaats van een advertentie, contextuele targeting afgestemd op wanneer jouw product daadwerkelijk relevant is, en eerlijke rapportage over of het zijn budget terugverdient — inclusief het advies om te stoppen als dat niet zo is.",
+      },
+    ],
+    deliverables: [
+      "Ads Manager account-opzet",
+      "Campagne- & advertentiegroepstructuur",
+      "Chat card-creative (copy & beeld)",
+      "Contextuele targetingstrategie",
+      "Performance-tracking & optimalisatie",
+      "Budget- & biedbeheer",
+    ],
+    stack: ["OpenAI Ads Manager", "Campagnestrategie", "Creative direction", "Copywriting", "Performance-tracking"],
+    faqs: [
+      {
+        q: "Is dit hetzelfde als Google Ads?",
+        a: "Nee. Er is geen keyword-veiling of cookie-gebaseerde retargeting — plaatsing wordt gematcht op het gesprek dat iemand op dat moment met ChatGPT voert. De discipline is hetzelfde (testen, meten, schrappen wat niet werkt), de mechaniek niet.",
+      },
+      {
+        q: "Is adverteren op ChatGPT al beschikbaar voor Nederlandse bedrijven?",
+        a: "Ja — OpenAI rolde het in augustus 2026 uit in 31 Europese markten, inclusief Nederland, met self-serve toegang via hun Ads Manager.",
+      },
+      {
+        q: "Moet je een officieel OpenAI-partnerbureau zijn om dit te draaien?",
+        a: "Nee. Self-serve Ads Manager staat open voor elk geregistreerd bedrijf. We claimen geen certified-partnerstatus die we niet hebben — we beheren je account direct en transparant, in dezelfde tool die je ook zelf zou kunnen gebruiken.",
+      },
+      {
+        q: "Wat is het minimumbudget om te testen?",
+        a: "Het platform zelf heeft geen groot minimumbudget meer — campagnes kunnen op bescheiden dagbudgetten draaien. Wat het kost om het goed te testen, inclusief creative en opzet, bepalen we op een gesprek in plaats van hier te gokken.",
+      },
+    ],
+    related: ["seo", "social-media", "web-development"],
   },
 ];
 

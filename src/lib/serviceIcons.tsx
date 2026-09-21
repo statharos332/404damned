@@ -5,6 +5,8 @@ import {
   PenTool,
   Search,
   Share2,
+  Clapperboard,
+  Megaphone,
   type LucideIcon,
 } from "lucide-react";
 
@@ -16,4 +18,6 @@ export const serviceIcons: Record<string, LucideIcon> = {
   branding: PenTool,
   seo: Search,
   "social-media": Share2,
+  "ai-video": Clapperboard,
+  "ai-ads": Megaphone,
 };

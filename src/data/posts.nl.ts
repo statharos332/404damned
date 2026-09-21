@@ -244,6 +244,43 @@ export const postsNl: Post[] = [
       { type: "p", text: "Run je een WordPress-site en wil je een AI-leesbare index van wat er daadwerkelijk op staat — goed opgezet, niet er half achteraf aangeplakt — dat is precies wat wij doen." },
     ],
   },
+
+  {
+    slug: "magento-1-end-of-life-woocommerce-migration",
+    title: "Magento 1 einde levensduur: wat een overstap naar WooCommerce echt inhoudt",
+    excerpt:
+      "Magento 1 krijgt sinds 2020 geen security-patches meer. Wat dat risico echt betekent, waarom de meeste Magento 1-webshops op WooCommerce landen in plaats van Magento 2, en wat een migratie werkelijk inhoudt.",
+    category: "E-commerce",
+    readMins: 9,
+    date: "2026-09-22",
+    authorSlug: "stathis-papounidis",
+    keywords: [
+      "Magento 1 einde levensduur",
+      "Magento naar WooCommerce migratie",
+      "Magento 1 beveiligingsrisico",
+      "Magento 1 EOL 2026",
+      "Magento migratie Nederland",
+    ],
+    body: [
+      { type: "p", text: "Magento 1 kreeg in juni 2020 zijn laatste officiële security-patch. Elke kwetsbaarheid die sindsdien is gevonden blijft open op jouw webshop, tenzij iemand in de community een fix maakt en jij die zelf toepast — er is geen leverancier meer die dat voor je doet. Dat is geen probleem voor ooit-nog-eens; Magecart-achtige card-skimming-aanvallen zoeken specifiek naar ongepatchte Magento 1-checkouts, omdat er nog altijd een aanzienlijk aantal in productie draait." },
+      { type: "h2", text: "Waarom webshops het blijven uitstellen" },
+      { type: "p", text: "Meestal niet omdat iemand denkt dat het wel goed zit. Het is dezelfde reden waarom de meeste technische schuld blijft bestaan: de webshop werkt vandaag nog, een migratie raakt omzetkritische checkout- en cataloguscode, en niemand wil degene zijn die Black Friday breekt. De kosten van wachten zijn onzichtbaar tot de week dat ze dat niet meer zijn — een datalek, een hostingpartij die eindelijk stopt met de PHP-versie die Magento 1 nodig heeft, of een developer die Magento 1 nog vloeiend spreekt die steeds moeilijker te vinden en duurder te huren is." },
+      { type: "h2", text: "Waarom WooCommerce, niet Magento 2" },
+      { type: "p", text: "Magento 2 (Adobe Commerce) klinkt als het voor de hand liggende antwoord, en voor webshops die de diepgang van Magento daadwerkelijk nodig hebben — complexe B2B-prijsregels, grote multi-warehouse-catalogi, zware maatwerklogica — is dat nog steeds de juiste keuze. Maar veel Magento 1-webshops waren nooit die webshop; het was een middelgrote catalogus die jaren geleden op Magento belandde omdat dat de standaard was, niet omdat het bedrijf die complexiteit nodig had. Voor die groep is WooCommerce meestal de eerlijke landingsplek: een fractie van de hostingkosten, een veel grotere pool developers die het kunnen onderhouden, en — met een goed gebouwd thema — geen wezenlijk plafond op hoe snel of hoe goed ontworpen de front-end kan zijn." },
+      { type: "h2", text: "Wat de migratie daadwerkelijk inhoudt" },
+      { type: "list", items: [
+        "Volledige catalogusexport — producten, varianten, categorieën, afbeeldingen — gemapt naar het datamodel van WooCommerce, niet alleen overgestort.",
+        "Bestelgeschiedenis en klantaccounts meegenomen, zodat support niet op dag één bij nul begint.",
+        "Elke oude product- en categorie-URL met een 301 doorgestuurd naar het nieuwe adres. Sla dit over en je verliest de zoekposities die de webshop jarenlang heeft opgebouwd, niet alleen het migratiebudget.",
+        "Structured data en metadata opnieuw opgebouwd op de nieuwe URL's, niet achtergelaten.",
+        "Betaal- en verzendintegraties opnieuw gekoppeld en getest tegen echte bestellingen vóór de overstap, niet alleen het ideale scenario.",
+        "Een gefaseerde overstap — DNS- en catalogus-freeze-vensters van tevoren gepland — zodat de webshop niet plat ligt terwijl het gebeurt.",
+      ]},
+      { type: "h2", text: "Wat de kosten en het tijdpad echt bepaalt" },
+      { type: "p", text: "Niet de platformwissel zelf — dat deel is mechanisch. Wat tijd kost is hoeveel jaar aan Magento 1-maatwerkextensies herbouwd moeten worden als WooCommerce-equivalent, hoe groot en rommelig de productcatalogus daadwerkelijk is, en hoeveel URL-geschiedenis gemapt moet worden zonder ranking te verliezen. Dat verschilt per webshop, en daarom bepalen we de scope nadat we daadwerkelijk naar de catalogus hebben gekeken, niet met een blind getal vooraf." },
+      { type: "p", text: "Draai je nog op Magento 1 en heb je nog niet de overstap gemaakt? Wij kijken naar wat je daadwerkelijk hebt en vertellen je eerlijk wat een migratie zou inhouden — ook als WooCommerce niet de juiste keuze blijkt voor jouw catalogus." },
+    ],
+  },
 ];
 
 export function getPostNl(slug: string): Post | undefined {

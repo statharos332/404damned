@@ -272,6 +272,43 @@ export const posts: Post[] = [
       { type: "p", text: "If you run a WordPress site and want an AI-readable index of what's actually on it — set up properly, not bolted on — that's exactly what we do." },
     ],
   },
+
+  {
+    slug: "magento-1-end-of-life-woocommerce-migration",
+    title: "Magento 1 End of Life: What Moving to WooCommerce Actually Takes",
+    excerpt:
+      "Magento 1 stopped getting security patches in 2020. Here's what that risk actually means, why most Magento 1 stores land on WooCommerce rather than Magento 2, and what a migration really involves.",
+    category: "E-Commerce",
+    readMins: 9,
+    date: "2026-09-22",
+    authorSlug: "stathis-papounidis",
+    keywords: [
+      "Magento 1 end of life",
+      "Magento to WooCommerce migration",
+      "Magento 1 security risk",
+      "Magento 1 EOL 2026",
+      "Magento migration Netherlands",
+    ],
+    body: [
+      { type: "p", text: "Magento 1 shipped its last official security patch in June 2020. Every vulnerability found since then stays open on your store unless someone in the community fixes it and you apply that fix yourself — there's no vendor doing it for you anymore. That's not a someday problem; Magecart-style card-skimming attacks specifically hunt for unpatched Magento 1 checkouts, because there are still a meaningful number of them running in production." },
+      { type: "h2", text: "Why stores keep putting it off" },
+      { type: "p", text: "Usually not because anyone thinks it's fine. It's the same reason most infrastructure debt survives: the store still works today, migrating touches revenue-critical checkout and catalog code, and nobody wants to be the one who breaks Black Friday. The cost of waiting is invisible until the week it isn't — a breach, a host that finally drops support for the PHP version Magento 1 needs, or a developer who can quote M1 fluently getting harder to find and more expensive to hire." },
+      { type: "h2", text: "Why WooCommerce, not Magento 2" },
+      { type: "p", text: "Magento 2 (Adobe Commerce) is the obvious-sounding answer, and for stores that actually need Magento's depth — complex B2B pricing rules, large multi-warehouse catalogs, heavy custom logic — it's still the right call. But a lot of Magento 1 stores were never that store; they were a mid-size catalog that landed on Magento years ago because it was the default, not because the business needed its complexity. For those, WooCommerce is usually the honest landing spot: a fraction of the hosting cost, a much larger pool of developers who can maintain it, and — with a well-built theme — no meaningful ceiling on how fast or how well-designed the front end can be." },
+      { type: "h2", text: "What the migration actually involves" },
+      { type: "list", items: [
+        "Full catalog export — products, variants, categories, images — mapped to WooCommerce's data model, not just dumped in.",
+        "Order history and customer accounts carried over, so support doesn't start from a blank slate on day one.",
+        "Every old product and category URL 301-redirected to its new address. Skip this and you lose the search rankings the store spent years earning, not just the migration budget.",
+        "Structured data and metadata rebuilt on the new URLs, not left behind.",
+        "Payment and shipping integrations reconnected and tested against real orders before cutover, not just the happy path.",
+        "A staged cutover — DNS and catalog freeze windows planned in advance — so the store isn't sitting down while it happens.",
+      ]},
+      { type: "h2", text: "What actually drives the cost and timeline" },
+      { type: "p", text: "Not the platform swap itself — that part's mechanical. What takes the time is how many years of custom Magento 1 extensions need to be rebuilt as WooCommerce equivalents, how large and how messy the product catalog actually is, and how much URL history needs mapping without losing rankings. That's different for every store, which is why we scope it after actually looking at the catalog rather than quoting a number blind." },
+      { type: "p", text: "If you're still running Magento 1 and haven't moved yet, we'll look at what you've actually got and tell you honestly what migrating would take — including if WooCommerce isn't the right call for your catalog." },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {

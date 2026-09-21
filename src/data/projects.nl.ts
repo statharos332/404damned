@@ -141,6 +141,47 @@ export const projectsNl: Project[] = [
     featured: true,
     clientWork: false,
   },
+
+  {
+    slug: "magento-1-to-headless-wordpress-migration",
+    title: "Een catalogus van 44.769 SKU's migreren van een falende Magento 1-server",
+    client: "Griekse e-commerce retailer",
+    category: "E-commerce",
+    year: "2026",
+    summary:
+      "Een catalogus van 44.769 SKU's gemigreerd van Magento 1 naar een headless WordPress-build met nul downtime, nadat reindexen en feed-exports de oude server onderuit haalden.",
+    cover: "/work/magento-1-to-headless-wordpress-migration/cover.svg",
+
+    services: ["E-commerce", "Webontwikkeling", "Platformmigratie"],
+
+    stack: ["WordPress", "Next.js", "Custom MU-plugin", "Headless"],
+
+    challenge:
+      "De webshop van de klant draaide 44.769 SKU's op Magento 1 — al lang voorbij het einde van de levensduur, zonder security-patches sinds 2020. Het was niet alleen een compliance-risico: de basisarchitectuur van het platform kraakte onder zijn eigen catalogus, en een reindex tegelijk met de feed-exporter draaien overbelastte de server ronduit. De zoekfunctie in de shop was daarbovenop onbetrouwbaar. De catalogus was groter geworden dan de opzet daadwerkelijk kon dragen.",
+
+    approach:
+      "Wij bouwden de webshop opnieuw op als headless WordPress-platform met een custom must-use-plugin, en een Next.js-front-end — waarbij we bewust zo dicht mogelijk bij hoe de site zich gedroeg voor redacteuren en klanten bleven, zodat de migratie het fundament veranderde zonder de ervaring onder iemand vandaan te veranderen. De volledige catalogus, alle 44.769 SKU's, werd gemigreerd samen met bestellingen en klantaccounts, met elke oude URL vooruit gemapt. De overstap werd gefaseerd zodat de webshop tijdens de wissel nooit plat lag.",
+
+    outcome:
+      "De webshop verliet Magento 1 in ongeveer twee weken, met nul downtime tijdens de overstap. De reindex-en-export-overbelasting die de server altijd bedreigde, is sindsdien niet meer teruggekomen — de architectuur die het veroorzaakte bestaat niet meer. We mapten elke oude URL naar zijn nieuwe adres als onderdeel van de migratie zelf; we hebben voor deze klant geen ranking-data ná de migratie bijgehouden, dus we gaan geen specifiek SEO-resultaat claimen dat we niet kunnen onderbouwen.",
+
+    results: [
+      { label: "Producten gemigreerd", value: "44.769 SKU's" },
+      { label: "Downtime tijdens overstap", value: "0" },
+      { label: "Migratietijdlijn", value: "~2 weken" },
+    ],
+
+    media: [
+      { type: "image", src: "/work/magento-1-to-headless-wordpress-migration/cover.svg" },
+    ],
+
+    tags: ["Migratie", "Headless", "WordPress", "Magento"],
+
+    gallery: [],
+
+    featured: false,
+    clientWork: true,
+  },
 ];
 
 export function getProjectNl(slug: string): Project | undefined {

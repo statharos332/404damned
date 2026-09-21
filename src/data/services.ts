@@ -176,7 +176,7 @@ export const services: Service[] = [
         a: "Yes — Magento specifically needs it more than most platforms. Care plans start at €300/month: security patches, version upgrades, uptime monitoring, priority bugfixes. If you want us actively building on top (new features, ongoing CRO), that's a Growth retainer starting at €1,200/month. Works the same whether we built your store or you're moving from another agency.",
       },
     ],
-    related: ["web-development", "seo", "branding"],
+    related: ["web-development", "seo", "branding", "ai-video"],
   },
 
   {
@@ -295,7 +295,7 @@ export const services: Service[] = [
         a: "Often, and it's the stronger combination. When the same team builds the identity and the site, the brand shows up fully realised online instead of getting watered down somewhere in the handoff between two agencies.",
       },
     ],
-    related: ["web-development", "social-media", "ecommerce"],
+    related: ["web-development", "social-media", "ecommerce", "ai-video"],
   },
 
   {
@@ -358,7 +358,7 @@ export const services: Service[] = [
         a: "It's an emerging convention — a clean, machine-readable index of your site for AI systems like ChatGPT and Perplexity to read instead of guessing at your HTML. For WordPress sites we can generate one automatically, with real AI-written summaries per page instead of keyword-guessing. We wrote up exactly how it works, including a real bug we found testing it live, in our insights section.",
       },
     ],
-    related: ["web-development", "ecommerce", "ai-automation"],
+    related: ["web-development", "ecommerce", "ai-automation", "ai-ads"],
   },
 
   {
@@ -415,7 +415,129 @@ export const services: Service[] = [
         a: "By outcomes that actually matter to the business — reach, engagement, follower growth and, where it applies, traffic and leads. Reported clearly, not as vanity numbers with nothing behind them.",
       },
     ],
-    related: ["branding", "web-development", "seo"],
+    related: ["branding", "web-development", "seo", "ai-ads"],
+  },
+
+  {
+    slug: "ai-video",
+    name: "AI Video Production",
+    h1: "AI Video Production in Amsterdam",
+    tagline: "Cinematic product and brand video, directed — not just prompted.",
+    metaTitle: "AI Video Production Amsterdam — Cinematic Product & Brand Video",
+    metaDescription:
+      "AI-generated cinematic video for products and brands, directed by people who already know your positioning. Bring your own concept, or let us write it. Book a call.",
+    keywords: [
+      "AI video production Amsterdam",
+      "AI generated product video",
+      "AI video agency Netherlands",
+      "cinematic AI video ads",
+      "AI brand video Netherlands",
+    ],
+    intro:
+      "Most AI video is obviously AI video — stiff motion, a generic script, a demo reel nobody asked for. We treat it as a production tool, not a shortcut: real direction, a real edit, and a concept actually built around your product, not a template with your logo dropped on top.",
+    sections: [
+      {
+        heading: "Two ways to start",
+        body: "Bring us a scenario and a product and we handle direction, generation and edit. Or, if you don't have a concept yet, we write one — a short script built around what actually sells the product — then produce it end to end.",
+      },
+      {
+        heading: "What it's actually good for",
+        body: "AI video is fast and cheap next to a shoot with a crew, a location and a cast, which makes it the right tool for product spots, social ads and short brand pieces that need to exist in days, not weeks. It's the wrong tool for anything that needs a real actor's real performance or a feature-length story — we'll say so if a traditional shoot is actually the better call for what you're trying to do.",
+      },
+      {
+        heading: "Built on your brand, not a template",
+        body: "When we've already done the branding or the store, we're not generating video for a stranger — we already know the positioning, the product, and what the shot needs to prove. That's what keeps the output from looking like everyone else's AI ad.",
+      },
+    ],
+    deliverables: [
+      "Concept & scenario writing",
+      "AI video generation & direction",
+      "Edit & colour",
+      "Cuts for ads, social & site",
+      "Sound design & voiceover",
+      "Revisions",
+    ],
+    stack: ["Concept & scriptwriting", "AI video generation", "Prompt direction", "Editing", "Sound design", "Motion graphics"],
+    faqs: [
+      {
+        q: "Is this the same quality as a real film shoot?",
+        a: "No, and we won't pretend it is. For a product spot, a social ad or a short brand piece it's already good enough and dramatically faster and cheaper. For something that needs a real actor's real performance, we'll tell you to book a shoot instead of selling you the wrong tool.",
+      },
+      {
+        q: "What do you need from me to start?",
+        a: "Either your own scenario and product, ready for us to direct and produce, or just the product and a sense of what it needs to communicate — we'll write the concept from there.",
+      },
+      {
+        q: "How fast can you turn a video around?",
+        a: "Days, not weeks, once the concept is locked — that's most of what AI video is for. Concept and script take longer than the generation itself.",
+      },
+      {
+        q: "What does it cost?",
+        a: "It depends on the concept, the number of cuts and how much direction and editing it needs, so we scope it after a short call rather than quoting a fixed package upfront.",
+      },
+    ],
+    related: ["branding", "ecommerce", "social-media"],
+  },
+
+  {
+    slug: "ai-ads",
+    name: "AI Ads",
+    h1: "AI Ads Management in Amsterdam",
+    tagline: "ChatGPT Ads campaigns, run while the auction is still cheap.",
+    metaTitle: "ChatGPT Ads Agency Amsterdam — AI Ads Management",
+    metaDescription:
+      "ChatGPT Ads management for Dutch businesses. Sponsored placements inside AI conversations, set up and run through OpenAI's Ads Manager. Book a call.",
+    keywords: [
+      "ChatGPT ads agency",
+      "ChatGPT advertising Netherlands",
+      "AI ads management Amsterdam",
+      "OpenAI Ads Manager agency",
+      "AI search advertising Netherlands",
+    ],
+    intro:
+      "ChatGPT started showing ads to Free and Go users in the Netherlands in August 2026. This is new — we won't pretend anyone has years of ChatGPT ads data to lean on. What we can tell you is exactly how the platform works today, what it costs to test, and whether it's actually worth your budget right now.",
+    sections: [
+      {
+        heading: "What a ChatGPT ad actually is",
+        body: "A sponsored chat_card — a short headline, a line of body copy and an image — placed under an AI answer when it's contextually relevant to what someone's asking. No cookies, no personal targeting; it matches the conversation, not a tracked profile. Someone typing \"I need a Magento 2 developer in the Netherlands for a migration\" is exactly the kind of conversation a relevant ad can appear under — that's the targeting, not a keyword list. It only shows to Free and Go tier users — anyone on Plus, Pro, Team, Business or Enterprise never sees an ad.",
+      },
+      {
+        heading: "Why now, not later",
+        body: "The auction is young. Self-serve access opened with no minimum spend, and CPMs are still low compared to where they'll likely settle once every agency in Amsterdam has a campaign running. Early is the only time this channel is cheap — that's the actual argument for testing it now, not a claim that it'll outperform channels you already trust.",
+      },
+      {
+        heading: "How we run it",
+        body: "Account and campaign setup in OpenAI's Ads Manager, chat_card creative that reads like an answer instead of an ad, contextual targeting tuned to when your product is actually relevant, and honest reporting on whether it's earning its budget — including telling you to stop if it isn't.",
+      },
+    ],
+    deliverables: [
+      "Ads Manager account setup",
+      "Campaign & ad group structure",
+      "Chat card creative (copy & image)",
+      "Contextual targeting strategy",
+      "Performance tracking & iteration",
+      "Budget & bid management",
+    ],
+    stack: ["OpenAI Ads Manager", "Campaign strategy", "Creative direction", "Copywriting", "Performance tracking"],
+    faqs: [
+      {
+        q: "Is this the same as Google Ads?",
+        a: "No. There's no keyword auction or cookie-based retargeting — placement is matched to the conversation someone's having with ChatGPT right now. The discipline is the same (test, measure, cut what doesn't work), the mechanics aren't.",
+      },
+      {
+        q: "Is ChatGPT advertising even available for Dutch businesses yet?",
+        a: "Yes — OpenAI rolled it out across 31 European markets, including the Netherlands, in August 2026, with self-serve access through their Ads Manager.",
+      },
+      {
+        q: "Do you need to be an official OpenAI partner agency to run this?",
+        a: "No. Self-serve Ads Manager is open to any registered business. We're not claiming certified-partner status we don't have — we run your account directly, transparently, inside the same tool you could use yourself.",
+      },
+      {
+        q: "What's the minimum budget to test it?",
+        a: "The platform itself has no large minimum spend anymore — campaigns can run on modest daily budgets. What it costs to test properly, with creative and setup included, we'll scope on a call rather than guess here.",
+      },
+    ],
+    related: ["seo", "social-media", "web-development"],
   },
 ];
 
