@@ -2,8 +2,25 @@ import type { NextConfig } from "next";
 import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
 import createNextIntlPlugin from "next-intl/plugin";
+import { servicesNl } from "./src/data/services.nl";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
+// Dutch service pages live at /nl/diensten/<nl-keyword-slug> instead of
+// /nl/services/<slug> — real Dutch search terms in the URL, not a literal
+// translation of the English route. The rewrite makes the pretty NL URL
+// serve the existing /services/[slug] page internally; the redirect sends
+// anyone (or Google) still holding the old /nl/services/* URL to the new
+// canonical one instead of leaving two competing URLs for the same page.
+const dienstenRewrites = servicesNl.map((s) => ({
+  source: `/nl/diensten/${s.urlSlug ?? s.slug}`,
+  destination: `/nl/services/${s.slug}`,
+}));
+const dienstenRedirects = servicesNl.map((s) => ({
+  source: `/nl/services/${s.slug}`,
+  destination: `/nl/diensten/${s.urlSlug ?? s.slug}`,
+  permanent: true,
+}));
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -34,6 +51,20 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
+  async redirects() {
+    return [
+      { source: "/nl/services", destination: "/nl/diensten", permanent: true },
+      ...dienstenRedirects,
+    ];
+  },
+
+  async rewrites() {
+    return [
+      { source: "/nl/diensten", destination: "/nl/services" },
+      ...dienstenRewrites,
+    ];
   },
 
   // Long-cache heavy static media + helpful security/perf headers

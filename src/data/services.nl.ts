@@ -13,6 +13,7 @@ import type { Service } from "./services";
 export const servicesNl: Service[] = [
   {
     slug: "web-development",
+    urlSlug: "website-laten-maken",
     name: "Webontwikkeling",
     h1: "Webontwikkeling in Amsterdam",
     tagline: "Snelle, custom websites en webapps gebouwd om te converteren.",
@@ -79,6 +80,7 @@ export const servicesNl: Service[] = [
 
   {
     slug: "ecommerce",
+    urlSlug: "webshop-laten-maken",
     name: "E-commerce",
     h1: "E-commerce ontwikkeling in Amsterdam",
     tagline: "Sterk converterende webshops op Shopify, Magento & headless.",
@@ -121,6 +123,10 @@ export const servicesNl: Service[] = [
     stack: ["Shopify", "Magento / Adobe Commerce", "Next.js", "Headless commerce", "Stripe", "Vercel"],
     faqs: [
       {
+        q: "Wat kost een webshop?",
+        a: "Een build op Shopify of WooCommerce kost doorgaans €3.500–€15.000, afhankelijk van catalogusgrootte en integraties; Magento of een headless build kost €15.000–€60.000+ zodra B2B-prijsregels of een grote multi-warehouse-catalogus in het spel zijn. We zetten precies uiteen wat die range bepaalt in onze prijsgids. In beide gevallen maken we de offerte na een gesprek, zodra we je echte catalogus kennen — niet vanuit een vast pakket.",
+      },
+      {
         q: "Wat is beter, Shopify of Magento?",
         a: "Shopify wint op lanceersnelheid en eenvoud. Magento (Adobe Commerce) wint zodra je catalogus, prijsregels of B2B-eisen complex worden. We matchen het platform aan jouw catalogus en team tijdens een gesprek, niet ervoor.",
       },
@@ -146,6 +152,7 @@ export const servicesNl: Service[] = [
 
   {
     slug: "ai-automation",
+    urlSlug: "ai-automatisering",
     name: "AI-automatisering",
     h1: "AI-automatisering voor bedrijven in Amsterdam",
     tagline: "Custom AI-systemen die het repetitieve werk van je overnemen.",
@@ -328,6 +335,7 @@ export const servicesNl: Service[] = [
 
   {
     slug: "social-media",
+    urlSlug: "social-media-marketing",
     name: "Social media",
     h1: "Social media management in Amsterdam",
     tagline: "Content en social die een merk bouwen, niet zomaar posts.",
@@ -385,6 +393,7 @@ export const servicesNl: Service[] = [
 
   {
     slug: "ai-video",
+    urlSlug: "ai-video-laten-maken",
     name: "AI-videoproductie",
     h1: "AI-videoproductie in Amsterdam",
     tagline: "Cinematische product- en merkvideo, geregisseerd — niet zomaar geprompt.",
@@ -446,6 +455,7 @@ export const servicesNl: Service[] = [
 
   {
     slug: "ai-ads",
+    urlSlug: "chatgpt-ads",
     name: "AI-advertenties",
     h1: "AI-advertenties (ChatGPT Ads) beheer in Amsterdam",
     tagline: "ChatGPT Ads-campagnes, live terwijl de veiling nog goedkoop is.",

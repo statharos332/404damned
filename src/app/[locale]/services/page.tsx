@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import NextLink from "next/link";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { breadcrumbJsonLd, localizedPath, languageAlternates } from "@/lib/seo";
+import { serviceHref } from "@/lib/seo";
 import { services } from "@/data/services";
 import { servicesNl } from "@/data/services.nl";
 import { pickLocale } from "@/lib/utils";
 import { serviceIcons } from "@/lib/serviceIcons";
+
+const BASE_URL = "https://www.404damned.com";
+
+/** Hub page has a genuinely different path per locale (/services vs
+ *  /nl/diensten, not just a prefix) — see serviceHref() in lib/seo for why. */
+function hubPath(locale: string): string {
+  return locale === "nl" ? "/nl/diensten" : "/services";
+}
 
 export async function generateMetadata({
   params,
@@ -21,13 +29,17 @@ export async function generateMetadata({
     description: t("metaDescription"),
     keywords: t.raw("keywords") as string[],
     alternates: {
-      canonical: localizedPath("/services", locale),
-      languages: languageAlternates("/services"),
+      canonical: hubPath(locale),
+      languages: {
+        en: `${BASE_URL}/services`,
+        nl: `${BASE_URL}/nl/diensten`,
+        "x-default": `${BASE_URL}/services`,
+      },
     },
     openGraph: {
       title: t("ogTitle"),
       description: t("ogDescription"),
-      url: `https://www.404damned.com${localizedPath("/services", locale)}`,
+      url: `${BASE_URL}${hubPath(locale)}`,
     },
   };
 }
@@ -36,10 +48,14 @@ export default async function ServicesHub() {
   const locale = await getLocale();
   const t = await getTranslations("ServicesHub");
   const localizedServices = pickLocale(services, servicesNl, locale);
-  const breadcrumbs = breadcrumbJsonLd(
-    [{ name: t("breadcrumb"), path: "/services" }],
-    { locale, homeLabel: "Home" }
-  );
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: locale === "nl" ? `${BASE_URL}/nl` : BASE_URL },
+      { "@type": "ListItem", position: 2, name: t("breadcrumb"), item: `${BASE_URL}${hubPath(locale)}` },
+    ],
+  };
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -47,7 +63,7 @@ export default async function ServicesHub() {
       "@type": "ListItem",
       position: i + 1,
       name: s.name,
-      url: `https://www.404damned.com${localizedPath(`/services/${s.slug}`, locale)}`,
+      url: `${BASE_URL}${serviceHref(s, locale)}`,
     })),
   };
 
@@ -81,9 +97,9 @@ export default async function ServicesHub() {
           {localizedServices.map((s, i) => {
             const Icon = serviceIcons[s.slug];
             return (
-              <Link
+              <NextLink
                 key={s.slug}
-                href={`/services/${s.slug}`}
+                href={serviceHref(s, locale)}
                 prefetch={false}
                 className="group relative grid md:grid-cols-[auto_1fr_auto] gap-5 md:gap-10 items-center border-b border-white/10 py-8 md:py-9"
               >
@@ -116,7 +132,7 @@ export default async function ServicesHub() {
                 <span className="hidden md:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white group-hover:gap-4 transition-all whitespace-nowrap">
                   {t("explore")} <span className="text-[#D6001C]">&rarr;</span>
                 </span>
-              </Link>
+              </NextLink>
             );
           })}
         </div>

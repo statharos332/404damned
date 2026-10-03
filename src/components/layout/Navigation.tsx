@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { useBooking } from "@/components/ui/BookingProvider";
 import { useShowreel } from "@/components/ui/ShowreelProvider";
@@ -9,13 +10,17 @@ import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 export function Navigation() {
   const t = useTranslations("Nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { openBooking } = useBooking();
   const { openShowreel } = useShowreel();
 
+  // The services hub has a genuinely different path per locale (/services
+  // vs /nl/diensten, not just a /nl prefix) — see serviceHref() in lib/seo
+  // for why — so it can't go through the generic i18n-prefixed Link below.
   const navLinks = [
-    { key: "services", label: t("services"), href: "/services" },
+    { key: "services", label: t("services"), href: locale === "nl" ? "/nl/diensten" : "/services", plain: true },
     { key: "work", label: t("work"), href: "/work" },
     { key: "about", label: t("about"), href: "/about" },
     { key: "insights", label: t("insights"), href: "/insights" },
@@ -51,16 +56,19 @@ export function Navigation() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                prefetch={false}
-                className="text-sm text-gray-400 hover:text-white transition-colors duration-300 tracking-wider uppercase font-medium"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const className =
+                "text-sm text-gray-400 hover:text-white transition-colors duration-300 tracking-wider uppercase font-medium";
+              return link.plain ? (
+                <NextLink key={link.href} href={link.href} prefetch={false} className={className}>
+                  {link.label}
+                </NextLink>
+              ) : (
+                <Link key={link.href} href={link.href} prefetch={false} className={className}>
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Language switcher + CTA */}
@@ -121,13 +129,23 @@ export function Navigation() {
               className="mobile-menu-item"
               style={{ transitionDelay: menuOpen ? `${0.1 + i * 0.08}s` : "0s" }}
             >
-              <Link
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="text-5xl font-bold tracking-tight hover:text-[#D6001C] transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
+              {link.plain ? (
+                <NextLink
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-5xl font-bold tracking-tight hover:text-[#D6001C] transition-colors duration-300"
+                >
+                  {link.label}
+                </NextLink>
+              ) : (
+                <Link
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-5xl font-bold tracking-tight hover:text-[#D6001C] transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              )}
             </div>
           ))}
           <div

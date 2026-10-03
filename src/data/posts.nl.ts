@@ -246,6 +246,63 @@ export const postsNl: Post[] = [
   },
 
   {
+    slug: "what-a-website-or-webshop-actually-costs-in-2026",
+    title: "Wat kost een website of webshop laten maken in Nederland in 2026?",
+    excerpt:
+      "Eerlijke prijsranges voor een website of webshop in Nederland — Shopify, WooCommerce, Magento en headless — en wat het bedrag daadwerkelijk omhoog of omlaag duwt.",
+    category: "Pricing",
+    readMins: 11,
+    date: "2026-10-03",
+    authorSlug: "stathis-papounidis",
+    keywords: [
+      "wat kost een website laten maken",
+      "webshop laten maken kosten",
+      "website laten maken prijzen 2026",
+      "kosten webshop amsterdam",
+      "magento kosten nederland",
+      "shopify kosten nederland",
+      "webdesign bureau prijzen amsterdam",
+    ],
+    body: [
+      { type: "p", text: "Eerst het getal, voordat we het gebruikelijke bureau-antwoord \"dat hangt ervan af\" geven: een custom marketingwebsite in Nederland kost €3.500–€8.000, een groter platform of webapp €15.000–€50.000+, en een webshop ligt ergens tussen €3.500 en €60.000+, afhankelijk van bijna uitsluitend welk platform erachter zit. Hieronder staat waarom je op het ene of het andere eind van die range landt." },
+      { type: "h2", text: "De bandbreedte, zodat je een getal hebt voordat je verder leest" },
+      { type: "list", items: [
+        "Marketingwebsite, custom gecodeerd (tot ~8 pagina's): €3.500–€8.000",
+        "Groter platform of webapp (ledengedeelte, dashboards, custom logica): €15.000–€50.000+",
+        "Shopify webshop (kleine–middelgrote catalogus): €3.500–€12.000",
+        "WooCommerce webshop: €3.500–€15.000",
+        "Magento / Adobe Commerce of headless commerce (complexe catalogus, B2B-prijzen, custom logica): €15.000–€60.000+",
+        "Doorlopend care-abonnement (security, updates, monitoring): vanaf €300/maand",
+        "Growth-retainer (actieve doorontwikkeling, CRO): vanaf €1.200/maand",
+      ]},
+      { type: "h2", text: "Waarom de bandbreedte zo groot is" },
+      { type: "p", text: "Een website is een budgetrange, geen prijs, omdat \"website\" bijna niets zegt over wat er daadwerkelijk gebouwd wordt. Een site van vijf pagina's voor een lokale dienstverlener en een webshop met vijftig producten die synchroniseert met een ERP-systeem zijn allebei \"een website\" in het dropdown-menu van een offerteformulier, maar liggen qua scope mijlenver uit elkaar. Elke offerte die je krijgt voordat iemand daadwerkelijk vraagt wat je nodig hebt, is of opgeblazen om het onbekende af te dekken, of een lokprijs die later via meerwerk alsnog bij de echte scope uitkomt." },
+      { type: "h2", text: "Wat het bedrag daadwerkelijk beweegt" },
+      { type: "list", items: [
+        "Custom design versus een thema — een build vanaf nul kost vooraf meer dan een template installeren en de kleuren omzetten, en is precies de reden dat het resultaat niet op ieders site lijkt.",
+        "Aantal pagina's en hoeveelheid content — acht pagina's met echte content is een ander project dan tachtig.",
+        "Integraties — een contactformulier is nauwelijks engineering; een CRM, een ERP, een betaalprovider en een boekingssysteem koppelen is dat wel.",
+        "Omvang en complexiteit van de catalogus, bij een webshop — 40 SKU's met simpele prijzen en 4.000 SKU's met gelaagde B2B-prijzen zijn andere projecten, ook op hetzelfde platform.",
+        "Migratie — een bestaande site of webshop overzetten zonder de SEO-ranking te verliezen (301-redirects, metadata, structured data meenemen) is echt werk, geen vinkje.",
+        "Wie de content schrijft — copy en fotografie die je zelf aanlevert is goedkoper dan copy en fotografie die iemand moet produceren.",
+        "Doorlooptijd — een gehaaste build kost meer dan een build met normale doorlooptijd, om dezelfde reden dat overnight-verzending meer kost dan standaard.",
+      ]},
+      { type: "h2", text: "Het platform verandert het bedrag meer dan bijna alles anders" },
+      { type: "p", text: "Specifiek voor een webshop beweegt de platformkeuze het budget meer dan welke andere keuze dan ook. Shopify brengt je het snelst en goedkoopst live voor een overzichtelijke catalogus, met een voorspelbaar maandabonnement erbovenop. WooCommerce landt in een vergelijkbare bouwkostenrange, maar verschuift een groter deel van de doorlopende kosten naar hosting en onderhoud omdat er geen platformfee is — die afweging is het alleen waard met een developer die hem ook daadwerkelijk gepatcht houdt. Magento (Adobe Commerce) of een headless build kost een veelvoud van beide, en is het waard wanneer B2B-prijsregels, een grote multi-warehouse-catalogus of echte eisen aan ontwerp en performance de extra engineering rechtvaardigen — niet standaard. We hebben de diepere, technische versie van die afweging uitgeschreven in onze artikelen over of headless commerce de moeite waard is en over wat een overstap van Magento 1 echt inhoudt, als je deze specifieke keuze verder wilt uitpluizen." },
+      { type: "h2", text: "De kostenpost die niemand in de eerste offerte zet: wat er na livegang gebeurt" },
+      { type: "p", text: "Een website of webshop is geen eenmalige aankoop, en elke offerte die dat wel suggereert, laat een echte doorlopende kostenpost weg. Reken minimaal op security patches en monitoring — vanaf €300/maand voor een care-abonnement, meer als het platform Magento is of een ander systeem dat veel aandacht nodig heeft. Wil je dat de site na livegang ook actief verbeterd wordt — nieuwe features, conversieoptimalisatie, doorlopende SEO — dan is dat een growth-retainer, vanaf ongeveer €1.200/maand. De meeste klanten beginnen met care en stappen op zodra duidelijk is wat de moeite waard is om vervolgens te bouwen." },
+      { type: "h2", text: "Een snelle check of een offerte te mooi is om waar te zijn" },
+      { type: "list", items: [
+        "Geen gesprek vóór het bedrag — een echte offerte vereist dat iemand eerst daadwerkelijk vraagt wat je nodig hebt.",
+        "Geen woord over Core Web Vitals, mobiele performance of een basis SEO-structuur — dat zijn geen extra's, dat is de basis voor een site die geld moet opleveren.",
+        "Een laag vast bedrag zonder scope-document — het scopegat wordt later een meerwerkfactuur, meestal tegen een slechter tarief dan wanneer het vooraf was ingeprijsd.",
+        "Een thema-reskin verkocht als \"custom design\" — vraag direct of de build begint bij een template of bij een leeg bestand; het antwoord verandert zowel de prijs als het plafond van hoe onderscheidend het resultaat kan worden.",
+      ]},
+      { type: "p", text: "Ben je een build aan het scopen en wil je een eerlijk getal in plaats van een placeholder-bedrag? Vertel ons wat je daadwerkelijk probeert te bereiken — wij maken de offerte na dat gesprek, niet ervoor." },
+    ],
+  },
+
+  {
     slug: "magento-1-end-of-life-woocommerce-migration",
     title: "Magento 1 einde levensduur: wat een overstap naar WooCommerce echt inhoudt",
     excerpt:

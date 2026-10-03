@@ -136,6 +136,11 @@ export default async function RootLayout({
     email: "info@404damned.com",
     priceRange: "€€€€",
     foundingDate: "2017",
+    identifier: {
+      "@type": "PropertyValue",
+      name: "KVK",
+      value: "42082502",
+    },
     slogan: t("slogan"),
     founder: {
       "@type": "Person",

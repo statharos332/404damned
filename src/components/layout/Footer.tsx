@@ -1,14 +1,19 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { serviceHref } from "@/lib/seo";
+import { getService } from "@/data/services";
+import { getServiceNl } from "@/data/services.nl";
+import { pickLocale } from "@/lib/utils";
 
-const serviceLinks = [
-  { key: "linkWebDevelopment", href: "/services/web-development" },
-  { key: "linkEcommerce", href: "/services/ecommerce" },
-  { key: "linkAiAutomation", href: "/services/ai-automation" },
-  { key: "linkBranding", href: "/services/branding" },
-  { key: "linkSeo", href: "/services/seo" },
-  { key: "linkSocialMedia", href: "/services/social-media" },
+const serviceSlugs = [
+  { key: "linkWebDevelopment", slug: "web-development" },
+  { key: "linkEcommerce", slug: "ecommerce" },
+  { key: "linkAiAutomation", slug: "ai-automation" },
+  { key: "linkBranding", slug: "branding" },
+  { key: "linkSeo", slug: "seo" },
+  { key: "linkSocialMedia", slug: "social-media" },
 ];
 
 const companyLinks = [
@@ -27,6 +32,11 @@ const legalLinks = [
 
 export function Footer({ showCta = true }: { showCta?: boolean } = {}) {
   const t = useTranslations("Footer");
+  const locale = useLocale();
+  const serviceLinks = serviceSlugs.map(({ key, slug }) => {
+    const service = pickLocale(getService(slug), getServiceNl(slug), locale);
+    return { key, href: service ? serviceHref(service, locale) : "/services", plain: true };
+  });
   const columns = [
     { category: t("categoryServices"), links: serviceLinks },
     { category: t("categoryCompany"), links: companyLinks },
@@ -121,17 +131,22 @@ export function Footer({ showCta = true }: { showCta?: boolean } = {}) {
                   {category}
                 </div>
                 <ul className="space-y-3">
-                  {links.map((link) => (
-                    <li key={link.key}>
-                      <Link
-                        href={link.href}
-                        prefetch={false}
-                        className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-                      >
-                        {t(link.key)}
-                      </Link>
-                    </li>
-                  ))}
+                  {links.map((link) => {
+                    const className = "text-sm text-gray-400 hover:text-white transition-colors duration-300";
+                    return (
+                      <li key={link.key}>
+                        {"plain" in link && link.plain ? (
+                          <NextLink href={link.href} prefetch={false} className={className}>
+                            {t(link.key)}
+                          </NextLink>
+                        ) : (
+                          <Link href={link.href} prefetch={false} className={className}>
+                            {t(link.key)}
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

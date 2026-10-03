@@ -1,8 +1,9 @@
 import { getTranslations, getLocale } from "next-intl/server";
+import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { serviceHref } from "@/lib/seo";
 import { getService, type Service } from "@/data/services";
 import { getServiceNl } from "@/data/services.nl";
 import { pickLocale } from "@/lib/utils";
@@ -45,13 +46,16 @@ export async function ServicePage({ service }: { service: Service }) {
     })),
   };
 
-  const breadcrumbs = breadcrumbJsonLd(
-    [
-      { name: t("breadcrumbServices"), path: "/services" },
-      { name: service.name, path: `/services/${service.slug}` },
+  const servicesHubUrl = locale === "nl" ? `${BASE}/nl/diensten` : `${BASE}/services`;
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: locale === "nl" ? `${BASE}/nl` : BASE },
+      { "@type": "ListItem", position: 2, name: t("breadcrumbServices"), item: servicesHubUrl },
+      { "@type": "ListItem", position: 3, name: service.name, item: `${BASE}${serviceHref(service, locale)}` },
     ],
-    { locale, homeLabel: "Home" }
-  );
+  };
 
   const related = service.related
     .map((slug) => pickLocale(getService(slug), getServiceNl(slug), locale))
@@ -181,9 +185,9 @@ export async function ServicePage({ service }: { service: Service }) {
           </h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {related.map((r) => (
-              <Link
+              <NextLink
                 key={r.slug}
-                href={`/services/${r.slug}`}
+                href={serviceHref(r, locale)}
                 className="group border border-white/10 hover:border-[#D6001C] p-6 transition-colors"
               >
                 <h3 className="text-lg font-black uppercase tracking-tight text-white group-hover:text-[#D6001C] transition-colors">
@@ -192,7 +196,7 @@ export async function ServicePage({ service }: { service: Service }) {
                 <p className="mt-2 text-sm text-gray-400 leading-relaxed">
                   {r.tagline}
                 </p>
-              </Link>
+              </NextLink>
             ))}
           </div>
         </section>

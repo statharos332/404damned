@@ -274,6 +274,63 @@ export const posts: Post[] = [
   },
 
   {
+    slug: "what-a-website-or-webshop-actually-costs-in-2026",
+    title: "What a Website or Webshop Actually Costs in the Netherlands in 2026",
+    excerpt:
+      "Real price ranges for a custom website or webshop in the Netherlands — Shopify, WooCommerce, Magento and headless — plus what actually drives the number up or down.",
+    category: "Pricing",
+    readMins: 11,
+    date: "2026-10-03",
+    authorSlug: "stathis-papounidis",
+    keywords: [
+      "cost of a website Netherlands",
+      "website price Amsterdam 2026",
+      "how much does a webshop cost",
+      "ecommerce website cost Netherlands",
+      "Shopify vs Magento cost comparison",
+      "custom website pricing Amsterdam",
+      "web development cost Netherlands 2026",
+    ],
+    body: [
+      { type: "p", text: "Here's the number first, before the usual agency dodge of \"it depends\": a custom marketing website in the Netherlands runs €3,500–€15,000, a full web app or platform runs €15,000–€50,000+, and a webshop runs anywhere from €3,500 to €60,000+ depending almost entirely on which platform it's built on. Everything below explains which end of those ranges you actually land on." },
+      { type: "h2", text: "The range, so you have a number before reading the rest" },
+      { type: "list", items: [
+        "Marketing website, custom-coded (up to ~8 pages): €3,500–€8,000",
+        "Larger site or web app (member areas, dashboards, custom logic): €15,000–€50,000+",
+        "Shopify webshop (small–medium catalog): €3,500–€12,000",
+        "WooCommerce webshop: €3,500–€15,000",
+        "Magento / Adobe Commerce or headless commerce (complex catalog, B2B pricing, custom logic): €15,000–€60,000+",
+        "Ongoing care plan (security, updates, monitoring): from €300/month",
+        "Growth retainer (active ongoing development, CRO): from €1,200/month",
+      ]},
+      { type: "h2", text: "Why the range is this wide" },
+      { type: "p", text: "A website is a budget range, not a price, because \"website\" describes almost nothing about what's actually being built. A five-page site for a local service business and a fifty-product webshop with inventory sync to an ERP are both \"a website\" in a form's dropdown menu and nowhere near each other in scope. Any quote you get before someone actually asks what you need is either padded to cover the unknown, or a lowball that turns into change orders once the real scope shows up." },
+      { type: "h2", text: "What actually moves the number" },
+      { type: "list", items: [
+        "Custom design vs. a theme — a from-scratch build costs more upfront than installing and restyling a template, and is the reason the result doesn't look like everyone else's site.",
+        "Page and content volume — eight pages of real content is a different job from eighty.",
+        "Integrations — a contact form is free engineering; syncing a CRM, an ERP, a payment provider and a booking system is not.",
+        "Catalog size and complexity, for a webshop — 40 SKUs with simple pricing and 4,000 SKUs with B2B tiered pricing are different projects even on the same platform.",
+        "Migration — moving an existing site or store without losing its SEO rankings (301 redirects, metadata, structured data carried over) is real work, not a checkbox.",
+        "Who writes the content — copy and photography you provide is cheaper than copy and photography someone has to produce.",
+        "Timeline — a rushed build costs more than one with normal lead time, for the same reason overnight shipping costs more than standard.",
+      ]},
+      { type: "h2", text: "Platform changes the number more than almost anything else" },
+      { type: "p", text: "For a webshop specifically, the platform decision moves the budget more than any other single choice. Shopify gets you live fastest and cheapest for a straightforward catalog, with a predictable monthly subscription on top. WooCommerce lands in a similar build-cost range but shifts more of the ongoing cost to hosting and maintenance since there's no platform fee — only worth the trade-off with a developer who actually keeps it patched. Magento (Adobe Commerce) or a headless build costs several times either of those, and is worth it specifically when B2B pricing rules, a large multi-warehouse catalog or genuine design/performance requirements justify the extra engineering — not by default. We've written longer, more technical breakdowns of that decision in our pieces on whether headless commerce is worth it and on what moving off Magento 1 actually involves, if you want the deeper version of this specific trade-off." },
+      { type: "h2", text: "The cost nobody puts in the first quote: what happens after launch" },
+      { type: "p", text: "A website or webshop isn't a one-time purchase, and any quote that implies it is leaves out a real ongoing cost. At minimum, budget for security patches and monitoring — from €300/month for a care plan, more if the platform is Magento or another system that needs frequent attention. If you want the site actively improved after launch rather than just kept alive — new features, conversion rate optimisation, ongoing SEO — that's a growth retainer, starting around €1,200/month. Most clients start with care and move up once they see what's worth building next." },
+      { type: "h2", text: "A quick way to tell if a quote is too good to be true" },
+      { type: "list", items: [
+        "No call before the number — a real quote requires someone to actually ask what you need first.",
+        "No mention of Core Web Vitals, mobile performance or basic SEO structure — those aren't extras, they're table stakes for a site that's supposed to make you money.",
+        "A fixed low price with no scope document — the scope gap becomes a change-order invoice later, usually at a worse rate than if it had been priced in from the start.",
+        "A theme reskin sold as \"custom design\" — ask directly whether the build starts from a template or from a blank file; the answer changes both the price and the ceiling on how distinctive the result can be.",
+      ]},
+      { type: "p", text: "If you're scoping a build and want an honest number instead of a placeholder one, tell us what you're actually trying to do — we quote after that conversation, not before it." },
+    ],
+  },
+
+  {
     slug: "magento-1-end-of-life-woocommerce-migration",
     title: "Magento 1 End of Life: What Moving to WooCommerce Actually Takes",
     excerpt:

@@ -27,6 +27,10 @@ export interface ServiceSection {
 
 export interface Service {
   slug: string;
+  /** Dutch-market public URL slug (e.g. "webshop-laten-maken"), used under
+   *  /nl/diensten/<urlSlug> instead of the canonical `slug`. Falls back to
+   *  `slug` when absent — only the NL dataset sets this. */
+  urlSlug?: string;
   /** short name for nav / cards, e.g. "Web Development" */
   name: string;
   /** page H1, keyword-led, e.g. "Web Development in Amsterdam" */
@@ -155,6 +159,10 @@ export const services: Service[] = [
     ],
     stack: ["Shopify", "Magento / Adobe Commerce", "Next.js", "Headless commerce", "Stripe", "Vercel"],
     faqs: [
+      {
+        q: "How much does a webshop cost?",
+        a: "Shopify or WooCommerce builds typically run €3,500–€15,000 depending on catalogue size and integrations; Magento or a headless build runs €15,000–€60,000+ once B2B pricing rules or a large multi-warehouse catalogue are involved. We break down exactly what drives that range in our pricing guide. Either way, we quote after a call, once we know your actual catalogue — not off a fixed package.",
+      },
       {
         q: "Which is better, Shopify or Magento?",
         a: "Shopify wins on speed to launch and simplicity. Magento (Adobe Commerce) wins once your catalogue, pricing rules or B2B requirements get complex. We'll match the platform to your catalogue and team on a call, not before.",
