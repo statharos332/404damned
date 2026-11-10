@@ -112,7 +112,7 @@
       {
         "number": "03",
         "title": "Magento Migration",
-        "description": "Moving a 44,769-SKU catalog off Magento 1 with zero downtime taught us what a migration actually requires. Every old URL mapped, nothing left behind.",
+        "description": "Off an end-of-life Magento 1 store with a plan, not a leap of faith. Every old URL mapped, staged cutover, nothing left behind.",
         "tags": ["Magento 1 EOL", "Zero Downtime", "URL Mapping", "Headless"]
       },
       {

@@ -149,7 +149,6 @@ export const servicesNl: Service[] = [
     ],
     related: ["web-development", "migration", "seo", "branding", "ai-video"],
     ctaLabel: "Bespreek mijn webshop",
-    caseStudySlug: "magento-1-to-headless-wordpress-migration",
   },
 
   {
@@ -527,7 +526,7 @@ export const servicesNl: Service[] = [
     tagline: "Van een verouderde Magento 1-winkel naar een platform dat je team zelf kan beheren — met elke URL gemapt.",
     metaTitle: "Magento migratie | Een plan voor jouw webshop",
     metaDescription:
-      "Magento migratie voor webshops in Amsterdam en heel Nederland. Platformkeuze, URL-mapping en een geteste cutover — gebaseerd op een echte migratie van 44.769 SKU's zonder downtime. Plan een gesprek.",
+      "Magento migratie voor webshops in Amsterdam en heel Nederland. Platformkeuze, volledige URL-mapping en een gefaseerde, geteste cutover — zonder de SEO-waarde te verliezen die je al hebt opgebouwd. Plan een gesprek.",
     keywords: [
       "magento migratie",
       "magento naar woocommerce",
@@ -536,7 +535,7 @@ export const servicesNl: Service[] = [
       "magento 1 end of life",
     ],
     intro:
-      "We hebben een catalogus van 44.769 SKU's van een Magento 1-server afgehaald die zijn eigen reindex niet meer kon draaien zonder om te vallen — dit is dus geen hypothetische dienst. Een migratie is het onderdeel van e-commerce werk met het meeste om te verliezen: map de URL's of de cutover verkeerd en je zet jarenlange SEO-waarde en een weekend aan bestellingen in één keer op het spel. Wij brengen dat in kaart vóórdat we iets verplaatsen.",
+      "Een migratie is het onderdeel van e-commerce werk met het meeste om te verliezen: map de URL's of de cutover verkeerd en je zet jarenlange SEO-waarde en een weekend aan bestellingen in één keer op het spel. Wij brengen dat in kaart vóórdat we iets verplaatsen — Magento, WooCommerce en headless WordPress zijn platforms waar we op bouwen, niet alleen vanaf migreren.",
     sections: [
       {
         heading: "Wanneer een migratie het overwegen waard is",
@@ -547,8 +546,8 @@ export const servicesNl: Service[] = [
         body: "Eerst de platformkeuze, afgestemd op jouw catalogus en niet op wat voor ons het makkelijkst is: headless WordPress met Next.js voor grote of complexe catalogi, WooCommerce wanneer de winkel kleiner en eenvoudiger is. Elke oude URL wordt gemapt naar zijn nieuwe adres, producten/klanten/bestellingen gaan mee, en de cutover verloopt gefaseerd op een moment dat jij goedkeurt — eerst getest op staging voordat er iets aan de live winkel verandert.",
       },
       {
-        heading: "Wat de vorige keer ons echt kostte",
-        body: "De migratie van 44.769 SKU's duurde ongeveer twee weken, zonder downtime tijdens de cutover, en de overbelasting door reindex-en-export die de server bedreigde is sindsdien niet teruggekeerd. We hebben voor die klant geen rankings na de migratie gemeten, dus we gaan je geen specifiek SEO-resultaat beloven — alleen de mapping en het proces die je de beste kans geven om te behouden wat je hebt opgebouwd.",
+        heading: "Wat we je niet beloven",
+        body: "Geen enkel bureau kan eerlijk garanderen dat je rankings een platformmigratie ongeschonden overleven — dat hangt af van uitvoering, je bestaande autoriteit en factoren die niemand in de hand heeft. Wat wij wél toezeggen is het proces dat je de beste kans geeft: elke URL gemapt vóór de cutover, redirects getest op staging, structured data en metadata overgezet, en een gefaseerde livegang in plaats van één onomkeerbare overstap. Belooft iemand je een specifiek rankingresultaat, vraag dan hoe ze dat denken te meten.",
       },
     ],
     deliverables: [
@@ -568,24 +567,23 @@ export const servicesNl: Service[] = [
       },
       {
         q: "Verlies ik mijn SEO-posities bij een migratie?",
-        a: "Dat is het echte risico, en het grootste deel van het werk zit in het voorkomen ervan: elke oude URL gemapt naar de nieuwe, structured data en metadata overgezet, content zorgvuldig gemigreerd. We hebben voor onze vorige Magento-klant geen rankings na de migratie gemeten, dus beloven we geen specifiek getal — alleen het proces dat je bestaande SEO-waarde de beste kans geeft om de overstap te overleven.",
+        a: "Dat is het echte risico, en het grootste deel van het werk zit in het voorkomen ervan: elke oude URL gemapt naar de nieuwe, structured data en metadata overgezet, content zorgvuldig gemigreerd. Niemand kan je eerlijk een specifiek rankingresultaat beloven — alleen het proces dat je bestaande SEO-waarde de beste kans geeft om de overstap te overleven.",
       },
       {
         q: "Naar welk platform migreren jullie?",
-        a: "Wat bij jouw catalogus past — een headless WordPress- en Next.js-build voor grote of complexe catalogi, WooCommerce wanneer de winkel kleiner is. We kiezen niet standaard voor wat voor ons het makkelijkst is: de vorige migratie werd headless omdat de catalogusgrootte daarom vroeg, niet omdat het onze enige optie is.",
+        a: "Wat bij jouw catalogus past, niet wat voor ons het makkelijkst is — een headless WordPress- en Next.js-build voor grote of complexe catalogi, WooCommerce wanneer de winkel kleiner en eenvoudiger is. We zeggen welke past nadat we je echte catalogus hebben gezien.",
       },
       {
         q: "Hoe lang duurt een migratie?",
-        a: "Onze vorige — 44.769 SKU's, volledige catalogus plus klanten en bestellingen — duurde ongeveer twee weken. Die van jou hangt af van catalogusgrootte, integraties en hoeveel custom logica de huidige winkel heeft; we bepalen een realistische planning nadat we hem hebben gezien.",
+        a: "Dat hangt af van catalogusgrootte, integraties en hoeveel custom logica de huidige winkel heeft — een paar honderd SKU's met simpele prijzen kan in dagen, een grote multi-warehouse-catalogus duurt langer. We bepalen een realistische planning na een audit, niet vooraf uit de losse pols.",
       },
       {
         q: "Is er downtime tijdens de overstap?",
-        a: "Onze vorige cutover verliep zonder downtime, gefaseerd en getest op staging voordat het de live winkel raakte. Dat is de standaard waar we naar werken, geen garantie los van jouw specifieke setup — we melden het vooraf als iets aan jouw winkel dat lastiger maakt.",
+        a: "Zero downtime is de standaard waar we naar werken: gefaseerd, getest op staging voordat het de live winkel raakt. Dat is geen garantie los van jouw specifieke setup — we melden het vooraf als iets aan jouw winkel dat lastiger maakt.",
       },
     ],
     related: ["ecommerce", "seo", "web-development"],
     ctaLabel: "Bespreek je migratie",
-    caseStudySlug: "magento-1-to-headless-wordpress-migration",
   },
 ];
 

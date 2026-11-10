@@ -112,7 +112,7 @@
       {
         "number": "03",
         "title": "Magento migratie",
-        "description": "Een catalogus van 44.769 SKU's van Magento 1 afgehaald zonder downtime — dat leerde ons wat een migratie écht vraagt. Elke oude URL gemapt, niets achtergelaten.",
+        "description": "Van een verouderde Magento 1-winkel naar een platform dat je team kan beheren — met een plan, niet met een gok. Elke oude URL gemapt, niets achtergelaten.",
         "tags": ["Magento 1 EOL", "Zero downtime", "URL-mapping", "Headless"]
       },
       {

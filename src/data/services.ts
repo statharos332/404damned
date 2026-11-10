@@ -193,7 +193,6 @@ export const services: Service[] = [
     ],
     related: ["web-development", "migration", "seo", "branding", "ai-video"],
     ctaLabel: "Discuss my webshop",
-    caseStudySlug: "magento-1-to-headless-wordpress-migration",
   },
 
   {
@@ -563,10 +562,10 @@ export const services: Service[] = [
     slug: "migration",
     name: "Magento Migration",
     h1: "Migrate your Magento webshop with a plan, not a leap of faith",
-    tagline: "Move off an end-of-life Magento 1 store with every URL mapped and zero downtime at cutover.",
+    tagline: "Move off an end-of-life Magento 1 store with every URL mapped and a staged, tested cutover.",
     metaTitle: "Magento Migration Services Amsterdam — Off Magento 1, Zero Downtime",
     metaDescription:
-      "Magento migration for webshops in Amsterdam and beyond. Platform choice, URL mapping and a tested cutover, based on a real 44,769-SKU migration with zero downtime. Book a call.",
+      "Magento migration for webshops in Amsterdam and beyond. Platform choice, full URL mapping and a staged, tested cutover so you don't reset the SEO equity you've already earned. Book a call.",
     keywords: [
       "Magento migration",
       "Magento migration agency",
@@ -575,7 +574,7 @@ export const services: Service[] = [
       "headless ecommerce migration",
     ],
     intro:
-      "We migrated a 44,769-SKU catalogue off a Magento 1 server that could no longer run its own reindex without falling over — so this isn't a theoretical service page. A migration is the part of e-commerce work with the most to lose: get the URLs or the cutover wrong and you reset years of SEO equity and a weekend of orders along with it. We map it before we move anything.",
+      "A migration is the part of e-commerce work with the most to lose: get the URLs or the cutover wrong and you can reset years of SEO equity and a weekend of orders along with it. We map every URL and stage every cutover before we move anything — Magento, WooCommerce and headless WordPress are all platforms we build on, not just migrate off of.",
     sections: [
       {
         heading: "When a migration is actually worth it",
@@ -586,8 +585,8 @@ export const services: Service[] = [
         body: "Platform choice comes first, matched to your catalogue, not to whichever stack is easiest for us: headless WordPress and Next.js for large or complex catalogues, WooCommerce when the store is smaller and simpler. Every old URL gets mapped to its new address, products/customers/orders migrate with it, and the cutover runs staged on a schedule you approve — tested on staging before anything touches the live store.",
       },
       {
-        heading: "What the last one actually cost us",
-        body: "The 44,769-SKU migration took roughly two weeks, with zero downtime during cutover, and the reindex-and-export overload that used to threaten the server hasn't recurred since. We didn't track post-migration ranking data for that client, so we're not going to promise you a specific SEO number — just the mapping and process that gives you the best shot at keeping what you've built.",
+        heading: "What we won't promise you",
+        body: "No agency can honestly guarantee your rankings survive a platform migration intact — that comes down to execution, your existing authority, and factors outside anyone's control. What we commit to instead is the process that gives you the best shot: every URL mapped before cutover, redirects tested on staging, structured data and metadata carried across, and a staged go-live instead of one irreversible switch. If someone promises you a specific ranking outcome, ask how they plan to measure it.",
       },
     ],
     deliverables: [
@@ -607,24 +606,23 @@ export const services: Service[] = [
       },
       {
         q: "Will I lose my SEO rankings in the migration?",
-        a: "That's the real risk, and most of the work goes into preventing it: every old URL mapped to its new one, structured data and metadata carried across, content migrated carefully. We didn't measure post-migration rankings for our last Magento client, so we won't promise you a specific number — only the process that gives your existing SEO equity the best chance of surviving the move.",
+        a: "That's the real risk, and most of the work goes into preventing it: every old URL mapped to its new one, structured data and metadata carried across, content migrated carefully. No one can honestly promise you a specific ranking outcome — only the process that gives your existing SEO equity the best chance of surviving the move.",
       },
       {
         q: "What platform do you migrate us to?",
-        a: "Whichever fits your catalogue — a headless WordPress and Next.js build for large or complex catalogues, WooCommerce when the store is smaller. We're not defaulting to whatever's easiest for us to build; the previous migration we ran went headless because the catalogue size called for it, not because it's our only move.",
+        a: "Whichever fits your catalogue, not whichever's easiest for us to build — a headless WordPress and Next.js build for large or complex catalogues, WooCommerce when the store is smaller and simpler. We'll tell you which one fits after seeing your actual catalogue.",
       },
       {
         q: "How long does a migration take?",
-        a: "Our last one — 44,769 SKUs, full catalogue plus customers and orders — ran about two weeks. Yours depends on catalogue size, integrations and how much custom logic the current store carries; we scope a real timeline after seeing it.",
+        a: "It depends on catalogue size, integrations and how much custom logic the current store carries — a few hundred SKUs with simple pricing can move in days, a large multi-warehouse catalogue takes longer. We scope a real timeline after an audit, not a guess upfront.",
       },
       {
         q: "Is there downtime during the switch?",
-        a: "Our last cutover ran with zero downtime, staged and tested on staging before it touched the live store. That's the standard we work to, not a guarantee independent of your specific setup — we'll flag it upfront if anything about your store makes that harder.",
+        a: "Zero downtime is the standard we work to: staged, tested on staging before anything touches the live store. It's not a guarantee independent of your specific setup — we'll flag it upfront if anything about your store makes that harder.",
       },
     ],
     related: ["ecommerce", "seo", "web-development"],
     ctaLabel: "Discuss your migration",
-    caseStudySlug: "magento-1-to-headless-wordpress-migration",
   },
 ];
 

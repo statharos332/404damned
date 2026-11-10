@@ -63,6 +63,12 @@ const nextConfig: NextConfig = {
       // so a single prefix redirect (incl. the bare /diensten hub) fixes all
       // of them instead of hand-listing each stale slug.
       { source: "/diensten/:path*", destination: "/nl/diensten/:path*", permanent: true },
+      // Case study pulled down (ownership/confidentiality unclear — it was
+      // delivered while employed elsewhere, not as 404 DAMNED). Non-permanent:
+      // this is a takedown, not a URL restructure, so don't tell crawlers the
+      // content "moved" somewhere — just send any stray hit back to the hub.
+      { source: "/work/magento-1-to-headless-wordpress-migration", destination: "/work", permanent: false },
+      { source: "/nl/work/magento-1-to-headless-wordpress-migration", destination: "/nl/work", permanent: false },
     ];
   },
 
