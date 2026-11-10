@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import { serviceHref } from "@/lib/seo";
 import { getService, type Service } from "@/data/services";
 import { getServiceNl } from "@/data/services.nl";
+import { getProject } from "@/data/projects";
+import { getProjectNl } from "@/data/projects.nl";
 import { pickLocale } from "@/lib/utils";
 import { serviceIcons } from "@/lib/serviceIcons";
 
@@ -61,6 +63,10 @@ export async function ServicePage({ service }: { service: Service }) {
     .map((slug) => pickLocale(getService(slug), getServiceNl(slug), locale))
     .filter((s): s is Service => Boolean(s));
 
+  const caseStudy = service.caseStudySlug
+    ? pickLocale(getProject(service.caseStudySlug), getProjectNl(service.caseStudySlug), locale)
+    : undefined;
+
   const Icon = serviceIcons[service.slug];
 
   return (
@@ -94,10 +100,10 @@ export async function ServicePage({ service }: { service: Service }) {
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
           <Link
-            href="/#contact"
+            href={{ pathname: "/", query: { service: service.slug }, hash: "contact" }}
             className="bg-[#D6001C] hover:bg-[#FF1A35] text-white px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
-            {t("bookCall")} &rarr;
+            {service.ctaLabel ?? t("bookCall")} &rarr;
           </Link>
           <Link
             href="/work"
@@ -106,6 +112,14 @@ export async function ServicePage({ service }: { service: Service }) {
             {t("seeWork")}
           </Link>
         </div>
+        {caseStudy && (
+          <Link
+            href={`/work/${caseStudy.slug}`}
+            className="mt-6 inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#D6001C] transition-colors border-b border-white/15 hover:border-[#D6001C] pb-1"
+          >
+            {t("readCaseStudy")}: {caseStudy.title} &rarr;
+          </Link>
+        )}
       </header>
 
       {/* Sections */}
@@ -210,7 +224,7 @@ export async function ServicePage({ service }: { service: Service }) {
             <span className="text-[#D6001C]">{t("ctaLine2")}</span>
           </h2>
           <Link
-            href="/#contact"
+            href={{ pathname: "/", query: { service: service.slug }, hash: "contact" }}
             className="mt-8 inline-block bg-[#D6001C] hover:bg-[#FF1A35] text-white px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5"
           >
             {t("startConversation")} &rarr;

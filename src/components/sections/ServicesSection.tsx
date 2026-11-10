@@ -2,7 +2,12 @@
 
 import { useRef, useState } from "react";
 import { m, useInView } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import NextLink from "next/link";
+import { getService } from "@/data/services";
+import { getServiceNl } from "@/data/services.nl";
+import { pickLocale } from "@/lib/utils";
+import { serviceHref } from "@/lib/seo";
 
 interface ServiceItem {
   number: string;
@@ -11,12 +16,34 @@ interface ServiceItem {
   tags: string[];
 }
 
-function ServiceCard({ service, index }: { service: ServiceItem; index: number }) {
+// ServicesGrid.items (messages/*.json) is plain translated copy, not linked
+// to the services data — this fixed order is how the two line up. Keep in
+// sync whenever an item is added/reordered in either locale file.
+const SERVICE_SLUGS = [
+  "web-development",
+  "ecommerce",
+  "migration",
+  "ai-automation",
+  "ai-video",
+  "social-media",
+  "branding",
+  "seo",
+];
+
+function ServiceCard({
+  service,
+  index,
+  href,
+}: {
+  service: ServiceItem;
+  index: number;
+  href: string;
+}) {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
@@ -26,73 +53,80 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
 
   return (
     <m.div
-      ref={cardRef}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => { setIsHovered(false); setRotation({ x: 0, y: 0 }); }}
-      style={{
-        transform: isHovered
-          ? `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) translateZ(20px)`
-          : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)",
-        transition: isHovered ? "transform 0.1s ease" : "transform 0.5s ease",
-      }}
-      className="group relative cursor-pointer"
-      data-cursor-hover
+      className="group relative"
     >
-      {/* Glow effect */}
-      <div
-        className={`absolute -inset-px rounded-sm bg-gradient-to-br from-[#D6001C]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`}
-      />
+      <NextLink
+        ref={cardRef}
+        href={href}
+        prefetch={false}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => { setIsHovered(false); setRotation({ x: 0, y: 0 }); }}
+        style={{
+          transform: isHovered
+            ? `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) translateZ(20px)`
+            : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)",
+          transition: isHovered ? "transform 0.1s ease" : "transform 0.5s ease",
+        }}
+        className="block cursor-pointer"
+        data-cursor-hover
+      >
+        {/* Glow effect */}
+        <div
+          className={`absolute -inset-px rounded-sm bg-gradient-to-br from-[#D6001C]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`}
+        />
 
-      {/* Card */}
-      <div className="relative border border-white/8 hover:border-[#D6001C]/40 bg-[#0a0a0a] hover:bg-[#0d0d0d] p-8 h-full transition-all duration-500 group">
-        {/* Animated border top */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D6001C] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+        {/* Card */}
+        <div className="relative border border-white/8 hover:border-[#D6001C]/40 bg-[#0a0a0a] hover:bg-[#0d0d0d] p-8 h-full transition-all duration-500 group">
+          {/* Animated border top */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D6001C] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
 
-        {/* Number */}
-        <div className="mb-8">
-          <span className="text-xs text-[#D6001C]/60 font-mono tracking-widest">{service.number}</span>
+          {/* Number */}
+          <div className="mb-8">
+            <span className="text-xs text-[#D6001C]/60 font-mono tracking-widest">{service.number}</span>
+          </div>
+
+          {/* Title */}
+          <h3 className="text-2xl font-black tracking-tight mb-4 group-hover:text-[#D6001C] transition-colors duration-300">
+            {service.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-gray-400 text-sm leading-relaxed mb-8">
+            {service.description}
+          </p>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {service.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-xs text-gray-400 border border-white/5 px-3 py-1 group-hover:border-[#D6001C]/20 group-hover:text-gray-400 transition-all duration-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Arrow */}
+          <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+            <svg className="w-5 h-5 text-[#D6001C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </div>
         </div>
-
-        {/* Title */}
-        <h3 className="text-2xl font-black tracking-tight mb-4 group-hover:text-[#D6001C] transition-colors duration-300">
-          {service.title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-8">
-          {service.description}
-        </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs text-gray-400 border border-white/5 px-3 py-1 group-hover:border-[#D6001C]/20 group-hover:text-gray-400 transition-all duration-300"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Arrow */}
-        <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-          <svg className="w-5 h-5 text-[#D6001C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
-        </div>
-      </div>
+      </NextLink>
     </m.div>
   );
 }
 
 export function ServicesSection() {
   const t = useTranslations("ServicesGrid");
+  const locale = useLocale();
   const services = t.raw("items") as ServiceItem[];
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -134,9 +168,14 @@ export function ServicesSection() {
 
         {/* Service grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service, i) => (
-            <ServiceCard key={service.number} service={service} index={i} />
-          ))}
+          {services.map((service, i) => {
+            const slug = SERVICE_SLUGS[i];
+            const data = slug && pickLocale(getService(slug), getServiceNl(slug), locale);
+            const href = data ? serviceHref(data, locale) : (locale === "nl" ? "/nl/diensten" : "/services");
+            return (
+              <ServiceCard key={service.number} service={service} index={i} href={href} />
+            );
+          })}
         </div>
       </div>
     </section>

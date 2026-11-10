@@ -95,7 +95,7 @@
     "kicker": "— What We Do",
     "heading1": "Digital",
     "heading2": "Arsenal.",
-    "subtitle": "Six disciplines. One mission: making your competitors irrelevant.",
+    "subtitle": "Eight disciplines. One mission: making your competitors irrelevant.",
     "items": [
       {
         "number": "01",
@@ -111,24 +111,36 @@
       },
       {
         "number": "03",
+        "title": "Magento Migration",
+        "description": "Moving a 44,769-SKU catalog off Magento 1 with zero downtime taught us what a migration actually requires. Every old URL mapped, nothing left behind.",
+        "tags": ["Magento 1 EOL", "Zero Downtime", "URL Mapping", "Headless"]
+      },
+      {
+        "number": "04",
         "title": "AI Automation",
         "description": "Intelligent systems that replace repetitive work, qualify leads 24/7 and scale your operations without scaling headcount.",
         "tags": ["GPT-4o", "Automation", "CRM", "Lead Scoring"]
       },
       {
-        "number": "04",
+        "number": "05",
+        "title": "AI Video",
+        "description": "Cinematic product and brand video, directed and edited — not just prompted. Built for webshops, ads and social, in days not weeks.",
+        "tags": ["Product Video", "Social Ads", "Direction", "Post-Production"]
+      },
+      {
+        "number": "06",
         "title": "Social Media",
         "description": "Content systems and growth architecture for brands that refuse to blend in.",
         "tags": ["Strategy", "Content", "Paid Ads", "Analytics"]
       },
       {
-        "number": "05",
+        "number": "07",
         "title": "Branding",
         "description": "Visual identities that make instant emotional impact. From strategy to complete brand systems.",
         "tags": ["Identity", "Design System", "Motion", "Brand Strategy"]
       },
       {
-        "number": "06",
+        "number": "08",
         "title": "SEO",
         "description": "Technical SEO and content infrastructure that compounds. We build assets, not campaigns.",
         "tags": ["Technical SEO", "Content", "Link Building", "Analytics"]
@@ -330,7 +342,7 @@
     "labelBudget": "Budget",
     "labelMessage": "Tell us your situation",
     "messagePlaceholder": "What are you trying to achieve? What's broken? What does success look like?",
-    "serviceOptions": ["Web Development", "E-Commerce", "AI Automation", "Branding", "SEO", "Social Media", "Full Partnership"],
+    "serviceOptions": ["Web Development", "E-Commerce", "Magento Migration", "AI Automation", "AI Video", "Branding", "SEO", "Social Media", "Full Partnership"],
     "errorGeneric": "Something went wrong. Please try again.",
     "sending": "Sending...",
     "send": "Send the Brief →"
@@ -426,9 +438,32 @@
     "stackTools": "Stack & tools",
     "faqTitle": "Frequently asked questions",
     "relatedServices": "Related services",
+    "readCaseStudy": "Read the case study",
     "ctaLine1": "Let's build your",
     "ctaLine2": "digital weapon.",
     "startConversation": "Start a Conversation"
+  },
+  "Booking": {
+    "scheduleLabel": "[ schedule ]",
+    "title": "Book a call",
+    "description": "Pick a date and time, then leave your details to book a strategy call with 404 Damned.",
+    "close": "Close",
+    "selectDateFirst": "Select a date first",
+    "timezoneNote": "CET · Amsterdam · 30 min",
+    "continue": "Continue →",
+    "back": "‹ back",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "notePlaceholder": "What do you want to talk about? (optional)",
+    "errorRequired": "Name and email are required.",
+    "errorGeneric": "Something went wrong. Please try again or email us directly.",
+    "confirm": "Confirm booking →",
+    "sending": "Sending…",
+    "lockedInTitle": "Locked in.",
+    "lockedInBody": "We got your request for <b>{when}</b>. We'll confirm by email shortly.",
+    "closeCta": "Close",
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "days": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
   },
   "ServicesHub": {
     "metaTitle": "Services — Digital Agency in Amsterdam",

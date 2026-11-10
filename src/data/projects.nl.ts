@@ -179,7 +179,7 @@ export const projectsNl: Project[] = [
 
     gallery: [],
 
-    featured: false,
+    featured: true,
     clientWork: true,
   },
 ];

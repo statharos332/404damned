@@ -95,7 +95,7 @@
     "kicker": "— Wat wij doen",
     "heading1": "Wat wij",
     "heading2": "bouwen.",
-    "subtitle": "Zes disciplines, onder één dak. Van eerste schets tot livegang volgt hetzelfde team het project van begin tot eind.",
+    "subtitle": "Acht disciplines, onder één dak. Van eerste schets tot livegang volgt hetzelfde team het project van begin tot eind.",
     "items": [
       {
         "number": "01",
@@ -111,24 +111,36 @@
       },
       {
         "number": "03",
+        "title": "Magento migratie",
+        "description": "Een catalogus van 44.769 SKU's van Magento 1 afgehaald zonder downtime — dat leerde ons wat een migratie écht vraagt. Elke oude URL gemapt, niets achtergelaten.",
+        "tags": ["Magento 1 EOL", "Zero downtime", "URL-mapping", "Headless"]
+      },
+      {
+        "number": "04",
         "title": "AI-automatisering",
         "description": "Intelligente systemen die repetitief werk overnemen, 24/7 leads kwalificeren en je operatie laten schalen zonder je personeelsbestand te vergroten.",
         "tags": ["GPT-4o", "Automatisering", "CRM", "Lead scoring"]
       },
       {
-        "number": "04",
+        "number": "05",
+        "title": "AI-video",
+        "description": "Cinematische product- en merkvideo, geregisseerd en gemonteerd — niet zomaar geprompt. Gebouwd voor webshops, ads en social, in dagen in plaats van weken.",
+        "tags": ["Productvideo", "Social ads", "Regie", "Postproductie"]
+      },
+      {
+        "number": "06",
         "title": "Social media",
         "description": "Contentsystemen en groeiarchitectuur voor merken die weigeren op te gaan in de massa.",
         "tags": ["Strategie", "Content", "Paid ads", "Analytics"]
       },
       {
-        "number": "05",
+        "number": "07",
         "title": "Branding",
         "description": "Visuele identiteiten met directe emotionele impact. Van strategie tot complete merksystemen.",
         "tags": ["Identiteit", "Designsysteem", "Motion", "Merkstrategie"]
       },
       {
-        "number": "06",
+        "number": "08",
         "title": "SEO",
         "description": "Technische SEO en content-infrastructuur die zich opstapelt. Wij bouwen assets, geen campagnes.",
         "tags": ["Technische SEO", "Content", "Linkbuilding", "Analytics"]
@@ -313,7 +325,7 @@
   "Contact": {
     "kicker": "— Neem contact op",
     "heading1": "Klaar voor een",
-    "heading2": "website die",
+    "heading2": "aanpak die",
     "heading3": "wél werkt?",
     "subtitle": "Eén gesprek is genoeg om te weten of we bij elkaar passen. Je krijgt eerlijk advies, ook als het antwoord 'dit heb je niet nodig' is.",
     "infoEmail": "E-mail",
@@ -330,7 +342,7 @@
     "labelBudget": "Budget",
     "labelMessage": "Vertel ons je situatie",
     "messagePlaceholder": "Wat probeer je te bereiken? Wat werkt niet? Hoe ziet succes eruit voor jou?",
-    "serviceOptions": ["Webontwikkeling", "E-commerce", "AI-automatisering", "Branding", "SEO", "Social media", "Volledig partnerschap"],
+    "serviceOptions": ["Webontwikkeling", "E-commerce", "Magento migratie", "AI-automatisering", "AI-video", "Branding", "SEO", "Social media", "Volledig partnerschap"],
     "errorGeneric": "Er ging iets mis. Probeer het opnieuw.",
     "sending": "Bezig met versturen...",
     "send": "Verstuur de briefing →"
@@ -426,9 +438,32 @@
     "stackTools": "Stack & tools",
     "faqTitle": "Veelgestelde vragen",
     "relatedServices": "Gerelateerde diensten",
+    "readCaseStudy": "Lees de case study",
     "ctaLine1": "Laten we",
     "ctaLine2": "je project bouwen.",
     "startConversation": "Start een gesprek"
+  },
+  "Booking": {
+    "scheduleLabel": "[ inplannen ]",
+    "title": "Plan een gesprek",
+    "description": "Kies een datum en tijd, en laat je gegevens achter om een strategiegesprek met 404 Damned in te plannen.",
+    "close": "Sluiten",
+    "selectDateFirst": "Kies eerst een datum",
+    "timezoneNote": "CET · Amsterdam · 30 min",
+    "continue": "Verder →",
+    "back": "‹ terug",
+    "namePlaceholder": "Je naam",
+    "emailPlaceholder": "Je e-mailadres",
+    "notePlaceholder": "Waar wil je het over hebben? (optioneel)",
+    "errorRequired": "Naam en e-mail zijn verplicht.",
+    "errorGeneric": "Er ging iets mis. Probeer het opnieuw of mail ons direct.",
+    "confirm": "Bevestig je aanvraag →",
+    "sending": "Bezig met versturen…",
+    "lockedInTitle": "Vastgelegd.",
+    "lockedInBody": "We hebben je aanvraag ontvangen voor <b>{when}</b>. We bevestigen zo snel mogelijk per e-mail.",
+    "closeCta": "Sluiten",
+    "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
+    "days": ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"]
   },
   "ServicesHub": {
     "metaTitle": "Diensten — Digital Bureau in Amsterdam",

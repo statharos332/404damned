@@ -219,7 +219,7 @@ export const projects: Project[] = [
 
         gallery: [],
 
-        featured: false,
+        featured: true,
         clientWork: true
     }
 ];

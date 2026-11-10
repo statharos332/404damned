@@ -1,14 +1,32 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { m, useInView, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 const budgetOptions = [
+  "< €2.500",
   "€2.500 – €5.000",
   "€5.000 – €15.000",
   "€15.000 – €30.000",
   "€30.000+",
+];
+
+// Maps a service page's `slug` (same across both locales, see
+// src/data/services.ts) to its position in Contact.serviceOptions, so a
+// visitor arriving via /?service=<slug>#contact lands with the right
+// service pre-selected instead of always seeing "website" framing.
+// "Full Partnership"/"Volledig partnerschap" has no source page, so it's
+// intentionally left off the end.
+const CONTACT_SERVICE_SLUGS = [
+  "web-development",
+  "ecommerce",
+  "migration",
+  "ai-automation",
+  "ai-video",
+  "branding",
+  "seo",
+  "social-media",
 ];
 
 export function ContactSection() {
@@ -29,6 +47,20 @@ export function ContactSection() {
   const [error, setError] = useState("");
   // honeypot — hidden field; bots fill it, humans don't
   const [website, setWebsite] = useState("");
+
+  // Pre-select the service a visitor was reading about on arrival, then
+  // drop the query param so a refresh/share doesn't carry it along.
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("service");
+    if (!slug) return;
+    const index = CONTACT_SERVICE_SLUGS.indexOf(slug);
+    const label = index !== -1 ? serviceOptions[index] : undefined;
+    if (label) {
+      setFormState((p) => ({ ...p, service: label }));
+      window.history.replaceState(null, "", window.location.pathname + window.location.hash);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

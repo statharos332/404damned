@@ -57,6 +57,12 @@ const nextConfig: NextConfig = {
     return [
       { source: "/nl/services", destination: "/nl/diensten", permanent: true },
       ...dienstenRedirects,
+      // Pre-launch /diensten/... links (no /nl prefix) still get crawled and
+      // indexed as 404s — e.g. /diensten/seo, /diensten/ai-automatisering.
+      // Every current NL service page already resolves under /nl/diensten/...,
+      // so a single prefix redirect (incl. the bare /diensten hub) fixes all
+      // of them instead of hand-listing each stale slug.
+      { source: "/diensten/:path*", destination: "/nl/diensten/:path*", permanent: true },
     ];
   },
 

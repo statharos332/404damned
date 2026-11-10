@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { AnimatePresence, m } from "framer-motion";
 import * as Dialog from "@radix-ui/react-dialog";
+import { useLocale, useTranslations } from "next-intl";
 
 /**
  * Custom "book a call" modal — brutalist take on a Cal.com-style picker.
@@ -13,11 +14,6 @@ import * as Dialog from "@radix-ui/react-dialog";
  */
 
 const SLOTS = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
-const DAYS = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
-const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
-];
 
 export function BookingModal({
   open,
@@ -28,6 +24,12 @@ export function BookingModal({
   onClose: () => void;
   triggerRef?: React.RefObject<HTMLElement | null>;
 }) {
+  const t = useTranslations("Booking");
+  const locale = useLocale();
+  const dateLocale = locale === "nl" ? "nl-NL" : "en-GB";
+  const DAYS = t.raw("days") as string[];
+  const MONTHS = t.raw("months") as string[];
+
   const today = useMemo(() => {
     const d = new Date();
     d.setHours(0, 0, 0, 0);
@@ -82,18 +84,18 @@ export function BookingModal({
   const submit = async () => {
     setError("");
     if (!form.name.trim() || !form.email.trim()) {
-      setError("Name and email are required.");
+      setError(t("errorRequired"));
       return;
     }
     setSending(true);
     try {
       const when =
         selectedDate &&
-        `${selectedDate.toLocaleDateString("en-GB", {
+        `${selectedDate.toLocaleDateString(dateLocale, {
           weekday: "long",
           day: "numeric",
           month: "long",
-        })} at ${slot}`;
+        })} ${locale === "nl" ? "om" : "at"} ${slot}`;
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -110,7 +112,7 @@ export function BookingModal({
       if (!res.ok) throw new Error("failed");
       setStep(3);
     } catch {
-      setError("Something went wrong. Please try again or email us directly.");
+      setError(t("errorGeneric"));
     } finally {
       setSending(false);
     }
@@ -160,20 +162,20 @@ export function BookingModal({
                   <div className="relative flex items-center justify-between p-6 border-b border-white/10">
                     <div>
                       <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#00E5FF]">
-                        [ schedule ]
+                        {t("scheduleLabel")}
                       </p>
                       <Dialog.Title asChild>
                         <h3 className="font-display font-black uppercase text-2xl text-white tracking-tight mt-1">
-                          Book a call
+                          {t("title")}
                         </h3>
                       </Dialog.Title>
                       <Dialog.Description className="sr-only">
-                        Pick a date and time, then leave your details to book a strategy call with 404 Damned.
+                        {t("description")}
                       </Dialog.Description>
                     </div>
                     <Dialog.Close asChild>
                       <button
-                        aria-label="Close"
+                        aria-label={t("close")}
                         className="font-mono text-2xl text-gray-400 hover:text-[#D6001C] transition-colors w-10 h-10 flex items-center justify-center border border-white/10 hover:border-[#D6001C]"
                       >
                         ×
@@ -248,12 +250,12 @@ export function BookingModal({
                     <div>
                       <p className="font-mono text-xs uppercase tracking-widest text-gray-400 mb-4">
                         {selectedDate
-                          ? selectedDate.toLocaleDateString("en-GB", {
+                          ? selectedDate.toLocaleDateString(dateLocale, {
                               weekday: "long",
                               day: "numeric",
                               month: "long",
                             })
-                          : "Select a date first"}
+                          : t("selectDateFirst")}
                       </p>
                       <div className="grid grid-cols-2 gap-2">
                         {SLOTS.map((s) => (
@@ -272,14 +274,14 @@ export function BookingModal({
                         ))}
                       </div>
                       <p className="mt-4 font-mono text-[0.6rem] text-gray-400">
-                        {"// CET · Amsterdam · 30 min"}
+                        {`// ${t("timezoneNote")}`}
                       </p>
                       <button
                         disabled={!selectedDate || !slot}
                         onClick={() => setStep(2)}
                         className="mt-6 w-full bg-[#D6001C] hover:bg-[#FF1A35] disabled:opacity-30 disabled:cursor-not-allowed text-white py-4 font-bold tracking-[0.2em] uppercase text-xs transition-all"
                       >
-                        Continue →
+                        {t("continue")}
                       </button>
                     </div>
                   </div>
@@ -291,10 +293,10 @@ export function BookingModal({
                       onClick={() => setStep(1)}
                       className="font-mono text-xs text-gray-400 hover:text-white mb-6"
                     >
-                      ‹ back
+                      {t("back")}
                     </button>
                     <p className="font-mono text-xs text-[#00E5FF] mb-6">
-                      {selectedDate?.toLocaleDateString("en-GB", {
+                      {selectedDate?.toLocaleDateString(dateLocale, {
                         weekday: "long",
                         day: "numeric",
                         month: "long",
@@ -304,20 +306,20 @@ export function BookingModal({
                     <div className="space-y-4">
                       <input
                         type="text"
-                        placeholder="Your name"
+                        placeholder={t("namePlaceholder")}
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm transition-colors"
                       />
                       <input
                         type="email"
-                        placeholder="Your email"
+                        placeholder={t("emailPlaceholder")}
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         className="w-full bg-transparent border border-white/15 focus:border-[#00E5FF] text-white px-4 py-3 font-mono text-sm transition-colors"
                       />
                       <textarea
-                        placeholder="What do you want to talk about? (optional)"
+                        placeholder={t("notePlaceholder")}
                         rows={3}
                         value={form.note}
                         onChange={(e) => setForm({ ...form, note: e.target.value })}
@@ -331,7 +333,7 @@ export function BookingModal({
                         disabled={sending}
                         className="w-full bg-[#D6001C] hover:bg-[#FF1A35] disabled:opacity-50 text-white py-4 font-bold tracking-[0.2em] uppercase text-xs transition-all"
                       >
-                        {sending ? "Sending…" : "Confirm booking →"}
+                        {sending ? t("sending") : t("confirm")}
                       </button>
                     </div>
                   </div>
@@ -341,23 +343,21 @@ export function BookingModal({
                   <div className="text-center py-12">
                     <div className="text-5xl mb-6">⚡</div>
                     <h4 className="font-display font-black uppercase text-3xl text-white tracking-tight">
-                      Locked in.
+                      {t("lockedInTitle")}
                     </h4>
                     <p className="mt-4 text-gray-400 max-w-sm mx-auto">
-                      We got your request for{" "}
-                      <span className="text-white">
-                        {selectedDate?.toLocaleDateString("en-GB", {
+                      {t.rich("lockedInBody", {
+                        when: `${selectedDate?.toLocaleDateString(dateLocale, {
                           weekday: "long",
                           day: "numeric",
                           month: "long",
-                        })}{" "}
-                        at {slot}
-                      </span>
-                      . We&apos;ll confirm by email shortly.
+                        })} ${locale === "nl" ? "om" : "at"} ${slot}`,
+                        b: (chunks) => <span className="text-white">{chunks}</span>,
+                      })}
                     </p>
                     <Dialog.Close asChild>
                       <button className="mt-8 border border-white/20 hover:border-[#00E5FF] hover:text-[#00E5FF] text-white px-8 py-3 font-mono text-xs uppercase tracking-widest transition-all">
-                        Close
+                        {t("closeCta")}
                       </button>
                     </Dialog.Close>
                   </div>

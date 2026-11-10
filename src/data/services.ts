@@ -47,6 +47,13 @@ export interface Service {
   faqs: ServiceFAQ[];
   /** other service slugs to cross-link for internal-linking authority */
   related: string[];
+  /** overrides ServicePageChrome's generic "bookCall" hero CTA with a
+   *  service-specific ask (e.g. "Discuss your migration") — falls back to
+   *  the generic copy when absent. */
+  ctaLabel?: string;
+  /** slug of a /work/<slug> case study to link prominently from this page —
+   *  the proof behind the pitch, not just a claim. */
+  caseStudySlug?: string;
 }
 
 export const services: Service[] = [
@@ -184,7 +191,9 @@ export const services: Service[] = [
         a: "Yes — Magento specifically needs it more than most platforms. Care plans start at €300/month: security patches, version upgrades, uptime monitoring, priority bugfixes. If you want us actively building on top (new features, ongoing CRO), that's a Growth retainer starting at €1,200/month. Works the same whether we built your store or you're moving from another agency.",
       },
     ],
-    related: ["web-development", "seo", "branding", "ai-video"],
+    related: ["web-development", "migration", "seo", "branding", "ai-video"],
+    ctaLabel: "Discuss my webshop",
+    caseStudySlug: "magento-1-to-headless-wordpress-migration",
   },
 
   {
@@ -246,6 +255,7 @@ export const services: Service[] = [
       },
     ],
     related: ["web-development", "ecommerce", "seo"],
+    ctaLabel: "Discuss my workflow",
   },
 
   {
@@ -485,6 +495,7 @@ export const services: Service[] = [
       },
     ],
     related: ["branding", "ecommerce", "social-media"],
+    ctaLabel: "Request a video proposal",
   },
 
   {
@@ -546,6 +557,74 @@ export const services: Service[] = [
       },
     ],
     related: ["seo", "social-media", "web-development"],
+  },
+
+  {
+    slug: "migration",
+    name: "Magento Migration",
+    h1: "Migrate your Magento webshop with a plan, not a leap of faith",
+    tagline: "Move off an end-of-life Magento 1 store with every URL mapped and zero downtime at cutover.",
+    metaTitle: "Magento Migration Services Amsterdam — Off Magento 1, Zero Downtime",
+    metaDescription:
+      "Magento migration for webshops in Amsterdam and beyond. Platform choice, URL mapping and a tested cutover, based on a real 44,769-SKU migration with zero downtime. Book a call.",
+    keywords: [
+      "Magento migration",
+      "Magento migration agency",
+      "Magento to WooCommerce",
+      "Magento 1 end of life",
+      "headless ecommerce migration",
+    ],
+    intro:
+      "We migrated a 44,769-SKU catalogue off a Magento 1 server that could no longer run its own reindex without falling over — so this isn't a theoretical service page. A migration is the part of e-commerce work with the most to lose: get the URLs or the cutover wrong and you reset years of SEO equity and a weekend of orders along with it. We map it before we move anything.",
+    sections: [
+      {
+        heading: "When a migration is actually worth it",
+        body: "Magento 1 has had no security patches since 2020, and plenty of stores are still running it because migrating feels riskier than staying put. The signal to move isn't age alone — it's a catalogue that's outgrown what the platform can carry: reindexing that competes with feed exports for server resources, search that's gone unreliable, or a security position nobody wants to own anymore.",
+      },
+      {
+        heading: "How we actually run the move",
+        body: "Platform choice comes first, matched to your catalogue, not to whichever stack is easiest for us: headless WordPress and Next.js for large or complex catalogues, WooCommerce when the store is smaller and simpler. Every old URL gets mapped to its new address, products/customers/orders migrate with it, and the cutover runs staged on a schedule you approve — tested on staging before anything touches the live store.",
+      },
+      {
+        heading: "What the last one actually cost us",
+        body: "The 44,769-SKU migration took roughly two weeks, with zero downtime during cutover, and the reindex-and-export overload that used to threaten the server hasn't recurred since. We didn't track post-migration ranking data for that client, so we're not going to promise you a specific SEO number — just the mapping and process that gives you the best shot at keeping what you've built.",
+      },
+    ],
+    deliverables: [
+      "Audit of your current Magento setup",
+      "Platform recommendation (headless, WooCommerce, or otherwise) based on your catalogue",
+      "URL mapping & redirects",
+      "Product, customer & order migration",
+      "Staging, testing and a zero-downtime cutover",
+      "Structured data & metadata carried across",
+      "Support through the first weeks after launch",
+    ],
+    stack: ["Magento / Adobe Commerce", "Headless WordPress", "WooCommerce", "Next.js", "URL mapping & redirects", "Vercel"],
+    faqs: [
+      {
+        q: "Why move off Magento 1 at all?",
+        a: "No security patches since 2020, and most installs are now carrying a catalogue well past what the original architecture was built for — reindexing and feed exports competing for the same server resources is a common failure mode. Staying put is a real option too; we'll tell you if your setup doesn't need to move yet.",
+      },
+      {
+        q: "Will I lose my SEO rankings in the migration?",
+        a: "That's the real risk, and most of the work goes into preventing it: every old URL mapped to its new one, structured data and metadata carried across, content migrated carefully. We didn't measure post-migration rankings for our last Magento client, so we won't promise you a specific number — only the process that gives your existing SEO equity the best chance of surviving the move.",
+      },
+      {
+        q: "What platform do you migrate us to?",
+        a: "Whichever fits your catalogue — a headless WordPress and Next.js build for large or complex catalogues, WooCommerce when the store is smaller. We're not defaulting to whatever's easiest for us to build; the previous migration we ran went headless because the catalogue size called for it, not because it's our only move.",
+      },
+      {
+        q: "How long does a migration take?",
+        a: "Our last one — 44,769 SKUs, full catalogue plus customers and orders — ran about two weeks. Yours depends on catalogue size, integrations and how much custom logic the current store carries; we scope a real timeline after seeing it.",
+      },
+      {
+        q: "Is there downtime during the switch?",
+        a: "Our last cutover ran with zero downtime, staged and tested on staging before it touched the live store. That's the standard we work to, not a guarantee independent of your specific setup — we'll flag it upfront if anything about your store makes that harder.",
+      },
+    ],
+    related: ["ecommerce", "seo", "web-development"],
+    ctaLabel: "Discuss your migration",
+    caseStudySlug: "magento-1-to-headless-wordpress-migration",
   },
 ];
 
