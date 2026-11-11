@@ -33,7 +33,7 @@ const ProcessSection = dynamic(
   { loading: () => sectionFallback }
 );
 // ClientsStrip's logo marquee is still placeholder neighborhood names
-// ("replace with real names as you win them") — keep it off until there
+// ("replace with real names as you win them"), keep it off until there
 // are real clients to show; a fake trust signal next to a real award
 // undercuts the award. The real recognition lives in AwardSection below.
 // const ClientsStrip = dynamic(
@@ -75,7 +75,7 @@ export default async function Home() {
       {/* signature scrolling strip right after the hero */}
       <ScrollingStrip words={t.raw("strip1") as string[]} />
 
-      {/* Real, verified award — placed early so it gets the attention a
+      {/* Real, verified award: placed early so it gets the attention a
           global recognition deserves, not buried after five other sections. */}
       <AwardSection />
 

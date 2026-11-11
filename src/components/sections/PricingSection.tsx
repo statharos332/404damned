@@ -130,7 +130,7 @@ export function PricingSection() {
           <span className="text-gray-400 ml-2">{t("trustNoteExtra")}</span>
         </m.div>
 
-        {/* Care / maintenance note — for people who already have a site */}
+        {/* Care / maintenance note: for people who already have a site */}
         <m.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}

@@ -52,7 +52,7 @@ export function WorkPreview() {
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#0c0c0c]">
                   <CoverMedia
                     src={p.cover}
-                    alt={`${p.client} — ${p.title}`}
+                    alt={`${p.client}: ${p.title}`}
                     poster={p.coverPoster}
                     sizes="(max-width: 768px) 100vw, 440px"
                     className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"

@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 /**
- * A self-lazy video that renders at the file's OWN natural aspect ratio —
+ * A self-lazy video that renders at the file's OWN natural aspect ratio,
  * no forced dimensions, no cropping. Whatever you drop in just sits as it
  * is. Sizing is entirely controlled by the `className` you pass (e.g.
  * `w-full h-auto` or `max-h-[400px] w-auto`).
  *
  * It loads (preload=none) and plays only when scrolled into view, pauses
  * when it leaves. Once it has entered the viewport the source stays mounted
- * forever — we only toggle play/pause after that — so videos always resume
+ * forever; we only toggle play/pause after that, so videos always resume
  * after a scroll (vertical or horizontal).
  */
 export function LazyVideo({
@@ -50,7 +50,7 @@ export function LazyVideo({
     return () => io.disconnect();
   }, []);
 
-  // Drive playback in an effect — runs AFTER the src is committed to the DOM,
+  // Drive playback in an effect; runs AFTER the src is committed to the DOM,
   // so play() never races an undefined source.
   useEffect(() => {
     const v = videoRef.current;

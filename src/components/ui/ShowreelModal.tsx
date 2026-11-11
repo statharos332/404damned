@@ -7,7 +7,7 @@ const REEL_MP4 = "/video/showreel.mp4";
 const REEL_POSTER = "/video/showreel_poster.webp";
 
 /**
- * The heavy fullscreen showreel player — split out of ShowreelProvider so
+ * The heavy fullscreen showreel player, split out of ShowreelProvider so
  * its framer-motion markup only loads once openShowreel() is first called,
  * instead of being part of every page's initial JS bundle.
  */

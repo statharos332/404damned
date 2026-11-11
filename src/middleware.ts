@@ -12,7 +12,7 @@ const DUTCH_GEO_COUNTRIES = new Set(["NL"]);
 export default function middleware(request: NextRequest) {
   const hasLocaleCookie = request.cookies.has(LOCALE_COOKIE);
   const pathname = request.nextUrl.pathname;
-  // Skip the geo-redirect for ANY explicit locale prefix, not just /nl —
+  // Skip the geo-redirect for ANY explicit locale prefix, not just /nl;
   // otherwise a fresh NL visitor hitting an explicit /en/... URL (e.g. from
   // a search result or shared link) gets double-prefixed to /nl/en/... and
   // 404s. An explicit locale in the URL is the visitor's own choice; the

@@ -6,7 +6,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useLocale, useTranslations } from "next-intl";
 
 /**
- * Custom "book a call" modal — brutalist take on a Cal.com-style picker.
+ * Custom "book a call" modal: brutalist take on a Cal.com-style picker.
  * Step 1: pick a date (calendar) + time slot.
  * Step 2: enter name/email/note → submit.
  * Submits to /api/contact (reuses the existing email pipeline) with a
@@ -45,7 +45,7 @@ export function BookingModal({
   const [error, setError] = useState("");
 
   // Radix Dialog handles body-scroll-lock, Escape-to-close, outside-click
-  // dismiss, focus trap and focus-return on its own — no manual wiring needed.
+  // dismiss, focus trap and focus-return on its own; no manual wiring needed.
 
   // reset when closed
   useEffect(() => {
@@ -104,8 +104,8 @@ export function BookingModal({
           email: form.email,
           message: `[CALL BOOKING] Requested slot: ${when}.\n\n${form.note}`,
           service: "Call booking",
-          budget: "—",
-          company: "—",
+          budget: "N/A",
+          company: "N/A",
           website: "", // honeypot
         }),
       });
@@ -132,7 +132,7 @@ export function BookingModal({
               />
             </Dialog.Overlay>
 
-            {/* modal — data-lenis-prevent lets it scroll natively on touch
+            {/* modal: data-lenis-prevent lets it scroll natively on touch
                 (Lenis would otherwise capture the gesture); dvh keeps the
                 bottom above the mobile browser chrome. */}
             <Dialog.Content

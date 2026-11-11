@@ -12,7 +12,7 @@ import type { Project } from "@/data/projects";
  * A single left-aligned row of small "film cells" (videos stay alive). Click
  * one and it expands into a cinematic lightbox stage: the media at its own
  * natural size, a mono HUD counter, a filmstrip to jump between shots, and
- * keyboard nav. Nothing is cropped or forced — whatever media you drop in
+ * keyboard nav. Nothing is cropped or forced; whatever media you drop in
  * just sits, small in the row and large on the stage.
  */
 export function MediaGallery({ project }: { project: Project }) {
@@ -202,7 +202,7 @@ export function MediaGallery({ project }: { project: Project }) {
                 </AnimatePresence>
               </div>
 
-              {/* filmstrip — horizontal bottom on mobile, vertical column on the right on desktop */}
+              {/* filmstrip: horizontal bottom on mobile, vertical column on the right on desktop */}
               <div className="shrink-0 flex sm:flex-col gap-2 items-center justify-center sm:justify-center px-5 py-4 sm:px-4 sm:py-6 sm:w-28 lg:w-32 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto scrollbar-thin">
                 {media.map((mi, idx) => (
                   <button

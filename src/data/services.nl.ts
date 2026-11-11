@@ -1,8 +1,8 @@
 /**
  * ============================================================
- *  404 DAMNED — Service landing pages (Dutch)
+ *  404 DAMNED: Service landing pages (Dutch)
  * ============================================================
- *  Dutch mirror of services.ts — same slugs/order/stack/related,
+ *  Dutch mirror of services.ts, same slugs/order/stack/related,
  *  translated (not literal) copy targeting Dutch search intent.
  *  Keep in sync whenever services.ts changes.
  * ============================================================
@@ -17,7 +17,7 @@ export const servicesNl: Service[] = [
     name: "Webontwikkeling",
     h1: "Webontwikkeling in Amsterdam",
     tagline: "Snelle, custom websites en webapps gebouwd om te converteren.",
-    metaTitle: "Webontwikkeling Amsterdam — Custom Next.js Websites",
+    metaTitle: "Webontwikkeling Amsterdam: Custom Next.js Websites",
     metaDescription:
       "Premium webontwikkeling in Amsterdam. Wij bouwen snelle, custom Next.js-websites en webapps, ontworpen voor conversie, snelheid en vindbaarheid. Plan een strategiegesprek.",
     keywords: [
@@ -28,7 +28,7 @@ export const servicesNl: Service[] = [
       "webontwikkeling bureau Amsterdam",
     ],
     intro:
-      "Stathis bouwt al voor het web — voor bureaus, voor grote klanten, voor zichzelf — sinds lang voordat 404 DAMNED bestond. Elke site die wij opleveren komt uit die achtergrond voort: custom gecodeerd in Next.js en React, afgesteld tot hij in minder dan een seconde laadt, en zo gestructureerd dat Google hem daadwerkelijk kan lezen in plaats van moet gokken.",
+      "Stathis bouwt al voor het web, voor bureaus, voor grote klanten, voor zichzelf, sinds lang voordat 404 DAMNED bestond. Elke site die wij opleveren komt uit die achtergrond voort: custom gecodeerd in Next.js en React, afgesteld tot hij in minder dan een seconde laadt, en zo gestructureerd dat Google hem daadwerkelijk kan lezen in plaats van moet gokken.",
     sections: [
       {
         heading: "Snelheid beslist meer dan waar de meeste mensen budget voor vrijmaken",
@@ -36,11 +36,11 @@ export const servicesNl: Service[] = [
       },
       {
         heading: "Geen thema dat kunstmatig wordt opgerekt tot jouw merk",
-        body: "Elke build begint bij een leeg bestand in React en Next.js. Dat duurt langer dan een thema installeren en de kleuren omzetten, maar het betekent dat de site precies zo snel en onderscheidend is als jouw bedrijf nodig heeft — en dat de code schoon genoeg blijft om over twee jaar, door jouw team of het onze, uit te breiden zonder alles opnieuw te bouwen.",
+        body: "Elke build begint bij een leeg bestand in React en Next.js. Dat duurt langer dan een thema installeren en de kleuren omzetten, maar het betekent dat de site precies zo snel en onderscheidend is als jouw bedrijf nodig heeft, en dat de code schoon genoeg blijft om over twee jaar, door jouw team of het onze, uit te breiden zonder alles opnieuw te bouwen.",
       },
       {
         heading: "Gebouwd zodat Google het begrijpt, niet alleen mensen",
-        body: "Semantische markup, server-side rendering, structured data en een schone URL-structuur worden niet achteraf toegevoegd — ze horen bij dezelfde build. Een site die zoekmachines makkelijk kunnen uitlezen, is niet toevallig ook een site die makkelijker te onderhouden blijft naarmate je groeit.",
+        body: "Semantische markup, server-side rendering, structured data en een schone URL-structuur worden niet achteraf toegevoegd. Ze horen bij dezelfde build. Een site die zoekmachines makkelijk kunnen uitlezen, is niet toevallig ook een site die makkelijker te onderhouden blijft naarmate je groeit.",
       },
     ],
     deliverables: [
@@ -56,23 +56,23 @@ export const servicesNl: Service[] = [
     faqs: [
       {
         q: "Wat kost een website in Amsterdam?",
-        a: "Een custom marketingsite begint doorgaans rond de €5.000; grotere webapps en platforms lopen daarna op afhankelijk van de scope. Wij maken een offerte na een kort gesprek, zodra we echt weten wat je nodig hebt — geen vast pakket dat de factuur oprekt.",
+        a: "Een custom marketingsite begint doorgaans rond de €5.000; grotere webapps en platforms lopen daarna op afhankelijk van de scope. Wij maken een offerte na een kort gesprek, zodra we echt weten wat je nodig hebt, geen vast pakket dat de factuur oprekt.",
       },
       {
         q: "Hoe lang duurt het om een website te bouwen?",
-        a: "De meeste custom builds gaan binnen 4 tot 8 weken live. De belangrijkste variabelen zijn de scope en hoe snel content en feedback vanuit jouw kant terugkomen — we leggen de planning vast in de offerte en houden ons daaraan.",
+        a: "De meeste custom builds gaan binnen 4 tot 8 weken live. De belangrijkste variabelen zijn de scope en hoe snel content en feedback vanuit jouw kant terugkomen. We leggen de planning vast in de offerte en houden ons daaraan.",
       },
       {
         q: "Werken jullie met WordPress of custom code?",
-        a: "Custom, in Next.js en React — daar komen de snelheid en controle vandaan. Heeft een project echt een CMS nodig, dan koppelen we een snelle headless oplossing zodat jouw team content kan aanpassen zonder de code aan te raken.",
+        a: "Custom, in Next.js en React. Daar komen de snelheid en controle vandaan. Heeft een project echt een CMS nodig, dan koppelen we een snelle headless oplossing zodat jouw team content kan aanpassen zonder de code aan te raken.",
       },
       {
         q: "Gaat mijn website ook echt scoren in Google?",
-        a: "De build zelf is snel, crawlbaar en gestructureerd opgeleverd — dat is de basis die nodig is om te kunnen ranken. Of hij daadwerkelijk gaat scoren hangt ook af van content en backlinks over tijd, waar we apart bij kunnen helpen.",
+        a: "De build zelf is snel, crawlbaar en gestructureerd opgeleverd. Dat is de basis die nodig is om te kunnen ranken. Of hij daadwerkelijk gaat scoren hangt ook af van content en backlinks over tijd, waar we apart bij kunnen helpen.",
       },
       {
         q: "Bieden jullie ook ondersteuning na livegang?",
-        a: "Ja, op twee manieren. Care-abonnementen beginnen vanaf €300/maand: security patches, dependency-updates, monitoring en bugfixes met voorrang. Wil je dat we actief blijven doorbouwen — nieuwe features, doorlopende CRO — dan is dat een Growth-retainer vanaf €1.200/maand. De meeste klanten beginnen met Care en stappen op als ze meer nodig hebben.",
+        a: "Ja, op twee manieren. Care-abonnementen beginnen vanaf €300/maand: security patches, dependency-updates, monitoring en bugfixes met voorrang. Wil je dat we actief blijven doorbouwen (nieuwe features, doorlopende CRO), dan is dat een Growth-retainer vanaf €1.200/maand. De meeste klanten beginnen met Care en stappen op als ze meer nodig hebben.",
       },
     ],
     related: ["ecommerce", "seo", "ai-automation"],
@@ -84,7 +84,7 @@ export const servicesNl: Service[] = [
     name: "E-commerce",
     h1: "E-commerce ontwikkeling in Amsterdam",
     tagline: "Sterk converterende webshops op Shopify, Magento & headless.",
-    metaTitle: "E-commerce ontwikkeling Amsterdam — Shopify & Magento",
+    metaTitle: "E-commerce ontwikkeling Amsterdam: Shopify & Magento",
     metaDescription:
       "E-commerce ontwikkeling in Amsterdam. Sterk converterende webshops op Shopify, Magento en headless commerce, gebouwd voor snelheid, schaal en omzet. Plan een gesprek.",
     keywords: [
@@ -95,7 +95,7 @@ export const servicesNl: Service[] = [
       "webshop ontwikkeling Amsterdam",
     ],
     intro:
-      "Tatiana en Stathis bouwen samen al jaren webshops op Shopify, Magento en WooCommerce — van kleine catalogi tot complexe B2B-prijsstructuren. Welk platform ook bij jouw fase past, de build draait om één getal: de conversieratio, niet hoe de demo eruitzag in een pitch.",
+      "Tatiana en Stathis bouwen samen al jaren webshops op Shopify, Magento en WooCommerce, van kleine catalogi tot complexe B2B-prijsstructuren. Welk platform ook bij jouw fase past, de build draait om één getal: de conversieratio, niet hoe de demo eruitzag in een pitch.",
     sections: [
       {
         heading: "Het juiste platform voor jouw fase",
@@ -124,7 +124,7 @@ export const servicesNl: Service[] = [
     faqs: [
       {
         q: "Wat kost een webshop?",
-        a: "Een build op Shopify of WooCommerce kost doorgaans €3.500–€15.000, afhankelijk van catalogusgrootte en integraties; Magento of een headless build kost €15.000–€60.000+ zodra B2B-prijsregels of een grote multi-warehouse-catalogus in het spel zijn. We zetten precies uiteen wat die range bepaalt in onze prijsgids. In beide gevallen maken we de offerte na een gesprek, zodra we je echte catalogus kennen — niet vanuit een vast pakket.",
+        a: "Een build op Shopify of WooCommerce kost doorgaans €3.500–€15.000, afhankelijk van catalogusgrootte en integraties; Magento of een headless build kost €15.000–€60.000+ zodra B2B-prijsregels of een grote multi-warehouse-catalogus in het spel zijn. We zetten precies uiteen wat die range bepaalt in onze prijsgids. In beide gevallen maken we de offerte na een gesprek, zodra we je echte catalogus kennen, niet vanuit een vast pakket.",
       },
       {
         q: "Wat is beter, Shopify of Magento?",
@@ -132,7 +132,7 @@ export const servicesNl: Service[] = [
       },
       {
         q: "Kunnen jullie mijn bestaande webshop migreren zonder ranking te verliezen?",
-        a: "Ja — dat is het grootste risico van een migratie, en ook het grootste deel van het werk. Oude URL's worden gemapt naar nieuwe, structured data en metadata gaan mee, en content wordt zorgvuldig genoeg overgezet zodat je SEO-waarde niet terugvalt naar nul.",
+        a: "Ja, dat is het grootste risico van een migratie, en ook het grootste deel van het werk. Oude URL's worden gemapt naar nieuwe, structured data en metadata gaan mee, en content wordt zorgvuldig genoeg overgezet zodat je SEO-waarde niet terugvalt naar nul.",
       },
       {
         q: "Bouwen jullie headless e-commerce?",
@@ -144,7 +144,7 @@ export const servicesNl: Service[] = [
       },
       {
         q: "Onderhouden jullie ook Magento- of WooCommerce-webshops na livegang?",
-        a: "Ja — Magento heeft dat specifiek meer nodig dan de meeste platforms. Care-abonnementen beginnen vanaf €300/maand: security patches, versie-upgrades, uptime-monitoring en bugfixes met voorrang. Wil je dat we actief blijven doorbouwen — nieuwe features, doorlopende CRO — dan is dat een Growth-retainer vanaf €1.200/maand. Werkt hetzelfde of we jouw shop hebben gebouwd of je overstapt van een ander bureau.",
+        a: "Ja, Magento heeft dat specifiek meer nodig dan de meeste platforms. Care-abonnementen beginnen vanaf €300/maand: security patches, versie-upgrades, uptime-monitoring en bugfixes met voorrang. Wil je dat we actief blijven doorbouwen (nieuwe features, doorlopende CRO), dan is dat een Growth-retainer vanaf €1.200/maand. Werkt hetzelfde of we jouw shop hebben gebouwd of je overstapt van een ander bureau.",
       },
     ],
     related: ["web-development", "migration", "seo", "branding", "ai-video"],
@@ -157,7 +157,7 @@ export const servicesNl: Service[] = [
     name: "AI-automatisering",
     h1: "AI-automatisering voor bedrijven in Amsterdam",
     tagline: "Custom AI-systemen die het repetitieve werk van je overnemen.",
-    metaTitle: "AI-automatisering Amsterdam — Custom AI-systemen voor bedrijven",
+    metaTitle: "AI-automatisering Amsterdam: Custom AI-systemen voor bedrijven",
     metaDescription:
       "AI-automatisering in Amsterdam. Wij bouwen custom AI-systemen en workflows die repetitief werk wegnemen, kosten verlagen en jouw operatie laten schalen. Plan een strategiegesprek.",
     keywords: [
@@ -168,11 +168,11 @@ export const servicesNl: Service[] = [
       "maatwerk AI-oplossingen Amsterdam",
     ],
     intro:
-      "De meeste 'AI-automatisering'-pitches blijken uiteindelijk een chatbot te zijn die ergens op een website is geplakt. Wat wij bouwen zit juist verweven in je echte workflows — de inbox, de CRM, het spreadsheet waar je tegenop ziet — en doet het schrijven, sorteren, beantwoorden en samenvatten dat stiekem uren van je week opeet.",
+      "De meeste 'AI-automatisering'-pitches blijken uiteindelijk een chatbot te zijn die ergens op een website is geplakt. Wat wij bouwen zit juist verweven in je echte workflows: de inbox, de CRM, het spreadsheet waar je tegenop ziet. Het doet het schrijven, sorteren, beantwoorden en samenvatten dat stiekem uren van je week opeet.",
     sections: [
       {
         heading: "Automatiseer het werk dat je week opeet",
-        body: "Leadafhandeling, content-concepten, data-invoer, supporttriage, terugkerende rapportages — dit zijn de taken die de tijd van een team opslurpen zonder dat er veel echt oordeelsvermogen bij nodig is. Wij brengen in kaart waar je week daadwerkelijk naartoe gaat, en bouwen systemen voor de delen die geen mens met de hand hoeft te doen.",
+        body: "Leadafhandeling, content-concepten, data-invoer, supporttriage, terugkerende rapportages: dit zijn de taken die de tijd van een team opslurpen zonder dat er veel echt oordeelsvermogen bij nodig is. Wij brengen in kaart waar je week daadwerkelijk naartoe gaat, en bouwen systemen voor de delen die geen mens met de hand hoeft te doen.",
       },
       {
         heading: "Verweven met je bestaande tools",
@@ -180,7 +180,7 @@ export const servicesNl: Service[] = [
       },
       {
         heading: "Op maat, gemeten, en van jou",
-        body: "Wij bouwen naar jouw workflow, niet naar een sjabloon, en meten het resultaat dat ertoe doet — bespaarde uren, verlaagde kosten, opgeleverde output — zodat direct duidelijk is of het systeem zijn plek heeft verdiend. Jij bent eigenaar van wat we bouwen; wij hebben het alleen gebouwd.",
+        body: "Wij bouwen naar jouw workflow, niet naar een sjabloon, en meten het resultaat dat ertoe doet: bespaarde uren, verlaagde kosten, opgeleverde output. Dat maakt direct duidelijk of het systeem zijn plek heeft verdiend. Jij bent eigenaar van wat we bouwen; wij hebben het alleen gebouwd.",
       },
     ],
     deliverables: [
@@ -199,15 +199,15 @@ export const servicesNl: Service[] = [
       },
       {
         q: "Is dit gewoon een chatbot?",
-        a: "Nee — een chatbot is één kleine use case tussen vele. Het meeste dat wij bouwen heeft helemaal geen interface: het draait binnen een workflow, voert de taak van begin tot eind uit, en je team hoeft er niet meer over na te denken.",
+        a: "Nee, een chatbot is één kleine use case tussen vele. Het meeste dat wij bouwen heeft helemaal geen interface: het draait binnen een workflow, voert de taak van begin tot eind uit, en je team hoeft er niet meer over na te denken.",
       },
       {
         q: "Werkt het samen met de tools die we al gebruiken?",
-        a: "Ja, via hun API's — je CRM, e-mail, spreadsheets, webshop, interne systemen. De automatisering wordt gebouwd om bij jouw proces te passen, niet andersom.",
+        a: "Ja, via hun API's: je CRM, e-mail, spreadsheets, webshop, interne systemen. De automatisering wordt gebouwd om bij jouw proces te passen, niet andersom.",
       },
       {
         q: "Hoe weten we dat het de moeite waard is?",
-        a: "Elke automatisering wordt vooraf afgebakend rond een meetbaar resultaat — bespaarde uren of verlaagde kosten — en we beginnen met de taak met het hoogste rendement, zodat je het snel ziet werken in plaats van het op vertrouwen aan te moeten nemen.",
+        a: "Elke automatisering wordt vooraf afgebakend rond een meetbaar resultaat (bespaarde uren of verlaagde kosten), en we beginnen met de taak met het hoogste rendement, zodat je het snel ziet werken in plaats van het op vertrouwen aan te moeten nemen.",
       },
     ],
     related: ["web-development", "ecommerce", "seo"],
@@ -219,9 +219,9 @@ export const servicesNl: Service[] = [
     name: "Branding",
     h1: "Branding & identiteit in Amsterdam",
     tagline: "Scherpe, onderscheidende merken die niet op de rest lijken.",
-    metaTitle: "Branding Amsterdam — Merkidentiteit & designbureau",
+    metaTitle: "Branding Amsterdam: Merkidentiteit & designbureau",
     metaDescription:
-      "Branding en identiteitsontwerp in Amsterdam. Wij bouwen onderscheidende merken — strategie, logo, visueel systeem en tone-of-voice — die aandacht afdwingen en premium prijzen rechtvaardigen.",
+      "Branding en identiteitsontwerp in Amsterdam. Wij bouwen onderscheidende merken (strategie, logo, visueel systeem en tone-of-voice) die aandacht afdwingen en premium prijzen rechtvaardigen.",
     keywords: [
       "branding Amsterdam",
       "merkidentiteit Amsterdam",
@@ -230,7 +230,7 @@ export const servicesNl: Service[] = [
       "visuele identiteit Nederland",
     ],
     intro:
-      "De meeste merken lijken op hun concurrenten met een ander logo erop geplakt. Wij beginnen met positionering — voor wie je er werkelijk bent, waar je tegen ingaat — voordat er ook maar één visual wordt gemaakt, zodat de identiteit die eruit rolt met niemand anders te verwarren is.",
+      "De meeste merken lijken op hun concurrenten met een ander logo erop geplakt. Wij beginnen met positionering (voor wie je er werkelijk bent, waar je tegen ingaat) voordat er ook maar één visual wordt gemaakt, zodat de identiteit die eruit rolt met niemand anders te verwarren is.",
     sections: [
       {
         heading: "Strategie vóór decoratie",
@@ -242,7 +242,7 @@ export const servicesNl: Service[] = [
       },
       {
         heading: "Een stem die klinkt als jij",
-        body: "De woorden doen er net zoveel toe als de visuals. Wij schrijven de tone-of-voice en boodschap die jouw positionering doorvertaalt naar elke kop, zodat het merk zichzelf blijft — op je homepage of in de inbox van een klant.",
+        body: "De woorden doen er net zoveel toe als de visuals. Wij schrijven de tone-of-voice en boodschap die jouw positionering doorvertaalt naar elke kop, zodat het merk zichzelf blijft, op je homepage of in de inbox van een klant.",
       },
     ],
     deliverables: [
@@ -258,7 +258,7 @@ export const servicesNl: Service[] = [
     faqs: [
       {
         q: "Wat zit er in een brandingtraject?",
-        a: "Meestal positionering en strategie, een logo en volledige visuele identiteit — typografie, kleur, beeldtaal — brand guidelines, en boodschap. Een startup-lancering en een rebrand vragen om andere dingen, dus we bakenen het af op jouw fase in plaats van een vast pakket te verkopen.",
+        a: "Meestal positionering en strategie, een logo en volledige visuele identiteit (typografie, kleur, beeldtaal), brand guidelines, en boodschap. Een startup-lancering en een rebrand vragen om andere dingen, dus we bakenen het af op jouw fase in plaats van een vast pakket te verkopen.",
       },
       {
         q: "Wat is het verschil tussen branding en een logo?",
@@ -277,9 +277,9 @@ export const servicesNl: Service[] = [
     name: "SEO",
     h1: "SEO-diensten in Amsterdam",
     tagline: "Technische, eerlijke SEO die zich opstapelt tot echt verkeer.",
-    metaTitle: "SEO Amsterdam — Technische SEO & groeibureau",
+    metaTitle: "SEO Amsterdam: Technische SEO & groeibureau",
     metaDescription:
-      "SEO-diensten in Amsterdam. Technische SEO, content en zoekstrategie die zich opstapelen tot rankings en gekwalificeerd verkeer — zonder trucjes, zonder keyword stuffing.",
+      "SEO-diensten in Amsterdam. Technische SEO, content en zoekstrategie die zich opstapelen tot rankings en gekwalificeerd verkeer. Zonder trucjes, zonder keyword stuffing.",
     keywords: [
       "SEO Amsterdam",
       "SEO bureau Amsterdam",
@@ -296,11 +296,11 @@ export const servicesNl: Service[] = [
       },
       {
         heading: "Content die echte zoekopdrachten beantwoordt",
-        body: "Wij richten ons op de exacte zoekopdrachten die jouw klanten intypen en bouwen pagina's die daar daadwerkelijk antwoord op geven — geen pagina's volgestopt met het keyword en opgerekt tot een woordenaantal. Dunne content wordt inmiddels door Google's eigen systemen weggefilterd; substantie overleeft.",
+        body: "Wij richten ons op de exacte zoekopdrachten die jouw klanten intypen en bouwen pagina's die daar daadwerkelijk antwoord op geven, geen pagina's volgestopt met het keyword en opgerekt tot een woordenaantal. Dunne content wordt inmiddels door Google's eigen systemen weggefilterd; substantie overleeft.",
       },
       {
         heading: "Gemeten, niet mystiek",
-        body: "Impressies, posities en clicks, bijgehouden in Search Console en helder gerapporteerd. Geen vanity metrics, geen 'vertrouw op het proces' — gewoon wat beweegt, wat niet, en wat we daar vervolgens aan doen.",
+        body: "Impressies, posities en clicks, bijgehouden in Search Console en helder gerapporteerd. Geen vanity metrics, geen 'vertrouw op het proces,' gewoon wat beweegt, wat niet, en wat we daar vervolgens aan doen.",
       },
     ],
     deliverables: [
@@ -321,15 +321,15 @@ export const servicesNl: Service[] = [
       },
       {
         q: "Garanderen jullie een positie op pagina 1?",
-        a: "Niemand die geloofwaardig is kan een specifieke ranking garanderen — dat bepaalt Google, niet wij. Wat we wel kunnen garanderen is het juiste werk: solide technisch fundament, oprecht nuttige content, en rapportage die je daadwerkelijk kunt inzien.",
+        a: "Niemand die geloofwaardig is kan een specifieke ranking garanderen. Dat bepaalt Google, niet wij. Wat we wel kunnen garanderen is het juiste werk: solide technisch fundament, oprecht nuttige content, en rapportage die je daadwerkelijk kunt inzien.",
       },
       {
         q: "Wat is het verschil tussen technische SEO en content?",
-        a: "Technische SEO maakt de site snel en leesbaar voor zoekmachines. Content geeft ze iets om te ranken. Een technisch perfecte site die niets te zeggen heeft, gaat niet ranken, en geweldige content op een kapotte site ook niet — je hebt beide nodig.",
+        a: "Technische SEO maakt de site snel en leesbaar voor zoekmachines. Content geeft ze iets om te ranken. Een technisch perfecte site die niets te zeggen heeft, gaat niet ranken, en geweldige content op een kapotte site ook niet. Je hebt beide nodig.",
       },
       {
         q: "Wat is llms.txt en zetten jullie dat op?",
-        a: "Een opkomende conventie — een schone, machine-leesbare index van je site zodat AI-systemen als ChatGPT en Perplexity die kunnen lezen in plaats van te gokken op je HTML. Voor WordPress-sites bouwen we dat automatisch, met echte AI-samenvattingen per pagina in plaats van een gok op keywords. Hoe het precies werkt, inclusief een echte bug die we live tegenkwamen tijdens het testen, staat uitgeschreven in onze inzichten.",
+        a: "Een opkomende conventie: een schone, machine-leesbare index van je site zodat AI-systemen als ChatGPT en Perplexity die kunnen lezen in plaats van te gokken op je HTML. Voor WordPress-sites bouwen we dat automatisch, met echte AI-samenvattingen per pagina in plaats van een gok op keywords. Hoe het precies werkt, inclusief een echte bug die we live tegenkwamen tijdens het testen, staat uitgeschreven in onze inzichten.",
       },
     ],
     related: ["web-development", "ecommerce", "ai-automation", "ai-ads"],
@@ -341,9 +341,9 @@ export const servicesNl: Service[] = [
     name: "Social media",
     h1: "Social media management in Amsterdam",
     tagline: "Content en social die een merk bouwen, niet zomaar posts.",
-    metaTitle: "Social media management Amsterdam — Content & strategie",
+    metaTitle: "Social media management Amsterdam: Content & strategie",
     metaDescription:
-      "Social media management in Amsterdam. Strategie, content en beheer voor Instagram, LinkedIn en meer — een merk bouwen dat mensen daadwerkelijk volgen.",
+      "Social media management in Amsterdam. Strategie, content en beheer voor Instagram, LinkedIn en meer, een merk bouwen dat mensen daadwerkelijk volgen.",
     keywords: [
       "social media management Amsterdam",
       "social media bureau Nederland",
@@ -352,11 +352,11 @@ export const servicesNl: Service[] = [
       "LinkedIn marketing Nederland",
     ],
     intro:
-      "Posten om het posten verspilt ieders tijd, ook die van jou. Wij behandelen social als een merkkanaal met een echte strategie erachter — geen contentkalender die alleen bestaat omdat iemand zei dat je meer moest posten.",
+      "Posten om het posten verspilt ieders tijd, ook die van jou. Wij behandelen social als een merkkanaal met een echte strategie erachter, geen contentkalender die alleen bestaat omdat iemand zei dat je meer moest posten.",
     sections: [
       {
         heading: "Strategie vóór je post",
-        body: "Met wie je praat, waar je voor staat, hoe 'goed' eruitziet op elk platform — bepaald voordat de eerste post live gaat, zodat de content een richting heeft in plaats van achter alles aan te rennen wat die week trending is.",
+        body: "Met wie je praat, waar je voor staat, hoe 'goed' eruitziet op elk platform: bepaald voordat de eerste post live gaat, zodat de content een richting heeft in plaats van achter alles aan te rennen wat die week trending is.",
       },
       {
         heading: "Content waar je voor stopt met scrollen",
@@ -379,7 +379,7 @@ export const servicesNl: Service[] = [
     faqs: [
       {
         q: "Op welke platforms moet mijn bedrijf actief zijn?",
-        a: "Welke je klanten daadwerkelijk gebruiken — meestal wint één of twee goed uitgevoerd van vijf slecht uitgevoerd. Voor de meeste merken is dat Instagram plus LinkedIn of TikTok, gekozen op basis van je doelgroep, niet op wat trending is.",
+        a: "Welke je klanten daadwerkelijk gebruiken. Meestal wint één of twee goed uitgevoerd van vijf slecht uitgevoerd. Voor de meeste merken is dat Instagram plus LinkedIn of TikTok, gekozen op basis van je doelgroep, niet op wat trending is.",
       },
       {
         q: "Maken jullie de content of plannen jullie hem alleen in?",
@@ -387,7 +387,7 @@ export const servicesNl: Service[] = [
       },
       {
         q: "Hoe meten jullie succes op social media?",
-        a: "Aan de hand van resultaten die er echt toe doen voor het bedrijf — bereik, engagement, volgersgroei en, waar van toepassing, verkeer en leads. Helder gerapporteerd, niet als vanity-cijfers zonder inhoud.",
+        a: "Aan de hand van resultaten die er echt toe doen voor het bedrijf: bereik, engagement, volgersgroei en, waar van toepassing, verkeer en leads. Helder gerapporteerd, niet als vanity-cijfers zonder inhoud.",
       },
     ],
     related: ["branding", "web-development", "seo", "ai-ads"],
@@ -398,8 +398,8 @@ export const servicesNl: Service[] = [
     urlSlug: "ai-video-laten-maken",
     name: "AI-videoproductie",
     h1: "AI-videoproductie in Amsterdam",
-    tagline: "Cinematische product- en merkvideo, geregisseerd — niet zomaar geprompt.",
-    metaTitle: "AI-videoproductie Amsterdam — Cinematische product- & merkvideo",
+    tagline: "Cinematische product- en merkvideo, geregisseerd in plaats van zomaar geprompt.",
+    metaTitle: "AI-videoproductie Amsterdam: Cinematische product- & merkvideo",
     metaDescription:
       "AI-gegenereerde cinematische video voor producten en merken, geregisseerd door mensen die je positionering al kennen. Breng je eigen concept mee, of laat ons het schrijven. Plan een gesprek.",
     keywords: [
@@ -410,19 +410,19 @@ export const servicesNl: Service[] = [
       "AI merkvideo Nederland",
     ],
     intro:
-      "De meeste AI-video is duidelijk AI-video — stijve beweging, een generiek script, een demo die niemand vroeg. Wij gebruiken het als productiemiddel, niet als shortcut: echte regie, een echte edit, en een concept dat daadwerkelijk om jouw product is gebouwd, niet een template met je logo erop geplakt.",
+      "De meeste AI-video is duidelijk AI-video: stijve beweging, een generiek script, een demo die niemand vroeg. Wij gebruiken het als productiemiddel, niet als shortcut: echte regie, een echte edit, en een concept dat daadwerkelijk om jouw product is gebouwd, niet een template met je logo erop geplakt.",
     sections: [
       {
         heading: "Twee manieren om te starten",
-        body: "Breng een scenario en een product mee en wij verzorgen regie, generatie en edit. Of, als je nog geen concept hebt, schrijven wij er een — een kort script gebouwd rond wat het product daadwerkelijk verkoopt — en produceren het van begin tot eind.",
+        body: "Breng een scenario en een product mee en wij verzorgen regie, generatie en edit. Of, als je nog geen concept hebt, schrijven wij er een (een kort script gebouwd rond wat het product daadwerkelijk verkoopt) en produceren het van begin tot eind.",
       },
       {
         heading: "Waar het echt goed in is",
-        body: "AI-video is snel en goedkoop vergeleken met een opname met een crew, een locatie en een cast, wat het het juiste middel maakt voor productspots, social ads en korte merkstukken die binnen dagen moeten bestaan, niet weken. Het is het verkeerde middel voor iets dat een echte acteursprestatie of een verhaal van speelfilmlengte nodig heeft — dat zeggen we ook, als een traditionele opname daadwerkelijk de betere keuze is voor wat je probeert te bereiken.",
+        body: "AI-video is snel en goedkoop vergeleken met een opname met een crew, een locatie en een cast, wat het het juiste middel maakt voor productspots, social ads en korte merkstukken die binnen dagen moeten bestaan, niet weken. Het is het verkeerde middel voor iets dat een echte acteursprestatie of een verhaal van speelfilmlengte nodig heeft, en dat zeggen we ook als een traditionele opname daadwerkelijk de betere keuze is voor wat je probeert te bereiken.",
       },
       {
         heading: "Gebouwd op jouw merk, geen template",
-        body: "Als wij de branding of de webshop al hebben gedaan, genereren we geen video voor een vreemde — we kennen de positionering, het product en wat de shot moet bewijzen al. Dat is wat het resultaat weerhoudt van eruitzien als ieders AI-advertentie.",
+        body: "Als wij de branding of de webshop al hebben gedaan, genereren we geen video voor een vreemde. We kennen de positionering, het product en wat de shot moet bewijzen al. Dat is wat het resultaat weerhoudt van eruitzien als ieders AI-advertentie.",
       },
     ],
     deliverables: [
@@ -441,11 +441,11 @@ export const servicesNl: Service[] = [
       },
       {
         q: "Wat heb je van mij nodig om te starten?",
-        a: "Óf je eigen scenario en product, klaar om te regisseren en produceren, óf gewoon het product en een idee van wat het moet communiceren — dan schrijven wij het concept.",
+        a: "Óf je eigen scenario en product, klaar om te regisseren en produceren, óf gewoon het product en een idee van wat het moet communiceren. Dan schrijven wij het concept.",
       },
       {
         q: "Hoe snel kunnen jullie een video opleveren?",
-        a: "Dagen, geen weken, zodra het concept vaststaat — daar is AI-video vooral voor. Concept en script kosten meer tijd dan de generatie zelf.",
+        a: "Dagen, geen weken, zodra het concept vaststaat. Daar is AI-video vooral voor. Concept en script kosten meer tijd dan de generatie zelf.",
       },
       {
         q: "Wat kost het?",
@@ -462,7 +462,7 @@ export const servicesNl: Service[] = [
     name: "AI-advertenties",
     h1: "AI-advertenties (ChatGPT Ads) beheer in Amsterdam",
     tagline: "ChatGPT Ads-campagnes, live terwijl de veiling nog goedkoop is.",
-    metaTitle: "ChatGPT Ads bureau Amsterdam — AI-advertentiebeheer",
+    metaTitle: "ChatGPT Ads bureau Amsterdam: AI-advertentiebeheer",
     metaDescription:
       "ChatGPT Ads-beheer voor Nederlandse bedrijven. Gesponsorde plaatsingen binnen AI-gesprekken, opgezet en gedraaid via OpenAI's Ads Manager. Plan een gesprek.",
     keywords: [
@@ -473,19 +473,19 @@ export const servicesNl: Service[] = [
       "AI-zoekadvertenties Nederland",
     ],
     intro:
-      "ChatGPT toont sinds augustus 2026 advertenties aan Free- en Go-gebruikers in Nederland. Dit is nieuw — we gaan niet doen alsof iemand jarenlange ChatGPT-advertentiedata heeft om op te leunen. Wat we wel kunnen vertellen: precies hoe het platform vandaag werkt, wat het kost om te testen, en of het je budget nu daadwerkelijk waard is.",
+      "ChatGPT toont sinds augustus 2026 advertenties aan Free- en Go-gebruikers in Nederland. Dit is nieuw, en we gaan niet doen alsof iemand jarenlange ChatGPT-advertentiedata heeft om op te leunen. Wat we wel kunnen vertellen: precies hoe het platform vandaag werkt, wat het kost om te testen, en of het je budget nu daadwerkelijk waard is.",
     sections: [
       {
         heading: "Wat een ChatGPT-advertentie daadwerkelijk is",
-        body: "Een gesponsorde chat_card — een korte kop, een regel bodytekst en een afbeelding — geplaatst onder een AI-antwoord wanneer het contextueel relevant is voor wat iemand vraagt. Geen cookies, geen persoonlijke targeting; het matcht op het gesprek, niet op een getrackt profiel. Iemand die typt \"Ik zoek een Magento 2-developer in Nederland voor een migratie\" is precies zo'n gesprek waaronder een relevante advertentie kan verschijnen — dat is de targeting, geen keywordlijst. Het verschijnt alleen bij Free- en Go-gebruikers — iedereen met Plus, Pro, Team, Business of Enterprise ziet nooit een advertentie.",
+        body: "Een gesponsorde chat_card (een korte kop, een regel bodytekst en een afbeelding) geplaatst onder een AI-antwoord wanneer het contextueel relevant is voor wat iemand vraagt. Geen cookies, geen persoonlijke targeting; het matcht op het gesprek, niet op een getrackt profiel. Iemand die typt \"Ik zoek een Magento 2-developer in Nederland voor een migratie\" is precies zo'n gesprek waaronder een relevante advertentie kan verschijnen. Dat is de targeting, geen keywordlijst. Het verschijnt alleen bij Free- en Go-gebruikers: iedereen met Plus, Pro, Team, Business of Enterprise ziet nooit een advertentie.",
       },
       {
         heading: "Waarom nu, niet later",
-        body: "De veiling is nog jong. Self-serve toegang ging open zonder minimumbudget, en CPM's liggen nog laag vergeleken met waar ze waarschijnlijk landen zodra elk bureau in Amsterdam een campagne draait. Vroeg is de enige periode dat dit kanaal goedkoop is — dat is het echte argument om het nu te testen, geen belofte dat het beter presteert dan kanalen die je al vertrouwt.",
+        body: "De veiling is nog jong. Self-serve toegang ging open zonder minimumbudget, en CPM's liggen nog laag vergeleken met waar ze waarschijnlijk landen zodra elk bureau in Amsterdam een campagne draait. Vroeg is de enige periode dat dit kanaal goedkoop is. Dat is het echte argument om het nu te testen, geen belofte dat het beter presteert dan kanalen die je al vertrouwt.",
       },
       {
         heading: "Hoe wij het runnen",
-        body: "Account- en campagne-opzet in OpenAI's Ads Manager, chat_card-creative dat leest als een antwoord in plaats van een advertentie, contextuele targeting afgestemd op wanneer jouw product daadwerkelijk relevant is, en eerlijke rapportage over of het zijn budget terugverdient — inclusief het advies om te stoppen als dat niet zo is.",
+        body: "Account- en campagne-opzet in OpenAI's Ads Manager, chat_card-creative dat leest als een antwoord in plaats van een advertentie, contextuele targeting afgestemd op wanneer jouw product daadwerkelijk relevant is, en eerlijke rapportage over of het zijn budget terugverdient, inclusief het advies om te stoppen als dat niet zo is.",
       },
     ],
     deliverables: [
@@ -500,19 +500,19 @@ export const servicesNl: Service[] = [
     faqs: [
       {
         q: "Is dit hetzelfde als Google Ads?",
-        a: "Nee. Er is geen keyword-veiling of cookie-gebaseerde retargeting — plaatsing wordt gematcht op het gesprek dat iemand op dat moment met ChatGPT voert. De discipline is hetzelfde (testen, meten, schrappen wat niet werkt), de mechaniek niet.",
+        a: "Nee. Er is geen keyword-veiling of cookie-gebaseerde retargeting. Plaatsing wordt gematcht op het gesprek dat iemand op dat moment met ChatGPT voert. De discipline is hetzelfde (testen, meten, schrappen wat niet werkt), de mechaniek niet.",
       },
       {
         q: "Is adverteren op ChatGPT al beschikbaar voor Nederlandse bedrijven?",
-        a: "Ja — OpenAI rolde het in augustus 2026 uit in 31 Europese markten, inclusief Nederland, met self-serve toegang via hun Ads Manager.",
+        a: "Ja. OpenAI rolde het in augustus 2026 uit in 31 Europese markten, inclusief Nederland, met self-serve toegang via hun Ads Manager.",
       },
       {
         q: "Moet je een officieel OpenAI-partnerbureau zijn om dit te draaien?",
-        a: "Nee. Self-serve Ads Manager staat open voor elk geregistreerd bedrijf. We claimen geen certified-partnerstatus die we niet hebben — we beheren je account direct en transparant, in dezelfde tool die je ook zelf zou kunnen gebruiken.",
+        a: "Nee. Self-serve Ads Manager staat open voor elk geregistreerd bedrijf. We claimen geen certified-partnerstatus die we niet hebben. We beheren je account direct en transparant, in dezelfde tool die je ook zelf zou kunnen gebruiken.",
       },
       {
         q: "Wat is het minimumbudget om te testen?",
-        a: "Het platform zelf heeft geen groot minimumbudget meer — campagnes kunnen op bescheiden dagbudgetten draaien. Wat het kost om het goed te testen, inclusief creative en opzet, bepalen we op een gesprek in plaats van hier te gokken.",
+        a: "Het platform zelf heeft geen groot minimumbudget meer. Campagnes kunnen op bescheiden dagbudgetten draaien. Wat het kost om het goed te testen, inclusief creative en opzet, bepalen we op een gesprek in plaats van hier te gokken.",
       },
     ],
     related: ["seo", "social-media", "web-development"],
@@ -523,10 +523,10 @@ export const servicesNl: Service[] = [
     urlSlug: "magento-migratie",
     name: "Magento migratie",
     h1: "Je Magento-webshop migreren met een duidelijk plan",
-    tagline: "Van een verouderde Magento 1-winkel naar een platform dat je team zelf kan beheren — met elke URL gemapt.",
+    tagline: "Van een verouderde Magento 1-winkel naar een platform dat je team zelf kan beheren, met elke URL gemapt.",
     metaTitle: "Magento migratie | Een plan voor jouw webshop",
     metaDescription:
-      "Magento migratie voor webshops in Amsterdam en heel Nederland. Platformkeuze, volledige URL-mapping en een gefaseerde, geteste cutover — zonder de SEO-waarde te verliezen die je al hebt opgebouwd. Plan een gesprek.",
+      "Magento migratie voor webshops in Amsterdam en heel Nederland. Platformkeuze, volledige URL-mapping en een gefaseerde, geteste cutover, zonder de SEO-waarde te verliezen die je al hebt opgebouwd. Plan een gesprek.",
     keywords: [
       "magento migratie",
       "magento naar woocommerce",
@@ -535,19 +535,19 @@ export const servicesNl: Service[] = [
       "magento 1 end of life",
     ],
     intro:
-      "Een migratie is het onderdeel van e-commerce werk met het meeste om te verliezen: map de URL's of de cutover verkeerd en je zet jarenlange SEO-waarde en een weekend aan bestellingen in één keer op het spel. Wij brengen dat in kaart vóórdat we iets verplaatsen — Magento, WooCommerce en headless WordPress zijn platforms waar we op bouwen, niet alleen vanaf migreren.",
+      "Een migratie is het onderdeel van e-commerce werk met het meeste om te verliezen: map de URL's of de cutover verkeerd en je zet jarenlange SEO-waarde en een weekend aan bestellingen in één keer op het spel. Wij brengen dat in kaart vóórdat we iets verplaatsen. Magento, WooCommerce en headless WordPress zijn platforms waar we op bouwen, niet alleen vanaf migreren.",
     sections: [
       {
         heading: "Wanneer een migratie het overwegen waard is",
-        body: "Magento 1 krijgt sinds 2020 geen beveiligingspatches meer, en toch draaien er nog genoeg winkels op omdat migreren risicovoller aanvoelt dan blijven zitten. Het signaal om te verhuizen is niet alleen leeftijd — het is een catalogus die groter is geworden dan het platform aankan: een reindex die strijdt met feed-exports om serverresources, onbetrouwbare zoekresultaten, of een beveiligingspositie die niemand nog wil verdedigen.",
+        body: "Magento 1 krijgt sinds 2020 geen beveiligingspatches meer, en toch draaien er nog genoeg winkels op omdat migreren risicovoller aanvoelt dan blijven zitten. Het signaal om te verhuizen is niet alleen leeftijd. Het is een catalogus die groter is geworden dan het platform aankan: een reindex die strijdt met feed-exports om serverresources, onbetrouwbare zoekresultaten, of een beveiligingspositie die niemand nog wil verdedigen.",
       },
       {
         heading: "Hoe wij de overstap aanpakken",
-        body: "Eerst de platformkeuze, afgestemd op jouw catalogus en niet op wat voor ons het makkelijkst is: headless WordPress met Next.js voor grote of complexe catalogi, WooCommerce wanneer de winkel kleiner en eenvoudiger is. Elke oude URL wordt gemapt naar zijn nieuwe adres, producten/klanten/bestellingen gaan mee, en de cutover verloopt gefaseerd op een moment dat jij goedkeurt — eerst getest op staging voordat er iets aan de live winkel verandert.",
+        body: "Eerst de platformkeuze, afgestemd op jouw catalogus en niet op wat voor ons het makkelijkst is: headless WordPress met Next.js voor grote of complexe catalogi, WooCommerce wanneer de winkel kleiner en eenvoudiger is. Elke oude URL wordt gemapt naar zijn nieuwe adres, producten/klanten/bestellingen gaan mee, en de cutover verloopt gefaseerd op een moment dat jij goedkeurt, eerst getest op staging voordat er iets aan de live winkel verandert.",
       },
       {
         heading: "Wat we je niet beloven",
-        body: "Geen enkel bureau kan eerlijk garanderen dat je rankings een platformmigratie ongeschonden overleven — dat hangt af van uitvoering, je bestaande autoriteit en factoren die niemand in de hand heeft. Wat wij wél toezeggen is het proces dat je de beste kans geeft: elke URL gemapt vóór de cutover, redirects getest op staging, structured data en metadata overgezet, en een gefaseerde livegang in plaats van één onomkeerbare overstap. Belooft iemand je een specifiek rankingresultaat, vraag dan hoe ze dat denken te meten.",
+        body: "Geen enkel bureau kan eerlijk garanderen dat je rankings een platformmigratie ongeschonden overleven. Dat hangt af van uitvoering, je bestaande autoriteit en factoren die niemand in de hand heeft. Wat wij wél toezeggen is het proces dat je de beste kans geeft: elke URL gemapt vóór de cutover, redirects getest op staging, structured data en metadata overgezet, en een gefaseerde livegang in plaats van één onomkeerbare overstap. Belooft iemand je een specifiek rankingresultaat, vraag dan hoe ze dat denken te meten.",
       },
     ],
     deliverables: [
@@ -563,23 +563,23 @@ export const servicesNl: Service[] = [
     faqs: [
       {
         q: "Waarom zou ik weg van Magento 1?",
-        a: "Geen beveiligingspatches meer sinds 2020, en de meeste installaties dragen inmiddels een catalogus die groter is dan waar de oorspronkelijke architectuur voor gebouwd is — reindexen en feed-exports die om dezelfde serverresources strijden is een bekend faalpatroon. Blijven zitten is ook een reële optie; we zeggen het als jouw setup nog niet hoeft te verhuizen.",
+        a: "Geen beveiligingspatches meer sinds 2020, en de meeste installaties dragen inmiddels een catalogus die groter is dan waar de oorspronkelijke architectuur voor gebouwd is. Reindexen en feed-exports die om dezelfde serverresources strijden is een bekend faalpatroon. Blijven zitten is ook een reële optie; we zeggen het als jouw setup nog niet hoeft te verhuizen.",
       },
       {
         q: "Verlies ik mijn SEO-posities bij een migratie?",
-        a: "Dat is het echte risico, en het grootste deel van het werk zit in het voorkomen ervan: elke oude URL gemapt naar de nieuwe, structured data en metadata overgezet, content zorgvuldig gemigreerd. Niemand kan je eerlijk een specifiek rankingresultaat beloven — alleen het proces dat je bestaande SEO-waarde de beste kans geeft om de overstap te overleven.",
+        a: "Dat is het echte risico, en het grootste deel van het werk zit in het voorkomen ervan: elke oude URL gemapt naar de nieuwe, structured data en metadata overgezet, content zorgvuldig gemigreerd. Niemand kan je eerlijk een specifiek rankingresultaat beloven, alleen het proces dat je bestaande SEO-waarde de beste kans geeft om de overstap te overleven.",
       },
       {
         q: "Naar welk platform migreren jullie?",
-        a: "Wat bij jouw catalogus past, niet wat voor ons het makkelijkst is — een headless WordPress- en Next.js-build voor grote of complexe catalogi, WooCommerce wanneer de winkel kleiner en eenvoudiger is. We zeggen welke past nadat we je echte catalogus hebben gezien.",
+        a: "Wat bij jouw catalogus past, niet wat voor ons het makkelijkst is: een headless WordPress- en Next.js-build voor grote of complexe catalogi, WooCommerce wanneer de winkel kleiner en eenvoudiger is. We zeggen welke past nadat we je echte catalogus hebben gezien.",
       },
       {
         q: "Hoe lang duurt een migratie?",
-        a: "Dat hangt af van catalogusgrootte, integraties en hoeveel custom logica de huidige winkel heeft — een paar honderd SKU's met simpele prijzen kan in dagen, een grote multi-warehouse-catalogus duurt langer. We bepalen een realistische planning na een audit, niet vooraf uit de losse pols.",
+        a: "Dat hangt af van catalogusgrootte, integraties en hoeveel custom logica de huidige winkel heeft: een paar honderd SKU's met simpele prijzen kan in dagen, een grote multi-warehouse-catalogus duurt langer. We bepalen een realistische planning na een audit, niet vooraf uit de losse pols.",
       },
       {
         q: "Is er downtime tijdens de overstap?",
-        a: "Zero downtime is de standaard waar we naar werken: gefaseerd, getest op staging voordat het de live winkel raakt. Dat is geen garantie los van jouw specifieke setup — we melden het vooraf als iets aan jouw winkel dat lastiger maakt.",
+        a: "Zero downtime is de standaard waar we naar werken: gefaseerd, getest op staging voordat het de live winkel raakt. Dat is geen garantie los van jouw specifieke setup. We melden het vooraf als iets aan jouw winkel dat lastiger maakt.",
       },
     ],
     related: ["ecommerce", "seo", "web-development"],

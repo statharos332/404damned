@@ -15,18 +15,18 @@ export async function HeroSection() {
   return (
     // Tall scroll container so the copy can fade as you move down.
     // `.hero-root` is a stable hook HeroScrollFade uses to find this
-    // ancestor at runtime — see that component for why.
+    // ancestor at runtime; see that component for why.
     <div className="hero-root relative h-[180vh] bg-[#04060c]">
       {/* Sticky viewport holds the looping video + copy */}
       <div className="sticky top-0 h-screen overflow-hidden lightning-impact-surface">
-        {/* Looping background video — muted, deferred until after load (idle).
+        {/* Looping background video: muted, deferred until after load (idle).
             Until then the poster carries the hero as the LCP element. */}
         <HeroVideo />
 
         {/* Cinematic gradient mask for text legibility */}
         <div className="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-t from-[#04060c] via-[#04060c]/30 via-40% to-[#04060c]/40" />
 
-        {/* Hero copy — bottom-left text, bottom-right buttons. Fades on scroll. */}
+        {/* Hero copy: bottom-left text, bottom-right buttons. Fades on scroll. */}
         <HeroScrollFade className="absolute inset-x-0 bottom-0 z-[3] px-6 sm:px-10 lg:px-16 pb-14 sm:pb-16">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             {/* Left: badge + headline */}
@@ -39,7 +39,7 @@ export async function HeroSection() {
                   </span>
                 </div>
 
-                {/* Real, verified award — kept lightweight (static SVG,
+                {/* Real, verified award: kept lightweight (static SVG,
                     no client JS) so it doesn't cost anything on LCP. */}
                 <a
                   href="https://www.cssdesignawards.com/sites/404-damned/50030"

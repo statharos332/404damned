@@ -1,8 +1,8 @@
 /**
  * ============================================================
- *  404 DAMNED — Projects / Work data (Dutch)
+ *  404 DAMNED: Projects / Work data (Dutch)
  * ============================================================
- *  Dutch mirror of projects.ts — same slugs/order/assets/stats,
+ *  Dutch mirror of projects.ts, same slugs/order/assets/stats,
  *  translated prose fields. Keep in sync whenever projects.ts
  *  changes (add the same case study here, translated).
  * ============================================================
@@ -74,7 +74,7 @@ export const projectsNl: Project[] = [
     challenge:
       "Etsy-verkopers hebben moeite met het schrijven van geoptimaliseerde titels, beschrijvingen en tags die daadwerkelijk scoren in zoekresultaten en bezoekers omzetten in kopers.",
     approach:
-      "We bouwden een AI-automatiseringssysteem dat fungeert als Etsy SEO-specialist en gestructureerde, keyword-geoptimaliseerde listings genereert — inclusief titels, beschrijvingen en tags — op basis van productinput.",
+      "We bouwden een AI-automatiseringssysteem dat fungeert als Etsy SEO-specialist en gestructureerde, keyword-geoptimaliseerde listings genereert (inclusief titels, beschrijvingen en tags) op basis van productinput.",
     outcome:
       "Verkopers kunnen nu binnen enkele seconden volledig geoptimaliseerde Etsy-listings genereren, waarmee handmatig SEO-werk overbodig wordt en producten beter vindbaar worden.",
     results: [
@@ -105,7 +105,7 @@ export const projectsNl: Project[] = [
     category: "AI-automatisering",
     year: "2026",
     summary:
-      "Een WordPress-plugin die automatisch een AI-leesbare index van de echte content van een site genereert — oprechte OpenAI-samenvattingen en classificatie, geen gok op keywords.",
+      "Een WordPress-plugin die automatisch een AI-leesbare index van de echte content van een site genereert, met oprechte OpenAI-samenvattingen en classificatie in plaats van een gok op keywords.",
     cover: "/work/llms-txt-ai-visibility-wordpress/cover.svg",
 
     services: ["AI-automatisering", "SEO", "Plugin-ontwikkeling"],
@@ -116,10 +116,10 @@ export const projectsNl: Project[] = [
       "AI-systemen als ChatGPT en Perplexity beantwoorden steeds vaker vragen direct in plaats van een klik door te sturen, en hebben iets beters nodig dan ruwe HTML om te lezen. WordPress maakt dat lastiger dan het lijkt: echte pagina-inhoud staat verspreid over post_content, ACF-velden en de geserialiseerde builder-data van Elementor, niet op één voor de hand liggende plek die een generieke tool zou checken.",
 
     approach:
-      "Wij bouwden een plugin die automatisch twee bestanden genereert — llms.txt en llms-full.txt — en haalt echte content op uit post_content, ACF en Elementor. Elke pagina krijgt een oprecht door OpenAI geschreven samenvatting en categorie-classificatie, gecachet per content-hash zodat niets onnodig opnieuw wordt verwerkt, met een automatische terugval op een regelgebaseerde extractor zodra AI niet is ingesteld of een aanvraag mislukt. Voordat we het klaar noemden, zetten we hem op een live WordPress-installatie en vonden we een echte bug — WordPress' eigen canonical-redirect-logica stuurde het endpoint stilletjes met een 301 door voordat onze handler ooit werd aangeroepen — losten we op, en verifieerden daarna het AI-pad van begin tot eind met een echte API-key en echte kosten.",
+      "Wij bouwden een plugin die automatisch twee bestanden genereert, llms.txt en llms-full.txt, en haalt echte content op uit post_content, ACF en Elementor. Elke pagina krijgt een oprecht door OpenAI geschreven samenvatting en categorie-classificatie, gecachet per content-hash zodat niets onnodig opnieuw wordt verwerkt, met een automatische terugval op een regelgebaseerde extractor zodra AI niet is ingesteld of een aanvraag mislukt. Voordat we het klaar noemden, zetten we hem op een live WordPress-installatie en vonden we een echte bug: WordPress' eigen canonical-redirect-logica stuurde het endpoint stilletjes met een 301 door voordat onze handler ooit werd aangeroepen. We losten hem op, en verifieerden daarna het AI-pad van begin tot eind met een echte API-key en echte kosten.",
 
     outcome:
-      "Een werkende, geteste plugin die de echte content van een site leesbaar maakt voor AI-systemen, met classificatie die meetbaar beter is dan keyword-matching. Een 'Over ons'-pagina die onze regelgebaseerde fallback verkeerd classificeerde als 'Contact' met 55% confidence — omdat de tekst 'rechtstreeks contact met de developer' noemde — kwam correct onder 'Company' terecht met 95% confidence zodra AI werd aangezet, met een echte geschreven samenvatting in plaats van een afgekapte zin.",
+      "Een werkende, geteste plugin die de echte content van een site leesbaar maakt voor AI-systemen, met classificatie die meetbaar beter is dan keyword-matching. Een 'Over ons'-pagina die onze regelgebaseerde fallback verkeerd classificeerde als 'Contact' met 55% confidence, omdat de tekst 'rechtstreeks contact met de developer' noemde, kwam correct onder 'Company' terecht met 95% confidence zodra AI werd aangezet, met een echte geschreven samenvatting in plaats van een afgekapte zin.",
 
     results: [
       { label: "Content-bronnen gedekt", value: "3" },
@@ -149,7 +149,7 @@ export const projectsNl: Project[] = [
     category: "App-ontwikkeling",
     year: "2026",
     summary:
-      "Een tik-en-bestel takeawaytool voor de toonbank bij Romios Greek Taverna — personeel of klanten bouwen de bestelling op uit het menu en zien het totaal direct meerekenen, geen hoofdrekenen meer.",
+      "Een tik-en-bestel takeawaytool voor de toonbank bij Romios Greek Taverna. Personeel of klanten bouwen de bestelling op uit het menu en zien het totaal direct meerekenen, geen hoofdrekenen meer.",
     cover: "/work/romios-internal-takeaway/cover.mp4",
     coverPoster: "/work/romios-internal-takeaway/cover-poster.jpg",
 
@@ -158,16 +158,16 @@ export const projectsNl: Project[] = [
     stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
 
     challenge:
-      "Een takeawaybestelling met de hand optellen tijdens de drukte betekent gerecht na gerecht hoofdrekenen of een rekenmachine erbij pakken, en een menu met combo-gerechten naast simpele bijgerechten telt sowieso niet netjes op. Elke prijswijziging betekende dat er een developer bij de code moest — niet iets wat midden in een drukke vrijdagavond gebeurt.",
+      "Een takeawaybestelling met de hand optellen tijdens de drukte betekent gerecht na gerecht hoofdrekenen of een rekenmachine erbij pakken, en een menu met combo-gerechten naast simpele bijgerechten telt sowieso niet netjes op. Elke prijswijziging betekende dat er een developer bij de code moest, niet iets wat midden in een drukke vrijdagavond gebeurt.",
 
     approach:
-      "Wij bouwden een tik-en-bestel tool in React Native en Expo, zodat dezelfde codebase draait op de tablet achter de toonbank, in een browser, of op een telefoon, zonder aparte builds. Personeel — of klanten rechtstreeks — tikt gerechten aan over de menucategorieën, met een +/- stepper op elke regel en een lopend totaal dat bij elke tik meerekent, zonder dat er iets getypt hoeft te worden. Een bestel-overzicht schuift omhoog om de volledige bestelling en het totaal te tonen voordat die wordt bevestigd of gewist voor de volgende klant. Een met pincode beveiligd adminscherm laat de eigenaar zelf gerechten en prijzen toevoegen, aanpassen of verwijderen, zodat een menuwijziging niet op ons hoeft te wachten. De interface wisselt tussen Grieks en Greeklish voor personeel dat het ene schrift makkelijker leest dan het andere, met haptische feedback bij elke tik zodat het native aanvoelt op een winkeltablet.",
+      "Wij bouwden een tik-en-bestel tool in React Native en Expo, zodat dezelfde codebase draait op de tablet achter de toonbank, in een browser, of op een telefoon, zonder aparte builds. Personeel, of klanten rechtstreeks, tikt gerechten aan over de menucategorieën, met een +/- stepper op elke regel en een lopend totaal dat bij elke tik meerekent, zonder dat er iets getypt hoeft te worden. Een bestel-overzicht schuift omhoog om de volledige bestelling en het totaal te tonen voordat die wordt bevestigd of gewist voor de volgende klant. Een met pincode beveiligd adminscherm laat de eigenaar zelf gerechten en prijzen toevoegen, aanpassen of verwijderen, zodat een menuwijziging niet op ons hoeft te wachten. De interface wisselt tussen Grieks en Greeklish voor personeel dat het ene schrift makkelijker leest dan het andere, met haptische feedback bij elke tik zodat het native aanvoelt op een winkeltablet.",
 
     outcome:
       "Hij draait vandaag op de tablet achter de toonbank bij Romios Greek Taverna: een bestelling wordt opgebouwd door op het menu te tikken in plaats van met de hand op te tellen, en de eigenaar past prijzen rechtstreeks aan via het adminscherm, zonder op een codewijziging te wachten.",
 
     results: [
-      { label: "Platforms", value: "iOS, Android & Web — één codebase" },
+      { label: "Platforms", value: "iOS, Android & Web, één codebase" },
       { label: "Menucategorieën", value: "9" },
       { label: "Menu- & prijswijzigingen", value: "Zelf te doen via admin-pincode" },
     ],

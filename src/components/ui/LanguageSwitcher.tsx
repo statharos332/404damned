@@ -11,7 +11,7 @@ const LOCALE_COOKIE = "NEXT_LOCALE";
 
 /**
  * Service pages carry a genuinely different URL per locale
- * (/services/ecommerce vs /nl/diensten/webshop-laten-maken — see
+ * (/services/ecommerce vs /nl/diensten/webshop-laten-maken; see
  * serviceHref() in lib/seo), so the generic "swap the locale, keep the
  * same pathname" switch below can't translate them. Resolve explicitly
  * when the current path is a services/diensten page.

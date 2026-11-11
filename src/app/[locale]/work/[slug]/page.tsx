@@ -28,9 +28,9 @@ export async function generateMetadata({
   const project = pickLocale(getProject(slug), getProjectNl(slug), locale);
   if (!project) return { title: "Work" };
 
-  // Keep the SERP title short — the full descriptive title lives as the
+  // Keep the SERP title short; the full descriptive title lives as the
   // on-page H1; a long title here just gets truncated with "..." in Google.
-  const title = `${project.client} — ${project.category} Case Study`;
+  const title = `${project.client}: ${project.category} Case Study`;
   const description = project.summary;
   const path = `/work/${project.slug}`;
   return {
@@ -90,7 +90,7 @@ export default async function ProjectPage({
   const breadcrumbs = breadcrumbJsonLd(
     [
       { name: t("breadcrumbWork"), path: "/work" },
-      { name: `${project.client} — ${project.title}`, path: `/work/${project.slug}` },
+      { name: `${project.client}: ${project.title}`, path: `/work/${project.slug}` },
     ],
     { locale, homeLabel: "Home" }
   );
@@ -144,7 +144,7 @@ export default async function ProjectPage({
         <div className="relative aspect-[16/10] overflow-hidden bg-[#0c0c0c]">
           <CoverMedia
             src={project.cover}
-            alt={`${project.client} — ${project.title}`}
+            alt={`${project.client}: ${project.title}`}
             poster={project.coverPoster}
             priority
             sizes="(max-width: 1100px) 100vw, 1100px"

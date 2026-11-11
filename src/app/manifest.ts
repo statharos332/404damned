@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "404 DAMNED — Premium Digital Agency Amsterdam",
+    name: "404 DAMNED: Premium Digital Agency Amsterdam",
     short_name: "404 DAMNED",
     description: "We don't build websites. We build digital weapons.",
     start_url: "/",

@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { m, AnimatePresence, useInView } from "framer-motion";
 
 // Not wired into any page yet. Fill with real client quotes (name, title,
-// company, a verifiable result) before rendering this anywhere — no
+// company, a verifiable result) before rendering this anywhere; no
 // placeholder/fictional testimonials.
 const testimonials: {
   quote: string;

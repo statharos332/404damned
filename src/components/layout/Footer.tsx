@@ -45,7 +45,7 @@ export function Footer({ showCta = true }: { showCta?: boolean } = {}) {
 
   return (
     <footer className="border-t border-white/5 bg-[#050505]">
-      {/* Big CTA — skipped where a contact form already sits directly above
+      {/* Big CTA: skipped where a contact form already sits directly above
           (e.g. the homepage), so it doesn't send people back up into the
           form they just saw. */}
       {showCta && (

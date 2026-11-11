@@ -20,7 +20,7 @@ const BookingContext = createContext<{ openBooking: () => void }>({
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [everOpened, setEverOpened] = useState(false);
-  // Whatever had focus when "Book a call" was clicked — there's no single
+  // Whatever had focus when "Book a call" was clicked; there's no single
   // Dialog.Trigger (buttons live in Nav, mobile menu, CTAs, etc.), so Radix
   // can't infer it on its own. We capture it here and hand it to the modal
   // to refocus on close.

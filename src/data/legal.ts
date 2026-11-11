@@ -1,12 +1,12 @@
 /**
  * ============================================================
- *  404 DAMNED — Legal content (GDPR-oriented, NL/EU)
+ *  404 DAMNED: Legal content (GDPR-oriented, NL/EU)
  * ============================================================
  *  Plain-language legal pages for an Amsterdam digital agency.
  *  Company facts live in one place (COMPANY) so the pages stay
  *  consistent with the footer / structured data in layout.tsx.
  *
- *  NOTE: These are solid, honest starting documents — not a
+ *  NOTE: These are solid, honest starting documents, not a
  *  substitute for review by Dutch/EU legal counsel before you
  *  rely on them commercially.
  * ============================================================
@@ -21,7 +21,7 @@ export const COMPANY = {
   addressLine: "Amsterdam, Netherlands",
   country: "Netherlands",
   website: "https://www.404damned.com",
-  // The date the docs were last reviewed — keep in sync when you edit.
+  // The date the docs were last reviewed; keep in sync when you edit.
   updated: "10 July 2026",
 } as const;
 
@@ -60,7 +60,7 @@ const privacy: LegalDoc = {
     "This policy explains what personal data 404 DAMNED collects, why we collect it, how we use it, and the rights you have under the EU General Data Protection Regulation (GDPR). We keep data collection to the minimum we need to run this studio.",
   metaTitle: "Privacy Policy",
   metaDescription:
-    "How 404 DAMNED, an Amsterdam digital agency, collects, uses and protects your personal data under the GDPR — plus your rights and how to exercise them.",
+    "How 404 DAMNED, an Amsterdam digital agency, collects, uses and protects your personal data under the GDPR, plus your rights and how to exercise them.",
   sections: [
     {
       id: "controller",
@@ -87,10 +87,10 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "Contact details you submit — name, email address, company name and anything you write in the contact form or send us by email.",
-            "Project information — the service, budget range and brief you share so we can respond to your enquiry.",
-            "Technical and usage data — anonymised, aggregated analytics such as pages viewed and performance metrics. We do not use this to identify you personally.",
-            "Communication records — the emails and messages we exchange while scoping or delivering work.",
+            "Contact details you submit: name, email address, company name and anything you write in the contact form or send us by email.",
+            "Project information: the service, budget range and brief you share so we can respond to your enquiry.",
+            "Technical and usage data: anonymised, aggregated analytics such as pages viewed and performance metrics. We do not use this to identify you personally.",
+            "Communication records: the emails and messages we exchange while scoping or delivering work.",
           ],
         },
         {
@@ -110,12 +110,12 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "To respond to your enquiry and provide quotes — legitimate interest and taking steps to enter into a contract at your request.",
-            "To deliver the services we agree — performance of a contract.",
-            "To send project updates, invoices and essential service messages — performance of a contract and legitimate interest.",
-            "To keep the website secure and improve it via anonymous analytics — legitimate interest.",
-            "To meet legal, tax and accounting obligations — legal obligation.",
-            "To send marketing (only if you opt in) — consent, which you can withdraw at any time.",
+            "To respond to your enquiry and provide quotes: legitimate interest and taking steps to enter into a contract at your request.",
+            "To deliver the services we agree: performance of a contract.",
+            "To send project updates, invoices and essential service messages: performance of a contract and legitimate interest.",
+            "To keep the website secure and improve it via anonymous analytics: legitimate interest.",
+            "To meet legal, tax and accounting obligations: legal obligation.",
+            "To send marketing (only if you opt in): consent, which you can withdraw at any time.",
           ],
         },
       ],
@@ -131,9 +131,9 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "Hosting & infrastructure — Vercel Inc., which hosts this website and provides privacy-friendly, aggregated analytics.",
-            "Email — Google Workspace, which we use to receive and reply to your enquiries.",
-            "Payment & accounting providers — to issue and process invoices where you become a client.",
+            "Hosting & infrastructure: Vercel Inc., which hosts this website and provides privacy-friendly, aggregated analytics.",
+            "Email: Google Workspace, which we use to receive and reply to your enquiries.",
+            "Payment & accounting providers: to issue and process invoices where you become a client.",
           ],
         },
         {
@@ -163,12 +163,12 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "Access — get a copy of the personal data we hold about you.",
-            "Rectification — have inaccurate or incomplete data corrected.",
-            "Erasure — ask us to delete your data (‘the right to be forgotten’).",
-            "Restriction & objection — limit or object to how we use your data.",
-            "Portability — receive your data in a portable format.",
-            "Withdraw consent — at any time, where we rely on consent.",
+            "Access: get a copy of the personal data we hold about you.",
+            "Rectification: have inaccurate or incomplete data corrected.",
+            "Erasure: ask us to delete your data (‘the right to be forgotten’).",
+            "Restriction & objection: limit or object to how we use your data.",
+            "Portability: receive your data in a portable format.",
+            "Withdraw consent: at any time, where we rely on consent.",
           ],
         },
         {
@@ -213,7 +213,7 @@ const terms: LegalDoc = {
     "These terms govern your use of this website and the services 404 DAMNED provides. By using the site or engaging us, you agree to them. Specific projects are also governed by a separate written proposal or contract, which takes precedence where it conflicts with these terms.",
   metaTitle: "Terms of Service",
   metaDescription:
-    "The terms that govern use of the 404 DAMNED website and the digital agency services we provide — scope, payment, intellectual property, liability and governing law.",
+    "The terms that govern use of the 404 DAMNED website and the digital agency services we provide: scope, payment, intellectual property, liability and governing law.",
   sections: [
     {
       id: "agreement",
@@ -231,7 +231,7 @@ const terms: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "We provide digital services including web development, e-commerce, AI automation, branding, SEO and related work. The exact scope, deliverables, timeline and price for any engagement are set out in a written proposal, statement of work or contract agreed between us. Anything on this website — including indicative pricing — is for information only and does not constitute a binding offer.",
+          text: "We provide digital services including web development, e-commerce, AI automation, branding, SEO and related work. The exact scope, deliverables, timeline and price for any engagement are set out in a written proposal, statement of work or contract agreed between us. Anything on this website (including indicative pricing) is for information only and does not constitute a binding offer.",
         },
       ],
     },
@@ -348,8 +348,8 @@ const cookies: LegalDoc = {
         {
           type: "list",
           items: [
-            "Essential storage — needed for the site to function and stay secure. These don't track you and don't require consent.",
-            "Privacy-friendly analytics — Vercel Analytics and Speed Insights, which measure traffic and performance in an aggregated, anonymised way to help us improve the site. They are designed to work without identifying individual visitors.",
+            "Essential storage: needed for the site to function and stay secure. These don't track you and don't require consent.",
+            "Privacy-friendly analytics: Vercel Analytics and Speed Insights, which measure traffic and performance in an aggregated, anonymised way to help us improve the site. They are designed to work without identifying individual visitors.",
           ],
         },
         {
@@ -364,7 +364,7 @@ const cookies: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "You can block or delete cookies at any time through your browser settings — most browsers let you refuse cookies or alert you when one is set. Blocking essential storage may stop parts of the site working correctly.",
+          text: "You can block or delete cookies at any time through your browser settings. Most browsers let you refuse cookies or alert you when one is set. Blocking essential storage may stop parts of the site working correctly.",
         },
         {
           type: "p",

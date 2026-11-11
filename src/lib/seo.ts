@@ -7,7 +7,7 @@ const BASE_URL = "https://www.404damned.com";
  * Service detail pages get a genuinely different URL structure per locale
  * (/services/ecommerce vs /nl/diensten/webshop-laten-maken, not just a /nl
  * prefix) so Dutch URLs carry the keyword Dutch searchers actually type.
- * The mapping is handled by rewrites/redirects in next.config.ts — these
+ * The mapping is handled by rewrites/redirects in next.config.ts; these
  * helpers just build the matching href/alternates consistently wherever a
  * service page is linked to or declares its own metadata.
  */
@@ -16,7 +16,7 @@ export function serviceUrlSlug(service: Service, locale: string): string {
 }
 
 /** Locale-correct relative href to a service page, already including the
- *  /nl prefix where needed — use directly as a (plain, non-i18n) Link href. */
+ *  /nl prefix where needed; use directly as a (plain, non-i18n) Link href. */
 export function serviceHref(service: Service, locale: string): string {
   return locale === "nl"
     ? `/nl/diensten/${serviceUrlSlug(service, locale)}`
@@ -26,7 +26,7 @@ export function serviceHref(service: Service, locale: string): string {
 /**
  * en/nl/x-default alternates.languages map for a service page. Resolves the
  * NL urlSlug itself (via the shared canonical `slug`) rather than trusting
- * the passed-in `service` to carry it — the EN dataset never sets urlSlug,
+ * the passed-in `service` to carry it; the EN dataset never sets urlSlug,
  * so building this from whichever locale's object happened to be in hand
  * silently produced the wrong (untranslated) NL alternate.
  */

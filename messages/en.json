@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "404 DAMNED — Premium Digital Agency Amsterdam",
+    "title": "404 DAMNED: Premium Digital Agency Amsterdam",
     "description": "We don't build websites. We build digital weapons. Premium web development, e-commerce, AI automation & growth systems for ambitious Dutch businesses.",
     "ogDescription": "We don't build websites. We build digital weapons. Premium web development, e-commerce & AI automation for ambitious businesses.",
     "twitterDescription": "We don't build websites. We build digital weapons.",
@@ -17,8 +17,8 @@
     ],
     "orgDescription": "Premium digital agency in Amsterdam specialising in web development, e-commerce, AI automation, branding, SEO and growth systems for ambitious businesses.",
     "slogan": "We don't build websites. We build digital weapons.",
-    "siteDescription": "Premium digital agency in Amsterdam — web development, e-commerce, AI automation, branding and SEO.",
-    "founderTitle": "Founder — Management & Project Management",
+    "siteDescription": "Premium digital agency in Amsterdam: web development, e-commerce, AI automation, branding and SEO.",
+    "founderTitle": "Founder, Management & Project Management",
     "developerTitle": "Developer & Designer",
     "offerCatalog": [
       "Web Development",
@@ -38,7 +38,7 @@
     "eyebrow": "[ Error / Signal lost ]",
     "headingStart": "This page got what it",
     "headingHighlight": "deserved.",
-    "body": "The URL you hit doesn't exist — or it was taken out. Everything we build on purpose, though, is very much alive. Pick a way back in.",
+    "body": "The URL you hit doesn't exist, or it was taken out. Everything we build on purpose, though, is very much alive. Pick a way back in.",
     "backToBase": "Back to Base",
     "seeWork": "See the Work",
     "insights": "Insights",
@@ -79,7 +79,7 @@
     "linkPrivacyPolicy": "Privacy Policy",
     "linkTermsOfService": "Terms of Service",
     "linkCookiePolicy": "Cookie Policy",
-    "copyright": "© {year} 404 DAMNED — KVK 42082502 — Amsterdam, Netherlands",
+    "copyright": "© {year} 404 DAMNED · KVK 42082502 · Amsterdam, Netherlands",
     "tagline": "Designed & built in Amsterdam with intention."
   },
   "Hero": {
@@ -92,7 +92,7 @@
     "ctaWork": "View Our Work"
   },
   "ServicesGrid": {
-    "kicker": "— What We Do",
+    "kicker": "// What We Do",
     "heading1": "Digital",
     "heading2": "Arsenal.",
     "subtitle": "Eight disciplines. One mission: making your competitors irrelevant.",
@@ -124,7 +124,7 @@
       {
         "number": "05",
         "title": "AI Video",
-        "description": "Cinematic product and brand video, directed and edited — not just prompted. Built for webshops, ads and social, in days not weeks.",
+        "description": "Cinematic product and brand video, directed and edited, not just prompted. Built for webshops, ads and social, in days not weeks.",
         "tags": ["Product Video", "Social Ads", "Direction", "Post-Production"]
       },
       {
@@ -148,7 +148,7 @@
     ]
   },
   "Capabilities": {
-    "kicker": "— Core Expertise",
+    "kicker": "// Core Expertise",
     "heading1": "Digital",
     "heading2": "Capabilities.",
     "items": [
@@ -182,15 +182,15 @@
     "kicker": "[ Global recognition ]",
     "heading1": "Globally",
     "heading2": "recognized.",
-    "body": "CSS Design Awards named 404 DAMNED a Special Kudos winner — Best UI, Best UX and Best Innovation. Judged against studios across the planet.",
+    "body": "CSS Design Awards named 404 DAMNED a Special Kudos winner: Best UI, Best UX and Best Innovation. Judged against studios across the planet.",
     "linkLabel": "View the verified listing"
   },
   "Clients": {
     "sectionLabel": "Deployed for",
     "metricNote": "// awards are nice. the metric we chase is the one in your bank account.",
-    "recognitionNote": "// recognition log — populated on contact",
+    "recognitionNote": "// recognition log, populated on contact",
     "recognition": [
-      { "org": "CSSDA", "label": "Special Kudos", "count": "—", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] }
+      { "org": "CSSDA", "label": "Special Kudos", "count": "N/A", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] }
     ]
   },
   "Vibe": {
@@ -208,7 +208,7 @@
       {
         "n": "002",
         "t": "Engineer the obsession",
-        "d": "Speed, motion, weight — tuned until a visitor can't look away. Attention is the only currency that converts.",
+        "d": "Speed, motion, weight, tuned until a visitor can't look away. Attention is the only currency that converts.",
         "accent": "electric"
       },
       {
@@ -226,7 +226,7 @@
     ]
   },
   "Why": {
-    "kicker": "— Why We're Different",
+    "kicker": "// Why We're Different",
     "heading1": "The Agency",
     "heading2": "Industry is",
     "heading3": "Broken.",
@@ -234,7 +234,7 @@
       {
         "agency": "Traditional agencies",
         "problem": "Sell you a template, call it custom, then outsource the build.",
-        "solution": "Every project starts from a blank file — the same two people scope it, build it and ship it."
+        "solution": "Every project starts from a blank file. The same two people scope it, build it and ship it."
       },
       {
         "agency": "Cheap freelancers",
@@ -244,7 +244,7 @@
       {
         "agency": "Marketing agencies",
         "problem": "Sell you a strategy deck, then outsource the actual build.",
-        "solution": "We build what we pitch — no hand-off to a dev shop you've never met."
+        "solution": "We build what we pitch. No hand-off to a dev shop you've never met."
       },
       {
         "agency": "Dev shops",
@@ -263,10 +263,10 @@
     "quotePart2": "No account managers,",
     "quotePart3": "no hand-offs,",
     "quotePart4": "no one you'll never meet.",
-    "quoteCaption": "— How 404 DAMNED actually works"
+    "quoteCaption": "// How 404 DAMNED actually works"
   },
   "Process": {
-    "kicker": "— How We Work",
+    "kicker": "// How We Work",
     "heading1": "The War",
     "heading2": "Room Process.",
     "activitiesLabel": "Activities",
@@ -284,7 +284,7 @@
         "number": "02",
         "title": "Strategy",
         "duration": "Week 1-2",
-        "description": "We architect the complete digital system — from user journeys to conversion paths to technical infrastructure. Every decision is documented and justified.",
+        "description": "We architect the complete digital system, from user journeys to conversion paths to technical infrastructure. Every decision is documented and justified.",
         "activities": ["User journey mapping", "Conversion architecture", "Tech stack decision", "KPI framework"],
         "output": "Project Blueprint"
       },
@@ -323,7 +323,7 @@
     "footerLine": "AMSTERDAM · 52.3676° N, 4.9041° E · RESPONSE WITHIN 4 BUSINESS HOURS"
   },
   "Contact": {
-    "kicker": "— Start the War",
+    "kicker": "// Start the War",
     "heading1": "Ready to",
     "heading2": "Dominate",
     "heading3": "Your Market?",
@@ -376,7 +376,7 @@
     "goToMedia": "Go to media {index}"
   },
   "Pricing": {
-    "kicker": "— Investment",
+    "kicker": "// Investment",
     "heading1": "Fair Prices.",
     "heading2": "Unfair Results.",
     "subtitle": "Not the cheapest. Not the most expensive. The only agency where the math actually makes sense.",
@@ -418,7 +418,7 @@
     "careNote": "Already live elsewhere? Care & maintenance plans (security patches, updates, priority fixes) start at €300/month."
   },
   "Testimonials": {
-    "kicker": "— Client Victories",
+    "kicker": "// Client Victories",
     "heading1": "What They",
     "heading2": "Actually Say.",
     "result": "Result"
@@ -466,22 +466,22 @@
     "days": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
   },
   "ServicesHub": {
-    "metaTitle": "Services — Digital Agency in Amsterdam",
-    "metaDescription": "Web development, e-commerce, AI automation, branding, SEO and social media — the full arsenal of a premium digital agency in Amsterdam. See what we build.",
+    "metaTitle": "Services: Digital Agency in Amsterdam",
+    "metaDescription": "Web development, e-commerce, AI automation, branding, SEO and social media: the full arsenal of a premium digital agency in Amsterdam. See what we build.",
     "keywords": ["digital agency Amsterdam", "digital agency services Amsterdam", "web design agency Netherlands", "creative agency Amsterdam"],
-    "ogTitle": "Services — 404 DAMNED, Digital Agency Amsterdam",
+    "ogTitle": "Services: 404 DAMNED, Digital Agency Amsterdam",
     "ogDescription": "Web development, e-commerce, AI automation, branding, SEO and social media from a premium Amsterdam digital agency.",
     "breadcrumb": "Services",
     "kicker": "[ Services ]",
     "heading1": "One agency.",
     "heading2": "The whole arsenal.",
-    "intro": "404 DAMNED is a premium digital agency in Amsterdam. From custom web development and e-commerce to AI automation, branding, SEO and social — everything an ambitious business needs to dominate its market, built by one team that actually talks to each other.",
+    "intro": "404 DAMNED is a premium digital agency in Amsterdam. From custom web development and e-commerce to AI automation, branding, SEO and social: everything an ambitious business needs to dominate its market, built by one team that actually talks to each other.",
     "explore": "Explore"
   },
   "WorkHub": {
-    "metaTitle": "Case Studies — Web Development, E-Commerce & AI Work",
+    "metaTitle": "Case Studies: Web Development, E-Commerce & AI Work",
     "metaDescription": "Real client work: a high-conversion booking platform, an AI-powered Etsy SEO engine, and more as projects wrap. See what 404 DAMNED actually builds.",
-    "ogTitle": "Case Studies — 404 DAMNED",
+    "ogTitle": "Case Studies: 404 DAMNED",
     "ogDescription": "Real client work from an Amsterdam studio: booking platforms, e-commerce and AI automation, not a pitch deck.",
     "breadcrumb": "Work",
     "kicker": "Our Work",
@@ -506,9 +506,9 @@
     "inHouseBuild": "In-house build"
   },
   "InsightsHub": {
-    "metaTitle": "Insights — Web, E-Commerce & AI",
+    "metaTitle": "Insights: Web, E-Commerce & AI",
     "metaDescription": "Practical writing on web performance, headless e-commerce, AI automation and growth from 404 DAMNED, a premium digital studio in Amsterdam.",
-    "ogTitle": "Insights — 404 DAMNED",
+    "ogTitle": "Insights: 404 DAMNED",
     "ogDescription": "Practical writing on web performance, e-commerce and AI automation from an Amsterdam digital studio.",
     "breadcrumb": "Insights",
     "kicker": "[ Insights ]",
@@ -528,17 +528,17 @@
     "nextRead": "Next read"
   },
   "About": {
-    "metaTitle": "About — The Team Behind 404 DAMNED",
+    "metaTitle": "About: The Team Behind 404 DAMNED",
     "metaDescription": "404 DAMNED is two people, not a faceless agency: Nick Grigoriadis and Stathis Papounidis, with Tatiana Petsiou joining as the third. Real names, real LinkedIn profiles, real work.",
     "keywords": ["404 DAMNED team", "digital agency Amsterdam founders", "who is 404 damned"],
-    "ogDescription": "404 DAMNED is two people, not a faceless agency — with a third joining soon. Meet the team.",
+    "ogDescription": "404 DAMNED is two people, not a faceless agency, with a third joining soon. Meet the team.",
     "breadcrumb": "About",
     "kicker": "[ About ]",
     "heading1": "This is who you're",
     "heading2": "actually hiring.",
-    "intro": "404 DAMNED isn't a faceless agency with a rotating cast of account managers. It's two people — Nick and Stathis — who work on your project directly, with Tatiana joining soon as the third. No hand-offs, no anonymous \"team\".",
+    "intro": "404 DAMNED isn't a faceless agency with a rotating cast of account managers. It's two people, Nick and Stathis, who work on your project directly, with Tatiana joining soon as the third. No hand-offs, no anonymous \"team\".",
     "storyHeading": "The name is newer than the work",
-    "storyBody": "404 DAMNED as a studio is the result of experience that goes back to 2017 — years of freelance work and time inside other companies and agencies, long before this name existed. Nick brought company and project management, Stathis brought web development and e-commerce. At some point the two of us realised we were better off building under one name than separately, so we did. Tatiana, who brings web development and digital marketing, is joining as the third.",
+    "storyBody": "404 DAMNED as a studio is the result of experience that goes back to 2017: years of freelance work and time inside other companies and agencies, long before this name existed. Nick brought company and project management, Stathis brought web development and e-commerce. At some point the two of us realised we were better off building under one name than separately, so we did. Tatiana, who brings web development and digital marketing, is joining as the third.",
     "teamHeading": "The team",
     "comingSoon": "Joining soon",
     "ctaHeading1": "Talk to the people",

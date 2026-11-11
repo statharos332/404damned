@@ -10,7 +10,7 @@ const REEL_POSTER = "/video/showreel_poster.webp";
 
 /**
  * Small brutalist showreel preview that sits UNDER THE LOGO (top-left) on
- * desktop. Hidden on mobile (md:block) — on mobile it lives inside the menu
+ * desktop. Hidden on mobile (md:block); on mobile it lives inside the menu
  * instead. Clicking it opens the shared fullscreen player (with sound).
  */
 export function Showreel() {

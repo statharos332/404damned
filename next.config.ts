@@ -7,7 +7,7 @@ import { servicesNl } from "./src/data/services.nl";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 // Dutch service pages live at /nl/diensten/<nl-keyword-slug> instead of
-// /nl/services/<slug> — real Dutch search terms in the URL, not a literal
+// /nl/services/<slug>; real Dutch search terms in the URL, not a literal
 // translation of the English route. The rewrite makes the pretty NL URL
 // serve the existing /services/[slug] page internally; the redirect sends
 // anyone (or Google) still holding the old /nl/services/* URL to the new
@@ -58,15 +58,15 @@ const nextConfig: NextConfig = {
       { source: "/nl/services", destination: "/nl/diensten", permanent: true },
       ...dienstenRedirects,
       // Pre-launch /diensten/... links (no /nl prefix) still get crawled and
-      // indexed as 404s — e.g. /diensten/seo, /diensten/ai-automatisering.
+      // indexed as 404s, e.g. /diensten/seo, /diensten/ai-automatisering.
       // Every current NL service page already resolves under /nl/diensten/...,
       // so a single prefix redirect (incl. the bare /diensten hub) fixes all
       // of them instead of hand-listing each stale slug.
       { source: "/diensten/:path*", destination: "/nl/diensten/:path*", permanent: true },
-      // Case study pulled down (ownership/confidentiality unclear — it was
+      // Case study pulled down (ownership/confidentiality unclear; it was
       // delivered while employed elsewhere, not as 404 DAMNED). Non-permanent:
       // this is a takedown, not a URL restructure, so don't tell crawlers the
-      // content "moved" somewhere — just send any stray hit back to the hub.
+      // content "moved" somewhere; just send any stray hit back to the hub.
       { source: "/work/magento-1-to-headless-wordpress-migration", destination: "/work", permanent: false },
       { source: "/nl/work/magento-1-to-headless-wordpress-migration", destination: "/nl/work", permanent: false },
     ];

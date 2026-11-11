@@ -5,7 +5,7 @@ import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 
 // Not-found boundaries don't receive route params, so locale comes from
-// next-intl's request-scoped detection (src/i18n/request.ts) — same as
+// next-intl's request-scoped detection (src/i18n/request.ts), same as
 // the default export below.
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("NotFound");
@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 /**
- * Branded 404 — the signature moment for a studio literally called
+ * Branded 404: the signature moment for a studio literally called
  * "404 DAMNED". Framer-free (pure CSS glitch) so it stays instant.
  */
 export default async function NotFound() {

@@ -11,7 +11,7 @@ export function SmoothScrollProvider({
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Respect the user's OS-level motion preference — no smooth scroll.
+    // Respect the user's OS-level motion preference: no smooth scroll.
     if (
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches

@@ -12,7 +12,7 @@ import { serviceIcons } from "@/lib/serviceIcons";
 const BASE_URL = "https://www.404damned.com";
 
 /** Hub page has a genuinely different path per locale (/services vs
- *  /nl/diensten, not just a prefix) — see serviceHref() in lib/seo for why. */
+ *  /nl/diensten, not just a prefix); see serviceHref() in lib/seo for why. */
 function hubPath(locale: string): string {
   return locale === "nl" ? "/nl/diensten" : "/services";
 }

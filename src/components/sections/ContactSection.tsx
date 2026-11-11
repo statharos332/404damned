@@ -45,7 +45,7 @@ export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  // honeypot — hidden field; bots fill it, humans don't
+  // honeypot: hidden field; bots fill it, humans don't
   const [website, setWebsite] = useState("");
 
   // Pre-select the service a visitor was reading about on arrival, then
@@ -90,7 +90,7 @@ export function ContactSection() {
     <section id="contact" className="py-32 md:py-48 px-6 md:px-12 bg-[#080808]">
       <div className="max-w-[1400px] mx-auto" ref={ref}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          {/* Left — copy */}
+          {/* Left: copy */}
           <div>
             <m.div
               initial={{ opacity: 0, x: -20 }}
@@ -167,7 +167,7 @@ export function ContactSection() {
               </m.div>
           </div>
 
-          {/* Right — form */}
+          {/* Right: form */}
           <m.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -306,7 +306,7 @@ export function ContactSection() {
                     />
                   </div>
 
-                  {/* Honeypot — visually hidden, off-screen. Real users never see/fill it. */}
+                  {/* Honeypot: visually hidden, off-screen. Real users never see/fill it. */}
                   <div aria-hidden="true" className="absolute -left-[9999px] top-0 w-px h-px overflow-hidden">
                     <label>
                       Website

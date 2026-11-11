@@ -30,10 +30,10 @@ function entries(
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // Service landing pages — the commercial money pages. NL URLs use a
+  // Service landing pages: the commercial money pages. NL URLs use a
   // Dutch keyword slug (/nl/diensten/webshop-laten-maken), a genuinely
   // different path from EN (not just a /nl prefix), so these can't go
-  // through the generic entries() helper — see serviceHref() in lib/seo.
+  // through the generic entries() helper; see serviceHref() in lib/seo.
   const servicePages: MetadataRoute.Sitemap = services.flatMap((s) => {
     const nlService = servicesNl.find((n) => n.slug === s.slug) ?? s;
     const languages = serviceLanguageAlternates(s);

@@ -17,7 +17,7 @@ interface ServiceItem {
 }
 
 // ServicesGrid.items (messages/*.json) is plain translated copy, not linked
-// to the services data — this fixed order is how the two line up. Keep in
+// to the services data; this fixed order is how the two line up. Keep in
 // sync whenever an item is added/reordered in either locale file.
 const SERVICE_SLUGS = [
   "web-development",

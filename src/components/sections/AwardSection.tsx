@@ -12,7 +12,7 @@ const BADGES = [
 ];
 
 /**
- * A real, verified award (CSSDA Special Kudos) — given hero-level visual
+ * A real, verified award (CSSDA Special Kudos), given hero-level visual
  * weight on purpose. This isn't a generic "as seen in" strip; it's the one
  * external, independent signal on the whole site that judges an outsider
  * would trust, so it gets a dedicated section instead of a small tile.
@@ -74,7 +74,7 @@ export function AwardSection() {
                 {/* eslint-disable-next-line @next/next/no-img-element -- fixed-size static badge SVG, not worth next/image overhead */}
                 <img
                   src={b.src}
-                  alt={`CSS Design Awards — ${b.label}, awarded`}
+                  alt={`CSS Design Awards: ${b.label}, awarded`}
                   className="w-20 h-20 md:w-28 md:h-28"
                 />
                 <span className="text-[0.6rem] tracking-[0.15em] uppercase text-gray-500 font-mono text-center">

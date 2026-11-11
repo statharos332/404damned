@@ -1,9 +1,9 @@
 {
   "Metadata": {
-    "title": "404 DAMNED — Digital Bureau Amsterdam | Magento & Next.js",
-    "description": "Website, webshop of Magento-migratie — vaste prijzen en rechtstreeks contact met de developer die het bouwt. Digital bureau in Amsterdam voor ambitieuze Nederlandse bedrijven.",
+    "title": "404 DAMNED: Digital Bureau Amsterdam | Magento & Next.js",
+    "description": "Website, webshop of Magento-migratie: vaste prijzen en rechtstreeks contact met de developer die het bouwt. Digital bureau in Amsterdam voor ambitieuze Nederlandse bedrijven.",
     "ogDescription": "Website, webshop of Magento-migratie. Vaste prijzen, rechtstreeks contact met de developer, geen tussenlagen.",
-    "twitterDescription": "Website, webshop of Magento-migratie — vaste prijzen, rechtstreeks contact met de developer.",
+    "twitterDescription": "Website, webshop of Magento-migratie: vaste prijzen, rechtstreeks contact met de developer.",
     "keywords": [
       "digital bureau Amsterdam",
       "website laten bouwen Amsterdam",
@@ -17,8 +17,8 @@
     ],
     "orgDescription": "Digital bureau in Amsterdam, gespecialiseerd in Magento- en WooCommerce-webshops, webontwikkeling met Next.js en WordPress, AI-automatisering en SEO.",
     "slogan": "Vaste prijzen. Rechtstreeks contact met de developer.",
-    "siteDescription": "Digital bureau in Amsterdam — webontwikkeling, e-commerce (Magento/WooCommerce), AI-automatisering en SEO.",
-    "founderTitle": "Oprichter — Bedrijfsvoering & Projectmanagement",
+    "siteDescription": "Digital bureau in Amsterdam: webontwikkeling, e-commerce (Magento/WooCommerce), AI-automatisering en SEO.",
+    "founderTitle": "Oprichter, Bedrijfsvoering & Projectmanagement",
     "developerTitle": "Developer & Designer",
     "offerCatalog": [
       "Webontwikkeling",
@@ -38,7 +38,7 @@
     "eyebrow": "[ Fout / Signaal verloren ]",
     "headingStart": "Deze pagina kreeg wat ze",
     "headingHighlight": "verdiende.",
-    "body": "De pagina die je zoekt bestaat niet meer — of is bewust offline gehaald. Alles wat wij met opzet bouwen, is springlevend. Kies hieronder een weg terug.",
+    "body": "De pagina die je zoekt bestaat niet meer, of is bewust offline gehaald. Alles wat wij met opzet bouwen, is springlevend. Kies hieronder een weg terug.",
     "backToBase": "Terug naar de basis",
     "seeWork": "Bekijk ons werk",
     "insights": "Inzichten",
@@ -79,7 +79,7 @@
     "linkPrivacyPolicy": "Privacybeleid",
     "linkTermsOfService": "Algemene Voorwaarden",
     "linkCookiePolicy": "Cookiebeleid",
-    "copyright": "© {year} 404 DAMNED — KVK 42082502 — Amsterdam, Nederland",
+    "copyright": "© {year} 404 DAMNED · KVK 42082502 · Amsterdam, Nederland",
     "tagline": "Doordacht ontworpen en gebouwd in Amsterdam."
   },
   "Hero": {
@@ -92,7 +92,7 @@
     "ctaWork": "Bekijk ons werk"
   },
   "ServicesGrid": {
-    "kicker": "— Wat wij doen",
+    "kicker": "// Wat wij doen",
     "heading1": "Wat wij",
     "heading2": "bouwen.",
     "subtitle": "Acht disciplines, onder één dak. Van eerste schets tot livegang volgt hetzelfde team het project van begin tot eind.",
@@ -112,7 +112,7 @@
       {
         "number": "03",
         "title": "Magento migratie",
-        "description": "Van een verouderde Magento 1-winkel naar een platform dat je team kan beheren — met een plan, niet met een gok. Elke oude URL gemapt, niets achtergelaten.",
+        "description": "Van een verouderde Magento 1-winkel naar een platform dat je team kan beheren, met een plan, niet met een gok. Elke oude URL gemapt, niets achtergelaten.",
         "tags": ["Magento 1 EOL", "Zero downtime", "URL-mapping", "Headless"]
       },
       {
@@ -124,7 +124,7 @@
       {
         "number": "05",
         "title": "AI-video",
-        "description": "Cinematische product- en merkvideo, geregisseerd en gemonteerd — niet zomaar geprompt. Gebouwd voor webshops, ads en social, in dagen in plaats van weken.",
+        "description": "Cinematische product- en merkvideo, geregisseerd en gemonteerd, niet zomaar geprompt. Gebouwd voor webshops, ads en social, in dagen in plaats van weken.",
         "tags": ["Productvideo", "Social ads", "Regie", "Postproductie"]
       },
       {
@@ -148,7 +148,7 @@
     ]
   },
   "Capabilities": {
-    "kicker": "— Kernexpertise",
+    "kicker": "// Kernexpertise",
     "heading1": "Digitale",
     "heading2": "Capaciteiten.",
     "items": [
@@ -182,22 +182,22 @@
     "kicker": "[ Wereldwijde erkenning ]",
     "heading1": "Wereldwijd",
     "heading2": "erkend.",
-    "body": "CSS Design Awards riep 404 DAMNED uit tot Special Kudos-winnaar — Best UI, Best UX en Best Innovation. Beoordeeld tegenover studio's van over de hele wereld.",
+    "body": "CSS Design Awards riep 404 DAMNED uit tot Special Kudos-winnaar: Best UI, Best UX en Best Innovation. Beoordeeld tegenover studio's van over de hele wereld.",
     "linkLabel": "Bekijk de geverifieerde vermelding"
   },
   "Clients": {
     "sectionLabel": "Ingezet voor",
     "metricNote": "// awards zijn leuk. de metric die wij najagen staat op je bankrekening.",
-    "recognitionNote": "// erkenningenlog — wordt aangevuld bij contact",
+    "recognitionNote": "// erkenningenlog, wordt aangevuld bij contact",
     "recognition": [
-      { "org": "CSSDA", "label": "Speciale erkenning", "count": "—", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] }
+      { "org": "CSSDA", "label": "Speciale erkenning", "count": "N/A", "url": "https://www.cssdesignawards.com/sites/404-damned/50030", "badges": ["/badges/cssda-best-ui.svg", "/badges/cssda-best-ux.svg", "/badges/cssda-best-innovation.svg"] }
     ]
   },
   "Vibe": {
     "sectionLabel": "De Aanpak",
     "heading1": "Vier principes.",
     "heading2": "Geen compromissen.",
-    "subtitle": "// hoe wij hier werken — geen poespas",
+    "subtitle": "// hoe wij hier werken, geen poespas",
     "doctrine": [
       {
         "n": "001",
@@ -208,7 +208,7 @@
       {
         "n": "002",
         "t": "Elk detail telt",
-        "d": "Snelheid, motion, gewicht — afgesteld tot in de puntjes. Aandacht is wat converteert, niet net-goed-genoeg.",
+        "d": "Snelheid, motion, gewicht, afgesteld tot in de puntjes. Aandacht is wat converteert, niet net-goed-genoeg.",
         "accent": "electric"
       },
       {
@@ -220,13 +220,13 @@
       {
         "n": "004",
         "t": "Direct contact, geen tussenpersonen",
-        "d": "Je werkt rechtstreeks met de mensen die bouwen — geen accountmanager die jouw vraag doorzet naar een developer die je nooit spreekt.",
+        "d": "Je werkt rechtstreeks met de mensen die bouwen, geen accountmanager die jouw vraag doorzet naar een developer die je nooit spreekt.",
         "accent": "red"
       }
     ]
   },
   "Why": {
-    "kicker": "— Waarom wij anders zijn",
+    "kicker": "// Waarom wij anders zijn",
     "heading1": "De agency-",
     "heading2": "industrie is",
     "heading3": "kapot.",
@@ -234,7 +234,7 @@
       {
         "agency": "Traditionele bureaus",
         "problem": "Verkopen je een sjabloon, noemen het custom, en besteden de bouw vervolgens uit.",
-        "solution": "Elk project begint bij een leeg bestand — dezelfde twee mensen bepalen de scope, bouwen het en leveren het op."
+        "solution": "Elk project begint bij een leeg bestand. Dezelfde twee mensen bepalen de scope, bouwen het en leveren het op."
       },
       {
         "agency": "Goedkope freelancers",
@@ -244,7 +244,7 @@
       {
         "agency": "Marketingbureaus",
         "problem": "Verkopen je een strategiedeck, en besteden de daadwerkelijke bouw vervolgens uit.",
-        "solution": "Wij bouwen wat we pitchen — geen overdracht aan een devbureau dat je nog nooit hebt ontmoet."
+        "solution": "Wij bouwen wat we pitchen. Geen overdracht aan een devbureau dat je nog nooit hebt ontmoet."
       },
       {
         "agency": "Devbureaus",
@@ -263,10 +263,10 @@
     "quotePart2": "Geen account managers,",
     "quotePart3": "geen overdrachten,",
     "quotePart4": "niemand die je nooit ontmoet.",
-    "quoteCaption": "— Hoe 404 DAMNED daadwerkelijk werkt"
+    "quoteCaption": "// Hoe 404 DAMNED daadwerkelijk werkt"
   },
   "Process": {
-    "kicker": "— Hoe wij werken",
+    "kicker": "// Hoe wij werken",
     "heading1": "Het proces,",
     "heading2": "stap voor stap.",
     "activitiesLabel": "Activiteiten",
@@ -284,7 +284,7 @@
         "number": "02",
         "title": "Strategie",
         "duration": "Week 1-2",
-        "description": "Wij ontwerpen het complete digitale systeem — van user journeys tot conversiepaden tot technische infrastructuur. Elke beslissing wordt gedocumenteerd en onderbouwd.",
+        "description": "Wij ontwerpen het complete digitale systeem, van user journeys tot conversiepaden tot technische infrastructuur. Elke beslissing wordt gedocumenteerd en onderbouwd.",
         "activities": ["User journey mapping", "Conversiearchitectuur", "Keuze techstack", "KPI-framework"],
         "output": "Projectblauwdruk"
       },
@@ -317,13 +317,13 @@
   "BriefCTA": {
     "sectionLabel": "Begin hier",
     "headline": "VASTE PRIJS, GEEN VERRASSINGEN",
-    "subtitle": "Vertel ons wat je nodig hebt. Binnen een paar dagen krijg je een concreet voorstel — geen wollig verkooppraatje.",
+    "subtitle": "Vertel ons wat je nodig hebt. Binnen een paar dagen krijg je een concreet voorstel, geen wollig verkooppraatje.",
     "ctaBrief": "Start de briefing",
     "ctaCall": "[ plan_een_gesprek ]",
     "footerLine": "AMSTERDAM · 52.3676° N, 4.9041° E · REACTIE BINNEN 4 WERKUREN"
   },
   "Contact": {
-    "kicker": "— Neem contact op",
+    "kicker": "// Neem contact op",
     "heading1": "Klaar voor een",
     "heading2": "aanpak die",
     "heading3": "wél werkt?",
@@ -376,10 +376,10 @@
     "goToMedia": "Ga naar media {index}"
   },
   "Pricing": {
-    "kicker": "— Investering",
+    "kicker": "// Investering",
     "heading1": "Eerlijke prijzen.",
     "heading2": "Oneerlijke resultaten.",
-    "subtitle": "Niet de goedkoopste, niet de duurste — een prijs waar de rekensom voor jou klopt.",
+    "subtitle": "Niet de goedkoopste, niet de duurste: een prijs waar de rekensom voor jou klopt.",
     "mostPopular": "Meest gekozen",
     "trustNote": "Elk project begint met een kennismakingsgesprek. Wij nemen alleen werk aan waarvan we zeker weten dat we het goed kunnen doen.",
     "trustNoteExtra": "Geen retainer-verplichting bij Starter.",
@@ -418,7 +418,7 @@
     "careNote": "Al live elders? Onderhoud & care-abonnementen (security patches, updates, priority fixes) vanaf €300/maand."
   },
   "Testimonials": {
-    "kicker": "— Wat klanten zeggen",
+    "kicker": "// Wat klanten zeggen",
     "heading1": "Wat ze",
     "heading2": "écht zeggen.",
     "result": "Resultaat"
@@ -466,22 +466,22 @@
     "days": ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"]
   },
   "ServicesHub": {
-    "metaTitle": "Diensten — Digital Bureau in Amsterdam",
-    "metaDescription": "Webontwikkeling, e-commerce (Magento/WooCommerce), AI-automatisering, branding en SEO — alle diensten van een klein digital bureau in Amsterdam. Bekijk wat wij bouwen.",
+    "metaTitle": "Diensten: Digital Bureau in Amsterdam",
+    "metaDescription": "Webontwikkeling, e-commerce (Magento/WooCommerce), AI-automatisering, branding en SEO: alle diensten van een klein digital bureau in Amsterdam. Bekijk wat wij bouwen.",
     "keywords": ["digital bureau Amsterdam", "Magento bureau Nederland", "webshop laten bouwen", "webdesign bureau Amsterdam"],
-    "ogTitle": "Diensten — 404 DAMNED, Digital Bureau Amsterdam",
+    "ogTitle": "Diensten: 404 DAMNED, Digital Bureau Amsterdam",
     "ogDescription": "Webontwikkeling, e-commerce, AI-automatisering, branding en SEO van een digital bureau in Amsterdam met een klein, vast team.",
     "breadcrumb": "Diensten",
     "kicker": "[ Diensten ]",
     "heading1": "Eén team.",
     "heading2": "Alle disciplines.",
-    "intro": "404 DAMNED is een digital bureau in Amsterdam. Van webontwikkeling en e-commerce (Magento, WooCommerce) tot AI-automatisering, branding, SEO en social — gebouwd door één klein team, van eerste gesprek tot livegang.",
+    "intro": "404 DAMNED is een digital bureau in Amsterdam. Van webontwikkeling en e-commerce (Magento, WooCommerce) tot AI-automatisering, branding, SEO en social: gebouwd door één klein team, van eerste gesprek tot livegang.",
     "explore": "Bekijk"
   },
   "WorkHub": {
-    "metaTitle": "Case Studies — Webontwikkeling, E-commerce & AI-werk",
+    "metaTitle": "Case Studies: Webontwikkeling, E-commerce & AI-werk",
     "metaDescription": "Echt klantwerk: een sterk converterend boekingsplatform, een AI-gedreven Etsy SEO-engine, en meer zodra projecten worden opgeleverd. Bekijk wat 404 DAMNED daadwerkelijk bouwt.",
-    "ogTitle": "Case Studies — 404 DAMNED",
+    "ogTitle": "Case Studies: 404 DAMNED",
     "ogDescription": "Echt klantwerk van een Amsterdamse studio: boekingsplatforms, e-commerce en AI-automatisering, geen pitch deck.",
     "breadcrumb": "Werk",
     "kicker": "Ons werk",
@@ -506,9 +506,9 @@
     "inHouseBuild": "Eigen build"
   },
   "InsightsHub": {
-    "metaTitle": "Inzichten — Web, E-commerce & AI",
+    "metaTitle": "Inzichten: Web, E-commerce & AI",
     "metaDescription": "Praktische artikelen over webperformance, headless e-commerce, AI-automatisering en groei van 404 DAMNED, een digitale studio in Amsterdam.",
-    "ogTitle": "Inzichten — 404 DAMNED",
+    "ogTitle": "Inzichten: 404 DAMNED",
     "ogDescription": "Praktische artikelen over webperformance, e-commerce en AI-automatisering van een Amsterdamse digitale studio.",
     "breadcrumb": "Inzichten",
     "kicker": "[ Inzichten ]",
@@ -528,17 +528,17 @@
     "nextRead": "Volgend artikel"
   },
   "About": {
-    "metaTitle": "Over ons — Het team achter 404 DAMNED",
+    "metaTitle": "Over ons: Het team achter 404 DAMNED",
     "metaDescription": "404 DAMNED bestaat uit twee mensen, geen anoniem bureau: Nick Grigoriadis en Stathis Papounidis, met Tatiana Petsiou als derde op komst. Echte namen, echte LinkedIn-profielen, echt werk.",
     "keywords": ["404 DAMNED team", "oprichters digital bureau Amsterdam", "wie is 404 damned"],
-    "ogDescription": "404 DAMNED bestaat uit twee mensen, geen anoniem bureau — een derde sluit binnenkort aan. Maak kennis met het team.",
+    "ogDescription": "404 DAMNED bestaat uit twee mensen, geen anoniem bureau, een derde sluit binnenkort aan. Maak kennis met het team.",
     "breadcrumb": "Over ons",
     "kicker": "[ Over ons ]",
     "heading1": "Dit is wie je",
     "heading2": "daadwerkelijk inhuurt.",
-    "intro": "404 DAMNED is geen anoniem bureau met een wisselende cast van accountmanagers. Het zijn twee mensen — Nick en Stathis — die rechtstreeks aan jouw project werken, met Tatiana die binnenkort aansluit als derde. Geen overdrachten, geen anoniem 'team'.",
+    "intro": "404 DAMNED is geen anoniem bureau met een wisselende cast van accountmanagers. Het zijn twee mensen, Nick en Stathis, die rechtstreeks aan jouw project werken, met Tatiana die binnenkort aansluit als derde. Geen overdrachten, geen anoniem 'team'.",
     "storyHeading": "De naam is jonger dan het werk",
-    "storyBody": "404 DAMNED als studio is het resultaat van ervaring die teruggaat tot 2017 — jaren freelance werk en tijd bij andere bedrijven en bureaus, lang voordat deze naam bestond. Nick bracht bedrijfsvoering en projectmanagement mee, Stathis bracht webontwikkeling en e-commerce mee. Op een gegeven moment realiseerden wij tweeën dat we beter af waren onder één naam dan apart, dus dat deden we. Tatiana, die webontwikkeling en digital marketing meebrengt, sluit binnenkort aan als derde.",
+    "storyBody": "404 DAMNED als studio is het resultaat van ervaring die teruggaat tot 2017: jaren freelance werk en tijd bij andere bedrijven en bureaus, lang voordat deze naam bestond. Nick bracht bedrijfsvoering en projectmanagement mee, Stathis bracht webontwikkeling en e-commerce mee. Op een gegeven moment realiseerden wij tweeën dat we beter af waren onder één naam dan apart, dus dat deden we. Tatiana, die webontwikkeling en digital marketing meebrengt, sluit binnenkort aan als derde.",
     "teamHeading": "Het team",
     "comingSoon": "Binnenkort",
     "ctaHeading1": "Praat met de mensen",

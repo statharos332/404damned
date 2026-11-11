@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * 404 DAMNED — brushstroke "X" cursor (from the business card).
+ * 404 DAMNED: brushstroke "X" cursor (from the business card).
  * A rough red SVG X that follows the mouse with smooth lag, tilts
  * with velocity, grows on hover, shrinks on click.
  */
@@ -11,7 +11,7 @@ export function CustomCursor() {
   const ref = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   // Only run on devices with a real pointer. On touch the cursor is hidden by
-  // CSS anyway — without this gate the rAF loop + listeners burn CPU on mobile
+  // CSS anyway; without this gate the rAF loop + listeners burn CPU on mobile
   // for nothing, hurting LCP/TBT.
   const [hasPointer, setHasPointer] = useState(false);
 

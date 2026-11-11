@@ -1,6 +1,6 @@
 /**
  * ============================================================
- *  404 DAMNED — Projects / Work data (single source of truth)
+ *  404 DAMNED: Projects / Work data (single source of truth)
  * ============================================================
  *  Add a new case study by appending an object here. It will
  *  automatically appear on the homepage preview, the /work list,
@@ -16,7 +16,7 @@ export interface ProjectResult {
   value: string; // e.g. "+212%"
 }
 
-// A single tile in the project media gallery — image OR video.
+// A single tile in the project media gallery: image OR video.
 // It renders at the file's own natural size (no forced aspect, no crop),
 // so just drop any image/video in and it sits as-is.
 export interface MediaItem {
@@ -32,7 +32,7 @@ export interface Project {
   category: string; // e.g. "E-Commerce", "Web Development", "AI Automation"
   year: string;
   summary: string; // one-line, used on cards
-  cover: string; // image OR video (.mp4/.webm) — /work/<slug>/cover.*
+  cover: string; // image OR video (.mp4/.webm), at /work/<slug>/cover.*
   coverPoster?: string; // optional still shown while a video cover loads
   services: string[];
   stack: string[];
@@ -145,7 +145,7 @@ export const projects: Project[] = [
         category: "AI Automation",
         year: "2026",
         summary:
-            "A WordPress plugin that generates an AI-readable index of a site's real content automatically — genuine OpenAI-written summaries and classification, not keyword guessing.",
+            "A WordPress plugin that generates an AI-readable index of a site's real content automatically, with genuine OpenAI-written summaries and classification instead of keyword guessing.",
         cover: "/work/llms-txt-ai-visibility-wordpress/cover.svg",
 
         services: ["AI Automation", "SEO", "Plugin Development"],
@@ -156,10 +156,10 @@ export const projects: Project[] = [
             "AI systems like ChatGPT and Perplexity increasingly answer questions directly instead of sending a click, and need something better than raw HTML to read. WordPress makes this harder than it looks: real page content is scattered across post_content, ACF fields and Elementor's serialized builder data, not sitting in one obvious place a generic tool would check.",
 
         approach:
-            "We built a plugin that generates two files — llms.txt and llms-full.txt — automatically, pulling real content from post_content, ACF and Elementor. Each page gets a genuine OpenAI-written summary and category classification, cached per content hash so nothing gets reprocessed unnecessarily, with an automatic fallback to a rule-based extractor whenever AI isn't configured or a request fails. Before calling it done, we deployed it on a live WordPress install and found a real bug — WordPress's own canonical-redirect logic was silently 301-redirecting the endpoint before our handler ever ran — fixed it, then verified the AI path end-to-end with a real API key and a real spend.",
+            "We built a plugin that generates two files, llms.txt and llms-full.txt, automatically, pulling real content from post_content, ACF and Elementor. Each page gets a genuine OpenAI-written summary and category classification, cached per content hash so nothing gets reprocessed unnecessarily, with an automatic fallback to a rule-based extractor whenever AI isn't configured or a request fails. Before calling it done, we deployed it on a live WordPress install and found a real bug: WordPress's own canonical-redirect logic was silently 301-redirecting the endpoint before our handler ever ran. We fixed it, then verified the AI path end-to-end with a real API key and a real spend.",
 
         outcome:
-            "A working, tested plugin that makes a site's actual content legible to AI systems, with classification that's measurably better than keyword matching. An \"About us\" page our rule-based fallback misclassified as \"Contact\" at 55% confidence — because the text mentioned \"direct contact with the developer\" — landed correctly under \"Company\" at 95% confidence once AI was switched on, with a real written summary instead of a truncated sentence.",
+            "A working, tested plugin that makes a site's actual content legible to AI systems, with classification that's measurably better than keyword matching. An \"About us\" page our rule-based fallback misclassified as \"Contact\" at 55% confidence, because the text mentioned \"direct contact with the developer\", landed correctly under \"Company\" at 95% confidence once AI was switched on, with a real written summary instead of a truncated sentence.",
 
         results: [
             { label: "Content sources covered", value: "3" },
@@ -189,7 +189,7 @@ export const projects: Project[] = [
         category: "App Development",
         year: "2026",
         summary:
-            "A tap-to-order takeaway tool for the counter at Romios Greek Taverna — staff or customers build the order from the menu and watch the total update instantly, no mental math.",
+            "A tap-to-order takeaway tool for the counter at Romios Greek Taverna. Staff or customers build the order from the menu and watch the total update instantly, no mental math.",
         cover: "/work/romios-internal-takeaway/cover.mp4",
         coverPoster: "/work/romios-internal-takeaway/cover-poster.jpg",
 
@@ -198,16 +198,16 @@ export const projects: Project[] = [
         stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
 
         challenge:
-            "Building a takeaway order by hand during a rush means adding up dish after dish in your head or reaching for a calculator, and a menu that mixes combo plates with simple sides doesn't total cleanly either way. Any price change meant asking a developer to touch the code — not something that happens in the middle of a Friday night service.",
+            "Building a takeaway order by hand during a rush means adding up dish after dish in your head or reaching for a calculator, and a menu that mixes combo plates with simple sides doesn't total cleanly either way. Any price change meant asking a developer to touch the code, not something that happens in the middle of a Friday night service.",
 
         approach:
-            "We built a tap-to-order tool in React Native and Expo, so the same codebase runs on the tablet behind the counter, in a browser, or on a phone without separate builds. Staff — or customers directly — tap dishes across the menu's categories, with a +/- stepper on every line and a running total that updates on each tap, no typing required. An order review drawer slides up to show the full order and total before it's confirmed or cleared for the next one. A PIN-protected admin screen lets the owner add, edit or remove menu items and prices themselves, so a menu change doesn't wait on us. The interface switches between Greek and Greeklish for staff who read one script more comfortably than the other, with haptic feedback on every tap so it feels native on a shop tablet.",
+            "We built a tap-to-order tool in React Native and Expo, so the same codebase runs on the tablet behind the counter, in a browser, or on a phone without separate builds. Staff, or customers directly, tap dishes across the menu's categories, with a +/- stepper on every line and a running total that updates on each tap, no typing required. An order review drawer slides up to show the full order and total before it's confirmed or cleared for the next one. A PIN-protected admin screen lets the owner add, edit or remove menu items and prices themselves, so a menu change doesn't wait on us. The interface switches between Greek and Greeklish for staff who read one script more comfortably than the other, with haptic feedback on every tap so it feels native on a shop tablet.",
 
         outcome:
             "It runs on the tablet behind the counter at Romios Greek Taverna today: an order gets built by tapping the menu instead of totting it up by hand, and the owner updates prices directly from the admin screen without waiting on a code change.",
 
         results: [
-            { label: "Platforms", value: "iOS, Android & Web — one codebase" },
+            { label: "Platforms", value: "iOS, Android & Web, one codebase" },
             { label: "Menu categories", value: "9" },
             { label: "Menu & price updates", value: "Self-serve via admin PIN" }
         ],

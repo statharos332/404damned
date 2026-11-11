@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
  * the cursor, a flash + impact ring fire at the point, and the clicked
  * interactive element briefly "electrifies".
  *
- * Pure DOM/SVG + CSS — no deps. Respects reduced-motion. Skips clicks on
+ * Pure DOM/SVG + CSS, no deps. Respects reduced-motion. Skips clicks on
  * inputs/textareas so typing/scrolling stays clean.
  */
 
@@ -112,7 +112,7 @@ export function LightningStrike() {
     };
 
     // Throttle: a judge/visitor clicking rapidly through the page shouldn't
-    // get a full screen-flash on every single click — that reads as
+    // get a full screen-flash on every single click; that reads as
     // spammy, not premium.
     let lastStrike = 0;
     const COOLDOWN_MS = 260;
@@ -129,7 +129,7 @@ export function LightningStrike() {
       // headings / words get the text-zap flicker
       const text = el.closest("h1, h2, h3, h4, .electric-text");
       const target = (btn || text) as HTMLElement | null;
-      // Only strike where something actually reacts — clicks on plain
+      // Only strike where something actually reacts; clicks on plain
       // background/whitespace shouldn't trigger the full effect.
       if (!target) return;
 
@@ -137,7 +137,7 @@ export function LightningStrike() {
       if (now - lastStrike < COOLDOWN_MS) return;
       lastStrike = now;
 
-      // clientX/Y are viewport-relative — correct for our position:fixed layer
+      // clientX/Y are viewport-relative, correct for our position:fixed layer
       const x = e.clientX;
       const y = e.clientY;
       if (x === 0 && y === 0) return; // ignore synthetic/keyboard clicks
@@ -174,7 +174,7 @@ export function LightningStrike() {
         >
           {/* screen flash on strike */}
           <rect x="0" y="0" width="100%" height="100%" className="screen-flash" />
-          {/* red ambient glow — widest, lowest opacity */}
+          {/* red ambient glow: widest, lowest opacity */}
           <path d={bolt.path} className="bolt bolt-glow-red" fill="none" />
           {/* electric-blue glow underlay */}
           <path d={bolt.path} className="bolt bolt-glow" fill="none" />

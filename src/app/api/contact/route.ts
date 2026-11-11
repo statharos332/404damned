@@ -3,10 +3,10 @@ import nodemailer from "nodemailer";
 
 /**
  * ============================================================
- *  404 DAMNED — Contact form → email  (Google Workspace, OAuth2)
+ *  404 DAMNED: Contact form → email  (Google Workspace, OAuth2)
  * ============================================================
  *  Sends every submission straight to info@404damned.com via your own
- *  Google Workspace mailbox — no third-party email provider.
+ *  Google Workspace mailbox; no third-party email provider.
  *  Set these in Vercel → Project → Settings → Environment Variables:
  *    GMAIL_USER           = info@404damned.com
  *    GOOGLE_CLIENT_ID     = OAuth client ID
@@ -38,7 +38,7 @@ interface ContactPayload {
   service?: string;
   budget?: string;
   message?: string;
-  // honeypot — real users never fill this; bots do
+  // honeypot: real users never fill this; bots do
   website?: string;
 }
 
@@ -97,10 +97,10 @@ export async function POST(req: Request) {
       );
     }
 
-    const company = (data.company || "—").trim();
-    const service = (data.service || "—").trim();
-    const budget = (data.budget || "—").trim();
-    const safeMessage = message ? escapeHtml(message) : "—";
+    const company = (data.company || "N/A").trim();
+    const service = (data.service || "N/A").trim();
+    const budget = (data.budget || "N/A").trim();
+    const safeMessage = message ? escapeHtml(message) : "N/A";
 
     // 4) Send the email to you
     const transporter = getTransporter();
@@ -108,10 +108,10 @@ export async function POST(req: Request) {
       from: `404 DAMNED <${gmailUser}>`,
       to: contactTo.split(",").map((s) => s.trim()),
       replyTo: email, // hit "Reply" → answers the lead directly
-      subject: `🔴 New brief — ${name}${company !== "—" ? ` (${company})` : ""}`,
+      subject: `🔴 New brief: ${name}${company !== "N/A" ? ` (${company})` : ""}`,
       html: `
         <div style="font-family:system-ui,Arial,sans-serif;background:#050505;color:#fff;padding:32px;border-radius:12px;max-width:560px">
-          <div style="display:inline-block;background:#D6001C;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;margin-bottom:20px">404 DAMNED — New Lead</div>
+          <div style="display:inline-block;background:#D6001C;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;margin-bottom:20px">404 DAMNED: New Lead</div>
           <h2 style="margin:0 0 16px;font-size:22px">${escapeHtml(name)}</h2>
           <table style="width:100%;border-collapse:collapse;font-size:14px;color:#ddd">
             <tr><td style="padding:8px 0;color:#888;width:120px">Email</td><td style="padding:8px 0"><a href="mailto:${escapeHtml(email)}" style="color:#FF1A35">${escapeHtml(email)}</a></td></tr>
@@ -126,9 +126,9 @@ export async function POST(req: Request) {
         </div>
       `,
       text:
-        `New lead — 404 DAMNED\n\n` +
+        `New lead: 404 DAMNED\n\n` +
         `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n` +
-        `Service: ${service}\nBudget: ${budget}\n\nMessage:\n${message || "—"}`,
+        `Service: ${service}\nBudget: ${budget}\n\nMessage:\n${message || "N/A"}`,
     });
 
     return NextResponse.json({ ok: true });

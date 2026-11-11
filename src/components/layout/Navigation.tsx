@@ -17,8 +17,8 @@ export function Navigation() {
   const { openShowreel } = useShowreel();
 
   // The services hub has a genuinely different path per locale (/services
-  // vs /nl/diensten, not just a /nl prefix) — see serviceHref() in lib/seo
-  // for why — so it can't go through the generic i18n-prefixed Link below.
+  // vs /nl/diensten, not just a /nl prefix); see serviceHref() in lib/seo
+  // for why, so it can't go through the generic i18n-prefixed Link below.
   const navLinks = [
     { key: "services", label: t("services"), href: locale === "nl" ? "/nl/diensten" : "/services", plain: true },
     { key: "work", label: t("work"), href: "/work" },
@@ -35,7 +35,7 @@ export function Navigation() {
 
   return (
     <>
-      {/* Entrance is CSS (.nav-enter) — no framer-motion on every page */}
+      {/* Entrance is CSS (.nav-enter), no framer-motion on every page */}
       <nav
         className={`nav-enter fixed top-0 left-0 right-0 z-[100] px-6 md:px-12 py-5 transition-all duration-500 ${
           scrolled || menuOpen
@@ -109,9 +109,9 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Menu — always mounted, slides via CSS (.mobile-menu).
+      {/* Mobile Menu: always mounted, slides via CSS (.mobile-menu).
           justify-start + top padding (not justify-center) so it never
-          collides with the fixed logo/close button above it — real mobile
+          collides with the fixed logo/close button above it; real mobile
           Safari's visible toolbar chrome leaves less height than the full
           screen size, and this menu's content is tall enough to be flush
           against the top there. overflow-y-auto is the fallback for even

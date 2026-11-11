@@ -82,7 +82,7 @@ export function ClientsStrip() {
                 href={a.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${a.org} — ${a.label}, verified listing (opens in a new tab)`}
+                aria-label={`${a.org}: ${a.label}, verified listing (opens in a new tab)`}
                 className="group bg-[#050505] p-8 hover:bg-[#0a0a0a] transition-colors"
               >
                 {inner}

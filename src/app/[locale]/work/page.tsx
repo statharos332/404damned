@@ -45,7 +45,7 @@ export default async function WorkPage() {
     itemListElement: localizedProjects.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      name: `${p.client} — ${p.title}`,
+      name: `${p.client}: ${p.title}`,
       url: `https://www.404damned.com${localizedPath(`/work/${p.slug}`, locale)}`,
     })),
   };

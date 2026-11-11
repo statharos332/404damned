@@ -1,11 +1,11 @@
 /**
  * ============================================================
- *  404 DAMNED — Legal content (Dutch)
+ *  404 DAMNED: Legal content (Dutch)
  * ============================================================
- *  Dutch mirror of legal.ts — same slugs/section ids/block
+ *  Dutch mirror of legal.ts, same slugs/section ids/block
  *  structure, translated into natural, AVG-correct Dutch.
  *
- *  NOTE: These are solid, honest starting documents — not a
+ *  NOTE: These are solid, honest starting documents, not a
  *  substitute for review by Dutch/EU legal counsel before you
  *  rely on them commercially.
  * ============================================================
@@ -35,7 +35,7 @@ const privacy: LegalDoc = {
     "Dit beleid legt uit welke persoonsgegevens 404 DAMNED verzamelt, waarom we dat doen, hoe we ze gebruiken, en welke rechten je hebt onder de Algemene Verordening Gegevensbescherming (AVG). We houden gegevensverzameling tot het minimum dat nodig is om deze studio te runnen.",
   metaTitle: "Privacybeleid",
   metaDescription:
-    "Hoe 404 DAMNED, een digital bureau uit Amsterdam, jouw persoonsgegevens verzamelt, gebruikt en beschermt onder de AVG — plus je rechten en hoe je die kunt uitoefenen.",
+    "Hoe 404 DAMNED, een digital bureau uit Amsterdam, jouw persoonsgegevens verzamelt, gebruikt en beschermt onder de AVG, plus je rechten en hoe je die kunt uitoefenen.",
   sections: [
     {
       id: "controller",
@@ -62,10 +62,10 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "Contactgegevens die je zelf invult — naam, e-mailadres, bedrijfsnaam en alles wat je schrijft in het contactformulier of ons per e-mail stuurt.",
-            "Projectinformatie — de dienst, het budget en de briefing die je deelt zodat we op je aanvraag kunnen reageren.",
-            "Technische en gebruiksgegevens — geanonimiseerde, geaggregeerde analytics zoals bekeken pagina's en performance-metrics. Wij gebruiken dit niet om je persoonlijk te identificeren.",
-            "Communicatiegegevens — de e-mails en berichten die we uitwisselen tijdens het scopen of opleveren van werk.",
+            "Contactgegevens die je zelf invult: naam, e-mailadres, bedrijfsnaam en alles wat je schrijft in het contactformulier of ons per e-mail stuurt.",
+            "Projectinformatie: de dienst, het budget en de briefing die je deelt zodat we op je aanvraag kunnen reageren.",
+            "Technische en gebruiksgegevens: geanonimiseerde, geaggregeerde analytics zoals bekeken pagina's en performance-metrics. Wij gebruiken dit niet om je persoonlijk te identificeren.",
+            "Communicatiegegevens: de e-mails en berichten die we uitwisselen tijdens het scopen of opleveren van werk.",
           ],
         },
         {
@@ -85,12 +85,12 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "Om te reageren op je aanvraag en offertes te verstrekken — gerechtvaardigd belang en het nemen van stappen om op jouw verzoek een overeenkomst aan te gaan.",
-            "Om de afgesproken diensten te leveren — uitvoering van een overeenkomst.",
-            "Om projectupdates, facturen en essentiële servicemeldingen te versturen — uitvoering van een overeenkomst en gerechtvaardigd belang.",
-            "Om de website veilig te houden en te verbeteren via anonieme analytics — gerechtvaardigd belang.",
-            "Om te voldoen aan wettelijke, fiscale en administratieve verplichtingen — wettelijke verplichting.",
-            "Om marketing te versturen (alleen als je je hiervoor aanmeldt) — toestemming, die je op elk moment kunt intrekken.",
+            "Om te reageren op je aanvraag en offertes te verstrekken: gerechtvaardigd belang en het nemen van stappen om op jouw verzoek een overeenkomst aan te gaan.",
+            "Om de afgesproken diensten te leveren: uitvoering van een overeenkomst.",
+            "Om projectupdates, facturen en essentiële servicemeldingen te versturen: uitvoering van een overeenkomst en gerechtvaardigd belang.",
+            "Om de website veilig te houden en te verbeteren via anonieme analytics: gerechtvaardigd belang.",
+            "Om te voldoen aan wettelijke, fiscale en administratieve verplichtingen: wettelijke verplichting.",
+            "Om marketing te versturen (alleen als je je hiervoor aanmeldt): toestemming, die je op elk moment kunt intrekken.",
           ],
         },
       ],
@@ -106,9 +106,9 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "Hosting & infrastructuur — Vercel Inc., dat deze website host en privacyvriendelijke, geaggregeerde analytics levert.",
-            "E-mail — Google Workspace, dat we gebruiken om jouw aanvragen te ontvangen en te beantwoorden.",
-            "Betaal- & boekhoudpartijen — om facturen op te stellen en te verwerken wanneer je klant wordt.",
+            "Hosting & infrastructuur: Vercel Inc., dat deze website host en privacyvriendelijke, geaggregeerde analytics levert.",
+            "E-mail: Google Workspace, dat we gebruiken om jouw aanvragen te ontvangen en te beantwoorden.",
+            "Betaal- & boekhoudpartijen: om facturen op te stellen en te verwerken wanneer je klant wordt.",
           ],
         },
         {
@@ -138,12 +138,12 @@ const privacy: LegalDoc = {
         {
           type: "list",
           items: [
-            "Inzage — een kopie ontvangen van de persoonsgegevens die we over je hebben.",
-            "Rectificatie — onjuiste of onvolledige gegevens laten corrigeren.",
-            "Verwijdering — ons vragen je gegevens te wissen ('het recht op vergetelheid').",
-            "Beperking & bezwaar — het gebruik van je gegevens laten beperken of hiertegen bezwaar maken.",
-            "Overdraagbaarheid — je gegevens ontvangen in een overdraagbaar formaat.",
-            "Toestemming intrekken — op elk moment, waar we op toestemming steunen.",
+            "Inzage: een kopie ontvangen van de persoonsgegevens die we over je hebben.",
+            "Rectificatie: onjuiste of onvolledige gegevens laten corrigeren.",
+            "Verwijdering: ons vragen je gegevens te wissen ('het recht op vergetelheid').",
+            "Beperking & bezwaar: het gebruik van je gegevens laten beperken of hiertegen bezwaar maken.",
+            "Overdraagbaarheid: je gegevens ontvangen in een overdraagbaar formaat.",
+            "Toestemming intrekken: op elk moment, waar we op toestemming steunen.",
           ],
         },
         {
@@ -188,7 +188,7 @@ const terms: LegalDoc = {
     "Deze voorwaarden regelen jouw gebruik van deze website en de diensten die 404 DAMNED levert. Door de site te gebruiken of ons in te schakelen, ga je hiermee akkoord. Specifieke projecten worden daarnaast geregeld door een aparte, schriftelijke offerte of overeenkomst, die voorrang heeft wanneer die conflicteert met deze voorwaarden.",
   metaTitle: "Algemene Voorwaarden",
   metaDescription:
-    "De voorwaarden die het gebruik regelen van de 404 DAMNED-website en de diensten van ons digital bureau — scope, betaling, intellectueel eigendom, aansprakelijkheid en toepasselijk recht.",
+    "De voorwaarden die het gebruik regelen van de 404 DAMNED-website en de diensten van ons digital bureau: scope, betaling, intellectueel eigendom, aansprakelijkheid en toepasselijk recht.",
   sections: [
     {
       id: "agreement",
@@ -206,7 +206,7 @@ const terms: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Wij leveren digitale diensten, waaronder webontwikkeling, e-commerce, AI-automatisering, branding, SEO en aanverwant werk. De precieze scope, opleveringen, planning en prijs voor elke opdracht staan in een schriftelijke offerte, statement of work of overeenkomst die we samen afspreken. Alles op deze website — inclusief indicatieve prijzen — dient uitsluitend ter informatie en vormt geen bindend aanbod.",
+          text: "Wij leveren digitale diensten, waaronder webontwikkeling, e-commerce, AI-automatisering, branding, SEO en aanverwant werk. De precieze scope, opleveringen, planning en prijs voor elke opdracht staan in een schriftelijke offerte, statement of work of overeenkomst die we samen afspreken. Alles op deze website (inclusief indicatieve prijzen) dient uitsluitend ter informatie en vormt geen bindend aanbod.",
         },
       ],
     },
@@ -323,8 +323,8 @@ const cookies: LegalDoc = {
         {
           type: "list",
           items: [
-            "Essentiële opslag — nodig om de site te laten functioneren en veilig te houden. Deze volgen je niet en vereisen geen toestemming.",
-            "Privacyvriendelijke analytics — Vercel Analytics en Speed Insights, die verkeer en performance op een geaggregeerde, geanonimiseerde manier meten om ons te helpen de site te verbeteren. Ze zijn ontworpen om te werken zonder individuele bezoekers te identificeren.",
+            "Essentiële opslag: nodig om de site te laten functioneren en veilig te houden. Deze volgen je niet en vereisen geen toestemming.",
+            "Privacyvriendelijke analytics: Vercel Analytics en Speed Insights, die verkeer en performance op een geaggregeerde, geanonimiseerde manier meten om ons te helpen de site te verbeteren. Ze zijn ontworpen om te werken zonder individuele bezoekers te identificeren.",
           ],
         },
         {
@@ -339,7 +339,7 @@ const cookies: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Je kunt cookies op elk moment blokkeren of verwijderen via je browserinstellingen — de meeste browsers laten je cookies weigeren of waarschuwen je wanneer er een wordt geplaatst. Het blokkeren van essentiële opslag kan ervoor zorgen dat onderdelen van de site niet correct werken.",
+          text: "Je kunt cookies op elk moment blokkeren of verwijderen via je browserinstellingen. De meeste browsers laten je cookies weigeren of waarschuwen je wanneer er een wordt geplaatst. Het blokkeren van essentiële opslag kan ervoor zorgen dat onderdelen van de site niet correct werken.",
         },
         {
           type: "p",

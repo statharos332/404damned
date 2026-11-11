@@ -4,7 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 /**
  * Fades its children out as you scroll down through the ancestor `.hero-root`
- * container. Pure progressive enhancement — children are server-rendered
+ * container. Pure progressive enhancement; children are server-rendered
  * markup (passed straight through from HeroSection), so the hero text is
  * fully painted before this client island even hydrates; it only ever
  * *adds* the fade-on-scroll behaviour on top.
@@ -19,7 +19,7 @@ export function HeroScrollFade({
   const copyRef = useRef<HTMLDivElement>(null);
 
   // Write opacity straight to the DOM (rAF-throttled) so we never trigger a
-  // React re-render per scroll frame — keeps the main thread free (Law 9).
+  // React re-render per scroll frame, keeps the main thread free (Law 9).
   useEffect(() => {
     const copy = copyRef.current;
     const el = copy?.closest<HTMLElement>(".hero-root");

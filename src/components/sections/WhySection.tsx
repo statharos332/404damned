@@ -86,7 +86,7 @@ export function WhySection() {
               }`}
             >
               {s}
-              <span className="text-[#D6001C] mx-10">—</span>
+              <span className="text-[#D6001C] mx-10">•</span>
             </span>
           ))}
         </m.div>

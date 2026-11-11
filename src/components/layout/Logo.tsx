@@ -56,7 +56,7 @@ export function Logo() {
   }, []);
 
   return (
-    <Link href="/" className="group relative block" aria-label="404 DAMNED — home">
+    <Link href="/" className="group relative block" aria-label="404 DAMNED, home">
       {/* HUGE thick bolt from the bottom-right corner up to the logo */}
       {zap && boltPath && (
         <svg
@@ -76,7 +76,7 @@ export function Logo() {
         </svg>
       )}
 
-      {/* the logo — jolts + electrifies on strike */}
+      {/* the logo: jolts + electrifies on strike */}
       <div className={`relative flex items-center gap-3 ${zap ? "logo-zap logo-jolt" : ""}`}>
         <div className="w-8 h-8 bg-[#D6001C] flex items-center justify-center">
           <span className="text-white text-xs font-bold font-mono">404</span>

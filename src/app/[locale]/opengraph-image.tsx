@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
 
 /**
- * Dynamic Open Graph image — generated at the edge, no designer needed.
+ * Dynamic Open Graph image: generated at the edge, no designer needed.
  * Shows up when the site is shared on LinkedIn / X / WhatsApp / Slack etc.
  * Next.js auto-uses this for og:image (and we point twitter at it too).
  */
 export const runtime = "edge";
-export const alt = "404 DAMNED — Premium Digital Agency Amsterdam";
+export const alt = "404 DAMNED: Premium Digital Agency Amsterdam";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

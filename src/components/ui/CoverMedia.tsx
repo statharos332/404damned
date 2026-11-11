@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Renders a project cover that can be EITHER an image or a video.
- * VIDEO: lazy — only starts loading/playing when it scrolls into view
+ * VIDEO: lazy, only starts loading/playing when it scrolls into view
  * (IntersectionObserver), pauses when off-screen. Saves bandwidth and
  * protects LCP/INP. Shows the poster until then.
  * IMAGE: optimized next/image.

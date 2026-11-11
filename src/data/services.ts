@@ -1,11 +1,11 @@
 /**
  * ============================================================
- *  404 DAMNED — Service landing pages (SEO)
+ *  404 DAMNED: Service landing pages (SEO)
  * ============================================================
  *  Each service gets its own indexable, keyword-targeted page at
  *  /services/<slug>, plus an entry on the /services hub and the
  *  sitemap. This is the on-page foundation for ranking on the
- *  commercial "<service> Amsterdam" searches — the homepage's
+ *  commercial "<service> Amsterdam" searches. The homepage's
  *  #services anchor could never rank on its own.
  *
  *  Keep copy specific and genuinely useful. Thin or duplicated
@@ -29,7 +29,7 @@ export interface Service {
   slug: string;
   /** Dutch-market public URL slug (e.g. "webshop-laten-maken"), used under
    *  /nl/diensten/<urlSlug> instead of the canonical `slug`. Falls back to
-   *  `slug` when absent — only the NL dataset sets this. */
+   *  `slug` when absent; only the NL dataset sets this. */
   urlSlug?: string;
   /** short name for nav / cards, e.g. "Web Development" */
   name: string;
@@ -48,10 +48,10 @@ export interface Service {
   /** other service slugs to cross-link for internal-linking authority */
   related: string[];
   /** overrides ServicePageChrome's generic "bookCall" hero CTA with a
-   *  service-specific ask (e.g. "Discuss your migration") — falls back to
+   *  service-specific ask (e.g. "Discuss your migration"); falls back to
    *  the generic copy when absent. */
   ctaLabel?: string;
-  /** slug of a /work/<slug> case study to link prominently from this page —
+  /** slug of a /work/<slug> case study to link prominently from this page:
    *  the proof behind the pitch, not just a claim. */
   caseStudySlug?: string;
 }
@@ -62,7 +62,7 @@ export const services: Service[] = [
     name: "Web Development",
     h1: "Web Development in Amsterdam",
     tagline: "Fast, custom websites and web apps engineered to convert.",
-    metaTitle: "Web Development Amsterdam — Custom Next.js Websites",
+    metaTitle: "Web Development Amsterdam: Custom Next.js Websites",
     metaDescription:
       "Premium web development in Amsterdam. We build fast, custom Next.js websites and web apps engineered for conversion, speed and search. Book a strategy call.",
     keywords: [
@@ -73,7 +73,7 @@ export const services: Service[] = [
       "web development agency Amsterdam",
     ],
     intro:
-      "Stathis has been building for the web — for agencies, for large clients, for himself — since long before 404 DAMNED existed. Every site we ship comes out of that background: custom-coded in Next.js and React, tuned until it loads in under a second, and structured so Google can actually read it instead of guessing.",
+      "Stathis has been building for the web, for agencies, for large clients, for himself, since long before 404 DAMNED existed. Every site we ship comes out of that background: custom-coded in Next.js and React, tuned until it loads in under a second, and structured so Google can actually read it instead of guessing.",
     sections: [
       {
         heading: "Speed decides more than most people budget for",
@@ -81,11 +81,11 @@ export const services: Service[] = [
       },
       {
         heading: "No theme gets stretched to fit your brand",
-        body: "Every build starts from a blank file in React and Next.js. That takes longer than installing a theme and swapping the colours, but it means the site is exactly as fast and distinctive as your business needs — and the code stays clean enough for your team, or ours, to extend two years from now without a rebuild.",
+        body: "Every build starts from a blank file in React and Next.js. That takes longer than installing a theme and swapping the colours, but it means the site is exactly as fast and distinctive as your business needs, and the code stays clean enough for your team, or ours, to extend two years from now without a rebuild.",
       },
       {
         heading: "Built so Google understands it, not just people",
-        body: "Semantic markup, server-side rendering, structured data and a clean URL structure aren't bolted on at the end — they're part of the same build. A site search engines can parse easily is also, not coincidentally, one that's easier to maintain as you grow.",
+        body: "Semantic markup, server-side rendering, structured data and a clean URL structure aren't bolted on at the end. They're part of the same build. A site search engines can parse easily is also, not coincidentally, one that's easier to maintain as you grow.",
       },
     ],
     deliverables: [
@@ -101,23 +101,23 @@ export const services: Service[] = [
     faqs: [
       {
         q: "How much does a website cost in Amsterdam?",
-        a: "A custom marketing site usually starts around €5,000; larger web apps and platforms scale up from there depending on scope. We quote after a short call, once we actually know what you need — not a fixed package that pads the invoice.",
+        a: "A custom marketing site usually starts around €5,000; larger web apps and platforms scale up from there depending on scope. We quote after a short call, once we actually know what you need, not a fixed package that pads the invoice.",
       },
       {
         q: "How long does it take to build a website?",
-        a: "Most custom builds go live in 4–8 weeks. The main variables are scope and how quickly content and feedback come back from your side — we lay out the timeline in the proposal and hold to it.",
+        a: "Most custom builds go live in 4–8 weeks. The main variables are scope and how quickly content and feedback come back from your side. We lay out the timeline in the proposal and hold to it.",
       },
       {
         q: "Do you use WordPress or custom code?",
-        a: "Custom, in Next.js and React — that's where the speed and control come from. If a project genuinely needs a CMS, we wire in a fast headless one so your team can edit content without touching code.",
+        a: "Custom, in Next.js and React. That's where the speed and control come from. If a project genuinely needs a CMS, we wire in a fast headless one so your team can edit content without touching code.",
       },
       {
         q: "Will my website actually rank on Google?",
-        a: "The build itself ships fast, crawlable and structured — that's the foundation ranking needs. Whether it actually ranks also depends on content and backlinks over time, which we can help with separately.",
+        a: "The build itself ships fast, crawlable and structured. That's the foundation ranking needs. Whether it actually ranks also depends on content and backlinks over time, which we can help with separately.",
       },
       {
         q: "Do you offer ongoing support after launch?",
-        a: "Yes, two ways. Care plans start at €300/month — security patches, dependency updates, monitoring and priority bugfixes, for any site whether we built it or not. Growth retainers start at €1,200/month for teams that want us actively building: new features, CRO experiments, ongoing optimization. Most clients start with Care and move up if they need more.",
+        a: "Yes, two ways. Care plans start at €300/month: security patches, dependency updates, monitoring and priority bugfixes, for any site whether we built it or not. Growth retainers start at €1,200/month for teams that want us actively building: new features, CRO experiments, ongoing optimization. Most clients start with Care and move up if they need more.",
       },
     ],
     related: ["ecommerce", "seo", "ai-automation"],
@@ -128,7 +128,7 @@ export const services: Service[] = [
     name: "E-Commerce",
     h1: "E-Commerce Development in Amsterdam",
     tagline: "High-converting online stores on Shopify, Magento & headless.",
-    metaTitle: "E-Commerce Development Amsterdam — Shopify & Magento",
+    metaTitle: "E-Commerce Development Amsterdam: Shopify & Magento",
     metaDescription:
       "E-commerce development in Amsterdam. High-converting online stores on Shopify, Magento and headless commerce, built for speed, scale and revenue. Book a call.",
     keywords: [
@@ -139,7 +139,7 @@ export const services: Service[] = [
       "online store development Amsterdam",
     ],
     intro:
-      "Tatiana and Stathis have built e-commerce stores on Shopify, Magento and WooCommerce for years between them — from small catalogues to complex B2B pricing. Whatever platform fits your stage, the build gets engineered around one number: conversion rate, not how the demo looked in a pitch.",
+      "Tatiana and Stathis have built e-commerce stores on Shopify, Magento and WooCommerce for years between them, from small catalogues to complex B2B pricing. Whatever platform fits your stage, the build gets engineered around one number: conversion rate, not how the demo looked in a pitch.",
     sections: [
       {
         heading: "The right platform for your stage",
@@ -168,7 +168,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "How much does a webshop cost?",
-        a: "Shopify or WooCommerce builds typically run €3,500–€15,000 depending on catalogue size and integrations; Magento or a headless build runs €15,000–€60,000+ once B2B pricing rules or a large multi-warehouse catalogue are involved. We break down exactly what drives that range in our pricing guide. Either way, we quote after a call, once we know your actual catalogue — not off a fixed package.",
+        a: "Shopify or WooCommerce builds typically run €3,500–€15,000 depending on catalogue size and integrations; Magento or a headless build runs €15,000–€60,000+ once B2B pricing rules or a large multi-warehouse catalogue are involved. We break down exactly what drives that range in our pricing guide. Either way, we quote after a call, once we know your actual catalogue, not off a fixed package.",
       },
       {
         q: "Which is better, Shopify or Magento?",
@@ -176,7 +176,7 @@ export const services: Service[] = [
       },
       {
         q: "Can you migrate my existing store without losing rankings?",
-        a: "Yes — that's most of the risk in a migration, and most of the work. Old URLs get mapped to new ones, structured data and metadata carry over, and content moves carefully enough that your SEO equity doesn't reset to zero.",
+        a: "Yes, that's most of the risk in a migration, and most of the work. Old URLs get mapped to new ones, structured data and metadata carry over, and content moves carefully enough that your SEO equity doesn't reset to zero.",
       },
       {
         q: "Do you build headless e-commerce?",
@@ -188,7 +188,7 @@ export const services: Service[] = [
       },
       {
         q: "Do you maintain Magento or WooCommerce stores after launch?",
-        a: "Yes — Magento specifically needs it more than most platforms. Care plans start at €300/month: security patches, version upgrades, uptime monitoring, priority bugfixes. If you want us actively building on top (new features, ongoing CRO), that's a Growth retainer starting at €1,200/month. Works the same whether we built your store or you're moving from another agency.",
+        a: "Yes, Magento specifically needs it more than most platforms. Care plans start at €300/month: security patches, version upgrades, uptime monitoring, priority bugfixes. If you want us actively building on top (new features, ongoing CRO), that's a Growth retainer starting at €1,200/month. Works the same whether we built your store or you're moving from another agency.",
       },
     ],
     related: ["web-development", "migration", "seo", "branding", "ai-video"],
@@ -200,7 +200,7 @@ export const services: Service[] = [
     name: "AI Automation",
     h1: "AI Automation for Business in Amsterdam",
     tagline: "Custom AI systems that do the repetitive work for you.",
-    metaTitle: "AI Automation Amsterdam — Custom Business AI Systems",
+    metaTitle: "AI Automation Amsterdam: Custom Business AI Systems",
     metaDescription:
       "AI automation in Amsterdam. We build custom AI systems and workflows that eliminate repetitive work, cut costs and scale your operations. Book a strategy call.",
     keywords: [
@@ -211,11 +211,11 @@ export const services: Service[] = [
       "custom AI solutions Amsterdam",
     ],
     intro:
-      "Most 'AI automation' pitches turn out to be a chatbot bolted onto a website. What we build instead is wired into your actual workflows — the inbox, the CRM, the spreadsheet you dread opening — doing the writing, sorting, replying and summarising that's quietly eating hours out of your week.",
+      "Most 'AI automation' pitches turn out to be a chatbot bolted onto a website. What we build instead is wired into your actual workflows: the inbox, the CRM, the spreadsheet you dread opening. It does the writing, sorting, replying and summarising that's quietly eating hours out of your week.",
     sections: [
       {
         heading: "Automate the work that eats your week",
-        body: "Lead handling, content drafts, data entry, support triage, recurring reports — these are the tasks that drain a team's time without needing much real judgment. We map where your week actually goes, then build systems for the parts that don't need a human doing them by hand.",
+        body: "Lead handling, content drafts, data entry, support triage, recurring reports: these are the tasks that drain a team's time without needing much real judgment. We map where your week actually goes, then build systems for the parts that don't need a human doing them by hand.",
       },
       {
         heading: "Wired into your actual tools",
@@ -223,7 +223,7 @@ export const services: Service[] = [
       },
       {
         heading: "Custom, measured, and yours",
-        body: "We build to your workflow, not a template, and we track the outcome that matters — hours saved, cost cut, output shipped — so it's obvious whether the system earned its place. You own what we build; we're just the ones who built it.",
+        body: "We build to your workflow, not a template, and we track the outcome that matters: hours saved, cost cut, output shipped. That makes it obvious whether the system earned its place. You own what we build; we're just the ones who built it.",
       },
     ],
     deliverables: [
@@ -242,15 +242,15 @@ export const services: Service[] = [
       },
       {
         q: "Is this just a chatbot?",
-        a: "No — a chatbot is one small use case among many. Most of what we build has no interface at all: it runs inside a workflow, does the task end to end, and your team never has to think about it.",
+        a: "No, a chatbot is one small use case among many. Most of what we build has no interface at all: it runs inside a workflow, does the task end to end, and your team never has to think about it.",
       },
       {
         q: "Will it integrate with the tools we already use?",
-        a: "Yes, through their APIs — your CRM, email, spreadsheets, store, internal systems. The automation is built to fit your process, not the other way round.",
+        a: "Yes, through their APIs: your CRM, email, spreadsheets, store, internal systems. The automation is built to fit your process, not the other way round.",
       },
       {
         q: "How do we know it's worth it?",
-        a: "Every automation gets scoped around a measurable outcome before we build it — hours saved or cost removed — and we start with whichever task has the highest return, so you see it working quickly rather than taking it on faith.",
+        a: "Every automation gets scoped around a measurable outcome before we build it (hours saved or cost removed), and we start with whichever task has the highest return, so you see it working quickly rather than taking it on faith.",
       },
     ],
     related: ["web-development", "ecommerce", "seo"],
@@ -262,9 +262,9 @@ export const services: Service[] = [
     name: "Branding",
     h1: "Branding & Identity in Amsterdam",
     tagline: "Sharp, distinctive brands that don't look like everyone else.",
-    metaTitle: "Branding Amsterdam — Brand Identity & Design Agency",
+    metaTitle: "Branding Amsterdam: Brand Identity & Design Agency",
     metaDescription:
-      "Branding and identity design in Amsterdam. We craft distinctive brands — strategy, logo, visual system and voice — that command attention and premium pricing.",
+      "Branding and identity design in Amsterdam. We craft distinctive brands (strategy, logo, visual system and voice) that command attention and premium pricing.",
     keywords: [
       "branding Amsterdam",
       "brand identity Amsterdam",
@@ -273,7 +273,7 @@ export const services: Service[] = [
       "visual identity Netherlands",
     ],
     intro:
-      "Most brands look like their competitors with a different logo swapped in. We start with positioning — who you're actually for, what you're against — before a single visual gets made, so the identity that comes out the other end is hard to confuse with anyone else's.",
+      "Most brands look like their competitors with a different logo swapped in. We start with positioning (who you're actually for, what you're against) before a single visual gets made, so the identity that comes out the other end is hard to confuse with anyone else's.",
     sections: [
       {
         heading: "Strategy before decoration",
@@ -301,7 +301,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "What's included in a branding project?",
-        a: "Usually positioning and strategy, a logo and full visual identity — type, colour, imagery — brand guidelines, and messaging. A startup launch and a rebrand need different things, so we scope it to your stage rather than sell a fixed package.",
+        a: "Usually positioning and strategy, a logo and full visual identity (type, colour, imagery), brand guidelines, and messaging. A startup launch and a rebrand need different things, so we scope it to your stage rather than sell a fixed package.",
       },
       {
         q: "How is branding different from a logo?",
@@ -320,9 +320,9 @@ export const services: Service[] = [
     name: "SEO",
     h1: "SEO Services in Amsterdam",
     tagline: "Technical, honest SEO that compounds into real traffic.",
-    metaTitle: "SEO Amsterdam — Technical SEO & Search Growth Agency",
+    metaTitle: "SEO Amsterdam: Technical SEO & Search Growth Agency",
     metaDescription:
-      "SEO services in Amsterdam. Technical SEO, content and search strategy that compound into rankings and qualified traffic — no gimmicks, no keyword stuffing.",
+      "SEO services in Amsterdam. Technical SEO, content and search strategy that compound into rankings and qualified traffic. No gimmicks, no keyword stuffing.",
     keywords: [
       "SEO Amsterdam",
       "SEO agency Amsterdam",
@@ -339,11 +339,11 @@ export const services: Service[] = [
       },
       {
         heading: "Content that answers real searches",
-        body: "We target the exact queries your customers type and build pages that actually answer them — not pages stuffed with the keyword and padded to a word count. Thin content gets filtered out by Google's own systems now; substance is what survives.",
+        body: "We target the exact queries your customers type and build pages that actually answer them, not pages stuffed with the keyword and padded to a word count. Thin content gets filtered out by Google's own systems now; substance is what survives.",
       },
       {
         heading: "Measured, not mystical",
-        body: "Impressions, positions and clicks, tracked in Search Console and reported on plainly. No vanity metrics, no 'trust the process' — just what's moving, what isn't, and what we're doing about it next.",
+        body: "Impressions, positions and clicks, tracked in Search Console and reported on plainly. No vanity metrics, no 'trust the process,' just what's moving, what isn't, and what we're doing about it next.",
       },
     ],
     deliverables: [
@@ -364,15 +364,15 @@ export const services: Service[] = [
       },
       {
         q: "Do you guarantee first-page rankings?",
-        a: "No one credible can guarantee a specific ranking — Google controls that, not us. What we can guarantee is the right work: solid technical foundations, genuinely useful content, and reporting you can actually see.",
+        a: "No one credible can guarantee a specific ranking. Google controls that, not us. What we can guarantee is the right work: solid technical foundations, genuinely useful content, and reporting you can actually see.",
       },
       {
         q: "What's the difference between technical SEO and content?",
-        a: "Technical SEO makes the site fast and legible to search engines. Content gives them something worth ranking. A flawless technical site with nothing to say won't rank, and great content on a broken site won't either — you need both.",
+        a: "Technical SEO makes the site fast and legible to search engines. Content gives them something worth ranking. A flawless technical site with nothing to say won't rank, and great content on a broken site won't either. You need both.",
       },
       {
         q: "What is llms.txt and do you set it up?",
-        a: "It's an emerging convention — a clean, machine-readable index of your site for AI systems like ChatGPT and Perplexity to read instead of guessing at your HTML. For WordPress sites we can generate one automatically, with real AI-written summaries per page instead of keyword-guessing. We wrote up exactly how it works, including a real bug we found testing it live, in our insights section.",
+        a: "It's an emerging convention: a clean, machine-readable index of your site for AI systems like ChatGPT and Perplexity to read instead of guessing at your HTML. For WordPress sites we can generate one automatically, with real AI-written summaries per page instead of keyword-guessing. We wrote up exactly how it works, including a real bug we found testing it live, in our insights section.",
       },
     ],
     related: ["web-development", "ecommerce", "ai-automation", "ai-ads"],
@@ -383,9 +383,9 @@ export const services: Service[] = [
     name: "Social Media",
     h1: "Social Media Management in Amsterdam",
     tagline: "Content and social that builds a brand, not just posts.",
-    metaTitle: "Social Media Management Amsterdam — Content & Strategy",
+    metaTitle: "Social Media Management Amsterdam: Content & Strategy",
     metaDescription:
-      "Social media management in Amsterdam. Strategy, content and management for Instagram, LinkedIn and beyond — building a brand people actually follow.",
+      "Social media management in Amsterdam. Strategy, content and management for Instagram, LinkedIn and beyond, building a brand people actually follow.",
     keywords: [
       "social media management Amsterdam",
       "social media agency Netherlands",
@@ -394,11 +394,11 @@ export const services: Service[] = [
       "LinkedIn marketing Netherlands",
     ],
     intro:
-      "Posting for the sake of posting wastes everyone's time, including yours. We treat social as a brand channel with an actual strategy behind it — not a content calendar that exists because someone said you should be posting more.",
+      "Posting for the sake of posting wastes everyone's time, including yours. We treat social as a brand channel with an actual strategy behind it, not a content calendar that exists because someone said you should be posting more.",
     sections: [
       {
         heading: "Strategy before you post",
-        body: "Who you're talking to, what you stand for, what 'good' looks like on each platform — decided before the first post goes up, so the content has a direction instead of chasing whatever's trending that week.",
+        body: "Who you're talking to, what you stand for, what 'good' looks like on each platform: decided before the first post goes up, so the content has a direction instead of chasing whatever's trending that week.",
       },
       {
         heading: "Content worth stopping for",
@@ -421,7 +421,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Which platforms should my business be on?",
-        a: "Whichever ones your customers actually use — usually one or two done well beats five done badly. For most brands that's Instagram plus LinkedIn or TikTok, chosen based on your audience, not on what's trending.",
+        a: "Whichever ones your customers actually use. Usually one or two done well beats five done badly. For most brands that's Instagram plus LinkedIn or TikTok, chosen based on your audience, not on what's trending.",
       },
       {
         q: "Do you create the content or just schedule it?",
@@ -429,7 +429,7 @@ export const services: Service[] = [
       },
       {
         q: "How do you measure social media success?",
-        a: "By outcomes that actually matter to the business — reach, engagement, follower growth and, where it applies, traffic and leads. Reported clearly, not as vanity numbers with nothing behind them.",
+        a: "By outcomes that actually matter to the business: reach, engagement, follower growth and, where it applies, traffic and leads. Reported clearly, not as vanity numbers with nothing behind them.",
       },
     ],
     related: ["branding", "web-development", "seo", "ai-ads"],
@@ -439,8 +439,8 @@ export const services: Service[] = [
     slug: "ai-video",
     name: "AI Video Production",
     h1: "AI Video Production in Amsterdam",
-    tagline: "Cinematic product and brand video, directed — not just prompted.",
-    metaTitle: "AI Video Production Amsterdam — Cinematic Product & Brand Video",
+    tagline: "Cinematic product and brand video, directed rather than just prompted.",
+    metaTitle: "AI Video Production Amsterdam: Cinematic Product & Brand Video",
     metaDescription:
       "AI-generated cinematic video for products and brands, directed by people who already know your positioning. Bring your own concept, or let us write it. Book a call.",
     keywords: [
@@ -451,19 +451,19 @@ export const services: Service[] = [
       "AI brand video Netherlands",
     ],
     intro:
-      "Most AI video is obviously AI video — stiff motion, a generic script, a demo reel nobody asked for. We treat it as a production tool, not a shortcut: real direction, a real edit, and a concept actually built around your product, not a template with your logo dropped on top.",
+      "Most AI video is obviously AI video: stiff motion, a generic script, a demo reel nobody asked for. We treat it as a production tool, not a shortcut: real direction, a real edit, and a concept actually built around your product, not a template with your logo dropped on top.",
     sections: [
       {
         heading: "Two ways to start",
-        body: "Bring us a scenario and a product and we handle direction, generation and edit. Or, if you don't have a concept yet, we write one — a short script built around what actually sells the product — then produce it end to end.",
+        body: "Bring us a scenario and a product and we handle direction, generation and edit. Or, if you don't have a concept yet, we write one (a short script built around what actually sells the product) and produce it end to end.",
       },
       {
         heading: "What it's actually good for",
-        body: "AI video is fast and cheap next to a shoot with a crew, a location and a cast, which makes it the right tool for product spots, social ads and short brand pieces that need to exist in days, not weeks. It's the wrong tool for anything that needs a real actor's real performance or a feature-length story — we'll say so if a traditional shoot is actually the better call for what you're trying to do.",
+        body: "AI video is fast and cheap next to a shoot with a crew, a location and a cast, which makes it the right tool for product spots, social ads and short brand pieces that need to exist in days, not weeks. It's the wrong tool for anything that needs a real actor's real performance or a feature-length story, and we'll say so if a traditional shoot is actually the better call for what you're trying to do.",
       },
       {
         heading: "Built on your brand, not a template",
-        body: "When we've already done the branding or the store, we're not generating video for a stranger — we already know the positioning, the product, and what the shot needs to prove. That's what keeps the output from looking like everyone else's AI ad.",
+        body: "When we've already done the branding or the store, we're not generating video for a stranger. We already know the positioning, the product, and what the shot needs to prove. That's what keeps the output from looking like everyone else's AI ad.",
       },
     ],
     deliverables: [
@@ -482,11 +482,11 @@ export const services: Service[] = [
       },
       {
         q: "What do you need from me to start?",
-        a: "Either your own scenario and product, ready for us to direct and produce, or just the product and a sense of what it needs to communicate — we'll write the concept from there.",
+        a: "Either your own scenario and product, ready for us to direct and produce, or just the product and a sense of what it needs to communicate. We'll write the concept from there.",
       },
       {
         q: "How fast can you turn a video around?",
-        a: "Days, not weeks, once the concept is locked — that's most of what AI video is for. Concept and script take longer than the generation itself.",
+        a: "Days, not weeks, once the concept is locked. That's most of what AI video is for. Concept and script take longer than the generation itself.",
       },
       {
         q: "What does it cost?",
@@ -502,7 +502,7 @@ export const services: Service[] = [
     name: "AI Ads",
     h1: "AI Ads Management in Amsterdam",
     tagline: "ChatGPT Ads campaigns, run while the auction is still cheap.",
-    metaTitle: "ChatGPT Ads Agency Amsterdam — AI Ads Management",
+    metaTitle: "ChatGPT Ads Agency Amsterdam: AI Ads Management",
     metaDescription:
       "ChatGPT Ads management for Dutch businesses. Sponsored placements inside AI conversations, set up and run through OpenAI's Ads Manager. Book a call.",
     keywords: [
@@ -513,19 +513,19 @@ export const services: Service[] = [
       "AI search advertising Netherlands",
     ],
     intro:
-      "ChatGPT started showing ads to Free and Go users in the Netherlands in August 2026. This is new — we won't pretend anyone has years of ChatGPT ads data to lean on. What we can tell you is exactly how the platform works today, what it costs to test, and whether it's actually worth your budget right now.",
+      "ChatGPT started showing ads to Free and Go users in the Netherlands in August 2026. This is new, and we won't pretend anyone has years of ChatGPT ads data to lean on. What we can tell you is exactly how the platform works today, what it costs to test, and whether it's actually worth your budget right now.",
     sections: [
       {
         heading: "What a ChatGPT ad actually is",
-        body: "A sponsored chat_card — a short headline, a line of body copy and an image — placed under an AI answer when it's contextually relevant to what someone's asking. No cookies, no personal targeting; it matches the conversation, not a tracked profile. Someone typing \"I need a Magento 2 developer in the Netherlands for a migration\" is exactly the kind of conversation a relevant ad can appear under — that's the targeting, not a keyword list. It only shows to Free and Go tier users — anyone on Plus, Pro, Team, Business or Enterprise never sees an ad.",
+        body: "A sponsored chat_card (a short headline, a line of body copy and an image) placed under an AI answer when it's contextually relevant to what someone's asking. No cookies, no personal targeting; it matches the conversation, not a tracked profile. Someone typing \"I need a Magento 2 developer in the Netherlands for a migration\" is exactly the kind of conversation a relevant ad can appear under. That's the targeting, not a keyword list. It only shows to Free and Go tier users: anyone on Plus, Pro, Team, Business or Enterprise never sees an ad.",
       },
       {
         heading: "Why now, not later",
-        body: "The auction is young. Self-serve access opened with no minimum spend, and CPMs are still low compared to where they'll likely settle once every agency in Amsterdam has a campaign running. Early is the only time this channel is cheap — that's the actual argument for testing it now, not a claim that it'll outperform channels you already trust.",
+        body: "The auction is young. Self-serve access opened with no minimum spend, and CPMs are still low compared to where they'll likely settle once every agency in Amsterdam has a campaign running. Early is the only time this channel is cheap. That's the actual argument for testing it now, not a claim that it'll outperform channels you already trust.",
       },
       {
         heading: "How we run it",
-        body: "Account and campaign setup in OpenAI's Ads Manager, chat_card creative that reads like an answer instead of an ad, contextual targeting tuned to when your product is actually relevant, and honest reporting on whether it's earning its budget — including telling you to stop if it isn't.",
+        body: "Account and campaign setup in OpenAI's Ads Manager, chat_card creative that reads like an answer instead of an ad, contextual targeting tuned to when your product is actually relevant, and honest reporting on whether it's earning its budget, including telling you to stop if it isn't.",
       },
     ],
     deliverables: [
@@ -540,19 +540,19 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Is this the same as Google Ads?",
-        a: "No. There's no keyword auction or cookie-based retargeting — placement is matched to the conversation someone's having with ChatGPT right now. The discipline is the same (test, measure, cut what doesn't work), the mechanics aren't.",
+        a: "No. There's no keyword auction or cookie-based retargeting. Placement is matched to the conversation someone's having with ChatGPT right now. The discipline is the same (test, measure, cut what doesn't work), the mechanics aren't.",
       },
       {
         q: "Is ChatGPT advertising even available for Dutch businesses yet?",
-        a: "Yes — OpenAI rolled it out across 31 European markets, including the Netherlands, in August 2026, with self-serve access through their Ads Manager.",
+        a: "Yes. OpenAI rolled it out across 31 European markets, including the Netherlands, in August 2026, with self-serve access through their Ads Manager.",
       },
       {
         q: "Do you need to be an official OpenAI partner agency to run this?",
-        a: "No. Self-serve Ads Manager is open to any registered business. We're not claiming certified-partner status we don't have — we run your account directly, transparently, inside the same tool you could use yourself.",
+        a: "No. Self-serve Ads Manager is open to any registered business. We're not claiming certified-partner status we don't have. We run your account directly, transparently, inside the same tool you could use yourself.",
       },
       {
         q: "What's the minimum budget to test it?",
-        a: "The platform itself has no large minimum spend anymore — campaigns can run on modest daily budgets. What it costs to test properly, with creative and setup included, we'll scope on a call rather than guess here.",
+        a: "The platform itself has no large minimum spend anymore. Campaigns can run on modest daily budgets. What it costs to test properly, with creative and setup included, we'll scope on a call rather than guess here.",
       },
     ],
     related: ["seo", "social-media", "web-development"],
@@ -563,7 +563,7 @@ export const services: Service[] = [
     name: "Magento Migration",
     h1: "Migrate your Magento webshop with a plan, not a leap of faith",
     tagline: "Move off an end-of-life Magento 1 store with every URL mapped and a staged, tested cutover.",
-    metaTitle: "Magento Migration Services Amsterdam — Off Magento 1, Zero Downtime",
+    metaTitle: "Magento Migration Services Amsterdam: Off Magento 1, Zero Downtime",
     metaDescription:
       "Magento migration for webshops in Amsterdam and beyond. Platform choice, full URL mapping and a staged, tested cutover so you don't reset the SEO equity you've already earned. Book a call.",
     keywords: [
@@ -574,19 +574,19 @@ export const services: Service[] = [
       "headless ecommerce migration",
     ],
     intro:
-      "A migration is the part of e-commerce work with the most to lose: get the URLs or the cutover wrong and you can reset years of SEO equity and a weekend of orders along with it. We map every URL and stage every cutover before we move anything — Magento, WooCommerce and headless WordPress are all platforms we build on, not just migrate off of.",
+      "A migration is the part of e-commerce work with the most to lose: get the URLs or the cutover wrong and you can reset years of SEO equity and a weekend of orders along with it. We map every URL and stage every cutover before we move anything. Magento, WooCommerce and headless WordPress are all platforms we build on, not just migrate off of.",
     sections: [
       {
         heading: "When a migration is actually worth it",
-        body: "Magento 1 has had no security patches since 2020, and plenty of stores are still running it because migrating feels riskier than staying put. The signal to move isn't age alone — it's a catalogue that's outgrown what the platform can carry: reindexing that competes with feed exports for server resources, search that's gone unreliable, or a security position nobody wants to own anymore.",
+        body: "Magento 1 has had no security patches since 2020, and plenty of stores are still running it because migrating feels riskier than staying put. The signal to move isn't age alone. It's a catalogue that's outgrown what the platform can carry: reindexing that competes with feed exports for server resources, search that's gone unreliable, or a security position nobody wants to own anymore.",
       },
       {
         heading: "How we actually run the move",
-        body: "Platform choice comes first, matched to your catalogue, not to whichever stack is easiest for us: headless WordPress and Next.js for large or complex catalogues, WooCommerce when the store is smaller and simpler. Every old URL gets mapped to its new address, products/customers/orders migrate with it, and the cutover runs staged on a schedule you approve — tested on staging before anything touches the live store.",
+        body: "Platform choice comes first, matched to your catalogue, not to whichever stack is easiest for us: headless WordPress and Next.js for large or complex catalogues, WooCommerce when the store is smaller and simpler. Every old URL gets mapped to its new address, products/customers/orders migrate with it, and the cutover runs staged on a schedule you approve, tested on staging before anything touches the live store.",
       },
       {
         heading: "What we won't promise you",
-        body: "No agency can honestly guarantee your rankings survive a platform migration intact — that comes down to execution, your existing authority, and factors outside anyone's control. What we commit to instead is the process that gives you the best shot: every URL mapped before cutover, redirects tested on staging, structured data and metadata carried across, and a staged go-live instead of one irreversible switch. If someone promises you a specific ranking outcome, ask how they plan to measure it.",
+        body: "No agency can honestly guarantee your rankings survive a platform migration intact. That comes down to execution, your existing authority, and factors outside anyone's control. What we commit to instead is the process that gives you the best shot: every URL mapped before cutover, redirects tested on staging, structured data and metadata carried across, and a staged go-live instead of one irreversible switch. If someone promises you a specific ranking outcome, ask how they plan to measure it.",
       },
     ],
     deliverables: [
@@ -602,23 +602,23 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Why move off Magento 1 at all?",
-        a: "No security patches since 2020, and most installs are now carrying a catalogue well past what the original architecture was built for — reindexing and feed exports competing for the same server resources is a common failure mode. Staying put is a real option too; we'll tell you if your setup doesn't need to move yet.",
+        a: "No security patches since 2020, and most installs are now carrying a catalogue well past what the original architecture was built for. Reindexing and feed exports competing for the same server resources is a common failure mode. Staying put is a real option too; we'll tell you if your setup doesn't need to move yet.",
       },
       {
         q: "Will I lose my SEO rankings in the migration?",
-        a: "That's the real risk, and most of the work goes into preventing it: every old URL mapped to its new one, structured data and metadata carried across, content migrated carefully. No one can honestly promise you a specific ranking outcome — only the process that gives your existing SEO equity the best chance of surviving the move.",
+        a: "That's the real risk, and most of the work goes into preventing it: every old URL mapped to its new one, structured data and metadata carried across, content migrated carefully. No one can honestly promise you a specific ranking outcome, only the process that gives your existing SEO equity the best chance of surviving the move.",
       },
       {
         q: "What platform do you migrate us to?",
-        a: "Whichever fits your catalogue, not whichever's easiest for us to build — a headless WordPress and Next.js build for large or complex catalogues, WooCommerce when the store is smaller and simpler. We'll tell you which one fits after seeing your actual catalogue.",
+        a: "Whichever fits your catalogue, not whichever's easiest for us to build: a headless WordPress and Next.js build for large or complex catalogues, WooCommerce when the store is smaller and simpler. We'll tell you which one fits after seeing your actual catalogue.",
       },
       {
         q: "How long does a migration take?",
-        a: "It depends on catalogue size, integrations and how much custom logic the current store carries — a few hundred SKUs with simple pricing can move in days, a large multi-warehouse catalogue takes longer. We scope a real timeline after an audit, not a guess upfront.",
+        a: "It depends on catalogue size, integrations and how much custom logic the current store carries: a few hundred SKUs with simple pricing can move in days, a large multi-warehouse catalogue takes longer. We scope a real timeline after an audit, not a guess upfront.",
       },
       {
         q: "Is there downtime during the switch?",
-        a: "Zero downtime is the standard we work to: staged, tested on staging before anything touches the live store. It's not a guarantee independent of your specific setup — we'll flag it upfront if anything about your store makes that harder.",
+        a: "Zero downtime is the standard we work to: staged, tested on staging before anything touches the live store. It's not a guarantee independent of your specific setup. We'll flag it upfront if anything about your store makes that harder.",
       },
     ],
     related: ["ecommerce", "seo", "web-development"],
