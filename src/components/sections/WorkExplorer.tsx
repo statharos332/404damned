@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { MediaGallery } from "@/components/sections/MediaGallery";
+import { CoverMedia } from "@/components/ui/CoverMedia";
 import { AnimatePresence, m } from "framer-motion";
 import { projects, getCategories, type Project } from "@/data/projects";
 import { projectsNl, getCategoriesNl } from "@/data/projects.nl";
@@ -115,6 +116,15 @@ function WorkRow({
         <span className="font-mono text-xs text-gray-400 w-10 shrink-0">
           {String(index + 1).padStart(2, "0")}
         </span>
+        <div className="relative w-28 h-20 sm:w-36 sm:h-24 md:w-44 md:h-28 shrink-0 overflow-hidden border border-white/10 bg-[#0a0a0a]">
+          <CoverMedia
+            src={project.cover}
+            alt={project.title}
+            poster={project.coverPoster}
+            sizes="(max-width: 768px) 144px, 176px"
+            className="object-cover w-full h-full"
+          />
+        </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-1">
             <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#D6001C]">
