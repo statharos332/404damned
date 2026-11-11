@@ -141,6 +141,48 @@ export const projectsNl: Project[] = [
     featured: true,
     clientWork: false,
   },
+
+  {
+    slug: "romios-internal-takeaway",
+    title: "Een intern bestelsysteem voor de toonbank van een Griekse taverna",
+    client: "Romios Greek Taverna",
+    category: "App-ontwikkeling",
+    year: "2026",
+    summary:
+      "Een tik-en-bestel takeawaytool voor de toonbank bij Romios Greek Taverna — personeel of klanten bouwen de bestelling op uit het menu en zien het totaal direct meerekenen, geen hoofdrekenen meer.",
+    cover: "/work/romios-internal-takeaway/cover.mp4",
+    coverPoster: "/work/romios-internal-takeaway/cover-poster.jpg",
+
+    services: ["Webontwikkeling"],
+
+    stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
+
+    challenge:
+      "Een takeawaybestelling met de hand optellen tijdens de drukte betekent gerecht na gerecht hoofdrekenen of een rekenmachine erbij pakken, en een menu met combo-gerechten naast simpele bijgerechten telt sowieso niet netjes op. Elke prijswijziging betekende dat er een developer bij de code moest — niet iets wat midden in een drukke vrijdagavond gebeurt.",
+
+    approach:
+      "Wij bouwden een tik-en-bestel tool in React Native en Expo, zodat dezelfde codebase draait op de tablet achter de toonbank, in een browser, of op een telefoon, zonder aparte builds. Personeel — of klanten rechtstreeks — tikt gerechten aan over de menucategorieën, met een +/- stepper op elke regel en een lopend totaal dat bij elke tik meerekent, zonder dat er iets getypt hoeft te worden. Een bestel-overzicht schuift omhoog om de volledige bestelling en het totaal te tonen voordat die wordt bevestigd of gewist voor de volgende klant. Een met pincode beveiligd adminscherm laat de eigenaar zelf gerechten en prijzen toevoegen, aanpassen of verwijderen, zodat een menuwijziging niet op ons hoeft te wachten. De interface wisselt tussen Grieks en Greeklish voor personeel dat het ene schrift makkelijker leest dan het andere, met haptische feedback bij elke tik zodat het native aanvoelt op een winkeltablet.",
+
+    outcome:
+      "Hij draait vandaag op de tablet achter de toonbank bij Romios Greek Taverna: een bestelling wordt opgebouwd door op het menu te tikken in plaats van met de hand op te tellen, en de eigenaar past prijzen rechtstreeks aan via het adminscherm, zonder op een codewijziging te wachten.",
+
+    results: [
+      { label: "Platforms", value: "iOS, Android & Web — één codebase" },
+      { label: "Menucategorieën", value: "9" },
+      { label: "Menu- & prijswijzigingen", value: "Zelf te doen via admin-pincode" },
+    ],
+
+    media: [
+      { type: "video", src: "/work/romios-internal-takeaway/walkthrough.mp4" },
+    ],
+
+    tags: ["Intern tool", "React Native", "Expo", "Horeca"],
+
+    gallery: [],
+
+    featured: true,
+    clientWork: true,
+  },
 ];
 
 export function getProjectNl(slug: string): Project | undefined {

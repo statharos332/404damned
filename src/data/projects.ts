@@ -180,6 +180,48 @@ export const projects: Project[] = [
 
         featured: true,
         clientWork: false
+    },
+
+    {
+        slug: "romios-internal-takeaway",
+        title: "An Internal Takeaway Ordering Tool for a Greek Taverna's Counter",
+        client: "Romios Greek Taverna",
+        category: "App Development",
+        year: "2026",
+        summary:
+            "A tap-to-order takeaway tool for the counter at Romios Greek Taverna — staff or customers build the order from the menu and watch the total update instantly, no mental math.",
+        cover: "/work/romios-internal-takeaway/cover.mp4",
+        coverPoster: "/work/romios-internal-takeaway/cover-poster.jpg",
+
+        services: ["Web Development"],
+
+        stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
+
+        challenge:
+            "Building a takeaway order by hand during a rush means adding up dish after dish in your head or reaching for a calculator, and a menu that mixes combo plates with simple sides doesn't total cleanly either way. Any price change meant asking a developer to touch the code — not something that happens in the middle of a Friday night service.",
+
+        approach:
+            "We built a tap-to-order tool in React Native and Expo, so the same codebase runs on the tablet behind the counter, in a browser, or on a phone without separate builds. Staff — or customers directly — tap dishes across the menu's categories, with a +/- stepper on every line and a running total that updates on each tap, no typing required. An order review drawer slides up to show the full order and total before it's confirmed or cleared for the next one. A PIN-protected admin screen lets the owner add, edit or remove menu items and prices themselves, so a menu change doesn't wait on us. The interface switches between Greek and Greeklish for staff who read one script more comfortably than the other, with haptic feedback on every tap so it feels native on a shop tablet.",
+
+        outcome:
+            "It runs on the tablet behind the counter at Romios Greek Taverna today: an order gets built by tapping the menu instead of totting it up by hand, and the owner updates prices directly from the admin screen without waiting on a code change.",
+
+        results: [
+            { label: "Platforms", value: "iOS, Android & Web — one codebase" },
+            { label: "Menu categories", value: "9" },
+            { label: "Menu & price updates", value: "Self-serve via admin PIN" }
+        ],
+
+        media: [
+            { type: "video", src: "/work/romios-internal-takeaway/walkthrough.mp4" }
+        ],
+
+        tags: ["Internal Tool", "React Native", "Expo", "Hospitality"],
+
+        gallery: [],
+
+        featured: true,
+        clientWork: true
     }
 ];
 
