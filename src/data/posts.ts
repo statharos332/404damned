@@ -434,6 +434,39 @@ export const posts: Post[] = [
       { type: "p", text: "We do both, which means we don't have a reason to push you toward the wrong one. Tell us what the video needs to do and we'll tell you which approach actually gets you there." },
     ],
   },
+  {
+    slug: "woocommerce-webshop-what-it-actually-costs",
+    title: "A WooCommerce Webshop: What It Actually Costs and When It's the Right Call",
+    excerpt:
+      "Shopify is the easy recommendation, not always the right one. Here's when WooCommerce genuinely wins, when it doesn't, and what it actually costs.",
+    category: "E-Commerce",
+    readMins: 5,
+    date: "2026-11-13",
+    authorSlug: "stathis-papounidis",
+    keywords: [
+      "WooCommerce webshop",
+      "WooCommerce development Amsterdam",
+      "WooCommerce vs Shopify",
+      "WooCommerce cost",
+      "WooCommerce online store",
+    ],
+    body: [
+      { type: "p", text: "Ask three agencies what platform to use for a new webshop and two of them say Shopify before you've finished the sentence. It's not wrong, exactly. It's just the easy answer, and easy answers aren't always the right one for your specific catalogue." },
+      { type: "h2", text: "What WooCommerce actually is" },
+      { type: "p", text: "It's a plugin, not a platform. Underneath it, you're running WordPress, which means you own the hosting, you own the database, and you're not paying a monthly platform fee just to keep the lights on. That trade brings more responsibility with it, and it's exactly why some stores love it and others should stay away." },
+      { type: "h2", text: "When it's genuinely the right call" },
+      { type: "list", items: [
+        "You already have a WordPress site with content and SEO you don't want to throw away and rebuild from zero.",
+        "Your catalogue needs real customization, custom product logic, specific checkout rules, that Shopify's app marketplace would otherwise nickel-and-dime you for.",
+        "You want to own your stack long-term instead of renting it, and you have (or plan to hire) someone who'll actually maintain it.",
+      ]},
+      { type: "h2", text: "When it's the wrong call" },
+      { type: "p", text: "If you want to open your laptop, set products, and never think about hosting, plugin updates, or security patches again, WooCommerce is the wrong tool and I'll tell you that in the first call. That's what Shopify is actually good at, and pretending otherwise to win the project isn't a service to you." },
+      { type: "h2", text: "What it actually costs" },
+      { type: "p", text: "A solid WooCommerce build typically lands in the €3,500 to €15,000 range depending on catalogue size and integrations, the same range we quote for Shopify builds of similar scope. Where it diverges from Shopify is after launch: no monthly platform fee, but hosting and a maintenance plan that actually keeps a self-hosted store secure, because WooCommerce doesn't patch itself the way a hosted platform does." },
+      { type: "p", text: "If you're trying to decide between the two for your specific catalogue, that's a fifteen-minute conversation, not a sales pitch for whichever one we'd rather build." },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {

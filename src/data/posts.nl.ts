@@ -136,7 +136,7 @@ export const postsNl: Post[] = [
   },
   {
     slug: "headless-ecommerce-worth-it",
-    title: "Headless e-commerce: is het de moeite waard voor jouw webshop?",
+    title: "Headless webshop: is het de moeite waard voor jouw winkel?",
     excerpt:
       "Wanneer een headless build een traditionele webshop écht overtreft, wat het je kost, en hoe je het beslist. Eerlijk verhaal van een studio die beide bouwt.",
     category: "E-commerce",
@@ -145,6 +145,7 @@ export const postsNl: Post[] = [
     authorSlug: "stathis-papounidis",
     keywords: [
       "headless e-commerce",
+      "headless webshop",
       "Magento",
       "Next.js webshop",
       "webshop laten ontwikkelen",
@@ -404,6 +405,39 @@ export const postsNl: Post[] = [
         "Twijfel je? Zeg wat de video moet bewijzen, en laat degene met wie je praat je eerlijk vertellen welke aanpak je daar brengt, ook als het niet is wat ze zelf verkopen.",
       ]},
       { type: "p", text: "Wij doen beide, dus hebben we geen reden om je richting de verkeerde te duwen. Vertel ons wat de video moet doen, en wij vertellen je welke aanpak je daar daadwerkelijk brengt." },
+    ],
+  },
+  {
+    slug: "woocommerce-webshop-what-it-actually-costs",
+    title: "Een WooCommerce-webshop laten maken: wat het écht kost en wanneer het de juiste keuze is",
+    excerpt:
+      "Shopify is het makkelijke advies, niet altijd het juiste. Wanneer WooCommerce écht wint, wanneer niet, en wat het daadwerkelijk kost.",
+    category: "E-commerce",
+    readMins: 5,
+    date: "2026-11-13",
+    authorSlug: "stathis-papounidis",
+    keywords: [
+      "woocommerce webshop laten maken",
+      "woocommerce webshop kosten",
+      "woocommerce vs shopify",
+      "woocommerce webshop amsterdam",
+      "woocommerce ontwikkelaar",
+    ],
+    body: [
+      { type: "p", text: "Vraag drie bureaus welk platform je moet gebruiken voor een nieuwe webshop, en twee ervan zeggen Shopify voordat je de zin hebt afgemaakt. Niet per se fout. Het is gewoon het makkelijke antwoord, en makkelijke antwoorden zijn niet altijd het juiste voor jouw specifieke catalogus." },
+      { type: "h2", text: "Wat WooCommerce daadwerkelijk is" },
+      { type: "p", text: "Het is een plugin, geen platform. Eronder draait gewoon WordPress, wat betekent dat je zelf de hosting bezit, zelf de database bezit, en geen maandelijkse platformfee betaalt alleen om de boel draaiende te houden. Die ruil brengt meer verantwoordelijkheid met zich mee, en precies daarom houden sommige webshops ervan en moeten andere er juist wegblijven." },
+      { type: "h2", text: "Wanneer het écht de juiste keuze is" },
+      { type: "list", items: [
+        "Je hebt al een WordPress-site met content en SEO die je niet wilt weggooien en vanaf nul wilt herbouwen.",
+        "Je catalogus heeft echte maatwerk nodig, custom productlogica, specifieke checkout-regels, waar Shopify's app-marketplace je anders voor laat bijbetalen, app voor app.",
+        "Je wilt je eigen stack bezitten in plaats van huren, en je hebt iemand (of gaat iemand aannemen) die hem daadwerkelijk onderhoudt.",
+      ]},
+      { type: "h2", text: "Wanneer het de verkeerde keuze is" },
+      { type: "p", text: "Wil je gewoon je laptop opendoen, producten instellen, en nooit meer nadenken over hosting, plugin-updates of security patches? Dan is WooCommerce het verkeerde middel, en dat zeg ik je al in het eerste gesprek. Daar is Shopify juist goed in, en doen alsof dat niet zo is om het project binnen te halen, is geen dienst aan jou." },
+      { type: "h2", text: "Wat het daadwerkelijk kost" },
+      { type: "p", text: "Een degelijke WooCommerce-build landt doorgaans in de range €3.500 tot €15.000, afhankelijk van catalogusgrootte en integraties, dezelfde range die we hanteren voor Shopify-builds van vergelijkbare omvang. Waar het van Shopify afwijkt is na livegang: geen maandelijkse platformfee, maar wel hosting en een onderhoudsabonnement dat een self-hosted webshop daadwerkelijk veilig houdt, want WooCommerce patcht zichzelf niet zoals een hosted platform dat doet." },
+      { type: "p", text: "Twijfel je tussen de twee voor jouw specifieke catalogus? Dat is een gesprek van een kwartier, geen verkooppraatje voor welke we toevallig liever zouden bouwen." },
     ],
   },
 ];
