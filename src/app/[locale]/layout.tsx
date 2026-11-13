@@ -14,6 +14,7 @@ import { Showreel } from "@/components/ui/Showreel";
 import { ShowreelProvider } from "@/components/ui/ShowreelProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
@@ -31,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "latin-ext"],
   variable: "--font-mono",
   display: "swap",
-  // Only used in small labels/badges — don't preload-compete with the
+  // Only used in small labels/badges; don't preload-compete with the
   // display + body fonts that drive the LCP text.
   preload: false,
 });
@@ -135,7 +136,11 @@ export default async function RootLayout({
     telephone: "+31647625711",
     email: "info@404damned.com",
     priceRange: "€€€€",
-    foundingDate: "2017",
+    // The studio itself (KVK registration) dates to 2026; 2017 is when the
+    // founders' individual freelance/agency experience began, which the
+    // About page says explicitly. schema.org foundingDate means the entity,
+    // not that background, so it has to be the later date.
+    foundingDate: "2026",
     identifier: {
       "@type": "PropertyValue",
       name: "KVK",
@@ -161,7 +166,7 @@ export default async function RootLayout({
         jobTitle: t("developerTitle"),
       },
       // Tatiana Petsiou is joining as the third team member but isn't
-      // formally on board yet — omitted from `employee` until then so
+      // formally on board yet; omitted from `employee` until then so
       // this structured data stays accurate. She's still shown on the
       // About page, marked as "joining soon".
     ],
@@ -202,7 +207,7 @@ export default async function RootLayout({
     },
   };
 
-  // Site-level identity — links every page back to the organization so Google
+  // Site-level identity: links every page back to the organization so Google
   // understands the whole domain belongs to one brand (helps sitelinks/knowledge).
   const websiteData = {
     "@context": "https://schema.org",
@@ -244,6 +249,9 @@ export default async function RootLayout({
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );
